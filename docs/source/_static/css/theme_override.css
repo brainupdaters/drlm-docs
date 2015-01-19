@@ -1,0 +1,51 @@
+.wy-side-nav-search {
+   background-color: #343131;
+}
+
+.wy-side-nav-search input[type="text"] {
+   /* border-color: #272525; */
+   border-color: #343131;
+}
+
+.wy-nav-top {
+   /* display: block; */
+   background: #343131;
+}
+
+.wy-nav-content {
+   max-width: none;
+}
+
+div[class^='highlight'] {
+   border-radius: 0px;
+   background: #EFF3F5;
+}
+
+.rst-content dl:not(.docutils) dt {
+   background: none;
+   border-top: solid 1px #CFCFCF;
+}
+
+.rst-content dl:not(.docutils) tt {
+   background-color: #ECF0F3;
+   /* font-weight: normal; */
+}
+
+.rst-content dl:not(.docutils) tt.descname {
+   font-weight: bold;
+   font-size: 120%;
+}
+
+
+.rst-content dl:not(.docutils) tt.descclassname {
+   background-color: transparent;
+   font-family: monospace;
+   font-weight: lighter;
+   font-size: 120%;
+}
+
+h2 {
+   font-size: 150%;
+   background-color: none;
+   border-bottom: 1px solid #ccc;
+}
