@@ -106,15 +106,14 @@ BOOT client config
    
 ::
  
-  ... 
-<<<< replace <<<< 
+    <<<< replace <<<< 
     kernel $PXE_KERNEL 
     append initrd=$PXE_INITRD root=/dev/ram0 vga=normal rw $KERNEL_CMDLINE 
->>>>>  with  >>>> 
+   >>>>>  with  >>>> 
     kernel *$DRLM_NAME/$OUTPUT_PREFIX/$PXE_KERNEL* 
     append initrd=*$DRLM_NAME/$OUTPUT_PREFIX*/$PXE_INITRD root=/dev/ram0 vga=normal rw $KERNEL_CMDLINE 
-... 
-...
+ 
+
 
 
 
