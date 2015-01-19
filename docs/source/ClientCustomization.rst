@@ -98,7 +98,7 @@ Disable password login
 BOOT client config
 ------------------
 
- *81_create_pxelinux_cfg.sh* must be changed to show the path to the DRLM Server and ensure the system is booting from the correct initrd file.
+*81_create_pxelinux_cfg.sh* must be changed to show the path to the DRLM Server and ensure the system is booting from the correct initrd file.
  
 ::
  
@@ -109,10 +109,12 @@ BOOT client config
     <<<< replace <<<< 
     kernel $PXE_KERNEL 
     append initrd=$PXE_INITRD root=/dev/ram0 vga=normal rw $KERNEL_CMDLINE 
-   >>>>>  with  >>>> 
+    >>>>>  with  >>>> 
     kernel *$DRLM_NAME/$OUTPUT_PREFIX/$PXE_KERNEL* 
     append initrd=*$DRLM_NAME/$OUTPUT_PREFIX*/$PXE_INITRD root=/dev/ram0 vga=normal rw $KERNEL_CMDLINE 
  
+
+
 
 
 
