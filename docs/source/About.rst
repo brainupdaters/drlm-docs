@@ -21,5 +21,4 @@ Please, we encourage you to help us to improve this documentation.
 To contribute to documentation the Github interface enables users to report errata or missing sections, discuss improvements and new sections through the issue-tracker at: `DRLM Docs GitHub Issue Tracker <https://github.com/brainupdaters/drlm-docs/issues>`_. 
 
 
-.. note:: This documentation is under constant development. See the :doc:`/about` for more information on the DRLM Documentation.
-
+.. note:: This documentation is under constant development. Please be patient...
