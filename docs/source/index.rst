@@ -11,7 +11,8 @@ The DRLM Manual contains comprehensive documentation on the DRLM (Disaster Recov
 
 For more information on DRLM, see `About DRLM Projecti <http://s390213391.mialojamiento.es/www/wpdrlmweb/?page_id=22>`_. To download DRLM, see the downloads page.
 
-License:
+License
+-------
 
 This manual is licensed under a Creative Commons `Attribution-NonCommercial-ShareAlike 4.0 International <http://creativecommons.org/licenses/by-nc-sa/4.0/>`_ (i.e. “CC-BY-NC-SA”) license.
 
@@ -19,7 +20,8 @@ The DRLM Manual is copyright © 2015 Brain Updaters, S.L.L.
 
 
 
-Contents:
+Contents
+--------
 
 .. toctree::
    :maxdepth: 3
@@ -36,7 +38,7 @@ Contents:
    backup_opers
 
 Indexes and tables
-==================
+------------------
 
 * :ref:`genindex`
 
