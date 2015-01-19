@@ -9,7 +9,7 @@ About DRLM Documentation
 
 The DRLM Manual contains comprehensive documentation on the DRLM (Disaster Recovery Linux Manager). This page describes the manual’s licensing, editions, and versions, and describes how to contribute to the manual.
 
-For more information on DRLM, see `About DRLM Projecti <http://s390213391.mialojamiento.es/www/wpdrlmweb/?page_id=22>`_. To download DRLM, see the downloads page.
+For more information on DRLM, see `About DRLM Project <http://s390213391.mialojamiento.es/www/wpdrlmweb/?page_id=22>`_. To download DRLM, see the downloads page.
 
 License
 -------
