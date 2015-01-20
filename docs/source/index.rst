@@ -1,5 +1,5 @@
-About DRLM Documentation
-========================
+About DRLM Docs
+===============
 
 
 DRLM Docs contains comprehensive documentation on the DRLM (Disaster Recovery Linux Manager). This page describes documentation’s licensing, editions, and versions, and describes how to contribute to the DRLM Docs.
@@ -51,8 +51,8 @@ User Documentation
    ClientConfig
    ClientCustomization
    
-DRLM Command Reference
-----------------------
+Command Reference
+-----------------
 
 .. toctree::
    :maxdepth: 2
