@@ -79,7 +79,7 @@ The :program:`drlm bkpmgr` has some requiered options:
    $drlm bkmgr --client clientHost1 -I 20140519065512 -d
    $drlm bkmgr -c clientHost1 --id 20140519065512 -e
 
-Optional options: 
+Aditional options: 
 
 .. option:: -P
 
@@ -113,7 +113,7 @@ The :program:`drlm listbackup` has some options:
 
 .. program:: `drlm listbackup`
 
-.. option:: -c <CLI_NAME>,--client <CLI_NAME>
+.. option:: -c client_name, --client client_name
 
    Select Client to list its backups.
 
