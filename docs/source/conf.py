@@ -109,7 +109,7 @@ pygments_style = 'sphinx'
 # a list of builtin themes.
 # html_theme = 'default'
 
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'BU_theme'
 html_theme_path = ['_themes', ]
 
 # Theme options are theme-specific and customize the look and feel of a theme
