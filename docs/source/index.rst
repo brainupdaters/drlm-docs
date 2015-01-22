@@ -30,7 +30,7 @@ To contribute to documentation the Github interface enables users to report erra
 
 
 
-Contents
+Contents:
 ========
 
 .. toctree::
@@ -53,6 +53,7 @@ User Documentation
 
 Development Documentation
 -------------------------
+
 .. todo:: This section will be documented as soon as possible, please be patient. 
    Any question regarding DRLM development, please use `DRLM Dev Forum <https://groups.google.com/forum/#!forum/drlm-dev>`_. Thanks!
    
