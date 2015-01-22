@@ -50,6 +50,11 @@ User Documentation
    Configuration
    ClientConfig
    ClientCustomization
+
+Development Documentation
+-------------------------
+.. todo:: This section will be documented as soon as possible, please be patient. 
+   Any question regarding DRLM development, please use DRLM Dev Forum. Thanks!
    
 Command Reference
 -----------------
