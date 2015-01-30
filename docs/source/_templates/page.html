@@ -16,14 +16,17 @@
 
 	<div><p>Disaster Recovery Linux Manager</p></div>
 
+{% endblock %}
+
+{% block header %}
+	{{ super() }}
 	<script>
-	window.addEventListener("resize", myFunction);
-	
-	
+	window.addEventListener("resize", responsiveMenu);
+
 	var am = 0;
 	var al = 0;
 	
-	function myFunction() {
+	function responsiveMenu() {
 	    var am = window.innerWidth;
 	    var al = window.innerHeight;
 	    document.getElementById("amplada").innerHTML = window.innerWidth;
@@ -45,5 +48,4 @@
 	
 	}
 	</script>
-
 {% endblock %}
