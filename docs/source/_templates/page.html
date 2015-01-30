@@ -21,6 +21,7 @@
 	</div>
 
 	<div> Disaster Recovery Linux Manager</div>
+	<div id="divspacer"> Disaster Recovery Linux Manager</div>
 
 	<script>
 		window.addEventListener("resize", menuResp);
@@ -31,9 +32,11 @@
 		    if (am < 769) {
 		       document.getElementById("menudivDrlm").style.display= "none";
 		       document.getElementById("menudivDrlm2").style.display= "inline";
+		       document.getElementById("divspacer").style.display= "inline";
 		    } else {
 		       document.getElementById("menudivDrlm").style.display= "inline";
 		       document.getElementById("menudivDrlm2").style.display= "none";
+		       document.getElementById("divspacer").style.display= "none";
 		    }
 		}
 	</script>
