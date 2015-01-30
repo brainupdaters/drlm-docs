@@ -4,7 +4,7 @@
 	{{ super() }}
 	
 	<div align="left" style="background-color: #343131;position: fixed; width: 100%; left: 0; top: 0; z-index: 1000; border-top: 0;">
-		<a class="especial_logo" href="http://drlm.org/" title="DRLM Project" rel="home" style="padding: 10px 35px;">
+	<a class="especial_logo" href="http://drlm.org/" title="DRLM Project" rel="home" style="padding: 10px 35px;">
 			<img src="http://s390213391.mialojamiento.es/www/wpdrlmweb/documentacio/logo_white.png" width="121" height="35" alt="DRLM Project Logo" style="max-width: 121px; max-height: 35px">
 		</a>				
 		<a id="menuAbout" href="http://drlm.org/about/" style="padding: 20px 20px; color: white;">About DRLM</a>
@@ -12,40 +12,29 @@
 		<a id="menuDocs" href="http://docs.drlm.org" style="padding: 20px 20px; color: white;">Documentation</a>
 		<a id="menuComm" href="http://drlm.org/community/"  style="padding: 20px 20px; color: white;">Community</a>
 		<a id="menuSupport" href="http://drlm.org/support/"  style="padding: 20px 20px; color: white;">Support</a>
+			
 	</div>
 
-	<div><p>Disaster Recovery Linux Manager</p></div>
 
-{% endblock %}
-
-{% block header %}
-	{{ super() }}
 	<script>
-	window.addEventListener("resize", responsiveMenu);
-
-	var am = 0;
-	var al = 0;
-	
-	function responsiveMenu() {
-	    var am = window.innerWidth;
-	    var al = window.innerHeight;
-	    document.getElementById("amplada").innerHTML = window.innerWidth;
-	    document.getElementById("alcada").innerHTML = window.innerHeight;
-	
-	    if (am < 500) {
-	       document.getElementById("menuAbout").style.display= "none";
-	       document.getElementById("menuDownload").style.display= "none";
-	       document.getElementById("menuDocs").style.display= "none";
-	       document.getElementById("menuComm").style.display= "none";
-	       document.getElementById("menuSupport").style.display= "none";
-	    } else {
-	       document.getElementById("menuAbout").style.display= "inline";
-	       document.getElementById("menuDownload").style.display= "inline";
-	       document.getElementById("menuDocs").style.display= "inline";
-	       document.getElementById("menuComm").style.display= "inline";
-	       document.getElementById("menuSupport").style.display= "inline";       
-	    }
-	
-	}
+		window.addEventListener("resize", menuResp);
+		var am = 0; 
+		function menuResp() {
+		    var am = window.innerWidth;
+		    if (am < 500) {
+		       document.getElementById("menuAbout").style.display= "none";
+		       document.getElementById("menuDownload").style.display= "none";
+		       document.getElementById("menuDocs").style.display= "none";
+		       document.getElementById("menuComm").style.display= "none";
+		       document.getElementById("menuSupport").style.display= "none";
+		    } else {
+		       document.getElementById("menuAbout").style.display= "inline";
+		       document.getElementById("menuDownload").style.display= "inline";
+		       document.getElementById("menuDocs").style.display= "inline";
+		       document.getElementById("menuComm").style.display= "inline";
+		       document.getElementById("menuSupport").style.padding= "20px 20px";       
+		    }
+		}
 	</script>
+
 {% endblock %}
