@@ -4,7 +4,7 @@
 	{{ super() }}
 	
 	<div id="menudivDrlm" align="left" style="background-color: #343131;position: fixed; width: 100%; left: 0; top: 0; z-index: 1000; border-top: 0;">
-	<a class="especial_logo" href="http://drlm.org/" title="DRLM Project" rel="home" style="padding: 10px 35px;">
+		<a class="especial_logo" href="http://drlm.org/" title="DRLM Project" rel="home" style="padding: 10px 35px;">
 			<img src="http://s390213391.mialojamiento.es/www/wpdrlmweb/documentacio/logo_white.png" width="121" height="35" alt="DRLM Project Logo" style="max-width: 121px; max-height: 35px">
 		</a>				
 		<a id="menuAbout" href="http://drlm.org/about/" style="padding: 20px 20px; color: white;">About DRLM</a>
@@ -13,6 +13,11 @@
 		<a id="menuComm" href="http://drlm.org/community/"  style="padding: 20px 20px; color: white;">Community</a>
 		<a id="menuSupport" href="http://drlm.org/support/"  style="padding: 20px 20px; color: white;">Support</a>
 			
+	</div>
+	<div id="menudivDrlm2" align="center" style="background-color: #343131;position: fixed; width: 100%; left: 0; top: 0; z-index: 1000; border-top: 0;">
+		<a class="especial_logo" href="http://drlm.org/" title="DRLM Project" rel="home" style="padding: 10px 35px;">
+			<img src="http://s390213391.mialojamiento.es/www/wpdrlmweb/documentacio/logo_white.png" width="121" height="35" alt="DRLM Project Logo" style="max-width: 121px; max-height: 35px">
+		</a>
 	</div>
 
 	<div> Disaster Recovery Linux Manager</div>
@@ -24,19 +29,11 @@
 		function menuResp() {
 		    var am = window.innerWidth;
 		    if (am < 769) {
-		       document.getElementById("menudivDrlm").style.align= "center";
-		       document.getElementById("menuAbout").style.display= "none";
-		       document.getElementById("menuDownload").style.display= "none";
-		       document.getElementById("menuDocs").style.display= "none";
-		       document.getElementById("menuComm").style.display= "none";
-		       document.getElementById("menuSupport").style.display= "none";
+		       document.getElementById("menudivDrlm").style.display= "inline";
+		       document.getElementById("menudivDrlm2").style.display= "none";
 		    } else {
-		       document.getElementById("menudivDrlm").style.align="left";
-		       document.getElementById("menuAbout").style.display= "inline";
-		       document.getElementById("menuDownload").style.display= "inline";
-		       document.getElementById("menuDocs").style.display= "inline";
-		       document.getElementById("menuComm").style.display= "inline";
-		       document.getElementById("menuSupport").style.display= "inline";       
+		       document.getElementById("menudivDrlm").style.display= "none";
+		       document.getElementById("menudivDrlm2").style.display= "inline";
 		    }
 		}
 	</script>
