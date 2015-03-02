@@ -35,11 +35,11 @@ Service Configuration::
         	 wait = yes 
         	 user = root 
         	 server = /usr/sbin/in.tftpd 
-        	 server_args = -s */DRLM/STORE*
+        	 server_args = -s /DRLM/STORE
         	 disable = no 
         	 per_source = 11 
         	 cps = 100 2 
-	   	 syslinux flags = IPv4 
+	   	 flags = IPv4 
 	}
 
 Directory structure::
