@@ -49,7 +49,7 @@ Disable password aging for drlm user
 Copy rsa key from DRLM Server to the new client
 -----------------------------------------------
 ::
-
+   $ ssh-keygen -t rsa
    $ ssh-copy-id drlm@”clientname”
 
 
@@ -71,17 +71,7 @@ Add roles to user drlm
 
 ::
 
-   Cmnd_Alias DRLS = /usr/sbin/rear -dDv mkrescue, \ 
-   /usr/sbin/rear -dDv mkbackup, \ 
-   /usr/sbin/rear -d mkrescue, \ 
-   /usr/sbin/rear -d mkbackup, \
-   /usr/sbin/rear -D mkrescue, \ 
-   /usr/sbin/rear -D mkbackup, \ 
-   /usr/sbin/rear -v mkrescue, \ 
-   /usr/sbin/rear -v mkbackup, \ 
-   /usr/sbin/rear mkrescue, \ 
-   /usr/sbin/rear mkbackup, \ 
-   /usr/sbin/rear dump 
+   Cmnd_Alias DRLM = /usr/sbin/rear* 
    drlm    ALL=(root)      NOPASSWD: DRLM
    
 ::
