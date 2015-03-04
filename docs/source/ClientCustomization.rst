@@ -49,6 +49,7 @@ Disable password aging for drlm user
 Copy rsa key from DRLM Server to the new client
 -----------------------------------------------
 ::
+
    $ ssh-keygen -t rsa
    $ ssh-copy-id drlm@”clientname”
 
