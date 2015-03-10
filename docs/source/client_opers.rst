@@ -104,7 +104,7 @@ Optional options:
    Examples::
 
    $ drlm delclient -h
-   $ drlm delcleint --help
+   $ drlm delclient --help
 
 Modify Client
 -------------

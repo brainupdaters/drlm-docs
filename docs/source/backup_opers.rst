@@ -44,6 +44,48 @@ The :program:`drlm runbackup` has several options:
    $drlm runbakcup -h
    $drlm runbakcup --help
 
+Delete Backup
+-------------
+
+This command is used to delete backups from DRLM database. It is 
+called like this::
+
+   $ drlm delbackup [options]
+
+The :program:`drlm delbackup` has some requiered options:
+    
+.. program:: `drlm delbackup`
+
+.. option:: -c client_name, --client client_name
+
+   Select Client to delete the backup.
+
+.. option:: -I backup_id, --id backup_id
+
+   Select Backup to delete by ID.
+
+.. option:: -A, --all
+
+   Delete All backup.
+
+   Examples::
+
+   $ drlm delbackup -c clientHost1 -I 2015030121245
+   $ drlm delbackup --client clientHost1 --id 2015030121245
+   $ drlm delbackup -c clientHost1 -A
+   $ drlm delbackup --client clientHost1 --all
+   
+Optional options: 
+
+.. option:: -h, --help
+
+   Show drlm delbackup help.                              
+
+   Examples::
+
+   $ drlm delbackup -h
+   $ drlm delbackup --help
+
 Backup Manager
 --------------
 
