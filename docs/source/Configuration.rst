@@ -147,8 +147,12 @@ Somethimes the SELinux can block the not default services. We will put the SELin
 
 ::
    
-   setenforce 0
-   
+   $ setenforce 0
+
+Service Management::
+
+	$ chkconfig httpd on
+	$ service httpd {start|stop|restart|force-reload|condrestart|try-restart|configtest|status}
 
 .. describe:: Debian
 
@@ -178,3 +182,9 @@ The last configuration that we have to do is coment the 80 port in /etc/apache2/
    
    # NameVirtualHost *:80
    # Listen 80
+
+Service Management::
+
+	$ chkconfig apache2 on
+	$ service apache2 {start|stop|restart|force-reload|condrestart|try-restart|configtest|status}
+	

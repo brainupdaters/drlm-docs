@@ -22,6 +22,7 @@ Dependencies on all distributions
  * dhcp 
  * tftp-server
  * syslinux
+ * apache2 (httpd)
  
 Install Requeriments
 --------------------
@@ -30,18 +31,18 @@ Install Requeriments
 
 ::
 
-	$  yum -y install openssh-clients openssl nc wget gzip tar gawk sed grep coreutils util-linux portmap dhcp tftp-server syslinux 
+	$  yum -y install openssh-clients openssl nc wget gzip tar gawk sed grep coreutils util-linux portmap dhcp tftp-server syslinux httpd
 
 
 .. describe:: CentOS 6, Red Hat 6
 
 ::
 
-	$  yum -y install openssh-clients openssl nc wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server syslinux 
+	$  yum -y install openssh-clients openssl nc wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server syslinux httpd
 
 
 .. describe:: Debian , Ubuntu
 
 ::
 
-	$ apt-get install openssh-client openssl netcat-traditional wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind isc-dhcp-server tftpd-hpa, syslinux
+	$ apt-get install openssh-client openssl netcat-traditional wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind isc-dhcp-server tftpd-hpa syslinux apache2
