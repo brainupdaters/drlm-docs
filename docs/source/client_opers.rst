@@ -42,6 +42,20 @@ The :program:`drlm addclient` has some requiered options:
       If the network_name doesn't exist in DRLM database you will get an error. First
       of all register de network where the client will be registered.
 
+   .. warning::
+
+      We have to manualy add to the client configuration file in the DRLM server called /etc/drlm/clients/client_name.cfg with the next content:
+
+      OUTPUT=PXE
+      OUTPUT_PREFIX=PXE
+      BACKUP=NETFS
+      NETFS_PREFIX=BKP
+      BACKUP_URL=nfs://SERVER_IP/DRLM/STORE/client_name
+      OUTPUT_URL=nfs://SERVER_IP/DRLM/STORE/client_name
+      OUTPUT_PREFIX_PXE=client_name/$OUTPUT_PREFIX
+
+      You have to replace the SERVER_IP for the IP of the DRLM server and the client_name for the client host name.
+
 Optional options: 
 
 .. option:: -h, --help

@@ -13,7 +13,7 @@ files on the ReaR client.
 
    Ensure the next services are Running
 
-*Red Hat 5*
+:program:`Red Hat 5`
 ::
 
    $ service portmap start
@@ -86,27 +86,12 @@ Disable password login
    $ passwd -l drlm
 
 
-BOOT client config
-------------------
+Client configuration
+--------------------
 
-*81_create_pxelinux_cfg.sh* must be changed to show the path to the DRLM Server and ensure the system is booting from the correct initrd file.
+We have to specify that this ReaR client is managed from a DRLM server. We have to edit the /etc/rear/site.conf and insert the next line.
  
 ::
  
-   $ vi /usr/share/rear/output/PXE/default/81_create_pxelinux_cfg.sh
+   DRLM_MANAGED=y
    
-::
- 
-    <<<< replace <<<< 
-    kernel $PXE_KERNEL 
-    append initrd=$PXE_INITRD root=/dev/ram0 vga=normal rw $KERNEL_CMDLINE 
-    >>>>>  with  >>>> 
-    kernel *$DRLM_NAME/$OUTPUT_PREFIX/$PXE_KERNEL* 
-    append initrd=*$DRLM_NAME/$OUTPUT_PREFIX*/$PXE_INITRD root=/dev/ram0 vga=normal rw $KERNEL_CMDLINE 
- 
-
-
-
-
-
-
