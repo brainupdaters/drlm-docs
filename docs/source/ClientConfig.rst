@@ -84,7 +84,7 @@ Execute the next command:
 Execute the next command:
 ::
 
-	$ apt-get remove rear
+	$ dpkg --remove rear
 
 .. note::
 
