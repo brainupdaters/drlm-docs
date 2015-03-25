@@ -40,5 +40,5 @@ Execute the next command:
 Execute the next command:
 ::
 
-	$ apt-get remove drlm
+	$ dpkg --remove drlm
 
