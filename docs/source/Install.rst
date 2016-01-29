@@ -196,8 +196,8 @@ Restart & check all is up & running
 	$ service isc-dhcp-server status
 	Status of ISC DHCP server: dhcpd is not running.
 
-
-*DHCP & NFS not running because no config yet!!!
+.. note::
+	DHCP & NFS not running because no config yet!!!
 
 
 CentOS 6, Red Hat 6
@@ -450,6 +450,6 @@ Restart & check all is up & running
 	$ service isc-dhcp-server status
 	Status of ISC DHCP server: dhcpd is not running.
 
-
-*DHCP & NFS not running because no config yet!!!
+.. note::
+	DHCP & NFS not running because no config yet!!!
 
