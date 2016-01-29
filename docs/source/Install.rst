@@ -9,7 +9,7 @@ Debian 7
 .. note::
    On the following steps, is assumed you have a minimal installation of Debian 7.
 
-Install Requeriments
+Install requirements
 ~~~~~~~~~~~~~~~~~~~~
  
 ::
@@ -70,7 +70,7 @@ Add **drlm-stord** service to start up scripts.
 	$ update-rc.d drlm-stord defaults
 
 
-Server Components Configuration 
+DRLM Components Configuration 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This section covers configuration of: 
@@ -198,7 +198,7 @@ Restart & check all is up & running
 
 
 .. note::
-	DHCP & NFS not running because no config yet!!!
+	If DHCP or NFS not running is because there is no config yet! no worries they will be reloaded after first DRLM client will be added. 
 
 
 CentOS 6, Red Hat 6
@@ -236,7 +236,7 @@ IPTABLES
   $ chkconfig iptables off
   $ service iptables stop
 
-Install Requeriments
+Install requirements
 ~~~~~~~~~~~~~~~~~~~~
  
 ::
@@ -286,7 +286,7 @@ DRLM Configuration
 	ARCHDIR=/var/lib/drlm/arch
 	
 
-Server Components Configuration 
+DRLM Components Configuration 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This section covers configuration of: 
@@ -389,7 +389,7 @@ We have to edit de /etc/httpd/conf.d/ssl.conf, comment or delete the Virtual hos
         # Include the DRLM Configuration:
         Include /usr/share/drlm/conf/HTTP/https.conf
 
-Then we have to coment the 80 port service comenting or deleting the next lines in /etc/httpd/conf/httpd.conf file.
+Then we have to coment the 80 port service commenting or deleting the next lines in /etc/httpd/conf/httpd.conf file.
 
 ::
 
@@ -455,5 +455,5 @@ Restart & check all is up & running
 
 
 .. note::
-	DHCP & NFS not running because no config yet!!!
+	If DHCP or NFS not running is because there is no config yet! no worries they will be reloaded after first DRLM client will be added.
 
