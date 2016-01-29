@@ -78,7 +78,6 @@ Disable password login
 
    $ passwd -l drlm
 
-   
 Add Sudo roles for DRLM user
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -129,4 +128,157 @@ Where CLI_NAME="Client Host Name" and SRV_NET_IP="DRLM Server IP".
 
 	SSH_ROOT_PASSWORD=drlm
 
+.. warning:: This file must be readable by Apache
 
+::
+  
+        $ chmod 644 /etc/drlm/clients/ReaRCli1.cfg
+
+CentOS 6, Red Hat 6
+-------------------
+
+ReaR Dependencies Installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+As rear is written in bash you need bash as a bare minimum. Other requirements are: 
+ 
+	* mkisofs
+	* mingetty (rear is depending on it in recovery mode)	
+	* syslinux (for i386 based systems) 
+	* nfs-utils
+	* cifs-utils
+	* rpcbind
+	* wget
+	* sudo 
+	* curl (rear need to get its configuration from DRLM server) 
+	
+::
+
+	$ yum -y install mkisofs mingetty syslinux nfs-utils cifs-utils rpcbind wget curl sudo
+
+Download and install ReaR 
+~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+**Download ReaR**
+
+::
+
+    $ a wget https://kojipkgs.fedoraproject.org//packages/rear/1.17.2/1.el7/x86_64/rear-1.17.2-1.el7.x86_64.rpm
+
+**Install ReaR package**
+
+:program:`The RPM based package can be installed as follows`
+
+Execute the next command:
+::
+
+    $ yum install rear-1.17.2-1.el7.x86_64.rpm
+
+.. note::
+
+	For more information about ReaR visit:
+	http://relax-and-recover.org/documentation
+
+Create DRLM User
+~~~~~~~~~~~~~~~~
+
+::
+
+   $ useradd -d /home/drlm -c "DRLM User Agent" -m -s /bin/bash -p $(echo S3cret | openssl passwd -1 -stdin) drlm
+
+Disable password aging for drlm user
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+   $ chage -I -1 -m 0 -M 99999 -E -1 drlm
+
+Copy rsa key from DRLM Server to the new client
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. warning:: You have to execute this code from DRLM Server. The password by which you will be asked for is "S3cret"
+
+::
+
+   $ ssh-keygen -t rsa
+   $ ssh-copy-id drlm@”clientname”
+
+Disable password login
+~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+   $ passwd -l drlm
+
+Add Sudo roles to DRLM user
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Edit **/etc/sudoers.d/drlm** and add the following lines
+
+::
+
+   Cmnd_Alias DRLM = /usr/sbin/rear* 
+   drlm    ALL=(root)      NOPASSWD: DRLM
+   
+Change **/etc/sudoers.d/drlm** permissions
+
+::
+
+   $ chmod 440 /etc/sudoers.d/drlm
+
+Client configuration
+~~~~~~~~~~~~~~~~~~~~
+
+We have to specify that this ReaR client is managed from a DRLM server. We have to edit the /etc/rear/local.conf and insert the next line.
+ 
+::
+ 
+   DRLM_MANAGED=y
+
+Services
+~~~~~~~~
+
+**rpcbind**
+
+::
+
+        $ service rpcbind start
+        $ chkconfig rpcbind on
+
+**nfs**
+
+::
+
+        $ service nfs start
+        $ chkconfig nfs on
+
+Add client config file at DRLM SERVER
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. warning:: You have to do this at DRLM Server.
+
+We have to add a new file called as "client host name".cfg at /etc/drlm/clients/
+For example: If our client host name is ReaRCli1 we have to create /etc/drlm/clients/ReaRCli1.cfg and add the follwing lines.
+Where CLI_NAME="Client Host Name" and SRV_NET_IP="DRLM Server IP".
+
+::
+
+	CLI_NAME=ReaRCli1
+	SRV_NET_IP=192.168.1.38
+
+	OUTPUT=PXE
+	OUTPUT_PREFIX=$OUTPUT
+	OUTPUT_PREFIX_PXE=$CLI_NAME/$OUTPUT
+	OUTPUT_URL=nfs://${SRV_NET_IP}/var/lib/drlm/store/${CLI_NAME}
+
+	BACKUP=NETFS
+	NETFS_PREFIX=BKP
+	BACKUP_URL=nfs://${SRV_NET_IP}/var/lib/drlm/store/${CLI_NAME}
+
+	SSH_ROOT_PASSWORD=drlm
+
+.. warning:: This file must be readable by Apache
+
+::
+  
+        $ chmod 644 /etc/drlm/clients/ReaRCli1.cfg
