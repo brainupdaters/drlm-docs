@@ -64,12 +64,12 @@ Disable password aging for drlm user
 Copy rsa key from DRLM Server to the new client
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. warning:: You have to execute this code from DRLM Server. The password by which you will be asked for is "S3cret"
+.. warning:: You have to execute this code from DRLM Server. The password which you will be asked for is "S3cret" and "client_name" must be changed to the client hostname.
 
 ::
 
    $ ssh-keygen -t rsa
-   $ ssh-copy-id drlm@”clientname”
+   $ ssh-copy-id drlm@”client_name”
 
 Disable password login
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -137,8 +137,8 @@ Where CLI_NAME="Client Host Name" and SRV_NET_IP="DRLM Server IP".
 CentOS 6, Red Hat 6
 -------------------
 
-ReaR Dependencies Installation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ReaR requirements for DRLM
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 As rear is written in bash you need bash as a bare minimum. Other requirements are: 
  
@@ -163,7 +163,7 @@ Download and install ReaR
 
 ::
 
-    $ a wget https://kojipkgs.fedoraproject.org//packages/rear/1.17.2/1.el7/x86_64/rear-1.17.2-1.el7.x86_64.rpm
+    $ wget https://kojipkgs.fedoraproject.org//packages/rear/1.17.2/1.el7/x86_64/rear-1.17.2-1.el7.x86_64.rpm
 
 **Install ReaR package**
 
@@ -196,12 +196,12 @@ Disable password aging for drlm user
 Copy rsa key from DRLM Server to the new client
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. warning:: You have to execute this code from DRLM Server. The password by which you will be asked for is "S3cret"
+.. warning:: You have to execute this code from DRLM Server. The password which you will be asked for is "S3cret" and "client_name" must be changed to the client hostname.
 
 ::
 
    $ ssh-keygen -t rsa
-   $ ssh-copy-id drlm@”clientname”
+   $ ssh-copy-id drlm@”client_name”
 
 Disable password login
 ~~~~~~~~~~~~~~~~~~~~~~
