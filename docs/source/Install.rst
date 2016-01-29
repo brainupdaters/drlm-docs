@@ -271,6 +271,19 @@ Execute the next command:
 
 	$ rpm -ivh drlm-1.1.1-1git.el6.noarch.rpm
 
+
+Directory structure::
+
+	$ mkdir -p /var/lib/drlm/arch
+	$ mkdir -p /var/lib/drlm/store/pxelinux.cfg
+
+
+pxelinux.0::
+
+	$ cp -p /usr/lib/syslinux/pxelinux.0 /var/lib/drlm/store/
+	$ chmod 755 /var/lib/drlm/store/pxelinux.0
+	
+
 DRLM Configuration 
 ~~~~~~~~~~~~~~~~~~
 
@@ -327,17 +340,6 @@ You have to update the /etc/xinetd.d/tftp cofiguration file as follows:
                 cps = 100 2
                 flags = IPv4
         } 
-
-Directory structure::
-
-	$ mkdir -p /var/lib/drlm/arch
-	$ mkdir -p /var/lib/drlm/store/pxelinux.cfg
-
-
-pxelinux.0::
-
-	$ cp -p /usr/lib/syslinux/pxelinux.0 /var/lib/drlm/store/
-	$ chmod 755 /var/lib/drlm/store/pxelinux.0
 
 
 Service Management::
