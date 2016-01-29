@@ -64,12 +64,12 @@ Disable password aging for drlm user
 Copy rsa key from DRLM Server to the new client
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. warning:: You have to execute this code from DRLM Server. The password which you will be asked for is "S3cret" and "client_name" must be changed to the client hostname.
+.. warning:: You have to execute this code from DRLM Server. The password which you will be asked for is "S3cret" and "client_ipaddr" must be changed to the client ip address.
 
 ::
 
    $ ssh-keygen -t rsa
-   $ ssh-copy-id drlm@”client_name”
+   $ ssh-copy-id drlm@”client_ipaddr”
 
 Disable password login
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -196,12 +196,12 @@ Disable password aging for drlm user
 Copy rsa key from DRLM Server to the new client
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. warning:: You have to execute this code from DRLM Server. The password which you will be asked for is "S3cret" and "client_name" must be changed to the client hostname.
+.. warning:: You have to execute this code from DRLM Server. The password which you will be asked for is "S3cret" and "client_ipaddr" must be changed to the client ip address.
 
 ::
 
    $ ssh-keygen -t rsa
-   $ ssh-copy-id drlm@”client_name”
+   $ ssh-copy-id drlm@”client_ipaddr”
 
 Disable password login
 ~~~~~~~~~~~~~~~~~~~~~~
