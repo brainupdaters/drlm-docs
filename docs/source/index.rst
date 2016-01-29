@@ -46,7 +46,6 @@ User Documentation
 
    Install
    ClientConfig
-   ClientCustomization
 
 Development Documentation
 -------------------------
