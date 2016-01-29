@@ -299,7 +299,7 @@ This section covers configuration of:
 Configuring loop limits
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-The default configuration allows up to eight active loop devices. If more than eight clients are needed, the number of loop devices configured can be adjusted adding the parameter *max_loop=1024* in the **/etc/default/grub** file as follows:
+The default configuration allows up to eight active loop devices. If more than eight clients are needed, the number of loop devices configured can be adjusted adding the parameter *max_loop=1024* in the **/etc/grub.conf** file as follows:
 
 ::
   
