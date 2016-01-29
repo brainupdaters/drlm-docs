@@ -280,7 +280,7 @@ Directory structure::
 
 pxelinux.0::
 
-	$ cp -p /usr/lib/syslinux/pxelinux.0 /var/lib/drlm/store/
+	$ cp -p /usr/share/syslinux/pxelinux.0 /var/lib/drlm/store/
 	$ chmod 755 /var/lib/drlm/store/pxelinux.0
 	
 
