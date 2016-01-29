@@ -256,10 +256,11 @@ Get DRLM
 	$ make rpm
 
 
-.. describe:: Download RPM package From DRLM Web
+**Download RPM package From DRLM Web**
 
+::
 
-:mod:`http://www.drlm.org/downloads/drlm-1.1.1-1git.el6.noarch.rpm`
+	$ wget http://www.drlm.org/downloads/drlm-1.1.1-1git.el6.noarch.rpm
 
 
 Install DRLM package 
