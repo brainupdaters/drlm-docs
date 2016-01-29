@@ -1,49 +1,488 @@
-DRLM dependencies
+DRLM Installation
 =================
 
-Server Requeriments
+The pourpose of this documentation is to explain the installation and configuration of DRLM step by step, at the end of the document you should have a DRLM server full operational.
+
+Debian 7
+--------
+
+.. note::
+   The following installation asumes you have minimal installation of Debian 7.
+
+Install Requeriments
+~~~~~~~~~~~~~~~~~~~~
+ 
+::
+
+	$ apt-get install openssh-client openssl netcat-traditional wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind isc-dhcp-server tftpd-hpa syslinux apache2
+
+Get DRLM
+~~~~~~~~
+
+You can get the DRLM DEB package buiding it from the source or downloading from www.drlm.org website
+
+**Build DEB package from Source**
+
+::
+
+	$ aptitude install git build-essential debhelper
+	$ git clone https://github.com/brainupdaters/drlm
+	$ cd drlm
+	$ make deb
+
+
+**Download DEB package From DRLM Web**
+
+::
+
+	$ wget http://www.drlm.org/downloads/drlm_1.1.1_all.deb
+
+
+Install DRLM package 
+~~~~~~~~~~~~~~~~~~~~
+
+:program:`The DEB package can be installed as follows (on Debian, Ubuntu)`
+
+Execute the next command:
+::
+
+	$ dpkg -i drlm_1.00_all.deb
+
+
+DRLM Configuration 
+~~~~~~~~~~~~~~~~~~
+
+::
+
+	$ vi /usr/share/drlm/conf/default.conf
+
+::
+
+	...
+	
+	################ ---- DRLM STORAGE LOCATIONS
+	#
+	#
+	### COMMENT THIS LINE ### PXEDIR=/REAR/pxe
+	### COMMENT THIS LINE ### BKPDIR=/REAR/backups
+
+	STORDIR=/var/lib/drlm/store
+	ARCHDIR=/var/lib/drlm/arch
+	### COMMENT THIS LINE ### DEPDIR=/DRLM/deps
+	
+	...
+
+	################ ---- DHCP CONFIGURATION
+	#
+	#    
+	DHCP_DIR="/etc/dhcp"	
+	DHCP_FILE="$DHCP_DIR/dhcpd.conf"
+	DHCP_FIX_CAP="$SHARE_DIR/conf/DHCP/dhcp_pxe_header_config.template"
+	DHCP_FIX_GRU="$SHARE_DIR/conf/DHCP/dhcp_group_header_config.template"
+	### CHANGE THIS LINE ###DHCP_SVC_NAME="dhcpd"
+	DHCP_SVC_NAME="isc-dhcp-server"
+	
+	...
+	
+
+Add **drlm-stord** service to start up scripts.
+
+::
+
+	$ update-rc.d drlm-stord defaults
+
+
+Server Components Configuration 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This section covers configuration of: 
+
+* GRUB
+* TFTP Service
+* NFS Service
+* DHCP Service
+* HTTP Service
+
+Configuring loop limits
+~~~~~~~~~~~~~~~~~~~~~~~
+
+The default configuration allows up to eight active loop devices. If more than eight file-based guests or loop devices are needed the number of loop devices configured can be adjusted adding the parameter *max_loop=1024* in the **/etc/grub** file as follows::
+
+	...
+
+	GRUB_CMDLINE_LINUX_DEFAULT="quiet max_loop=1024" ##UPDATE THIS LINE
+
+	...
+
+::
+
+	$ grub-mkconfig -o /boot/grub/grub.cfg
+
+
+TFTP
+~~~~
+You have to update the destination folder in the /etc/default/tftpd-hpa cofiguration file as follows
+
+::
+
+	# /etc/default/tftpd-hpa
+	TFTP_USERNAME="tftp"
+	TFTP_DIRECTORY="/var/lib/drlm/store
+	TFTP_ADDRESS="0.0.0.0:69"
+	TFTP_OPTIONS="--secure"
+
+Directory structure::
+
+	$ mkdir -p /var/lib/drlm/arch
+	$ mkdir -p /var/lib/drlm/store/pxelinux.cfg
+
+
+pxelinux.0::
+
+	$ cp -p /usr/lib/syslinux/pxelinux.0 /var/lib/drlm/store/
+	$ chmod 755 /var/lib/drlm/store/pxelinux.0
+
+
+Service Management::
+
+	$ update-rc.d tftpd-hpa defaults
+	$ service tftpd-hpa restart
+
+NFS
+~~~
+Since DRLM v1.0 we don't have to configure /etc/exports file anymore, the file is automatically configured after the client is created. 
+
+Service Management::
+
+	$ update-rc.d nfs-kernel-server defaults
+	$ update-rc.d rpcbind defaults
+
+DHCP
+~~~~
+Same as /etc/exports, we don't have to configure  /etc/dhcp/dhcpd.conf file, the file is automatically configured during the client creation.
+
+Service Management::
+
+	$ update-rc.d isc-dhcp-server defaults
+
+HTTP
+~~~~
+
+::
+
+	$ a2enmod ssl
+	$ a2enmod rewrite
+
+Edit /etc/apache2/apache2.conf file
+
+::
+
+	# Include the DRLM Configuration:
+	Include /usr/share/drlm/conf/HTTP/https.conf
+
+::
+
+	$ rm /etc/apache2/sites-enabled/*
+	
+
+Edit /etc/apache2/ports.conf file
+
+::
+	
+	#NameVirtualHost *:80
+	#Listen 80
+
+::
+
+	$ update-rc.d apache2 defaults
+
+::
+
+	service apache2 restart
+
+
+
+Restart & check all is up & running
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+	$ service tftpd-hpa status
+	in.tftpd is running.
+	$ service rpcbind status
+	rpcbind is running.
+	$ service apache2 status
+	Apache2 is running (pid 2023).
+	$ service nfs-kernel-server status
+	nfsd not running
+	$ service isc-dhcp-server status
+	Status of ISC DHCP server: dhcpd is not running.
+
+
+*DHCP & NFS not running because no config yet!!!
+
+
+CentOS 6, Red Hat 6
 -------------------
 
-Dependencies on all distributions 
+.. note::
+   The following installation asumes you have minimal installation of CentOS 6.
 
- * openssh-clients 
- * openssl 
- * nc 
- * wget 
- * gzip 
- * tar
- * gawk 
- * sed 
- * grep 
- * coreutils 
- * util-linux
- * nfs-utils 
- * rpcbind
- * dhcp 
- * tftp-server
- * syslinux
- * apache2 (httpd)
- * xinetd
- 
+.. warning:: iptables and selinux has been disabled 
+
+::
+
+  $ cat /etc/sysconfig/selinux
+
+  # This file controls the state of SELinux on the system.
+  # SELINUX= can take one of these three values:
+  #     enforcing - SELinux security policy is enforced.
+  #     permissive - SELinux prints warnings instead of enforcing.
+  #     disabled - No SELinux policy is loaded.
+  SELINUX=disabled
+  # SELINUXTYPE= can take one of these two values:
+  #     targeted - Targeted processes are protected,
+  #     mls - Multi Level Security protection.
+  SELINUXTYPE=targeted 
+
+::
+  
+  $ setenforce 0
+
+
+IPTABLES
+
+::
+
+  $ chkconfig iptables off
+  $ service iptables stop
+
 Install Requeriments
---------------------
+~~~~~~~~~~~~~~~~~~~~
+ 
+::
 
-.. describe:: CentOS 5, Red Hat 5
+	 $  yum -y install openssh-clients openssl nc wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server syslinux httpd xinetd nfs-utils nfs4-acl-tools mod_ssl
+
+Get DRLM
+~~~~~~~~
+
+.. describe:: Build RPM package from Source
 
 ::
 
-	$  yum -y install openssh-clients openssl nc wget gzip tar gawk sed grep coreutils util-linux portmap dhcp tftp-server syslinux httpd xinetd
+	$ yum install rpm-build
+	$ git clone https://github.com/brainupdaters/drlm
+	$ cd drlm
+	$ make rpm
 
 
-.. describe:: CentOS 6, Red Hat 6
+.. describe:: Download RPM package From DRLM Web
+
+
+:mod:`http://www.drlm.org/downloads/drlm-1.1.1-1git.el6.noarch.rpm`
+
+
+Install DRLM package 
+~~~~~~~~~~~~~~~~~~~~
+
+:program:`The RPM package can be installed as follows (on Redhat, CentOS)`
+
+Execute the next command:
+::
+
+	$ rpm -ivh drlm_1.00_all.rpm
+
+
+DRLM Configuration 
+~~~~~~~~~~~~~~~~~~
 
 ::
 
-	$  yum -y install openssh-clients openssl nc wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server syslinux httpd xinetd 
-
-
-.. describe:: Debian , Ubuntu
+	$ vi /usr/share/drlm/conf/default.conf
 
 ::
 
-	$ apt-get install openssh-client openssl netcat-traditional wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind isc-dhcp-server tftpd-hpa syslinux apache2 xinetd
+	...
+
+	################ ---- DRLM STORAGE LOCATIONS
+	#
+	#
+	### COMMENT THIS LINE ### PXEDIR=/REAR/pxe
+	### COMMENT THIS LINE ### BKPDIR=/REAR/backups
+
+	STORDIR=/var/lib/drlm/store
+	ARCHDIR=/var/lib/drlm/arch
+	### COMMENT THIS LINE ### DEPDIR=/DRLM/deps
+
+	...
+
+
+Server Components Configuration 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This section covers configuration of: 
+
+* GRUB
+* TFTP Service
+* NFS Service
+* DHCP Service
+* HTTP Service
+
+Configuring loop limits
+~~~~~~~~~~~~~~~~~~~~~~~
+
+The default configuration allows up to eight active loop devices. If more than eight clients are needed the number of loop devices configured can be adjusted adding the parameter *max_loop=1024* in the **/etc/grub.conf** file as follows:
+
+::
+  
+  title Red Hat Enterprise Linux (2.6.32-358.el6.x86_64)
+  root (hd0,0)
+  kernel /vmlinuz-2.6.32-358.el6.x86_64 ro root=/dev/mapper/vgroot-lvroot rd_NO_LUKS LANG=en_US.UTF-8  KEYBOARDTYPE=pc KEYTABLE=es rd_NO_MD rd_LVM_LV=vgroot/lvswap SYSFONT=latarcyrheb-sun16 crashkernel=auto rd_LVM_LV=vgroot/lvroot rd_NO_DM rhgb quiet max_loop=1024
+  initrd /initramfs-2.6.32-358.el6.x86_64.img
+
+
+TFTP
+~~~~
+You have to update the destination folder in the /etc/xinetd.d/tftp cofiguration file as follows
+
+::
+
+        service tftp
+        {
+                socket_type = dgram
+                protocol = udp
+                wait = yes
+                user = root
+                server = /usr/sbin/in.tftpd
+                server_args = -s /var/lib/drlm/store
+                disable = no
+                per_source = 11
+                cps = 100 2
+                flags = IPv4
+        } 
+
+Directory structure::
+
+	$ mkdir -p /var/lib/drlm/arch
+	$ mkdir -p /var/lib/drlm/store/pxelinux.cfg
+
+
+pxelinux.0::
+
+	$ cp -p /usr/lib/syslinux/pxelinux.0 /var/lib/drlm/store/
+	$ chmod 755 /var/lib/drlm/store/pxelinux.0
+
+
+Service Management::
+
+	$ chkconfig xinetd on
+	$ service xinetd start
+
+NFS
+~~~
+Since DRLM v1.0 we don't have to configure /etc/exports file anymore, the file is automatically configured after the client is created. 
+
+Service Management::
+
+        $ chkconfig nfs on
+        $ service nfs start
+        $ chkconfig rpcbind on
+        $ service rpcbind start
+
+DHCP
+~~~~
+Same as /etc/exports, we don't have to configure  /etc/dhcp/dhcpd.conf file, the file is automatically configured during the client creation.
+
+Service Management::
+
+        $ chkconfig dhcpd on
+        $ service dhcpd 
+
+HTTP
+~~~~
+
+Disable the default Virtual Host and configure the server to work with SSL.
+
+We have to edit de /etc/httpd/conf.d/ssl.conf, comment or delete the Virtual host and include the DRLM http default configuration at the end of it.
+
+::
+
+   Coment from here --->
+   ##
+   ## SSL Virtual Host Context
+   ##      
+
+
+        At the end of the file and insert:
+
+::
+  
+        # Include the DRLM Configuration:
+        Include /usr/share/drlm/conf/HTTP/https.conf
+
+Then we have to coment the 80 port service comenting or deleting the next lines in /etc/httpd/conf/httpd.conf file.
+
+::
+
+   #Listen 80
+   
+   #ServerAdmin root@localhost
+
+   #DocumentRoot "/var/www/html"
+   
+   #<Directory />
+   #    Options FollowSymLinks
+   #    AllowOverride None
+   #</Directory>
+   
+   #<Directory "/var/www/html">
+   #    Options Indexes FollowSymLinks
+   #    AllowOverride None
+   #    Order allow,deny
+   #    Allow from all
+   #</Directory>
+   
+   #ScriptAlias /cgi-bin/ "/var/www/cgi-bin/"
+   
+   #<Directory "/var/www/cgi-bin">
+   #    AllowOverride None
+   #    Options None
+   #    Order allow,deny
+   #    Allow from all
+   #</Directory>
+
+To finish we have to comment the ErrorLog and CustomLog lines in /usr/share/drlm/conf/HTTP/https.conf file.
+
+::
+   
+   #       ErrorLog ${APACHE_LOG_DIR}/error.log
+   
+   #       CustomLog ${APACHE_LOG_DIR}/ssl_access.log combined
+
+Service Management::
+
+        $ chkconfig httpd on
+        $ service httpd start
+
+
+
+Restart & check all is up & running
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+	$ service tftpd-hpa status
+	in.tftpd is running.
+	$ service rpcbind status
+	rpcbind is running.
+	$ service apache2 status
+	Apache2 is running (pid 2023).
+	$ service nfs-kernel-server status
+	nfsd not running
+	$ service isc-dhcp-server status
+	Status of ISC DHCP server: dhcpd is not running.
+
+
+*DHCP & NFS not running because no config yet!!!
+
