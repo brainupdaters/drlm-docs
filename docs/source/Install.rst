@@ -259,7 +259,7 @@ Get DRLM
 **Download RPM package From DRLM Web**
 
 ::
-
+	
 	$ wget http://www.drlm.org/downloads/drlm-1.1.1-1git.el6.noarch.rpm
 
 
@@ -271,7 +271,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	$ rpm -ivh drlm_1.00_all.rpm
+	$ rpm -ivh drlm-1.1.1-1git.el6.noarch.rpm
 
 
 DRLM Configuration 
