@@ -48,6 +48,16 @@ Execute the next command:
 
 	$ dpkg -i drlm_1.00_all.deb
 
+Directory structure::
+
+	$ mkdir -p /var/lib/drlm/arch
+	$ mkdir -p /var/lib/drlm/store/pxelinux.cfg
+
+
+pxelinux.0::
+
+	$ cp -p /usr/lib/syslinux/pxelinux.0 /var/lib/drlm/store/
+	$ chmod 755 /var/lib/drlm/store/pxelinux.0
 
 DRLM Configuration 
 ~~~~~~~~~~~~~~~~~~
@@ -108,18 +118,6 @@ You have to update the destination folder in the /etc/default/tftpd-hpa cofigura
 	TFTP_DIRECTORY="/var/lib/drlm/store
 	TFTP_ADDRESS="0.0.0.0:69"
 	TFTP_OPTIONS="--secure"
-
-Directory structure::
-
-	$ mkdir -p /var/lib/drlm/arch
-	$ mkdir -p /var/lib/drlm/store/pxelinux.cfg
-
-
-pxelinux.0::
-
-	$ cp -p /usr/lib/syslinux/pxelinux.0 /var/lib/drlm/store/
-	$ chmod 755 /var/lib/drlm/store/pxelinux.0
-
 
 Service Management::
 
