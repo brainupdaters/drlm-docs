@@ -1,94 +1,132 @@
-Client Configuration 
-====================
+ReaR Client Installation 
+========================
 
-Dependencies
------------------
+Debian 7
+--------
+
+ReaR Dependencies Installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 As rear is written in bash you need bash as a bare minimum. Other requirements are: 
-
-
-	* mkisofs (or genisoimage) 
-	* mingetty (rear is depending on it in recovery mode) 
+ 
 	* syslinux (for i386 based systems) 
-	* nfs-utils (when using NFS to store the archives) 
-	* cifs-utils (when using SMB to store the archives) 
-	* portmap (RHEL 5)
-	* rpcbind  (RHEL 6)
-
-Dependencies Installation
--------------------------
-
-.. describe:: CentOS 5, Red Hat 5
-
-::
-
-	$  yum -y install mkisofs mingetty syslinux nfs-utils cifs-utils portmap
-
-
-.. describe:: CentOS 6, Red Hat 6
+	* ethtool
+	* genisoimage
+	* parted
+	* gawk
+	* attr
+	* sudo 
+	* curl (rear need to get its configuration from DRLM server) 
+	* mingetty (rear is depending on it in recovery mode)
 
 ::
 
-	$  yum -y install mkisofs mingetty syslinux nfs-utils cifs-utils rpcbind
+	$ apt-get install syslinux ethtool genisoimage parted gawk attr sudo curl mingetty
 
-
-.. describe:: Debian , Ubuntu
+Download and install ReaR 
+~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+**Download ReaR**
 
 ::
 
-	$ apt-get install mkisofs mingetty syslinux nfs-utils cifs-utils rpcbind
+    $ wget http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_7.0/all/rear_1.17.2_all.deb
 
-
-Download ReaR 
----------------------
-
-:program:`Download rear package from` 
-http://relax-and-recover.org/download/
-
-
-Install ReaR package 
---------------------
-
-:program:`The RPM based package can be installed as follows`
-
-Execute the next command:
-::
-
-	$ rpm -ivh rear-[VERSION].[DIST].noarch.rpm
-
-
+**Install ReaR package**
 
 :program:`The DEB based package can be installed as follows`
 
 Execute the next command:
 ::
 
-	$ dpkg -i rear[VERSION].[DIST]all.deb
+    $ dpkg -i rear_1.17.2_all.deb
 
 .. note::
 
-	ReaR supported versions > 1.15.9
-
-
-Remove ReaR package
--------------------
-
-:program:`The RPM based package can be removed as follows:`
-
-Execute the next command:
-::
-
-	$ rpm -e rear
-
-:program:`The DEB based package can be removed as follows:`
-
-Execute the next command:
-::
-
-	$ dpkg --remove rear
-
-.. note::
-
-	For more information about installing ReaR visit:
+	For more information about ReaR visit:
 	http://relax-and-recover.org/documentation
+
+Create DRLM User
+~~~~~~~~~~~~~~~~
+
+::
+
+   $ useradd -d /home/drlm -c "DRLM User Agent" -m -s /bin/bash -p $(echo S3cret | openssl passwd -1 -stdin) drlm
+
+Disable password aging for drlm user
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+   $ chage -I -1 -m 0 -M 99999 -E -1 drlm
+
+
+Copy rsa key from DRLM Server to the new client
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. warning:: You have to execute this code from DRLM Server. The password by which you will be asked for is "S3cret"
+
+::
+
+   $ ssh-keygen -t rsa
+   $ ssh-copy-id drlm@”clientname”
+
+Disable password login
+~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+   $ passwd -l drlm
+
+   
+Add Sudo roles to DRLM user
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Edit **/etc/sudoers.d/drlm** and add the following lines
+
+::
+
+   Cmnd_Alias DRLM = /usr/sbin/rear* 
+   drlm    ALL=(root)      NOPASSWD: DRLM
+   
+Change **/etc/sudoers.d/drlm** permissions
+
+::
+
+   $ chmod 440 /etc/sudoers.d/drlm
+
+Client configuration
+~~~~~~~~~~~~~~~~~~~~
+
+We have to specify that this ReaR client is managed from a DRLM server. We have to edit the /etc/rear/local.conf and insert the next line.
+ 
+::
+ 
+   DRLM_MANAGED=y
+   
+Add client config file at DRLM SERVER
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. warning:: You have to do this at DRLM Server.
+
+We have to add a new file called as "client host name".cfg at /etc/drlm/clients/
+For example: If our client host name is ReaRCli1 we have to create /etc/drlm/clients/ReaRCli1.cfg and add the follwing lines.
+Where CLI_NAME="Client Host Name" and SRV_NET_IP="DRLM Server IP".
+
+::
+
+	CLI_NAME=ReaRCli1
+	SRV_NET_IP=192.168.1.38
+
+	OUTPUT=PXE
+	OUTPUT_PREFIX=$OUTPUT
+	OUTPUT_PREFIX_PXE=$CLI_NAME/$OUTPUT
+	OUTPUT_URL=nfs://${SRV_NET_IP}/var/lib/drlm/store/${CLI_NAME}
+
+	BACKUP=NETFS
+	NETFS_PREFIX=BKP
+	BACKUP_URL=nfs://${SRV_NET_IP}/var/lib/drlm/store/${CLI_NAME}
+
+	SSH_ROOT_PASSWORD=drlm
 
 
