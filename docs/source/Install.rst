@@ -1,13 +1,13 @@
 DRLM Installation
 =================
 
-The pourpose of this documentation is to explain the installation and configuration of DRLM step by step, at the end of the document you should have a DRLM server full operational.
+The pourpose of this manual is explain, step by step, the installation and configuration of DRLM. At the end of this guide you should have a fully functional DRLM server.
 
 Debian 7
 --------
 
 .. note::
-   The following installation asumes you have minimal installation of Debian 7.
+   On the following steps, is assumed you have a minimal installation of Debian 7.
 
 Install Requeriments
 ~~~~~~~~~~~~~~~~~~~~
@@ -19,7 +19,7 @@ Install Requeriments
 Get DRLM
 ~~~~~~~~
 
-You can get the DRLM DEB package buiding it from the source or downloading from www.drlm.org website
+You can obtain the DRLM package building it from the source code or downloading from www.drlm.org website
 
 **Build DEB package from Source**
 
@@ -54,35 +54,13 @@ DRLM Configuration
 
 ::
 
-	$ vi /usr/share/drlm/conf/default.conf
+	$ vi /etc/drlm/local.conf
 
 ::
 
-	...
-	
-	################ ---- DRLM STORAGE LOCATIONS
-	#
-	#
-	### COMMENT THIS LINE ### PXEDIR=/REAR/pxe
-	### COMMENT THIS LINE ### BKPDIR=/REAR/backups
-
 	STORDIR=/var/lib/drlm/store
 	ARCHDIR=/var/lib/drlm/arch
-	### COMMENT THIS LINE ### DEPDIR=/DRLM/deps
-	
-	...
-
-	################ ---- DHCP CONFIGURATION
-	#
-	#    
-	DHCP_DIR="/etc/dhcp"	
-	DHCP_FILE="$DHCP_DIR/dhcpd.conf"
-	DHCP_FIX_CAP="$SHARE_DIR/conf/DHCP/dhcp_pxe_header_config.template"
-	DHCP_FIX_GRU="$SHARE_DIR/conf/DHCP/dhcp_group_header_config.template"
-	### CHANGE THIS LINE ###DHCP_SVC_NAME="dhcpd"
 	DHCP_SVC_NAME="isc-dhcp-server"
-	
-	...
 	
 
 Add **drlm-stord** service to start up scripts.
@@ -106,11 +84,11 @@ This section covers configuration of:
 Configuring loop limits
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-The default configuration allows up to eight active loop devices. If more than eight file-based guests or loop devices are needed the number of loop devices configured can be adjusted adding the parameter *max_loop=1024* in the **/etc/grub** file as follows::
+The default configuration allows up to eight active loop devices. If more than eight file-based guests or loop devices are needed the number of loop devices configured can be adjusted adding the parameter *max_loop=1024* in the **/etc/default/grub** file as follows::
 
 	...
 
-	GRUB_CMDLINE_LINUX_DEFAULT="quiet max_loop=1024" ##UPDATE THIS LINE
+	GRUB_CMDLINE_LINUX="quiet max_loop=1024" ##UPDATE THIS LINE
 
 	...
 
@@ -150,7 +128,7 @@ Service Management::
 
 NFS
 ~~~
-Since DRLM v1.0 we don't have to configure /etc/exports file anymore, the file is automatically configured after the client is created. 
+We don't have to configure the /etc/exports file, the file is automatically maintained by DRLM.
 
 Service Management::
 
@@ -159,7 +137,7 @@ Service Management::
 
 DHCP
 ~~~~
-Same as /etc/exports, we don't have to configure  /etc/dhcp/dhcpd.conf file, the file is automatically configured during the client creation.
+Same as /etc/exports file, configuration of /etc/dhcp/dhcpd.conf file is not required, the file is automatically maintained by DRLM.
 
 Service Management::
 
@@ -226,7 +204,7 @@ CentOS 6, Red Hat 6
 -------------------
 
 .. note::
-   The following installation asumes you have minimal installation of CentOS 6.
+   On the following steps, is assumed you have a minimal installation of CentOS 6.
 
 .. warning:: iptables and selinux has been disabled 
 
@@ -299,24 +277,13 @@ DRLM Configuration
 
 ::
 
-	$ vi /usr/share/drlm/conf/default.conf
+	$ vi /etc/drlm/local.conf
 
 ::
 
-	...
-
-	################ ---- DRLM STORAGE LOCATIONS
-	#
-	#
-	### COMMENT THIS LINE ### PXEDIR=/REAR/pxe
-	### COMMENT THIS LINE ### BKPDIR=/REAR/backups
-
 	STORDIR=/var/lib/drlm/store
 	ARCHDIR=/var/lib/drlm/arch
-	### COMMENT THIS LINE ### DEPDIR=/DRLM/deps
-
-	...
-
+	
 
 Server Components Configuration 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -332,7 +299,7 @@ This section covers configuration of:
 Configuring loop limits
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-The default configuration allows up to eight active loop devices. If more than eight clients are needed the number of loop devices configured can be adjusted adding the parameter *max_loop=1024* in the **/etc/grub.conf** file as follows:
+The default configuration allows up to eight active loop devices. If more than eight clients are needed, the number of loop devices configured can be adjusted adding the parameter *max_loop=1024* in the **/etc/default/grub** file as follows:
 
 ::
   
@@ -344,7 +311,7 @@ The default configuration allows up to eight active loop devices. If more than e
 
 TFTP
 ~~~~
-You have to update the destination folder in the /etc/xinetd.d/tftp cofiguration file as follows
+You have to update the /etc/xinetd.d/tftp cofiguration file as follows:
 
 ::
 
@@ -381,7 +348,7 @@ Service Management::
 
 NFS
 ~~~
-Since DRLM v1.0 we don't have to configure /etc/exports file anymore, the file is automatically configured after the client is created. 
+We don't have to configure the /etc/exports file, the file is automatically maintained by DRLM. 
 
 Service Management::
 
@@ -392,7 +359,7 @@ Service Management::
 
 DHCP
 ~~~~
-Same as /etc/exports, we don't have to configure  /etc/dhcp/dhcpd.conf file, the file is automatically configured during the client creation.
+Same as /etc/exports file, configuration of /etc/dhcp/dhcpd.conf file is not required, the file is automatically maintained by DRLM.
 
 Service Management::
 
