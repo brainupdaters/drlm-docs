@@ -4,8 +4,8 @@ ReaR Client Installation
 Debian 7
 --------
 
-ReaR Dependencies Installation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ReaR requirements for DRLM
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 As rear is written in bash you need bash as a bare minimum. Other requirements are: 
  
@@ -79,7 +79,7 @@ Disable password login
    $ passwd -l drlm
 
    
-Add Sudo roles to DRLM user
+Add Sudo roles for DRLM user
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Edit **/etc/sudoers.d/drlm** and add the following lines
@@ -104,7 +104,7 @@ We have to specify that this ReaR client is managed from a DRLM server. We have 
  
    DRLM_MANAGED=y
    
-Add client config file at DRLM SERVER
+Add client config file at DRLM server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. warning:: You have to do this at DRLM Server.
