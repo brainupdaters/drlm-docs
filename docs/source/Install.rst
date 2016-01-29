@@ -246,7 +246,7 @@ Install requirements
 Get DRLM
 ~~~~~~~~
 
-.. describe:: Build RPM package from Source
+**Build RPM package from Source**
 
 ::
 
