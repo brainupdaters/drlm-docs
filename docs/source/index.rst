@@ -45,9 +45,6 @@ User Documentation
    :maxdepth: 2
 
    Install
-   Requeriments
-   ComponentsInstall
-   Configuration
    ClientConfig
    ClientCustomization
 
