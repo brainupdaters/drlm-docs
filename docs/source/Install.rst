@@ -185,18 +185,16 @@ Restart & check all is up & running
 
 ::
 
-	$ service xinetd status
-	xinetd (pid  5307) is running...
+	$ service tftpd-hpa status
+	in.tftpd is running.
 	$ service rpcbind status
-	rpcbind (pid  5097) is running...
-	$ service httpd status
-	httpd (pid  5413) is running...
-	$ service nfs status
-	rpc.svcgssd is stopped
-	rpc.mountd (pid 5216) is running...
-	nfsd (pid 5232 5231 5230 5229 5228 5227 5226 5225) is running...
-	$ service dhcpd status
-	dhcpd is stopped
+	rpcbind is running.
+	$ service apache2 status
+	Apache2 is running (pid 2023).
+	$ service nfs-kernel-server status
+	nfsd not running
+	$ service isc-dhcp-server status
+	Status of ISC DHCP server: dhcpd is not running.
 
 
 .. note::
@@ -442,16 +440,19 @@ Restart & check all is up & running
 
 ::
 
-	$ service tftpd-hpa status
-	in.tftpd is running.
+	$ service xinetd status
+	xinetd (pid  5307) is running...
 	$ service rpcbind status
-	rpcbind is running.
-	$ service apache2 status
-	Apache2 is running (pid 2023).
-	$ service nfs-kernel-server status
-	nfsd not running
-	$ service isc-dhcp-server status
-	Status of ISC DHCP server: dhcpd is not running.
+	rpcbind (pid  5097) is running...
+	$ service httpd status
+	httpd (pid  5413) is running...
+	$ service nfs status
+	rpc.svcgssd is stopped
+	rpc.mountd (pid 5216) is running...
+	nfsd (pid 5232 5231 5230 5229 5228 5227 5226 5225) is running...
+	$ service dhcpd status
+	dhcpd is stopped
+
 
 .. note::
 	DHCP & NFS not running because no config yet!!!
