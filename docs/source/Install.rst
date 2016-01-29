@@ -255,13 +255,11 @@ Get DRLM
     $ cd drlm
     $ make rpm
 
-
 **Download RPM package From DRLM Web**
 
 ::
 
     $ wget http://www.drlm.org/downloads/drlm-1.1.1-1git.el6.noarch.rpm
-
 
 Install DRLM package 
 ~~~~~~~~~~~~~~~~~~~~
@@ -272,7 +270,6 @@ Execute the next command:
 ::
 
 	$ rpm -ivh drlm-1.1.1-1git.el6.noarch.rpm
-
 
 DRLM Configuration 
 ~~~~~~~~~~~~~~~~~~
