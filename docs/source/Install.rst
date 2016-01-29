@@ -296,6 +296,11 @@ DRLM Configuration
 	STORDIR=/var/lib/drlm/store
 	ARCHDIR=/var/lib/drlm/arch
 	
+Add **drlm-stord** service to start up scripts.
+
+::
+
+	$ chkconfig drlm-stord on
 
 DRLM Components Configuration 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
