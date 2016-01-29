@@ -397,7 +397,7 @@ Same as /etc/exports, we don't have to configure  /etc/dhcp/dhcpd.conf file, the
 Service Management::
 
         $ chkconfig dhcpd on
-        $ service dhcpd 
+        $ service dhcpd start
 
 HTTP
 ~~~~
