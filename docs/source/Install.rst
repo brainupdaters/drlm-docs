@@ -250,7 +250,7 @@ Get DRLM
 
 ::
 
-	$ yum install rpm-build
+	$ yum install git rpm-build
 	$ git clone https://github.com/brainupdaters/drlm
 	$ cd drlm
 	$ make rpm
