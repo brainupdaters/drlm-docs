@@ -250,17 +250,17 @@ Get DRLM
 
 ::
 
-	$ yum install git rpm-build
-	$ git clone https://github.com/brainupdaters/drlm
-	$ cd drlm
-	$ make rpm
+    $ yum install git rpm-build
+    $ git clone https://github.com/brainupdaters/drlm
+    $ cd drlm
+    $ make rpm
 
 
 **Download RPM package From DRLM Web**
 
 ::
 
-	$ wget http://www.drlm.org/downloads/drlm-1.1.1-1git.el6.noarch.rpm
+    $ wget http://www.drlm.org/downloads/drlm-1.1.1-1git.el6.noarch.rpm
 
 
 Install DRLM package 
