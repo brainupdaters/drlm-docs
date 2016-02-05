@@ -359,10 +359,10 @@ We don't have to configure the /etc/exports file, the file is automatically main
 
 Service Management::
 
-        $ chkconfig nfs on
-        $ service nfs start
         $ chkconfig rpcbind on
         $ service rpcbind start
+        $ chkconfig nfs on
+        $ service nfs start
 
 DHCP
 ~~~~
