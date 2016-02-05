@@ -1,4 +1,4 @@
-ReaR Client Installation 
+DRLM Client Installation 
 ========================
 
 Debian 7
