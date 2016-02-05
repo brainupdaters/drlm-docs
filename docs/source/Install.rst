@@ -226,6 +226,9 @@ CentOS 6, Red Hat 6
   
   $ setenforce 0
 
+.. note::
+
+It is not a requirement to disable SELinux and IPTABLES, but to work with DRLM Server must be properly configured. We have disabled these features for easier installation.
 
 IPTABLES
 
