@@ -42,8 +42,5 @@ We are ready to backup!!! At this point we have the DRLM server and ReaR client 
 Restore Client Backup
 ~~~~~~~~~~~~~~~~~~~~~
 
-Reboot the Client and select boot from network. Automaticaly will boot from PXE.
+Follow the steps at `DRLM Client Recover <http://drlm-docs.readthedocs.org/en/latest/Restore.html>`_. 
 
-::
-  
-    $ rear recover SERVER=192.168.1.38 REST_OPTS=-k ID=ReaRCli1
