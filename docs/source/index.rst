@@ -46,6 +46,7 @@ User Documentation
 
    Install
    ClientConfig
+   Restore
 
 Development Documentation
 -------------------------
