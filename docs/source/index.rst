@@ -44,6 +44,7 @@ User Documentation
 .. toctree::
    :maxdepth: 2
 
+   QuickStart
    Install
    ClientConfig
    Restore
