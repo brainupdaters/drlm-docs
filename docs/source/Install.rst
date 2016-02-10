@@ -46,7 +46,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	$ dpkg -i drlm_1.00_all.deb
+	$ dpkg -i drlm_1.1.1_all.deb
 
 Directory structure::
 
