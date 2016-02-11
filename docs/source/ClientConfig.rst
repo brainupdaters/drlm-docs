@@ -25,6 +25,9 @@ As rear is written in bash you need bash as a bare minimum. Other requirements a
 
 Download and install ReaR 
 ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. note::
+	Minimum version required of ReaR: 1.17.0
 	
 **Download ReaR**
 
@@ -42,7 +45,6 @@ Execute the next command:
     $ dpkg -i rear_1.17.2_all.deb
 
 .. note::
-
 	For more information about ReaR visit:
 	http://relax-and-recover.org/documentation
 
@@ -159,6 +161,9 @@ As rear is written in bash you need bash as a bare minimum. Other requirements a
 Download and install ReaR 
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 	
+.. note::
+	Minimum version required of ReaR: 1.17.0
+	
 **Download ReaR**
 
 ::
@@ -175,7 +180,6 @@ Execute the next command:
     $ yum install rear-1.17.2-1.el7.x86_64.rpm
 
 .. note::
-
 	For more information about ReaR visit:
 	http://relax-and-recover.org/documentation
 
