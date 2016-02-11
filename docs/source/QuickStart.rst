@@ -1,39 +1,39 @@
 DRLM Quick Start Guide
 ======================
 
-DRLM Server Installation
+DRLM Installation
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Follow the steps at `DRLM Istallation <http://docs.drlm.org/en/latest/Install.html#drlm-installation>`_. (Select your appropriate SO)
+Follow the steps at `DRLM Installation <http://docs.drlm.org/en/latest/Install.html#drlm-installation>`_. (Select your OS)
 
 
-Add a Network to DRLM Server
+Add Network to DRLM Server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-First of all we will need to add the network where the ReaR clients are. To do this we have to use the command "drlm addnetwork" with the parameters -i "Network IP" network)", -g "Gateway IP", -s "Server IP on the network", -n "Network name" and -m "Network mask".
+First of all we must add the network where the ReaR clients are. To do this we have to use the command "drlm addnetwork" with the parameters -i "Network IP" network", -g "Gateway IP", -s "Server IP of the network", -n "Network Name" and -m "Netmask".
 
 ::
 
     $ drlm -vD addnetwork -i 192.168.1.0 -g 192.168.1.1 -s 192.168.1.38 -n BuLan -m 255.255.255.0
 
-Add a Client to DRLM Server
+Add Client to DRLM Server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Now we can add a ReaR client with the command "drlm addclient" and the parameters -n "Network name ID", -i "ReaR client IP", -M "ReRr client MAC address" and -c "ReaR client host name".
+Now we can add a ReaR client with the command "drlm addclient" and the parameters -n "Network Name", -i "ReaR client IP", -M "ReaR client MAC address" and -c "ReaR client hostname".
 
 ::
   
     $ drlm -vD addclient -n BuLan -i 192.168.1.45 -M 00:13:20:fe:48:16 -c minBUC
 
-ReaR Client Istallation
+ReaR Client Installation
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Follow the steps at `ReaR Client Istallation <http://docs.drlm.org/en/latest/ClientConfig.html#rear-client-installation>`_. (Select your appropriate SO)
+Follow the steps at `ReaR Client Installation <http://docs.drlm.org/en/latest/ClientConfig.html#rear-client-installation>`_. (Select your OS)
 
 Run Client Backup
 ~~~~~~~~~~~~~~~~~
 
-We are ready to backup!!! At this point we have the DRLM server and ReaR client configured, you just have to run the command "drlm runbackup" with the parameter -c "ReaR client host name"
+We are ready to take OS backups!!! At this point we have the DRLM server and ReaR client configured, you just have to run the command "drlm runbackup" with the parameter -c "ReaR client host name"
 
 ::
   
