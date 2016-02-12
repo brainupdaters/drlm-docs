@@ -24,7 +24,7 @@ The :program:`drlm runbackup` has several options:
    Examples::
    
    $ drlm runbackup -c clientHost1
-   $ drlm runbakcup --client clientHost1
+   $ drlm runbackup --client clientHost1
 
 .. option:: -I client_id, --id client_id
  
@@ -41,8 +41,8 @@ The :program:`drlm runbackup` has several options:
 
    Examples::
 
-   $drlm runbakcup -h
-   $drlm runbakcup --help
+   $drlm runbackup -h
+   $drlm runbackup --help
 
 Delete Backup
 -------------
@@ -133,7 +133,7 @@ Aditional options:
    Examples::
 
    $drlm bkmgr -c clientHost1 - I 20140519065512 -e -P
-               
+
 .. option:: -h, --help
 
    Show drlm bkmgr help.
