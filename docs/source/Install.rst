@@ -115,7 +115,7 @@ You have to update the destination folder in the /etc/default/tftpd-hpa cofigura
 
 	# /etc/default/tftpd-hpa
 	TFTP_USERNAME="tftp"
-	TFTP_DIRECTORY="/var/lib/drlm/store
+	TFTP_DIRECTORY="/var/lib/drlm/store"
 	TFTP_ADDRESS="0.0.0.0:69"
 	TFTP_OPTIONS="--secure"
 
