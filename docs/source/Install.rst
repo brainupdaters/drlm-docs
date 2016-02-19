@@ -260,7 +260,7 @@ Get DRLM
 
 ::
 
-    $ wget http://www.drlm.org/downloads/drlm-1.1.1-1git.el6.noarch.rpm
+    $ wget http://www.drlm.org/downloads/drlm-1.1.3-1git.el6.noarch.rpm
 
 Install DRLM package 
 ~~~~~~~~~~~~~~~~~~~~
@@ -270,7 +270,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	$ rpm -ivh drlm-1.1.1-1git.el6.noarch.rpm
+	$ rpm -ivh drlm-1.1.3-1git.el6.noarch.rpm
 
 
 Directory structure::
