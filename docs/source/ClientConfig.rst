@@ -168,7 +168,9 @@ Download and install ReaR
 
 ::
 
-    $ wget https://kojipkgs.fedoraproject.org//packages/rear/1.17.2/1.el7/x86_64/rear-1.17.2-1.el7.x86_64.rpm
+   $ DISTRO="CentOS_CentOS-6" or DISTRO="RedHat_RHEL-6"
+   
+   $ wget http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/$DISTRO/$(uname -m)/rear-1.17.2-1.el6.$(uname -m).rpm
 
 **Install ReaR package**
 
@@ -177,7 +179,7 @@ Download and install ReaR
 Execute the next command:
 ::
 
-    $ yum install rear-1.17.2-1.el7.x86_64.rpm
+    $ yum install rear-1.17.2-1.el6.x86_64.rpm
 
 .. note::
 	For more information about ReaR visit:
