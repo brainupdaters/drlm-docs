@@ -71,7 +71,7 @@ Copy rsa key from DRLM Server to the new client
 ::
 
    $ ssh-keygen -t rsa
-   $ ssh-copy-id drlm@”client_ipaddr”
+   $ ssh-copy-id drlm@"client_ipaddr"
 
 Disable password login
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -207,7 +207,7 @@ Copy rsa key from DRLM Server to the new client
 ::
 
    $ ssh-keygen -t rsa
-   $ ssh-copy-id drlm@”client_ipaddr”
+   $ ssh-copy-id drlm@"client_ipaddr"
 
 Disable password login
 ~~~~~~~~~~~~~~~~~~~~~~
