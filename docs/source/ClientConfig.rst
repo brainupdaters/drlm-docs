@@ -34,6 +34,8 @@ Download and install ReaR
 ::
 
     $ wget http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_7.0/all/rear_1.17.2_all.deb
+    
+You can download other ReaR versions from `ReaR Download Page <http://relax-and-recover.org/download/>`_ or from `OpenSuse Build Service <https://build.opensuse.org/project/show/Archiving:Backup:Rear>`_ .
 
 **Install ReaR package**
 
@@ -171,6 +173,8 @@ Download and install ReaR
    $ DISTRO="CentOS_CentOS-6" or DISTRO="RedHat_RHEL-6"
    
    $ wget http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/$DISTRO/$(uname -m)/rear-1.17.2-1.el6.$(uname -m).rpm
+
+You can download other ReaR versions from `ReaR Download Page <http://relax-and-recover.org/download/>`_ or from `OpenSuse Build Service <https://build.opensuse.org/project/show/Archiving:Backup:Rear>`_ .
 
 **Install ReaR package**
 
