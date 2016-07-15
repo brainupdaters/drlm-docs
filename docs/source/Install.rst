@@ -126,8 +126,8 @@ Edit /etc/apache2/ports.conf file
 	#Listen 80
 
 
-Restart & check all is up & running
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Restart & check services
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -269,8 +269,8 @@ Edit /etc/apache2/ports.conf file
 	#Listen 80
 
 
-Restart  & check services
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Restart & check services
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -487,8 +487,8 @@ Service Management::
 
 
 
-Restart & check all is up & running
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Restart & check services
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -699,8 +699,8 @@ To finish we have to comment the ErrorLog and CustomLog lines in /usr/share/drlm
 
 
 
-Restart & check all is up & running
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Restart & check services
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
   $ service xinetd restart
