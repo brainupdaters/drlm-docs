@@ -177,7 +177,7 @@ You can obtain the DRLM package building it from the source code or downloading 
 
 ::
 
-	$ wget http://www.drlm.org/downloads/drlm_2.0.0_all.deb
+	$ wget http://www.drlm.org/downloads/xxxxxxxxxxxxx.deb
 
 
 Install DRLM package
@@ -290,13 +290,13 @@ Restart & check services
  	 DHCP and NFS servers are not running because there is no config yet! no worries they will be reloaded automatically after first DRLM client will be added.
 
 
-CentOS 7
---------
+CentOS 7, Red Hat 7
+-------------------
 
 .. note::
    On the following steps, is assumed you have a minimal installation of CentOS 7.
 
-.. warning:: iptables and selinux has been disabled
+.. warning:: selinux has been disabled
 
 ::
 
@@ -319,21 +319,15 @@ CentOS 7
 
 .. note::
 
-   It is not a requirement to disable SELinux and IPTABLES, but to work with DRLM Server must be properly configured. We have disabled these features for easier installation.
+   It is not a requirement to disable SELinux, but to work with DRLM Server must be properly configured. We have disabled this feature for easier installation.
 
-IPTABLES
-
-::
-
-  $ chkconfig iptables off
-  $ service iptables stop
 
 Install requirements
 ~~~~~~~~~~~~~~~~~~~~
 
 ::
 
-	 $  yum -y install openssh-clients openssl nc wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server syslinux httpd xinetd nfs-utils nfs4-acl-tools mod_ssl
+	 $  yum -y install openssh-clients openssl nc wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server syslinux httpd xinetd nfs-utils nfs4-acl-tools mod_ssl qemu-img
 
 Get DRLM
 ~~~~~~~~
@@ -351,7 +345,7 @@ Get DRLM
 
 ::
 
-    $ wget http://www.drlm.org/downloads/drlm-1.1.3-1git.el6.noarch.rpm
+    $ wget http://www.drlm.org/downloads/drlm-2.0.0-1git.el7.centos.noarch.rpm
 
 Install DRLM package
 ~~~~~~~~~~~~~~~~~~~~
@@ -361,7 +355,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	$ rpm -ivh drlm-1.1.3-1git.el6.noarch.rpm
+	$ rpm -ivh drlm-2.0.0-1git.el7.centos.noarch.rpm
 
 
 DRLM Components Configuration
@@ -378,15 +372,17 @@ This section covers configuration of:
 Configuring loop limits
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-The default configuration allows up to eight active loop devices. If more than eight clients are needed, the number of loop devices configured can be adjusted adding the parameter *max_loop=1024* in the **/etc/grub.conf** file as follows:
+The default configuration allows up to eight active loop devices. If more than eight file-based guests or loop devices are needed the number of loop devices configured can be adjusted adding the parameter *max_loop=1024* in the **/etc/default/grub** file as follows::
+
+	...
+
+	GRUB_CMDLINE_LINUX="......... max_loop=1024" ##UPDATE THIS LINE ADDING MAX_LOOP=1024 PARAMETER
+
+	...
 
 ::
 
-  title Red Hat Enterprise Linux (2.6.32-358.el6.x86_64)
-  root (hd0,0)
-  kernel /vmlinuz-2.6.32-358.el6.x86_64 ro root=/dev/mapper/vgroot-lvroot rd_NO_LUKS LANG=en_US.UTF-8  KEYBOARDTYPE=pc KEYTABLE=es rd_NO_MD rd_LVM_LV=vgroot/lvswap SYSFONT=latarcyrheb-sun16 crashkernel=auto rd_LVM_LV=vgroot/lvroot rd_NO_DM rhgb quiet max_loop=1024
-  initrd /initramfs-2.6.32-358.el6.x86_64.img
-
+	$ grub2-mkconfig -o /boot/grub2/grub.cfg
 
 TFTP
 ~~~~
@@ -480,26 +476,20 @@ To finish we have to comment the ErrorLog and CustomLog lines in /usr/share/drlm
 
    #       CustomLog ${APACHE_LOG_DIR}/ssl_access.log combined
 
-Service Management::
-
-        $ chkconfig httpd on
-        $ service httpd start
-
-
 
 Restart & check services
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
-	$ systemctl enable xinetd.service
+  $ systemctl enable xinetd.service
   $ systemctl restart xinetd.service
 
-	$ systemctl enable rpcbind.service
+  $ systemctl enable rpcbind.service
   $ systemctl restart rpcbind.service
 
-  $systemctl enable httpd.service
-  $systemctl restart httpd.service
+  $ systemctl enable httpd.service
+  $ systemctl restart httpd.service
 
 
 .. note::
@@ -550,7 +540,7 @@ Install requirements
 
 ::
 
-	 $  yum -y install openssh-clients openssl nc wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server syslinux httpd xinetd nfs-utils nfs4-acl-tools mod_ssl
+	 $  yum -y install openssh-clients openssl nc wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server syslinux httpd xinetd nfs-utils nfs4-acl-tools mod_ssl qemu-img
 
 Get DRLM
 ~~~~~~~~
@@ -568,7 +558,7 @@ Get DRLM
 
 ::
 
-    $ wget http://www.drlm.org/downloads/drlm-1.1.3-1git.el6.noarch.rpm
+    $ wget http://www.drlm.org/downloads/xxxxxxxxxxxxxx.rpm
 
 Install DRLM package
 ~~~~~~~~~~~~~~~~~~~~
@@ -703,15 +693,16 @@ Restart & check services
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
+
   $ service xinetd restart
-	$ service xinetd status
-	xinetd (pid  5307) is running...
+  $ service xinetd status
+  xinetd (pid  5307) is running...
   $ service rpcbind restart
-	$ service rpcbind status
-	rpcbind (pid  5097) is running...
+  $ service rpcbind status
+  rpcbind (pid  5097) is running...
   $ service httpd restart
-	$ service httpd status
-	httpd (pid  5413) is running...
+  $ service httpd status
+  httpd (pid  5413) is running...
 
 
 .. note::
