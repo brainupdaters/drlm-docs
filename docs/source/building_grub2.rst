@@ -58,6 +58,7 @@ Prepare your build environment:
 ::
   $ ./autogen.sh
 
+
 Proceed with configuration and build for each platform needed:
 
 **For i386-pc:**
