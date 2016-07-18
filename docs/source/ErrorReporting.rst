@@ -29,6 +29,26 @@ Enable reporting errors in DRLM
 Configure Nagios reporting
 ---------------------------
 
+In order to configure Nagios Error reporting on DRLM, the Nagios NSCA Client must be installed.  
+
+**Debian 7/8**
+
+::
+
+  $ apt-get install nsca-client
+
+**RHEL/Centos 6/7**
+
+::
+
+  $ yum install nsca-client
+
+.. note::
+  May be needed to add EPEL repositories if not present, because those packages are not included in distribution repositories.
+
+
+The following options are DRLM defaults, change any of them to your installation requirements in /etc/drlm/local.conf.
+
 ::
 
   $ vi /etc/drlm/local.conf
@@ -47,6 +67,8 @@ Configure Nagios reporting
 
 **nagios_sample.cfg**
 
+Copy the sample DRLM configuration for Nagios to previously defined $NAGCONF and adjust it to your environment needs.
+
 ::
 
   #### DRLM (Disaster Recovery Linux Manager) Nagios error reporting sample configuration file.
@@ -60,7 +82,7 @@ Configure Nagios reporting
 
   ### server = <string>
   #   Connect and talk to the specified server address or hostname.
-  #   The  default server is “localhost”.
+  #   The  default server is "localhost".
 
   #server = "monitoring_server"
 
@@ -72,6 +94,29 @@ Configure Nagios reporting
 
 Configure Zabbix reporting
 ---------------------------
+
+In order to configure Zabbix Error reporting on DRLM, the Zabbix Agent must be installed.
+
+**Debian 7/8**
+
+::
+
+  $ apt-get install zabbix-agent
+
+.. note::
+  On debian 7 (wheezy) the backports repository  must be configured in order to install zabbix-agent.
+
+**RHEL/Centos 6/7**
+
+::
+
+  $ yum install zabbix-agent
+
+.. note::
+  May be needed to add EPEL repositories if not present, because those packages are not included in distribution repositories.
+
+
+The following options are DRLM defaults, change any of them to your installation requirements in /etc/drlm/local.conf.
 
 ::
 
@@ -89,6 +134,8 @@ Configure Zabbix reporting
   ZABBCONF="/etc/drlm/alerts/zabbix.cfg"
 
 **zabbix_sample.cfg**
+
+Copy the sample DRLM configuration for Zabbix to previously defined $ZABBCONF and adjust it to your environment needs.
 
 ::
 
@@ -110,6 +157,24 @@ Configure Zabbix reporting
 Configure Mail reporting
 ---------------------------
 
+In order to configure Zabbix Error reporting on DRLM, the Zabbix Agent must be installed.
+
+**Debian 7/8**
+
+::
+
+  $ apt-get install heirloom-mailx
+
+
+**RHEL/Centos 6/7**
+
+::
+
+  $ yum install mailx
+
+
+The following options are DRLM defaults, change any of them to your installation requirements in /etc/drlm/local.conf.
+
 ::
 
   $ vi /etc/drlm/local.conf
@@ -129,6 +194,8 @@ Configure Mail reporting
   MAIL_BCC=""
 
 **mail_sample.cfg**
+
+Copy the sample DRLM configuration for Mailx to previously defined $MAILCONF and adjust it to your environment needs.
 
 ::
 
