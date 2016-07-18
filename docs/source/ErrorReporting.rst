@@ -9,7 +9,7 @@ Enable reporting errors in DRLM
 
 ::
 
-  $ vi /etc/rear/local.conf
+  $ vi /etc/drlm/local.conf
 
   ########
   #
