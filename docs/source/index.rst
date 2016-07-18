@@ -22,7 +22,7 @@ Contributing
 
 Please, we encourage you to help us to improve this documentation.
 
-To contribute to documentation the Github interface enables users to report errata or missing sections, discuss improvements and new sections through the issue-tracker at: `DRLM Docs GitHub Issue Tracker <https://github.com/brainupdaters/drlm-docs/issues>`_. 
+To contribute to documentation the Github interface enables users to report errata or missing sections, discuss improvements and new sections through the issue-tracker at: `DRLM Docs GitHub Issue Tracker <https://github.com/brainupdaters/drlm-docs/issues>`_.
 
 
 .. note:: This documentation is under constant development. Please be patient...
@@ -37,7 +37,7 @@ Contents:
    :maxdepth: 2
 
    About
-   
+
 User Documentation
 ------------------
 
@@ -48,13 +48,19 @@ User Documentation
    Install
    ClientConfig
    Restore
+   ErrorReporting
 
 Development Documentation
 -------------------------
 
-.. todo:: This section will be documented as soon as possible, please be patient. 
+.. toctree::
+   :maxdepth: 2
+
+   building_grub2
+
+.. note:: This section should change continously due to changes in DRLM development, please be patient.
    Any question regarding DRLM development, please use `DRLM Dev Forum <https://groups.google.com/forum/#!forum/drlm-dev>`_. Thanks!
-   
+
 Command Reference
 -----------------
 
@@ -69,4 +75,3 @@ Indexes and tables
 ==================
 
 * :ref:`genindex`
-
