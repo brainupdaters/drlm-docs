@@ -48,11 +48,12 @@ Start build process
 ::
   $ vi grub-core/normal/main.c
 
-.. replace:
-msg_formatted = grub_xasprintf (_("GNU GRUB  version %s"), PACKAGE_VERSION);
+.. note::
+  .. replace:
+  msg_formatted = grub_xasprintf (_("GNU GRUB  version %s"), PACKAGE_VERSION);
 
-.. with:
-msg_formatted = grub_xasprintf (_("DRLM Boot Manager (GNU GRUB2)"), PACKAGE_VERSION);
+  .. with:
+  msg_formatted = grub_xasprintf (_("DRLM Boot Manager (GNU GRUB2)"), PACKAGE_VERSION);
 
 ::
   $ ./autogen.sh
