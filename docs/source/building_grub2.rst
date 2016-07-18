@@ -19,13 +19,17 @@ Prepare your build host
   should work without problems.
 
 **Install required packages**
+
 ::
+
   $ apt-get install bison libopts25 libselinux1-dev autogen \
   m4 autoconf help2man libopts25-dev flex libfont-freetype-perl \
   automake autotools-dev libfreetype6-dev texinfo
 
 **Download GRUB2 sources**
+
 ::
+
   $ cd /tmp
 
   $ wget http://alpha.gnu.org/gnu/grub/grub-2.02~beta3.tar.gz
@@ -44,7 +48,9 @@ Start build process
   platforms to the project.
 
 **Provide DRLM branded GRUB2 build**
+
 ::
+
   $ vi grub-core/normal/main.c
 
   .. replace:
@@ -53,15 +59,20 @@ Start build process
   .. with:
   msg_formatted = grub_xasprintf (_("DRLM Boot Manager (GNU GRUB2)"), PACKAGE_VERSION);
 
-Prepare your build environment:
+
+**Prepare your build environment:**
 
 ::
-    $ ./autogen.sh
 
-Proceed with configuration and build for each platform needed:
+  $ ./autogen.sh
+
+
+On next steps we will proceed with configuration and build for each platform needed.
 
 **For i386-pc:**
+
 ::
+
   $ ./configure --disable-werror
   $ make && make install
 
@@ -70,7 +81,9 @@ Proceed with configuration and build for each platform needed:
 
 
 **For 32-bit EFI:**
+
 ::
+
   $ ./configure --with-platform=efi --target=i386 --disable-werror
   $ make && make install
 
@@ -79,7 +92,9 @@ Proceed with configuration and build for each platform needed:
 
 
 **For 64-bit (U)EFI:**
+
 ::
+
   $ ./configure --with-platform=efi --target=x86_64 --disable-werror
   $ make && make install
 
@@ -87,7 +102,9 @@ Proceed with configuration and build for each platform needed:
   Netboot directory for x86_64-efi created. Configure your DHCP server to point to /tmp/boot/grub/x86_64-efi/core.efi
 
 **Create a tarball with tergeted platform netboot image**
+
 ::
+
   $ tar -cvzf drlm_grub2_<target>-<platform>.tar.gz
 
 .. note::
