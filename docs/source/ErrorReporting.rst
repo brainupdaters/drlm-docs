@@ -161,8 +161,6 @@ Configure Mail reporting
   #set smtp-auth-password=pAsSwOrD
   #set nss-config-dir=/etc/ssl/certs
 
-  ==================
-  ##################
 
 
 Configure HP Openview reporting
