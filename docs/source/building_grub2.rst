@@ -44,11 +44,9 @@ Start build process
   platforms to the project.
 
 **Provide DRLM branded GRUB2 build**
-
 ::
   $ vi grub-core/normal/main.c
 
-.. note::
   .. replace:
   msg_formatted = grub_xasprintf (_("GNU GRUB  version %s"), PACKAGE_VERSION);
 
@@ -59,7 +57,6 @@ Start build process
   $ ./autogen.sh
 
 **For i386-pc:**
-
 ::
   $ ./configure --disable-werror
   $ make && make install
@@ -69,7 +66,6 @@ Start build process
 
 
 **For 32-bit EFI:**
-
 ::
   $ ./configure --with-platform=efi --target=i386 --disable-werror
   $ make && make install
@@ -79,7 +75,6 @@ Start build process
 
 
 **For 64-bit (U)EFI:**
-
 ::
   $ ./configure --with-platform=efi --target=x86_64 --disable-werror
   $ make && make install
@@ -88,7 +83,6 @@ Start build process
   Netboot directory for x86_64-efi created. Configure your DHCP server to point to /tmp/boot/grub/x86_64-efi/core.efi
 
 **Create a tarball with tergeted platform netboot image**
-
 ::
   $ tar -cvzf drlm_grub2_<target>-<platform>.tar.gz
 
