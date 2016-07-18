@@ -8,27 +8,29 @@ Enable reporting errors in DRLM
 -------------------------------
 
 ::
-    $ vi /etc/rear/local.conf
 
-    ########
-    #
-    # Defines HowTo report Errors using some known and wide used methods
-    #
-    #    ERR_REPORT=[yes|no]
-    #	default: no
-    #    REPORT_TYPE=[ovo|nagios|zabbix|mail|...]
-    #	default: empty
-    #
-    ########
+  $ vi /etc/rear/local.conf
 
-    ERR_REPORT=yes
-    REPORT_TYPE=<type>
+  ########
+  #
+  # Defines HowTo report Errors using some known and wide used methods
+  #
+  #    ERR_REPORT=[yes|no]
+  #	default: no
+  #    REPORT_TYPE=[ovo|nagios|zabbix|mail|...]
+  #	default: empty
+  #
+  ########
+  
+  ERR_REPORT=yes
+  REPORT_TYPE=<type>
 
 
 Configure Nagios reporting
 ---------------------------
 
 ::
+
     $ vi /etc/drlm/local.conf
 
     #
