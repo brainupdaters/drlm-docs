@@ -6,6 +6,7 @@ Error Reporting Configuration
 
 Enable reporting errors in DRLM
 -------------------------------
+
 ::
     $ vi /etc/rear/local.conf
 
@@ -26,6 +27,7 @@ Enable reporting errors in DRLM
 
 Configure Nagios reporting
 ---------------------------
+
 ::
     $ vi /etc/drlm/local.conf
 
@@ -67,6 +69,7 @@ Configure Nagios reporting
 
 Configure Zabbix reporting
 ---------------------------
+
 ::
     $ vi /etc/drlm/local.conf
 
