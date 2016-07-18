@@ -53,8 +53,12 @@ Start build process
   .. with:
   msg_formatted = grub_xasprintf (_("DRLM Boot Manager (GNU GRUB2)"), PACKAGE_VERSION);
 
+Prepare your build environment:
+
 ::
   $ ./autogen.sh
+
+Proceed with configuration and build for each platform needed:
 
 **For i386-pc:**
 ::
