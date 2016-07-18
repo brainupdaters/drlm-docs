@@ -105,7 +105,9 @@ On next steps we will proceed with configuration and build for each platform nee
 
 ::
 
-  $ tar -cvzf drlm_grub2_<target>-<platform>.tar.gz
+  $ cd /tmp
+ 
+  $ tar -cvzf drlm_grub2_<target>-<platform>.tar.gz boot/
 
 .. note::
   This gzipped tarball can be extracted to DRLM $STORDIR on your DRLM server, for
