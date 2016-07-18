@@ -157,7 +157,7 @@ Copy the sample DRLM configuration for Zabbix to previously defined $ZABBCONF an
 Configure Mail reporting
 ---------------------------
 
-In order to configure Zabbix Error reporting on DRLM, the Zabbix Agent must be installed.
+In order to configure Zabbix Error reporting on DRLM, the Heirloom Mailx must be installed.
 
 **Debian 7/8**
 
