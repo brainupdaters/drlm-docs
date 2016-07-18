@@ -21,7 +21,7 @@ Enable reporting errors in DRLM
   #	default: empty
   #
   ########
-  
+
   ERR_REPORT=yes
   REPORT_TYPE=<type>
 
@@ -48,6 +48,7 @@ Configure Nagios reporting
 **nagios_sample.cfg**
 
 ::
+
   #### DRLM (Disaster Recovery Linux Manager) Nagios error reporting sample configuration file.
   #### Default: /etc/drlm/alerts/nagios.cfg
 
@@ -73,6 +74,7 @@ Configure Zabbix reporting
 ---------------------------
 
 ::
+
   $ vi /etc/drlm/local.conf
 
   #
@@ -89,6 +91,7 @@ Configure Zabbix reporting
 **zabbix_sample.cfg**
 
 ::
+
   #### DRLM (Disaster Recovery Linux Manager) Zabbix error reporting sample configuration file.
   #### Default: /etc/drlm/alerts/zabbix.cfg
 
@@ -108,6 +111,7 @@ Configure Mail reporting
 ---------------------------
 
 ::
+
   $ vi /etc/drlm/local.conf
 
   #
@@ -127,6 +131,7 @@ Configure Mail reporting
 **mail_sample.cfg**
 
 ::
+
   #### DRLM (Disaster Recovery Linux Manager) Mail error reporting sample configuration file.
   #### Default: /etc/drlm/alerts/mail.cfg
 
@@ -164,6 +169,7 @@ Configure HP Openview reporting
 -------------------------------
 
 ::
+
   $ vi /etc/drlm/local.conf:
 
   #
