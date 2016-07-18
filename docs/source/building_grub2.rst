@@ -56,8 +56,7 @@ Start build process
 Prepare your build environment:
 
 ::
-  $ ./autogen.sh
-
+    $ ./autogen.sh
 
 Proceed with configuration and build for each platform needed:
 
