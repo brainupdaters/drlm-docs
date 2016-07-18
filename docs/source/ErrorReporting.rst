@@ -1,6 +1,9 @@
 Error Reporting Configuration
 =============================
 
+.. note::
+  All reporting configuration samples are located in: /usr/share/drlm/conf/samples
+
 Enable reporting errors in DRLM
 -------------------------------
 ::
@@ -20,10 +23,6 @@ Enable reporting errors in DRLM
     ERR_REPORT=yes
     REPORT_TYPE=<type>
 
-SAMPLE CONFIGS Location:
-------------------------
-
-Location for all reporting sample config files is: /usr/share/drlm/conf/samples
 
 Configure Nagios reporting
 ---------------------------
