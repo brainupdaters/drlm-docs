@@ -101,7 +101,8 @@ Copy the sample DRLM configuration for Nagios to previously defined $NAGCONF and
   The configuration on the server side is not in the scope of this documentation. Please check your Nagios service documentation
   to configure properly the NSCA service and how to report DRLM alerts.
 
-  For reference you can check: https://assets.nagios.com/downloads/nagiosxi/docs/Using-and-Configuring-NSCA-With-Nagios-XI.pdf
+  For reference you can check: 
+                               https://assets.nagios.com/downloads/nagiosxi/docs/Using-and-Configuring-NSCA-With-Nagios-XI.pdf
 
 Configure Zabbix reporting
 ---------------------------
