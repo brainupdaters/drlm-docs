@@ -30,7 +30,7 @@ Prepare your build host
 
 ::
 
-  $ cd /tmp
+  $ cd /usr/src
 
   $ wget http://alpha.gnu.org/gnu/grub/grub-2.02~beta3.tar.gz
 
