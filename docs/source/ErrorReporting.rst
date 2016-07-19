@@ -1,6 +1,11 @@
 Error Reporting Configuration
 =============================
 
+DRLM can be configured to report errors on scheduled backups if required.
+Is possible to report by mail or integrating with your monitoring service. 
+At this time (DRLM 2.0) we support error reporting by mail and integration 
+with Nagios, Zabbix and HPOM(OVO) monitoring services.
+
 .. note::
   All reporting configuration samples are located in: /usr/share/drlm/conf/samples
 
@@ -43,7 +48,7 @@ In order to configure Nagios Error reporting on DRLM, the Nagios NSCA Client mus
 
   $ yum install nsca-client
 
-.. note::
+.. warning::
   May be needed to add EPEL repositories if not present, because those packages are not included in distribution repositories.
 
 
@@ -92,7 +97,7 @@ Copy the sample DRLM configuration for Nagios to previously defined $NAGCONF and
 
   #port = 5667
 
-.. warning::
+.. note::
   The configuration on the server side is not in the scope of this documentation. Please check your Nagios service documentation
   to configure properly the NSCA service and how to report DRLM alerts.
 
@@ -109,7 +114,7 @@ In order to configure Zabbix Error reporting on DRLM, the Zabbix Agent must be i
 
   $ apt-get install zabbix-agent
 
-.. note::
+.. warning::
   On debian 7 (wheezy) the backports repository  must be configured in order to install zabbix-agent.
 
 **RHEL/Centos 6/7**
@@ -118,7 +123,7 @@ In order to configure Zabbix Error reporting on DRLM, the Zabbix Agent must be i
 
   $ yum install zabbix-agent
 
-.. note::
+.. warning::
   May be needed to add EPEL repositories if not present, because those packages are not included in distribution repositories.
 
 
@@ -160,7 +165,7 @@ Copy the sample DRLM configuration for Zabbix to previously defined $ZABBCONF an
 
   #Hostname=drlm_server_hostname
 
-.. warning::
+.. note::
   The configuration on the server side is not in the scope of this documentation. Please check your Zabbix service documentation
   to configure properly the Trapper item and how to report DRLM alerts.
 
@@ -242,7 +247,7 @@ Copy the sample DRLM configuration for Mailx to previously defined $MAILCONF and
   #set smtp-auth-password=pAsSwOrD
   #set nss-config-dir=/etc/ssl/certs
 
-.. warning::
+.. note::
   The configuration on the Mail server is not in the scope of this documentation. Please check your Mail service configuration
   to configure properly mailx to report DRLM alerts.
 
@@ -272,7 +277,7 @@ The following options are DRLM defaults, change any of them acording to your ins
   OVOOBJ="OS"
   OVOMSGGRP="LINUX"
 
-.. warning::
+.. note::
   The configuration on the server side is not in the scope of this documentation. Please check HPOM (OVO) documentation
   to configure properly the server side and define how to report DRLM alerts.
 
