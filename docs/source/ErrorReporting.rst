@@ -9,8 +9,8 @@ with Nagios, Zabbix and HPOM(OVO) monitoring services.
 .. note::
   All reporting configuration samples are located in: /usr/share/drlm/conf/samples
 
-Enable reporting errors in DRLM
--------------------------------
+Enable DRLM reporting
+---------------------
 
 ::
 
