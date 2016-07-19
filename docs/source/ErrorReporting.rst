@@ -102,7 +102,10 @@ Copy the sample DRLM configuration for Nagios to previously defined $NAGCONF and
   to configure properly the NSCA service and how to report DRLM alerts.
 
   For reference you can check: 
-                               https://assets.nagios.com/downloads/nagiosxi/docs/Using-and-Configuring-NSCA-With-Nagios-XI.pdf
+      * https://assets.nagios.com/downloads/nagioscore/docs/Installing_NSCA.pdf
+      * http://nagios.sourceforge.net/download/contrib/documentation/misc/NSCA_Setup.pdf
+      * https://assets.nagios.com/downloads/nagiosxi/docs/Using-and-Configuring-NSCA-With-Nagios-XI.pdf
+
 
 Configure Zabbix reporting
 ---------------------------
@@ -171,8 +174,8 @@ Copy the sample DRLM configuration for Zabbix to previously defined $ZABBCONF an
   to configure properly the Trapper item and how to report DRLM alerts.
 
   For reference you can check: 
-                               https://www.zabbix.com/documentation/3.2/manual/config/items/itemtypes/trapper
-                               https://www.zabbix.com/documentation/3.2/manpages/zabbix_sender
+      * https://www.zabbix.com/documentation/3.2/manual/config/items/itemtypes/trapper
+      * https://www.zabbix.com/documentation/3.2/manpages/zabbix_sender
 
 
 Configure Mail reporting
