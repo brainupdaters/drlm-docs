@@ -260,8 +260,9 @@ Copy the sample DRLM configuration for Mailx to previously defined $MAILCONF and
 Configure HPOM (former OVO) reporting
 -------------------------------------
 
-In order to configure HPOM(OVO) Error reporting on DRLM, the hpom agent must be installed. This may vary depending on your version, 
-please check your product documentation in order to install it properly. DRLM uses **opcmsg** binary to report errors to HPOM server.
+In order to configure HPOM(OVO) Error reporting on DRLM, the HPOM(OVO) agent must be installed. This may vary depending on your version, 
+please check your product documentation in order to install it properly.
+DRLM uses **opcmsg** binary to report errors to HPOM server.
 
 The following options are DRLM defaults, change any of them acording to your installation requirements in /etc/drlm/local.conf.
 
