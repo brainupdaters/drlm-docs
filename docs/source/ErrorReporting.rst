@@ -169,7 +169,8 @@ Copy the sample DRLM configuration for Zabbix to previously defined $ZABBCONF an
   The configuration on the server side is not in the scope of this documentation. Please check your Zabbix service documentation
   to configure properly the Trapper item and how to report DRLM alerts.
 
-  For reference you can check: https://www.zabbix.com/documentation/3.2/manual/config/items/itemtypes/trapper
+  For reference you can check: 
+                               https://www.zabbix.com/documentation/3.2/manual/config/items/itemtypes/trapper
                                https://www.zabbix.com/documentation/3.2/manpages/zabbix_sender
 
 
