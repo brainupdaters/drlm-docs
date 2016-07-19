@@ -92,6 +92,12 @@ Copy the sample DRLM configuration for Nagios to previously defined $NAGCONF and
 
   #port = 5667
 
+.. warning::
+  The configuration on the server side is not in the scope of this documentation. Please check your Nagios service documentation
+  to configure properly the NSCA service and how to report DRLM alerts.
+
+  For reference you can check: https://assets.nagios.com/downloads/nagiosxi/docs/Using-and-Configuring-NSCA-With-Nagios-XI.pdf
+
 Configure Zabbix reporting
 ---------------------------
 
@@ -153,6 +159,14 @@ Copy the sample DRLM configuration for Zabbix to previously defined $ZABBCONF an
   #	Required for active checks and must match hostname as configured on the server.
 
   #Hostname=drlm_server_hostname
+
+.. warning::
+  The configuration on the server side is not in the scope of this documentation. Please check your Zabbix service documentation
+  to configure properly the Trapper item and how to report DRLM alerts.
+
+  For reference you can check: https://www.zabbix.com/documentation/3.2/manual/config/items/itemtypes/trapper
+                               https://www.zabbix.com/documentation/3.2/manpages/zabbix_sender
+
 
 Configure Mail reporting
 ---------------------------
@@ -228,10 +242,18 @@ Copy the sample DRLM configuration for Mailx to previously defined $MAILCONF and
   #set smtp-auth-password=pAsSwOrD
   #set nss-config-dir=/etc/ssl/certs
 
+.. warning::
+  The configuration on the Mail server is not in the scope of this documentation. Please check your Mail service configuration
+  to configure properly mailx to report DRLM alerts.
 
 
-Configure HP Openview reporting
--------------------------------
+Configure HPOM (former OVO) reporting
+-------------------------------------
+
+In order to configure HPOM(OVO) Error reporting on DRLM, the hpom agent must be installed. This may vary depending on your version, 
+please check your product documentation in order to install it properly. DRLM uses **opcmsg** binary to report errors to HPOM server.
+
+The following options are DRLM defaults, change any of them acording to your installation requirements in /etc/drlm/local.conf.
 
 ::
 
@@ -249,3 +271,8 @@ Configure HP Openview reporting
   OVOSEV="Major"
   OVOOBJ="OS"
   OVOMSGGRP="LINUX"
+
+.. warning::
+  The configuration on the server side is not in the scope of this documentation. Please check HPOM (OVO) documentation
+  to configure properly the server side and define how to report DRLM alerts.
+
