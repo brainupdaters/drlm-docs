@@ -14,7 +14,7 @@ Install requirements
 
 ::
 
-	$ apt-get install openssh-client openssl netcat-traditional wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind isc-dhcp-server tftpd-hpa syslinux apache2 qemu-utils
+	$ apt-get install openssh-client openssl netcat-traditional wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind isc-dhcp-server tftpd-hpa syslinux apache2 qemu-utils sqlite3
 
 Get DRLM
 ~~~~~~~~
@@ -156,7 +156,7 @@ Install requirements
 
 ::
 
-	$ apt-get install openssh-client openssl netcat-traditional wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind isc-dhcp-server tftpd-hpa syslinux apache2 qemu-utils
+	$ apt-get install openssh-client openssl netcat-traditional wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind isc-dhcp-server tftpd-hpa syslinux apache2 qemu-utils sqlite3
 
 Get DRLM
 ~~~~~~~~
@@ -327,7 +327,7 @@ Install requirements
 
 ::
 
-	 $  yum -y install openssh-clients openssl nc wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server syslinux httpd xinetd nfs-utils nfs4-acl-tools mod_ssl qemu-img
+	 $  yum -y install openssh-clients openssl nc wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server syslinux httpd xinetd nfs-utils nfs4-acl-tools mod_ssl qemu-img sqlite
 
 Get DRLM
 ~~~~~~~~
@@ -540,7 +540,7 @@ Install requirements
 
 ::
 
-	 $  yum -y install openssh-clients openssl nc wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server syslinux httpd xinetd nfs-utils nfs4-acl-tools mod_ssl qemu-img
+	 $  yum -y install openssh-clients openssl nc wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server syslinux httpd xinetd nfs-utils nfs4-acl-tools mod_ssl qemu-img sqlite
 
 Get DRLM
 ~~~~~~~~
