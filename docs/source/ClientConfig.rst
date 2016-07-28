@@ -41,12 +41,12 @@ In order to install ReaR from DRLM server the client must have:
          like rpcbind and configure aplications ReaR,DHCP,sudo.
 
 
-Run unattended installation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Run unattended install
+~~~~~~~~~~~~~~~~~~~~~~
 
-To perform an unattended install of a DRLM client just need to run **instclient** DRLM command like one of the following examples: 
+To perform an unattended install of a DRLM client, just is needed to run **instclient** DRLM command like one of the following examples: 
 
-.. note::
+.. warning::
   The client must be properly registered in DRLM with **addclient** command.  
 
 Examples::
