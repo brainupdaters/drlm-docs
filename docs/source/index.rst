@@ -48,11 +48,23 @@ User Documentation
 
    QuickStart
 
-   :caption: Install Documentation
+.. toctree::
+   :maxdepth: 2
+   :caption: Installation Guide
 
    Install
    ClientConfig
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Restore Guide
+
    Restore
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Monitoring Guide
+
    ErrorReporting
 
 Command Reference
