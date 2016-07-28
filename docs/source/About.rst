@@ -11,7 +11,7 @@ For more information on DRLM, see `About DRLM Project <http://drlm.org/about/>`_
 License
 -------
 
-This documentation is licensed under a Creative Commons `Attribution-NonCommercial-ShareAlike 4.0 International <http://creativecommons.org/licenses/by-nc-sa/4.0/>`_ (i.e. “CC-BY-NC-SA”) license.
+This documentation is licensed under a Creative Commons `Attribution-NonCommercial-ShareAlike 4.0 International <http://creativecommons.org/licenses/by-nc-sa/4.0/>`_ (i.e. "CC-BY-NC-SA") license.
 
 The DRLM Manual is copyright © 2016 Brain Updaters, S.L.L.
 
