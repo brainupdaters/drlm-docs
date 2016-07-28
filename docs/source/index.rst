@@ -35,6 +35,7 @@ Contents:
 
 .. toctree::
    :maxdepth: 2
+   :caption: About Documentation
 
    About
 
@@ -46,6 +47,9 @@ User Documentation
    :caption: User Documentation
 
    QuickStart
+
+   :caption: Install Documentation
+
    Install
    ClientConfig
    Restore
