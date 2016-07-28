@@ -1,8 +1,8 @@
 DRLM Client Installation 
 ========================
 
-DRLM Unattended Installation
-----------------------------
+Unattended Installation with **drlm instcli**
+---------------------------------------------
 
 Now ReaR can be installed and configured on a remote server from the DRLM server
 using the new feature :program:`drlm instclient`
@@ -17,7 +17,7 @@ Let's explain a little bit the steps the new feature does:
         * Start and configure required services
 
 Supported OS's on the new feature instclient
---------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Install Client feature has been tested on:
 
@@ -30,7 +30,7 @@ Install Client feature has been tested on:
 
 
 Requirements
-------------
+~~~~~~~~~~~~
 
 In order to install ReaR from DRLM server the client must have:
 
