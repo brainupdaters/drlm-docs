@@ -50,6 +50,7 @@ Contents:
    network_opers
    client_opers
    backup_opers
+   instcli_opers
 
 .. toctree::
    :maxdepth: 2
