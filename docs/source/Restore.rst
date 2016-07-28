@@ -25,7 +25,7 @@ Reboot the Client and select boot from network. Automaticaly will boot from PXE.
 
 .. image:: ../images/RecoverImage1_v2.png
       :width: 640px
-      :align: left
+      :align: middle
       :height: 480px
 
 
