@@ -40,9 +40,20 @@ In order to install ReaR from DRLM server the client must have:
        * root user or user with administrator privileges to install ,start services
          like rpcbind and configure aplications ReaR,DHCP,sudo.
 
-Example::
+
+Run unattended installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To perform an unattended install of a DRLM client just need to run **instclient** DRLM command like one of the following examples: 
+
+.. note::
+  The client must be properly registered in DRLM with **addclient** command.  
+
+Examples::
 
         $ drlm instclient -c ReaRCli1
+
+	$ drlm instclient -c ReaRCli1 -U http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_7.0/all/rear_1.17.2_all.deb
 
 
 .. note:: See Client Operations for more information
@@ -198,14 +209,14 @@ ReaR requirements for DRLM
 As rear is written in bash you need bash as a bare minimum. Other requirements are: 
  
 	* mkisofs
-	* mingetty (rear is depending on it in recovery mode)	
+	* mingetty (rear depends on it in recovery mode)	
 	* syslinux (for i386 based systems) 
 	* nfs-utils
 	* cifs-utils
 	* rpcbind
 	* wget
 	* sudo 
-	* curl (rear need to get its configuration from DRLM server) 
+	* curl (rear needs it to get configuration from DRLM server) 
 	
 ::
 
