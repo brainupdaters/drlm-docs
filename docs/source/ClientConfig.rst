@@ -41,6 +41,11 @@ In order to install ReaR from DRLM server the client must have:
 .. note:: See Install Client Operations for more information
 
 
+::
+
+        $ drlm instclient -c ReaRCli1
+
+
 Manual Installation
 -------------------
 
