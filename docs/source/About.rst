@@ -28,6 +28,39 @@ To contribute to documentation the Github interface enables users to report erra
 #.. raw:: rst
 #   :url: https://raw.githubusercontent.com/brainupdaters/drlm/develop/doc/drlm-release-notes.rst
 
+Product Features
+----------------
+
+The following features are supported on the most recent releases of
+DRLM. Anything labeled as (NEW!) was added as the most recent
+release. 
+
+  * Hot maintenance capability. A client backup can be made online
+    while the system is running.
+
+  * Command line interface. DRLM does not require a graphical
+    interface to run. (console is enough).
+
+  * Multiarch netboot client support (x86_64-efi, i386-efi, i386-pc)
+
+  * Centralized backup scheduling
+
+  * Installclient workflow (NEW!)
+
+  * Parallel backups (NEW!)
+
+  * Sqlite3 database backend (NEW!)
+
+  * Error reporting support to:
+
+      - HP OpenView
+
+      - Nagios (NEW!)
+
+      - Zabbix (NEW!)
+
+      - Mail (NEW!)
+
 DRLM Version 2.0.0 (July 2016) -  Release Notes
 -----------------------------------------------
 
