@@ -108,7 +108,7 @@ For 64-bit (U)EFI:
   $ /usr/local/bin/grub-mknetdir -d /usr/local/lib/grub/x86_64-efi --net-directory=/tmp
   Netboot directory for x86_64-efi created. Configure your DHCP server to point to /tmp/boot/grub/x86_64-efi/core.efi
 
-Create a tarball with tergeted platform netboot image
+Create a tarball with targeted platform netboot image
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
