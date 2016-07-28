@@ -18,7 +18,8 @@ Prepare your build host
   and install them with the package management tools provided by each distro
   should work without problems.
 
-**Install required packages**
+Install required packages
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -26,7 +27,8 @@ Prepare your build host
   m4 autoconf help2man libopts25-dev flex libfont-freetype-perl \
   automake autotools-dev libfreetype6-dev texinfo
 
-**Download GRUB2 sources**
+Download GRUB2 sources
+~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -47,7 +49,8 @@ Start build process
   and also a guide to, contributors of future drlm grub2 images, on new supported
   platforms to the project.
 
-**Provide DRLM branded GRUB2 build**
+Provide DRLM branded GRUB2 build
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -60,7 +63,8 @@ Start build process
   msg_formatted = grub_xasprintf (_("DRLM Boot Manager (GNU GRUB2)"), PACKAGE_VERSION);
 
 
-**Prepare your build environment:**
+Prepare your build environment:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -69,7 +73,8 @@ Start build process
 
 On next steps we will proceed with configuration and build for each platform needed.
 
-**For i386-pc:**
+For i386-pc:
+~~~~~~~~~~~~
 
 ::
 
@@ -80,7 +85,8 @@ On next steps we will proceed with configuration and build for each platform nee
   Netboot directory for i386-pc created. Configure your DHCP server to point to /tmp/boot/grub/i386-pc/core.0
 
 
-**For 32-bit EFI:**
+For 32-bit EFI:
+~~~~~~~~~~~~~~~
 
 ::
 
@@ -91,7 +97,8 @@ On next steps we will proceed with configuration and build for each platform nee
   Netboot directory for i386-efi created. Configure your DHCP server to point to /tmp/boot/grub/i386-efi/core.efi
 
 
-**For 64-bit (U)EFI:**
+For 64-bit (U)EFI:
+~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -101,7 +108,8 @@ On next steps we will proceed with configuration and build for each platform nee
   $ /usr/local/bin/grub-mknetdir -d /usr/local/lib/grub/x86_64-efi --net-directory=/tmp
   Netboot directory for x86_64-efi created. Configure your DHCP server to point to /tmp/boot/grub/x86_64-efi/core.efi
 
-**Create a tarball with tergeted platform netboot image**
+Create a tarball with tergeted platform netboot image
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
