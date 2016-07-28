@@ -21,7 +21,7 @@ Reboot the Client and select boot from network. Automaticaly will boot from PXE.
 
 The DRLM server gives us through PXE/TFTP the client boot system. We just have to type "rear" to start the recovery system.
 
-.. image:: ../images/RecoverImage1.jpg
+.. image:: ../images/RecoverImage1_v2.png
 
 Once we have the system ready Login as "root". No password required.
 
