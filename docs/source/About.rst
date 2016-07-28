@@ -29,6 +29,6 @@ DRLM Release Notes
 ------------------
 
 .. raw:: rst
-	:url: https://github.com/brainupdaters/drlm/blob/develop/doc/drlm-release-notes.rst
+   :url: https://github.com/brainupdaters/drlm/blob/develop/doc/drlm-release-notes.rst
 
 .. note:: This documentation is under constant development. Please be patient...
