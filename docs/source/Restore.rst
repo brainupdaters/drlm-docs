@@ -25,7 +25,6 @@ Reboot the Client and select boot from network. Automaticaly will boot from PXE.
 
 .. image:: ../images/RecoverImage1_v2.png
       :width: 640px
-      :align: middle
       :height: 480px
 
 
@@ -34,7 +33,6 @@ Reboot the Client and select boot from network. Automaticaly will boot from PXE.
 
 .. image:: ../images/RecoverImage2.jpg
       :width: 640px
-      :align: left
       :height: 480px
 
 
@@ -43,7 +41,6 @@ Reboot the Client and select boot from network. Automaticaly will boot from PXE.
 
 .. image:: ../images/RecoverImage3.jpg
       :width: 640px
-      :align: left
       :height: 480px
 
 
@@ -52,7 +49,6 @@ Reboot the Client and select boot from network. Automaticaly will boot from PXE.
 
 .. image:: ../images/RecoverImage4.jpg
       :width: 640px
-      :align: left
       :height: 480px
 
 
@@ -61,5 +57,4 @@ Reboot the Client and select boot from network. Automaticaly will boot from PXE.
 
 .. image:: ../images/RecoverImage5.jpg
       :width: 640px
-      :align: left
       :height: 480px
