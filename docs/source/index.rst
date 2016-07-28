@@ -43,6 +43,7 @@ User Documentation
 
 .. toctree::
    :maxdepth: 2
+   :caption: User Documentation
 
    QuickStart
    Install
@@ -50,26 +51,28 @@ User Documentation
    Restore
    ErrorReporting
 
-Development Documentation
--------------------------
-
-.. toctree::
-   :maxdepth: 2
-
-   building_grub2
-
-.. note:: This section should change continously due to changes in DRLM development, please be patient.
-   Any question regarding DRLM development, please use `DRLM Dev Forum <https://groups.google.com/forum/#!forum/drlm-dev>`_. Thanks!
-
 Command Reference
 -----------------
 
 .. toctree::
    :maxdepth: 2
+   :caption: Command Reference
 
    network_opers
    client_opers
    backup_opers
+
+Development Documentation
+-------------------------
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Development Documentation
+
+   building_grub2
+
+.. note:: This section should change continously due to changes in DRLM development, please be patient.
+   Any question regarding DRLM development, please use `DRLM Dev Forum <https://groups.google.com/forum/#!forum/drlm-dev>`_. Thanks!
 
 Indexes and tables
 ==================
