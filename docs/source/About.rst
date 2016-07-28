@@ -25,9 +25,6 @@ Please, we encourage you to help us to improve this documentation.
 To contribute to documentation the Github interface enables users to report errata or missing sections, discuss improvements and new sections through the issue-tracker at: `DRLM Docs GitHub Issue Tracker <https://github.com/brainupdaters/drlm-docs/issues>`_. 
 
 
-#.. raw:: rst
-#   :url: https://raw.githubusercontent.com/brainupdaters/drlm/develop/doc/drlm-release-notes.rst
-
 Product Features
 ----------------
 
@@ -60,6 +57,7 @@ release.
       - Zabbix (NEW!)
 
       - Mail (NEW!)
+
 
 DRLM Version 2.0.0 (July 2016) -  Release Notes
 -----------------------------------------------
