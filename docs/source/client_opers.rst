@@ -114,9 +114,7 @@ Optional options:
    Examples::
   
    $ drlm instclient -h
-
    $ drlm instclient -c ReaRCli1 -u admin -U http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_7.0/all/rear_1.17.2_all.deb
-
    $ drlm instclient -c ReaRCli2
 
 
