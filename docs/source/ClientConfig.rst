@@ -1,8 +1,8 @@
 DRLM Client Installation 
 ========================
 
-Unattended Installation with **drlm instcli**
----------------------------------------------
+**Unattended Installation** 
+---------------------------
 
 Now ReaR can be installed and configured on a remote server from the DRLM server
 using the new feature :program:`drlm instclient`
@@ -49,8 +49,8 @@ Example::
 
 
 
-Manual Installation
--------------------
+**Manual Installation**
+-----------------------
 
 Debian 7
 --------
