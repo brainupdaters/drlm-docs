@@ -57,12 +57,12 @@ Command Reference
    client_opers
    backup_opers
 
-Development Documentation
+Developer Documentation
 -------------------------
 
 .. toctree::
    :maxdepth: 2
-   :caption: Development Documentation
+   :caption: Developer Documentation
 
    building_grub2
 

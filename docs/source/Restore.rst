@@ -19,22 +19,37 @@ Step by Step Client Recover
 
 Reboot the Client and select boot from network. Automaticaly will boot from PXE.
 
-The DRLM server gives us through PXE/TFTP the client boot system. We just have to type "rear" to start the recovery system.
+The DRLM server gives us through PXE/TFTP the client boot system. We just have to select first menu option to enter in the recovery system.
 
 .. image:: ../images/RecoverImage1_v2.png
+      :width: 640px
+      :align: center
+      :height: 480px
 
 Once we have the system ready Login as "root". No password required.
 
 .. image:: ../images/RecoverImage2.jpg
+      :width: 640px
+      :align: center
+      :height: 480px
 
 We indicate that we want to recover the system with the command "rear recover" and the following variables SERVER="DRLM Server Ip" REST_OPTS=-k ID="Rear Client Host Name", in our case "rear recover SERVER=192.168.2.120 REST_OPTS=-k ID=fosdemcli4"
 
 .. image:: ../images/RecoverImage3.jpg
+      :width: 640px
+      :align: center
+      :height: 480px
 
 The system is recovering.
 
 .. image:: ../images/RecoverImage4.jpg
+      :width: 640px
+      :align: center
+      :height: 480px
 
 System recovered! So we only have to restart the client.
 
 .. image:: ../images/RecoverImage5.jpg
+      :width: 640px
+      :align: center
+      :height: 480px
