@@ -38,12 +38,12 @@ In order to install ReaR from DRLM server the client must have:
        * root user or user with administrator privileges to install ,start services
          like rpcbind and configure aplications ReaR,DHCP,sudo.
 
-::
+Example::
 
         $ drlm instclient -c ReaRCli1
 
 
-.. note:: See Install Client Operations for more information
+.. note:: See Client Operations for more information
 
 
 
