@@ -1,6 +1,8 @@
 DRLM Client Installation 
 ========================
 
+DRLM Unattended Installation
+----------------------------
 
 Now ReaR can be installed and configured on a remote server from the DRLM server
 using the new feature :program:`drlm instclient`
@@ -10,9 +12,9 @@ Let's explain a little bit the steps the new feature does:
         * Create the drlm user
         * Install rear dependencies
         * Install rear package
-        * Start services and configure those on the startup
         * Configure ReaR to be managed by DRLM
         * Configure sudo for drlm user.
+        * Start and configure required services
 
 Supported OS's on the new feature instclient
 --------------------------------------------
