@@ -33,9 +33,6 @@ To contribute to documentation the Github interface enables users to report erra
 Contents:
 ========
 
-User Documentation
-------------------
-
 .. toctree::
    :maxdepth: 2
    :caption: User Documentation
@@ -46,9 +43,6 @@ User Documentation
    Restore
    ErrorReporting
 
-Command Reference
------------------
-
 .. toctree::
    :maxdepth: 2
    :caption: Command Reference
@@ -56,9 +50,6 @@ Command Reference
    network_opers
    client_opers
    backup_opers
-
-Developer Documentation
--------------------------
 
 .. toctree::
    :maxdepth: 2
