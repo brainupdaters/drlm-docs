@@ -23,7 +23,7 @@ Now we can add a ReaR client with the command "drlm addclient" and the parameter
 
 ::
   
-    $ drlm -vD addclient -n BuLan -i 192.168.1.45 -M 00:13:20:fe:48:16 -c minBUC
+    $ drlm -vD addclient -n BuLan -i 192.168.1.45 -M 00:13:20:fe:48:16 -c ReaRCli1
 
 ReaR Client Installation
 ~~~~~~~~~~~~~~~~~~~~~~~
