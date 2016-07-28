@@ -1,6 +1,50 @@
 DRLM Client Installation 
 ========================
 
+
+Now ReaR can be installed and configured on a remote server from the DRLM server
+using the new feature :program:`drlm instclient`
+
+Let's explain a little bit the steps the new feature does:
+
+        * Create the drlm user
+        * Install rear dependencies
+        * Install rear package
+        * Start services and configure those on the startup
+        * Configure ReaR to be managed by DRLM
+        * Configure sudo for drlm user.
+
+Supported OS's on the new feature instclient
+--------------------------------------------
+
+Install Client feature has been tested on:
+
+       * Suse 12 SP1
+       * RedHat 6,7
+       * CentOS 6,7
+       * Debian 7,8
+
+.. note:: It should work on Redhat & CentOS 5 and also on Debian 6.
+
+
+Requirements
+------------
+
+In order to install ReaR from DRLM server the client must have:
+
+       * Access to EPEL Repo to install rear from repo (CentOS,RedHat)
+       * instclient uses apt-get, yum and zypper, so repositories must be configured
+       * SSH enabled
+       * root user or user with administrator privileges to install ,start services
+         like rpcbind and configure aplications ReaR,DHCP,sudo.
+
+.. note:: See Install Client Operations for more information
+
+
+Manual Installation
+-------------------
+
+
 Debian 7
 --------
 
