@@ -106,6 +106,7 @@ HTTP
 
 	$ a2enmod ssl
 	$ a2enmod rewrite
+	$ a2enmod cgi
 
 Edit /etc/apache2/apache2.conf file
 
@@ -248,6 +249,7 @@ HTTP
 
 	$ a2enmod ssl
 	$ a2enmod rewrite
+	$ a2enmod cgi
 
 Edit /etc/apache2/apache2.conf file
 
