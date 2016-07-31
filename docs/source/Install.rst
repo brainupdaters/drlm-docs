@@ -178,7 +178,7 @@ You can obtain the DRLM package building it from the source code or downloading 
 
 ::
 
-	$ wget http://www.drlm.org/downloads/xxxxxxxxxxxxx.deb
+	$ wget http://www.drlm.org/downloads/drlm_2.0.0_all.deb
 
 
 Install DRLM package
@@ -347,7 +347,7 @@ Get DRLM
 
 ::
 
-    $ wget http://www.drlm.org/downloads/drlm-2.0.0-1git.el7.centos.noarch.rpm
+    $ wget http://www.drlm.org/downloads/drlm-2.0.0-1git.el6.noarch.rpm
 
 Install DRLM package
 ~~~~~~~~~~~~~~~~~~~~
@@ -560,7 +560,7 @@ Get DRLM
 
 ::
 
-    $ wget http://www.drlm.org/downloads/xxxxxxxxxxxxxx.rpm
+    $ wget http://www.drlm.org/downloads/drlm-2.0.0-1git.el6.noarch.rpm
 
 Install DRLM package
 ~~~~~~~~~~~~~~~~~~~~
