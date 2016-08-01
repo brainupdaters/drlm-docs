@@ -49,3 +49,16 @@ h2 {
    background-color: none;
    border-bottom: 1px solid #ccc;
 }
+
+/* Fonts */
+body,
+button,
+input,
+select,
+textarea {
+	font-family: 'PT Mono', monospace;
+}
+h1, h2, h3, h4, h5, h6
+{
+	font-family: 'PT Sans Narrow', sans-serif;
+}
