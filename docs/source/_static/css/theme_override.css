@@ -61,3 +61,29 @@ h2 {
    background-color: none;
    border-bottom: 1px solid #ccc;
 }
+
+p {
+    font-size: 13px !important;
+    line-height: 1.6em;
+    color: #666666;
+}
+
+div#menudivDrlm {
+	border-bottom: 7px solid #cc0000;
+	padding: 1.5em;
+}
+
+div#menudivDrlm a {
+	color: #e2e2e2;
+	font-size: 13px;	
+}
+
+@media screen and (min-width: 770px) {
+    div#divspacer1 {
+	    height: 85px;
+	}
+
+	nav.wy-nav-side {
+	    margin-top: 85px;
+	}
+}
