@@ -62,7 +62,7 @@ h2 {
    border-bottom: 1px solid #ccc;
 }
 
-p {
+p, li {
     font-size: 13px !important;
     line-height: 1.6em;
     color: #666666;
