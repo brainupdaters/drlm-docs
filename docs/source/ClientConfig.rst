@@ -289,7 +289,7 @@ Edit **/etc/sudoers.d/drlm** and add the following lines
 
 ::
 
-   Cmnd_Alias DRLM = /usr/sbin/rear* 
+   Cmnd_Alias DRLM = /usr/sbin/rear, /bin/mount, /sbin/vgs
    drlm    ALL=(root)      NOPASSWD: DRLM
    
 Change **/etc/sudoers.d/drlm** permissions
