@@ -117,9 +117,9 @@ The :program:`drlm bkpmgr` has some requiered options:
 
    Examples::
 
-   $drlm bkmgr -c clientHost1 -I 20140519065512 -e
-   $drlm bkmgr --client clientHost1 -I 20140519065512 -d
-   $drlm bkmgr -c clientHost1 --id 20140519065512 -e
+   $drlm bkpmgr -c clientHost1 -I 20140519065512 -e
+   $drlm bkpmgr --client clientHost1 -I 20140519065512 -d
+   $drlm bkpmgr -c clientHost1 --id 20140519065512 -e
 
 Aditional options: 
 
