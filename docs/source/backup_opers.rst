@@ -33,7 +33,9 @@ The :program:`drlm runbackup` has several options:
    Examples::
   
    $ drlm runbackup -I 12
-   $ drlm runbackup -id 12            
+   $ drlm runbackup -id 12
+
+Help option:
 
 .. option:: -h, --help
 
@@ -74,9 +76,8 @@ The :program:`drlm delbackup` has some required options:
    $ drlm delbackup --client clientHost1 --id 2015030121245
    $ drlm delbackup -c clientHost1 -A
    $ drlm delbackup --client clientHost1 --all
-   
-   
-Optional options: 
+      
+Help option: 
 
 .. option:: -h, --help
 
@@ -116,6 +117,8 @@ The :program:`drlm listbackup` has some options:
 
    $ drlm listbackup -A
    $ drlm listbackup --all
+   
+Help option:
 
 .. option:: -h,--help
 
@@ -174,6 +177,8 @@ Additional options:
 
    $drlm bkmgr -c clientHost1 - I 20140519065512 -e -P
 
+Help option:
+
 .. option:: -h, --help
 
    Show drlm bkmgr help.
@@ -202,21 +207,21 @@ The :program:`drlm expbackup` has the following required options:
 
 .. option:: -I backup_id, --id backup_id
 
-Enter the backup ID you would like to export.
+   Enter the backup ID you would like to export.
 
 .. option:: -f destination_file, --file destination_file
 
-Enter the output path in which you would like to export the backup,
+   Enter the output path in which you would like to export the backup,
 
-Other available options::
+Help option:
 
 .. option:: -h, --help
 
-Shows help menu.
+   Shows help menu.
 
-Examples::
+   Examples::
 
-  $ drlm expbackup -I 2.20170125103105 -f /tmp/export.dr 
+   $ drlm expbackup -I 2.20170125103105 -f /tmp/export.dr 
 
   You could now save or copy the exported backup to another DRLM server.
 
@@ -232,21 +237,21 @@ The :program:`drlm impbackup` has the following required options:
 
 .. option:: -c client_name, --client client_name
 
-You need to first register the client in the database before importing an exported DRLM backup. 
+   You need to first register the client in the database before importing an exported DRLM backup. 
 
 .. option:: -f file, --file file
 
-Set the destination path of the backup to import. 
+   Set the destination path of the backup to import. 
 
-Additional options:
+Help option:
 
 .. option:: -h, --help
 
-Shows help menu.
+   Shows help menu.
 
-Examples::
+   Examples::
 
-  $ drlm impbackup --client rear-debian -f /tmp/export.dr 
+   $ drlm impbackup --client rear-debian -f /tmp/export.dr 
 
 Backup Job Scheduler
 ====================
@@ -273,7 +278,6 @@ called like this::
 
     Start date and time for the scheduled backup. Format: YYYY-MM-DD**T**HH:MM
     
-    
     Optional arguments:
 
 .. option:: -e end_date, --end_date end_date
@@ -283,12 +287,13 @@ called like this::
 .. option:: -r repeat_time, --repeat repeat_time
 
     This argument specifies the time a backup will be performed between the start and the end date of a                     scheduled backup (if any end_date is set). You can specify the repeating pattern in second(s), min(s),      minute(s), day(s), week(s), month(s) and year(s). 
-    
+ 
+Help option:
+
 .. option:: -h, --help
 
     Shows help menu.    
-    
-    
+      
     Examples::
     
     $ drlm addjob -c rear-debian -s 2017-01-30T21:00
@@ -315,11 +320,12 @@ It is called like this::
 .. option:: -A, --all
 
     To list all the active scheduled jobs.
-    
+
+Help option:
+
 .. option:: -h, --help
 
     Shows help menu.    
-    
     
     Examples::
     
@@ -347,7 +353,9 @@ It is called like this::
     To delete a specific scheduled backup job. 
     
     Additional options:
-    
+
+Help option:
+
 .. option:: -h, --help
 
     Shows help menu.
@@ -379,7 +387,9 @@ or force to **run** jobs planned at "now" by running::
 .. option:: -r, --run
 
     Runs all planned jobs (starting from the nearest date).
-    
+
+Help option:
+
 .. option: -h, --help
 
     Shows help menu.
