@@ -296,7 +296,7 @@ called like this::
     
 .. option:: -r repeat_time, --repeat repeat_time
 
-    This argument specifies the time a backup will be performed between the start and the end date of a                     scheduled backup (if any end_date is set). You can specify the repeating pattern in second(s), min(s), minute(s), hour(s), day(s), week(s), month(s) and year(s). 
+    This argument specifies the time a backup will be performed between the start and the end date of a                     scheduled backup (if any end_date is set). You can specify the repeating pattern in second(s), min(s) or minute(s), hour(s), day(s), week(s), month(s) and year(s). 
  
     Examples::
     
