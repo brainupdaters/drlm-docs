@@ -65,10 +65,10 @@ Examples::
 -----------------------
 
 Debian 7
---------
+~~~~~~~~
 
 ReaR requirements for DRLM
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+**************************
 
 As rear is written in bash you need bash as a bare minimum. Other requirements are: 
  
@@ -87,7 +87,7 @@ As rear is written in bash you need bash as a bare minimum. Other requirements a
 	$ apt-get install syslinux ethtool genisoimage parted gawk attr sudo curl mingetty
 
 Download and install ReaR 
-~~~~~~~~~~~~~~~~~~~~~~~~~
+**************************
 
 .. note::
 	Minimum version required of ReaR: 1.17.0
@@ -114,14 +114,14 @@ Execute the next command:
 	http://relax-and-recover.org/documentation
 
 Create DRLM User
-~~~~~~~~~~~~~~~~
+****************
 
 ::
 
    $ useradd -d /home/drlm -c "DRLM User Agent" -m -s /bin/bash -p $(echo S3cret | openssl passwd -1 -stdin) drlm
 
 Disable password aging for drlm user
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+************************************
 
 ::
 
@@ -129,7 +129,7 @@ Disable password aging for drlm user
 
 
 Copy rsa key from DRLM Server to the new client
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+***********************************************
 
 .. warning:: You have to execute this code from DRLM Server. The password which you will be asked for is "S3cret" and "client_ipaddr" must be changed to the client ip address.
 
@@ -139,14 +139,14 @@ Copy rsa key from DRLM Server to the new client
    $ ssh-copy-id drlm@"client_ipaddr"
 
 Disable password login
-~~~~~~~~~~~~~~~~~~~~~~
+**********************
 
 ::
 
    $ passwd -l drlm
 
 Add Sudo roles for DRLM user
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+****************************
 
 Edit **/etc/sudoers.d/drlm** and add the following lines
 
@@ -162,7 +162,7 @@ Change **/etc/sudoers.d/drlm** permissions
    $ chmod 440 /etc/sudoers.d/drlm
 
 Client configuration
-~~~~~~~~~~~~~~~~~~~~
+********************
 
 We have to specify that this ReaR client is managed from a DRLM server. We have to edit the /etc/rear/local.conf and insert the next line.
  
@@ -171,7 +171,7 @@ We have to specify that this ReaR client is managed from a DRLM server. We have 
    DRLM_MANAGED=y
    
 Add client config file at DRLM server
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*************************************
 
 .. warning:: You have to do this at DRLM Server.
 
@@ -202,10 +202,10 @@ Where CLI_NAME="Client Host Name" and SRV_NET_IP="DRLM Server IP".
         $ chmod 644 /etc/drlm/clients/ReaRCli1.cfg
 
 CentOS 6, Red Hat 6
--------------------
+~~~~~~~~~~~~~~~~~~~
 
 ReaR requirements for DRLM
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+**************************
 
 As rear is written in bash you need bash as a bare minimum. Other requirements are: 
  
@@ -224,7 +224,7 @@ As rear is written in bash you need bash as a bare minimum. Other requirements a
 	$ yum -y install mkisofs mingetty syslinux nfs-utils cifs-utils rpcbind wget curl sudo
 
 Download and install ReaR 
-~~~~~~~~~~~~~~~~~~~~~~~~~
+*************************
 	
 .. note::
 	Minimum version required of ReaR: 1.17.0
@@ -253,21 +253,21 @@ Execute the next command:
 	http://relax-and-recover.org/documentation
 
 Create DRLM User
-~~~~~~~~~~~~~~~~
+****************
 
 ::
 
    $ useradd -d /home/drlm -c "DRLM User Agent" -m -s /bin/bash -p $(echo S3cret | openssl passwd -1 -stdin) drlm
 
 Disable password aging for drlm user
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+************************************
 
 ::
 
    $ chage -I -1 -m 0 -M 99999 -E -1 drlm
 
 Copy rsa key from DRLM Server to the new client
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+***********************************************
 
 .. warning:: You have to execute this code from DRLM Server. The password which you will be asked for is "S3cret" and "client_ipaddr" must be changed to the client ip address.
 
@@ -277,14 +277,14 @@ Copy rsa key from DRLM Server to the new client
    $ ssh-copy-id drlm@"client_ipaddr"
 
 Disable password login
-~~~~~~~~~~~~~~~~~~~~~~
+**********************
 
 ::
 
    $ passwd -l drlm
 
 Add Sudo roles to DRLM user
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+***************************
 
 Edit **/etc/sudoers.d/drlm** and add the following lines
 
@@ -300,7 +300,7 @@ Change **/etc/sudoers.d/drlm** permissions
    $ chmod 440 /etc/sudoers.d/drlm
 
 Client configuration
-~~~~~~~~~~~~~~~~~~~~
+********************
 
 We have to specify that this ReaR client is managed from a DRLM server. We have to edit the /etc/rear/local.conf and insert the next line.
  
@@ -309,7 +309,7 @@ We have to specify that this ReaR client is managed from a DRLM server. We have 
    DRLM_MANAGED=y
 
 Services
-~~~~~~~~
+********
 
 **rpcbind**
 
@@ -326,7 +326,7 @@ Services
         $ chkconfig nfs on
 
 Add client config file at DRLM SERVER
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*************************************
 
 .. warning:: You have to do this at DRLM Server.
 
