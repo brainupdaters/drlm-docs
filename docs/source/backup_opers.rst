@@ -286,13 +286,13 @@ called like this::
     
 .. option:: -s start_date, --start_date start_date
 
-    Start date and time for the scheduled backup. Format: YYYY-MM-DD"**T**"HH:MM
+    Start date and time for the scheduled backup. Format: YYYY-MM-DD\ **T**\ HH:MM
     
     Optional arguments:
 
 .. option:: -e end_date, --end_date end_date
 
-    End date and time for the scheduled backup. Format: YYYY-MM-DD"**T**"HH:MM
+    End date and time for the scheduled backup. Format: YYYY-MM-DD\ **T**\ HH:MM
     
 .. option:: -r repeat_time, --repeat repeat_time
 
