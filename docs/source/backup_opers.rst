@@ -230,7 +230,7 @@ DRLM server. It is called like this::
 
 The :program:`drlm impbackup` has the following required options:
 
-..option:: -c client_name, --client client_name
+.. option:: -c client_name, --client client_name
 
 You need to first register the client in the database before importing an exported DRLM backup. 
 
@@ -240,7 +240,7 @@ Set the destination path of the backup to import.
 
 Additional options:
 
-..option:: -h, --help
+.. option:: -h, --help
 
 Shows help menu.
 
