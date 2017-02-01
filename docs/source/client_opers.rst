@@ -22,13 +22,13 @@ In this case, the :program:`drlm addclient` has the following required options:
 
  Examples::
 
-   $ drlm addclient -I 192.168.0.15/24
+   $ drlm addclient -i 192.168.0.15/24
 
 If the :program:`drlm addclient` does not correctly fetch the client's hostname, you can set it manually in the same command.
 
  Examples::
  
-   $ drlm addclient -I 192.168.0.15/24 -c rear-debian
+   $ drlm addclient -i 192.168.0.15/24 -c rear-debian
 
 If the client is not network reachable when you want to register it in the database or you wish to manually enter all the required parameters, you can do it with the required options available:  
     
@@ -36,11 +36,15 @@ If the client is not network reachable when you want to register it in the datab
 
 .. option:: -c client_name, --client client_name
 
-   Select Client name to add. Remember that it has to **match the client's hostname**.
+   Set the client's name.
+   
+.. warning:: 
+
+   Remember that it has to **match the client's hostname**.
 
 .. option:: -i ip, --ipaddr ip
 
-   Client IP address.
+   Client IP address (not in CIDR notation if you are manually adding all the required parameters).
 
 .. option:: -M mac_address, --macaddr mac_address
 
