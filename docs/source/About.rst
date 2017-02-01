@@ -13,7 +13,7 @@ License
 
 This documentation is licensed under a Creative Commons `Attribution-NonCommercial-ShareAlike 4.0 International <http://creativecommons.org/licenses/by-nc-sa/4.0/>`_ (i.e. "CC-BY-NC-SA") license.
 
-The DRLM Manual is copyright © 2016 Brain Updaters, S.L.L.
+The DRLM Manual is copyright © 2017 Brain Updaters, S.L.L.
 
 
 
@@ -57,6 +57,21 @@ release.
       - Zabbix (NEW!)
 
       - Mail (NEW!)
+
+DRLM Version 2.1.0 (January 2017) -  Release Notes
+--------------------------------------------------
+
+  * DRLM Server for SLES. (issue #45)
+  
+  * Support for drlm unattended installation (instclient) on Ubuntu (issue #43)
+  
+  * NEW Import & Export DR images between DRLM servers. (issue #39)
+  
+  * Pass DRLM global options to ReaR. (issue #37)
+  
+  * New DRLM backup job scheduler. (issue #35)
+  
+  * Addclient install mode (automatize install client after the client creation) (issue #32)
 
 
 DRLM Version 2.0.0 (July 2016) -  Release Notes
