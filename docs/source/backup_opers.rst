@@ -52,7 +52,7 @@ called like this::
 
    $ drlm delbackup [options]
 
-The :program:`drlm delbackup` has some requiered options:
+The :program:`drlm delbackup` has some required options:
     
 .. program:: `drlm delbackup`
 
@@ -75,6 +75,7 @@ The :program:`drlm delbackup` has some requiered options:
    $ drlm delbackup -c clientHost1 -A
    $ drlm delbackup --client clientHost1 --all
    
+   
 Optional options: 
 
 .. option:: -h, --help
@@ -85,6 +86,133 @@ Optional options:
 
    $ drlm delbackup -h
    $ drlm delbackup --help
+   
+   
+   
+Schedule Backups
+----------------
+
+From version 2.1.0 backup tasks can be scheduled. The :program:`drlm backup scheduler` allows you to **add**, **list** and **delete** scheduled jobs. You can also enable or disable the schedule function (by default it is enabled). You can set backup operations to run on a specified date and time by running::
+
+    $ drlm addjob [options]
+
+.. program:: `drlm addjob`
+
+    Required options:
+
+.. option:: -c client_name, --client client_name
+
+    Client for which you want to run a scheduled backup.
+    
+.. option:: -s start_date, --start_date start_date
+
+    Start date and time for the scheduled backup. Format: YYYY-MM-DD**T**HH:MM
+    
+    
+    Optional arguments:
+
+.. option:: -e end_date, --end_date end_date
+
+    End date and time for the scheduled backup. Format: YYYY-MM-DD**T**HH:MM
+    
+.. option:: -r repeat_time, --repeat repeat_time
+
+    This argument specifies the time a backup will be performed between the start and the end date of a                     scheduled backup (if any end_date is set). You can specify the repeating pattern in second(s), min(s),      minute(s), day(s), week(s), month(s) and year(s). 
+    
+.. option:: -h, --help
+
+    Shows help menu.    
+    
+    
+    Examples::
+    
+    $ drlm addjob -c rear-debian -s 2017-01-30T21:00
+    $ drlm addjob --client rear-centos -s 2017-02-03T08:00 -e 2017-02-05T23:00 -r 1hour
+    
+    
+    You can always **list** the active scheduled jobs::
+    
+    $ drlm listjob [options]
+    
+.. program:: `drlm listjob` arguments: 
+    
+.. option:: -J job_id, --job_id job_id
+
+    To list a job by its ID. 
+    
+.. option:: -c client_name, --client client-name
+
+    To list all the jobs scheduled for a specific client. 
+    
+.. option:: -A, --all
+
+    To list all the active scheduled jobs.
+    
+.. option:: -h, --help
+
+    Shows help menu.    
+    
+    
+    Examples::
+    
+    $ drlm listjob -A
+    $ drlm listjob -c rear-suse
+    $ drlm listjob --job_id 3
+    
+    
+    You can **delete** an active job by running::
+    
+    $ drlm deljob [options]
+    
+.. program:: `drlm deljob` required options:
+
+.. option:: -c client_name, --client client_name
+
+    To delete all scheduled jobs for a specific client.
+    
+.. option:: -J job_id, --job_id job_id
+
+    To delete a specific scheduled backup job. 
+    
+    Additional options:
+    
+.. option:: -h, --help
+
+    Shows help menu.
+    
+    Examples::
+    
+    $ drlm deljob -J 5
+    $ drlm deljob -c rear-centos
+    
+
+    Finally, you can **enable or disable** the job scheduler facility by running::
+    
+    drlm sched [options]
+    
+.. program:: `drlm sched` available options:
+
+.. option:: -e, --enable
+
+    Enables job scheduler utility.
+    
+.. option:: -d, --disable
+
+    Disables job scheduler utility.
+    
+.. option:: -r, --run
+
+    Runs all planned jobs (starting from the nearest date).
+    
+.. option: -h, --help
+
+    Shows help menu.
+    
+    Examples::
+    
+    $ drlm sched -e
+    $ drlm sched -r
+       
 
 Backup Manager
 --------------
@@ -95,7 +223,7 @@ this::
 
    $ drlm bkpmgr [options]
 
-The :program:`drlm bkpmgr` has some requiered options:
+The :program:`drlm bkpmgr` has some required options:
 
 .. program:: `drlm bkpmgr`
 
@@ -121,7 +249,7 @@ The :program:`drlm bkpmgr` has some requiered options:
    $drlm bkpmgr --client clientHost1 -I 20140519065512 -d
    $drlm bkpmgr -c clientHost1 --id 20140519065512 -e
 
-Aditional options: 
+Additional options: 
 
 .. option:: -P
 
@@ -159,7 +287,7 @@ The :program:`drlm listbackup` has some options:
 
    Select Client to list its backups.
 
-   Exampples::
+   Examples::
 
    $ drlm listbackup -c clientHost1
    $ drlm listbackup --client clientHost1
@@ -182,3 +310,57 @@ The :program:`drlm listbackup` has some options:
    $ drlm listbackup -h
    $ drlm listbackup --help                            
 
+Export/Import Backups
+---------------------
+
+Since version 2.1.0 the possibility to import or export backups from other DRLM servers has been added. To export a backup::
+
+  $ drlm expbackup [options]
+
+The :program:`drlm expbackup` has the following required options:
+
+.. program:: `drlm expbackup`
+
+.. option:: -I backup_id, --id backup_id
+
+Enter the backup ID you would like to export.
+
+.. option:: -f destination_file, --file destination_file
+
+Enter the output path in which you would like to export the backup,
+
+Other available options::
+
+.. option:: -h, --help
+
+Shows help menu.
+
+Examples::
+
+  $ drlm expbackup -I 2.20170125103105 -f /tmp/export.dr 
+
+  You could now save or copy the exported backup to another DRLM server.
+
+  To import a backup::
+
+  $ drlm impbackup [options]
+
+The :program:`drlm impbackup` has the following required options:
+
+..option:: -c client_name, --client client_name
+
+You need to first register the client in the database before importing an exported DRLM backup. 
+
+.. option:: -f file, --file file
+
+Set the destination path of the backup to import. 
+
+Additional options:
+
+..option:: -h, --help
+
+Shows help menu.
+
+Examples::
+
+  $ drlm impbackup --client rear-debian -f /tmp/export.dr 
