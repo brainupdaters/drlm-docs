@@ -74,7 +74,7 @@ If the client is not network reachable when you want to register it in the datab
 
       You have to replace the SERVER_IP for the IP of the DRLM server and the client_name for the client host name.
 
-Optional options: 
+Help option: 
 
 .. option:: -h, --help
 
@@ -109,7 +109,7 @@ The :program:`drlm instclient` has some requiered options:
 .. note:: Since Debian doesn't have the ReaR package on its repositories, 
       the following option is a requirement also :program:`-U|--url_rear <URL_REAR>`
 
-Optional options:
+Additional options:
 
 .. option:: -u user, --user user
 
@@ -125,6 +125,13 @@ Optional options:
 
    rpm or deb package for specific distro. For example http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_7.0/all/rear_1.17.2_all.deb
 
+   Examples::
+   
+   $ drlm instclient -c ReaRCli1 -u admin -U http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_7.0/all/rear_1.17.2_all.deb
+   $ drlm instclient -c ReaRCli2
+
+Help option:
+
 .. option:: -h, --help
 
    Show drlm instclient help.
@@ -132,9 +139,6 @@ Optional options:
    Examples::
   
    $ drlm instclient -h
-   $ drlm instclient -c ReaRCli1 -u admin -U http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_7.0/all/rear_1.17.2_all.deb
-   $ drlm instclient -c ReaRCli2
-
 
 Delete Client
 -------------
@@ -164,7 +168,7 @@ The :program:`drlm delclient` has some required options:
    $ drlm delclient --id 12
    
 
-Optional options: 
+Help option: 
 
 .. option:: -h, --help
 
@@ -196,7 +200,7 @@ The :program:`drlm modclient` has some required options:
    Select Client to change by ID
 
 
-Optional options:
+Additional options:
  
 .. option:: -i ip, --ipaddr ip
 
@@ -227,6 +231,8 @@ Optional options:
    $ drlm modclient --client clientHost1 --netname  vlan12
    $ drlm modclient -I 12 --netname vlan12
    $ drlm modclient --id 12 -n vlan12
+
+Help option:
 
 .. option:: -h, --help
 
@@ -266,6 +272,8 @@ The :program:`drlm listclient` has some options:
 
    $ drlm listclient -A
    $ drlm listclient --all
+
+Help option:
 
 .. option:: -h, --help
 
