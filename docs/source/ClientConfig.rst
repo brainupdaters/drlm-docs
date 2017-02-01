@@ -169,37 +169,6 @@ We have to specify that this ReaR client is managed from a DRLM server. We have 
 ::
  
    DRLM_MANAGED=y
-   
-Add client config file at DRLM server
-*************************************
-
-.. warning:: You have to do this at DRLM Server.
-
-We have to add a new file called as "client host name".cfg at /etc/drlm/clients/
-For example: If our client host name is ReaRCli1 we have to create /etc/drlm/clients/ReaRCli1.cfg and add the following lines.
-Where CLI_NAME="Client Host Name" and SRV_NET_IP="DRLM Server IP".
-
-::
-
-	CLI_NAME=ReaRCli1
-	SRV_NET_IP=192.168.1.38
-
-	OUTPUT=PXE
-	OUTPUT_PREFIX=$OUTPUT
-	OUTPUT_PREFIX_PXE=$CLI_NAME/$OUTPUT
-	OUTPUT_URL=nfs://${SRV_NET_IP}/var/lib/drlm/store/${CLI_NAME}
-
-	BACKUP=NETFS
-	NETFS_PREFIX=BKP
-	BACKUP_URL=nfs://${SRV_NET_IP}/var/lib/drlm/store/${CLI_NAME}
-
-	SSH_ROOT_PASSWORD=drlm
-
-.. warning:: This file must be readable by Apache
-
-::
-  
-        $ chmod 644 /etc/drlm/clients/ReaRCli1.cfg
 
 CentOS 6, Red Hat 6
 ~~~~~~~~~~~~~~~~~~~
@@ -324,34 +293,3 @@ Services
 
         $ service nfs start
         $ chkconfig nfs on
-
-Add client config file at DRLM SERVER
-*************************************
-
-.. warning:: You have to do this at DRLM Server.
-
-We have to add a new file called as "client host name".cfg at /etc/drlm/clients/
-For example: If our client host name is ReaRCli1 we have to create /etc/drlm/clients/ReaRCli1.cfg and add the following lines.
-Where CLI_NAME="Client Host Name" and SRV_NET_IP="DRLM Server IP".
-
-::
-
-	CLI_NAME=ReaRCli1
-	SRV_NET_IP=192.168.1.38
-
-	OUTPUT=PXE
-	OUTPUT_PREFIX=$OUTPUT
-	OUTPUT_PREFIX_PXE=$CLI_NAME/$OUTPUT
-	OUTPUT_URL=nfs://${SRV_NET_IP}/var/lib/drlm/store/${CLI_NAME}
-
-	BACKUP=NETFS
-	NETFS_PREFIX=BKP
-	BACKUP_URL=nfs://${SRV_NET_IP}/var/lib/drlm/store/${CLI_NAME}
-
-	SSH_ROOT_PASSWORD=drlm
-
-.. warning:: This file must be readable by Apache
-
-::
-  
-        $ chmod 644 /etc/drlm/clients/ReaRCli1.cfg
