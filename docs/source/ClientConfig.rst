@@ -16,7 +16,7 @@ Let's explain a little bit the steps the new feature does:
         * Configure sudo for drlm user.
         * Start and configure required services
 
-Supported OS's on the new feature instclient
+Supported OSs on the new feature instclient
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Install Client feature has been tested on:
@@ -25,6 +25,7 @@ Install Client feature has been tested on:
        * RedHat 6,7
        * CentOS 6,7
        * Debian 7,8
+       * Ubuntu 12,14,16 (LTS)
 
 .. note:: It should work on Redhat & CentOS 5 and also on Debian 6.
 
@@ -37,8 +38,8 @@ In order to install ReaR from DRLM server the client must have:
        * Access to EPEL Repo to install rear from repo (CentOS,RedHat)
        * instclient uses apt-get, yum and zypper, so repositories must be configured
        * SSH enabled
-       * root user or user with administrator privileges to install ,start services
-         like rpcbind and configure aplications ReaR,DHCP,sudo.
+       * root user or user with administrator privileges to install, start services
+         like rpcbind and configure ReaR, DHCP and sudo applications.
 
 
 Run unattended install
@@ -175,7 +176,7 @@ Add client config file at DRLM server
 .. warning:: You have to do this at DRLM Server.
 
 We have to add a new file called as "client host name".cfg at /etc/drlm/clients/
-For example: If our client host name is ReaRCli1 we have to create /etc/drlm/clients/ReaRCli1.cfg and add the follwing lines.
+For example: If our client host name is ReaRCli1 we have to create /etc/drlm/clients/ReaRCli1.cfg and add the following lines.
 Where CLI_NAME="Client Host Name" and SRV_NET_IP="DRLM Server IP".
 
 ::
@@ -330,7 +331,7 @@ Add client config file at DRLM SERVER
 .. warning:: You have to do this at DRLM Server.
 
 We have to add a new file called as "client host name".cfg at /etc/drlm/clients/
-For example: If our client host name is ReaRCli1 we have to create /etc/drlm/clients/ReaRCli1.cfg and add the follwing lines.
+For example: If our client host name is ReaRCli1 we have to create /etc/drlm/clients/ReaRCli1.cfg and add the following lines.
 Where CLI_NAME="Client Host Name" and SRV_NET_IP="DRLM Server IP".
 
 ::
