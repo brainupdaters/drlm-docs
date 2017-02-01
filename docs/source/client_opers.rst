@@ -12,13 +12,29 @@ called like this::
 
    $ drlm addclient [options]
 
-The :program:`drlm addclient` has some requiered options:
+If the client you wish to add is online (network reachable), you will only need to set its IP in CIDR notation in order to add it to the database. It will then automatically fetch and prompt all the required client parameters (hostname, network and MAC address), leaving to you the option to keep and save those parameters or to enter them manually in case you refuse. 
+
+In this case, the :program:`drlm addclient` has the following required options:
+
+ .. program:: `drlm addclient`
+
+ .. option:: -i ip_in_CIDR_format, --ipaddr ip_in_CIDR_format
+
+ Examples::
+
+   $ drlm addclient -I 192.168.0.15/24
+
+If the :program:`drlm addclient` does not correctly fetch the client's hostname, you can set it manually in the same command:
+
+   $ $ drlm addclient -I 192.168.0.15/24 -c rear-debian
+
+If the client is not network reachable when you want to register it in the database or you wish to manually enter all the required parameters, you can do it with the required options available:  
     
 .. program:: `drlm addclient`
 
 .. option:: -c client_name, --client client_name
 
-   Select Client name to add.
+   Select Client name to add. Remember that it has to **match the client's hostname**.
 
 .. option:: -i ip, --ipaddr ip
 
@@ -40,11 +56,11 @@ The :program:`drlm addclient` has some requiered options:
    .. warning::
 
       If the network_name doesn't exist in DRLM database you will get an error. First
-      of all register de network where the client will be registered.
+      of all register the network where the client will be registered.
 
    .. warning::
 
-      We have to manualy add to the client configuration file in the DRLM server called /etc/drlm/clients/client_name.cfg with the next content:
+      We have to manually add to the client configuration file in the DRLM server called /etc/drlm/clients/client_name.cfg with the next content:
 
       OUTPUT=PXE
       OUTPUT_PREFIX=PXE
@@ -88,8 +104,8 @@ The :program:`drlm instclient` has some requiered options:
 
    Client Id.
 
-.. note:: Since Debian don't have the ReaR package on his repositories 
-      the following option is a requeriment also :program:`-U|--url_rear <URL_REAR>`
+.. note:: Since Debian doesn't have the ReaR package on its repositories, 
+      the following option is a requirement also :program:`-U|--url_rear <URL_REAR>`
 
 Optional options:
 
@@ -105,7 +121,7 @@ Optional options:
 
 .. option:: -U url_rear, --url_rear url_rear
 
-   rpm or deb package for especific distro for example http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_7.0/all/rear_1.17.2_all.deb
+   rpm or deb package for specific distro. For example http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_7.0/all/rear_1.17.2_all.deb
 
 .. option:: -h, --help
 
@@ -126,7 +142,7 @@ called like this::
 
    $ drlm delclient [options]
 
-The :program:`drlm delclient` has some requiered options:
+The :program:`drlm delclient` has some required options:
     
 .. program:: `drlm delclient`
 
@@ -165,7 +181,7 @@ called like this::
 
    $ drlm modclient [options]
 
-The :program:`drlm modclient` has some requiered options:
+The :program:`drlm modclient` has some required options:
     
 .. program:: `drlm modclient`
 
@@ -257,5 +273,4 @@ The :program:`drlm listclient` has some options:
 
    $ drlm listclient -h
    $ drlm listclient --help
-
 
