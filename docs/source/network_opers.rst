@@ -47,7 +47,7 @@ The :program:`drlm addnetwork` has some requiered options:
    $ drlm addnetwork -i 13.74.90.0 --gateway 13.74.90.1 --mask 255.255.255.0  --server 13.74.90.222 -n vlan12
    $ drlm addnetwork --ipaddr 13.74.90.0 -g 13.74.90.1 -m 255.255.255.0  --server 13.74.90.222 -n vlan12
 
-Optional options: 
+Help options: 
 
 .. option:: -h, --help
 
@@ -88,7 +88,7 @@ The :program:`drlm delnetwork` has some options:
    $ drlm delnetwork -I 12
    $ drlm delnetwork --id 12
 
-Optional options: 
+Help options: 
 
 .. option:: -h, --help
 
@@ -119,7 +119,7 @@ The :program:`drlm modnetwork` has some required options:
 
    Select Network to change by ID.
 
-Optional options:
+Additional options:
 
 .. option:: -i ip, --ipaddr ip
 
@@ -165,6 +165,8 @@ Optional options:
    $ drlm modnetwork -n vlan12 -s 13.74.91.221
    $ drlm modnetwork --netname vlan12 --server 13.74.91.221
 
+Help option:
+
 .. option:: -h, --help
 
    Show drlm modnetwork help.
@@ -203,6 +205,8 @@ The :program:`drlm listnetwork` has some options:
 
    $ drlm listnetwork -A
    $ drlm listnetwork -all
+
+Help options:
 
 .. option:: -h, --help
 
