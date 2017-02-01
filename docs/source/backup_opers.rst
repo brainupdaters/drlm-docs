@@ -87,138 +87,50 @@ Optional options:
    $ drlm delbackup -h
    $ drlm delbackup --help
    
-   
-   
-Schedule Backups
-----------------
+List Backups
+------------
 
-From version 2.1.0 backup tasks can be scheduled. The :program:`drlm backup scheduler` allows you to **add**, **list** and **delete** scheduled jobs. You can also enable or disable the schedule function (by default it is enabled). You can set backup operations to run on a specified date and time by running::
+This command is used to list the backups that we have stored on the
+server. It is called like this::
 
-    $ drlm addjob [options]
+   $ drlm listbackup [options]
 
-.. program:: `drlm addjob`
+The :program:`drlm listbackup` has some options:
 
-    Required options:
+.. program:: `drlm listbackup`
 
 .. option:: -c client_name, --client client_name
 
-    Client for which you want to run a scheduled backup.
-    
-.. option:: -s start_date, --start_date start_date
+   Select Client to list its backups.
 
-    Start date and time for the scheduled backup. Format: YYYY-MM-DD**T**HH:MM
-    
-    
-    Optional arguments:
+   Examples::
 
-.. option:: -e end_date, --end_date end_date
+   $ drlm listbackup -c clientHost1
+   $ drlm listbackup --client clientHost1
 
-    End date and time for the scheduled backup. Format: YYYY-MM-DD**T**HH:MM
-    
-.. option:: -r repeat_time, --repeat repeat_time
-
-    This argument specifies the time a backup will be performed between the start and the end date of a                     scheduled backup (if any end_date is set). You can specify the repeating pattern in second(s), min(s),      minute(s), day(s), week(s), month(s) and year(s). 
-    
-.. option:: -h, --help
-
-    Shows help menu.    
-    
-    
-    Examples::
-    
-    $ drlm addjob -c rear-debian -s 2017-01-30T21:00
-    $ drlm addjob --client rear-centos -s 2017-02-03T08:00 -e 2017-02-05T23:00 -r 1hour
-    
-    
-    You can always **list** the active scheduled jobs::
-    
-    $ drlm listjob [options]
-    
-.. program:: `drlm listjob` arguments: 
-    
-.. option:: -J job_id, --job_id job_id
-
-    To list a job by its ID. 
-    
-.. option:: -c client_name, --client client-name
-
-    To list all the jobs scheduled for a specific client. 
-    
 .. option:: -A, --all
 
-    To list all the active scheduled jobs.
-    
-.. option:: -h, --help
+   List all backups
 
-    Shows help menu.    
-    
-    
-    Examples::
-    
-    $ drlm listjob -A
-    $ drlm listjob -c rear-suse
-    $ drlm listjob --job_id 3
-    
-    
-    You can **delete** an active job by running::
-    
-    $ drlm deljob [options]
-    
-.. program:: `drlm deljob` required options:
+   Examples::
 
-.. option:: -c client_name, --client client_name
+   $ drlm listbackup -A
+   $ drlm listbackup --all
 
-    To delete all scheduled jobs for a specific client.
-    
-.. option:: -J job_id, --job_id job_id
+.. option:: -h,--help
 
-    To delete a specific scheduled backup job. 
-    
-    Additional options:
-    
-.. option:: -h, --help
+   Show this help
 
-    Shows help menu.
-    
-    Examples::
-    
-    $ drlm deljob -J 5
-    $ drlm deljob -c rear-centos
-    
+   Examples::
 
-    Finally, you can **enable or disable** the job scheduler facility by running::
-    
-    drlm sched [options]
-    
-.. program:: `drlm sched` available options:
-
-.. option:: -e, --enable
-
-    Enables job scheduler utility.
-    
-.. option:: -d, --disable
-
-    Disables job scheduler utility.
-    
-.. option:: -r, --run
-
-    Runs all planned jobs (starting from the nearest date).
-    
-.. option: -h, --help
-
-    Shows help menu.
-    
-    Examples::
-    
-    $ drlm sched -e
-    $ drlm sched -r
-       
-
+   $ drlm listbackup -h
+   $ drlm listbackup --help
+   
 Backup Manager
 --------------
 
-This command is used to enable or disable clients restore points. 
-Is also used to put a restore point by default. It is called like
+This command is used to enable or disable client restore points. 
+Is also used to set a restore point by default. It is called like
 this::
 
    $ drlm bkpmgr [options]
@@ -271,49 +183,16 @@ Additional options:
    $ drlm bkmgr -h
    $ drlm bkmgr --help
 
-List Backups
-------------
- 
-This command is used to list the backups that we have stored on the
-server. It is called like this::
-
-   $ drlm listbackup [options]
-
-The :program:`drlm listbackup` has some options:
-
-.. program:: `drlm listbackup`
-
-.. option:: -c client_name, --client client_name
-
-   Select Client to list its backups.
-
-   Examples::
-
-   $ drlm listbackup -c clientHost1
-   $ drlm listbackup --client clientHost1
-
-.. option:: -A, --all
-
-   List all backups
-
-   Examples::
-
-   $ drlm listbackup -A
-   $ drlm listbackup --all
-
-.. option:: -h,--help
-
-   Show this help
-
-   Examples::
-  
-   $ drlm listbackup -h
-   $ drlm listbackup --help                            
-
 Export/Import Backups
----------------------
+=====================
 
 Since version 2.1.0 the possibility to import or export backups from other DRLM servers has been added. To export a backup::
+
+Export Backups
+--------------
+
+This command is used to export a backup that we have stored on the
+server. It is called like this::
 
   $ drlm expbackup [options]
 
@@ -341,7 +220,11 @@ Examples::
 
   You could now save or copy the exported backup to another DRLM server.
 
-  To import a backup::
+Import Backups
+--------------
+
+This command is used to import a backup that we have received from other
+DRLM server. It is called like this::
 
   $ drlm impbackup [options]
 
@@ -364,3 +247,144 @@ Shows help menu.
 Examples::
 
   $ drlm impbackup --client rear-debian -f /tmp/export.dr 
+
+Backup Job Scheduler
+====================
+
+Since version 2.1.0 backup tasks can be scheduled. The :program:`drlm backup scheduler` allows you to **add**, **list** and **delete** scheduled jobs. You can also enable or disable the schedule function (by default it is enabled). You can set backup operations to run on a specified date and time by running::
+
+Add Jobs
+--------
+
+This command is used to plan backup jobs in DRLM. It is
+called like this::
+
+    $ drlm addjob [options]
+
+.. program:: `drlm addjob`
+
+    Required options:
+
+.. option:: -c client_name, --client client_name
+
+    Client for which you want to run a scheduled backup.
+    
+.. option:: -s start_date, --start_date start_date
+
+    Start date and time for the scheduled backup. Format: YYYY-MM-DD**T**HH:MM
+    
+    
+    Optional arguments:
+
+.. option:: -e end_date, --end_date end_date
+
+    End date and time for the scheduled backup. Format: YYYY-MM-DD**T**HH:MM
+    
+.. option:: -r repeat_time, --repeat repeat_time
+
+    This argument specifies the time a backup will be performed between the start and the end date of a                     scheduled backup (if any end_date is set). You can specify the repeating pattern in second(s), min(s),      minute(s), day(s), week(s), month(s) and year(s). 
+    
+.. option:: -h, --help
+
+    Shows help menu.    
+    
+    
+    Examples::
+    
+    $ drlm addjob -c rear-debian -s 2017-01-30T21:00
+    $ drlm addjob --client rear-centos -s 2017-02-03T08:00 -e 2017-02-05T23:00 -r 1hour
+    
+List Jobs
+---------
+
+This command is used to list backup jobs planned in DRLM. 
+It is called like this::
+    
+    $ drlm listjob [options]
+    
+.. program:: `drlm listjob` arguments: 
+    
+.. option:: -J job_id, --job_id job_id
+
+    To list a job by its ID. 
+    
+.. option:: -c client_name, --client client-name
+
+    To list all the jobs scheduled for a specific client. 
+    
+.. option:: -A, --all
+
+    To list all the active scheduled jobs.
+    
+.. option:: -h, --help
+
+    Shows help menu.    
+    
+    
+    Examples::
+    
+    $ drlm listjob -A
+    $ drlm listjob -c rear-suse
+    $ drlm listjob --job_id 3
+    
+    
+Delete Jobs
+-----------
+
+This command is used to delete planned backup jobs in DRLM. 
+It is called like this::
+    
+    $ drlm deljob [options]
+    
+.. program:: `drlm deljob` required options:
+
+.. option:: -c client_name, --client client_name
+
+    To delete all scheduled jobs for a specific client.
+    
+.. option:: -J job_id, --job_id job_id
+
+    To delete a specific scheduled backup job. 
+    
+    Additional options:
+    
+.. option:: -h, --help
+
+    Shows help menu.
+    
+    Examples::
+    
+    $ drlm deljob -J 5
+    $ drlm deljob -c rear-centos
+    
+
+Scheduler Management
+--------------------
+
+With this command you can **enable or disable** the job scheduler facility
+or force to **run** jobs planned at "now" by running::
+    
+    drlm sched [options]
+    
+.. program:: `drlm sched` available options:
+
+.. option:: -e, --enable
+
+    Enables job scheduler utility.
+    
+.. option:: -d, --disable
+
+    Disables job scheduler utility.
+    
+.. option:: -r, --run
+
+    Runs all planned jobs (starting from the nearest date).
+    
+.. option: -h, --help
+
+    Shows help menu.
+    
+    Examples::
+    
+    $ drlm sched -e
+    $ drlm sched -r
