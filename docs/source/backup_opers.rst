@@ -212,18 +212,23 @@ The :program:`drlm expbackup` has the following required options:
 .. option:: -f destination_file, --file destination_file
 
    Enter the output path in which you would like to export the backup,
+   
+   Examples::
+
+   $ drlm expbackup -I 2.20170125103105 -f /tmp/export.dr 
+   
+   You could now save or copy the exported backup to another DRLM server.
 
 Help option:
 
 .. option:: -h, --help
 
    Shows help menu.
-
+   
    Examples::
 
-   $ drlm expbackup -I 2.20170125103105 -f /tmp/export.dr 
-
-  You could now save or copy the exported backup to another DRLM server.
+   $ drlm expbackup -h
+   $ drlm expbackup --help
 
 Import Backups
 --------------
@@ -243,15 +248,20 @@ The :program:`drlm impbackup` has the following required options:
 
    Set the destination path of the backup to import. 
 
+   Examples::
+
+   $ drlm impbackup --client rear-debian -f /tmp/export.dr 
+   
 Help option:
 
 .. option:: -h, --help
 
    Shows help menu.
-
+   
    Examples::
 
-   $ drlm impbackup --client rear-debian -f /tmp/export.dr 
+   $ drlm expbackup -h
+   $ drlm expbackup --help
 
 Backup Job Scheduler
 ====================
@@ -288,16 +298,21 @@ called like this::
 
     This argument specifies the time a backup will be performed between the start and the end date of a                     scheduled backup (if any end_date is set). You can specify the repeating pattern in second(s), min(s),      minute(s), day(s), week(s), month(s) and year(s). 
  
-Help option:
-
-.. option:: -h, --help
-
-    Shows help menu.    
-      
     Examples::
     
     $ drlm addjob -c rear-debian -s 2017-01-30T21:00
     $ drlm addjob --client rear-centos -s 2017-02-03T08:00 -e 2017-02-05T23:00 -r 1hour
+    
+Help option:
+
+.. option:: -h, --help
+
+   Shows help menu.  
+    
+   Examples::
+
+   $ drlm addjob -h
+   $ drlm addjob --help
     
 List Jobs
 ---------
@@ -305,34 +320,38 @@ List Jobs
 This command is used to list backup jobs planned in DRLM. 
 It is called like this::
     
-    $ drlm listjob [options]
+   $ drlm listjob [options]
     
 .. program:: `drlm listjob` arguments: 
     
 .. option:: -J job_id, --job_id job_id
 
-    To list a job by its ID. 
+   To list a job by its ID. 
     
 .. option:: -c client_name, --client client-name
 
-    To list all the jobs scheduled for a specific client. 
+   To list all the jobs scheduled for a specific client. 
     
 .. option:: -A, --all
 
-    To list all the active scheduled jobs.
+   To list all the active scheduled jobs.
+   
+   Examples::
+    
+   $ drlm listjob -A
+   $ drlm listjob -c rear-suse
+   $ drlm listjob --job_id 3
 
 Help option:
 
 .. option:: -h, --help
 
-    Shows help menu.    
+   Shows help menu.    
     
-    Examples::
-    
-    $ drlm listjob -A
-    $ drlm listjob -c rear-suse
-    $ drlm listjob --job_id 3
-    
+   Examples::
+
+   $ drlm listjob -h
+   $ drlm listjob --help   
     
 Delete Jobs
 -----------
@@ -340,31 +359,33 @@ Delete Jobs
 This command is used to delete planned backup jobs in DRLM. 
 It is called like this::
     
-    $ drlm deljob [options]
+   $ drlm deljob [options]
     
 .. program:: `drlm deljob` required options:
 
 .. option:: -c client_name, --client client_name
 
-    To delete all scheduled jobs for a specific client.
+   To delete all scheduled jobs for a specific client.
     
 .. option:: -J job_id, --job_id job_id
 
-    To delete a specific scheduled backup job. 
+   To delete a specific scheduled backup job. 
     
-    Additional options:
+   Examples::
+    
+   $ drlm deljob -J 5
+   $ drlm deljob -c rear-centos
 
 Help option:
 
 .. option:: -h, --help
 
-    Shows help menu.
-    
-    Examples::
-    
-    $ drlm deljob -J 5
-    $ drlm deljob -c rear-centos
-    
+   Shows help menu.
+   
+   Examples::
+
+   $ drlm deljob -h
+   $ drlm deljob --help   
 
 Scheduler Management
 --------------------
@@ -372,29 +393,34 @@ Scheduler Management
 With this command you can **enable or disable** the job scheduler facility
 or force to **run** jobs planned at "now" by running::
     
-    drlm sched [options]
+   drlm sched [options]
     
 .. program:: `drlm sched` available options:
 
 .. option:: -e, --enable
 
-    Enables job scheduler utility.
+   Enables job scheduler utility.
     
 .. option:: -d, --disable
 
-    Disables job scheduler utility.
+   Disables job scheduler utility.
     
 .. option:: -r, --run
 
-    Runs all planned jobs (starting from the nearest date).
-
-Help option:
-
-.. option: -h, --help
-
-    Shows help menu.
-    
-    Examples::
+   Runs all planned jobs (starting from the nearest date).
+   
+   Examples::
     
     $ drlm sched -e
     $ drlm sched -r
+
+Help option:
+
+.. option:: -h, --help
+
+   Shows help menu.
+    
+   Examples::
+
+   $ drlm sched -h
+   $ drlm sched --help 
