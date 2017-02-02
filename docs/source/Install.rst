@@ -709,3 +709,177 @@ Restart & check services
 
 .. note::
 	DHCP and NFS servers are not running because there is no config yet! no worries they will be reloaded automatically after first DRLM client will be added.
+
+Suse 12.1
+---------
+
+.. note::
+      On the following steps, is assumed you have a minimal Suse 12.1 
+
+Install requirements
+~~~~~~~~~~~~~~~~~~~~
+
+
+
+::
+
+        $ zypper in openssl wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind dhcp-server sqlite3 apache2 openssh qemu-tools tftp xinetd lsb-release
+
+
+Get DRLM
+~~~~~~~~
+
+You can obtain the RPM DRLM package from www.drlm.org website
+
+
+**Download RPM package From DRLM Web**
+
+::
+
+        $ wget http://www.drlm.org/downloads/drlm-2.1.0-1git.noarch.rpm
+
+
+Install DRLM package
+~~~~~~~~~~~~~~~~~~~~
+
+:program:`The RPM package can be installed as follows (on SUSE 12.1)`
+
+Execute the next command:
+::
+
+        $ zypper in drlm-2.1.0-1git.noarch.rpm
+
+
+DRLM Components Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This section covers configuration of:
+
+* GRUB
+* TFTP Service
+* NFS Service
+* DHCP Service
+* HTTP Service
+
+Configuring loop limits
+~~~~~~~~~~~~~~~~~~~~~~~
+
+The default configuration allows up to eight active loop devices. If more than eight file-based guests or loop devices are needed the number of loop devices configured can be adjusted adding the parameter *max_loop=1024* in the **/etc/default/grub** file as follows::
+
+        ...
+
+        GRUB_CMDLINE_LINUX="quiet max_loop=1024" ##UPDATE THIS LINE
+
+        ...
+
+::
+
+        $ grub2-mkconfig -o /boot/grub2/grub.cfg
+
+
+TFTP
+~~~~
+You have to update the /etc/xinetd.d/tftp cofiguration file as follows:
+
+::
+
+    service tftp
+    {
+            socket_type = dgram
+            protocol = udp
+            wait = yes
+            user = root
+            server = /usr/sbin/in.tftpd
+            server_args = -s /var/lib/drlm/store
+            disable = no
+            per_source = 11
+            cps = 100 2
+            flags = IPv4
+    }
+
+
+NFS
+~~~
+We don't have to configure the /etc/exports file, the file is automatically maintained by DRLM.
+
+
+DHCP
+~~~~
+Same as /etc/exports file, configuration of /etc/dhcpd.conf file is not required, the file is automatically maintained by DRLM.
+
+but you have to change the location of /etc/dhcpd.conf
+
+Edit /usr/share/drlm/conf/default.conf
+
+::
+
+
+     DHCP_DIR="/etc"
+
+
+DHCPD_INTERFACE by default is set as DHCPD_INTERFACE="" and dhcpd does not start change to "ANY"
+
+Edit /etc/sysconfig/dhcpd
+
+::
+
+         DHCPD_INTERFACE="ANY"
+
+
+HTTP
+~~~~
+
+::
+
+       $ a2enmod ssl
+       $ a2enmod rewrite
+       $ a2enmod cgi
+       $ a2enmod mod_access_compat
+
+Edit /etc/apache2/httpd.conf file
+
+::
+
+        # Include the DRLM Configuration:
+        Include /usr/share/drlm/conf/HTTP/https.conf
+
+Add APACHE_LOG_DIR variable to /etc/sysconfig/apache2
+
+Edit /usr/share/drlm/conf/HTTP/https.conf
+
+::
+
+  echo "APACHE_LOG_DIR=/var/log/apache2" >> /etc/sysconfig/apache2
+
+
+
+Edit /etc/apache2/ports.conf file
+
+::
+
+        #Listen 80
+        Listen 443
+
+
+Restart & check services
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+  $ systemctl restart xinetd.service
+  $ systemctl status xinetd.service
+
+  $ systemctl restart rpcbind.service
+  $ systemctl status rpcbind.service
+
+  $ systemctl restart apache2.service
+  $ systemctl status apache2.service
+
+  $ systemctl enable nfs-server
+  $ systemctl start nfs-server
+  $ systemctl status nfs-server
+
+  
+.. note::
+    DHCP and NFS servers are not running because there is no config yet! no worries they will be reloaded automatically after first DRLM client will be added.
+
