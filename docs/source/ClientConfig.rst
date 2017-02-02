@@ -5,29 +5,29 @@ DRLM Client Installation
 ---------------------------
 
 Now ReaR can be installed and configured on a remote server from the DRLM server
-using the new feature :program:`drlm instclient`
+using :program:`drlm instclient`
 
-Let's explain a little bit the steps the new feature does:
+Let's explain a little bit the steps this feature does:
 
         * Create the drlm user
-        * Install rear dependencies
-        * Install rear package
+        * Install ReaR dependencies
+        * Install ReaR package
         * Configure ReaR to be managed by DRLM
-        * Configure sudo for drlm user.
+        * Configure SUDO for drlm user.
         * Start and configure required services
 
-Supported OSs on the new feature instclient
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Supported OSs for instclient command
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Install Client feature has been tested on:
+Unattended Client Installation has been tested on:
 
-       * Suse 12 SP1
-       * RedHat 6,7
-       * CentOS 6,7
-       * Debian 7,8
-       * Ubuntu 12,14,16 (LTS)
+       * SLES (11 & 12)
+       * OpenSUSE (13 & Leap 42)
+       * RHEL & CentOS (5, 6 & 7) 
+       * Debian (6, 7 & 8)
+       * Ubuntu LTS (12.04, 14.04 & 16.04)
 
-.. note:: It should work on Redhat & CentOS 5 and also on Debian 6.
+.. note:: It should work on other RedHat, Debian or SUSE variants.
 
 
 Requirements
@@ -35,7 +35,7 @@ Requirements
 
 In order to install ReaR from DRLM server the client must have:
 
-       * Access to EPEL Repo to install rear from repo (CentOS,RedHat)
+       * Access to EPEL Repo to install rear from repo (CentOS,RHEL)
        * instclient uses apt-get, yum and zypper, so repositories must be configured
        * SSH enabled
        * root user or user with administrator privileges to install, start services
@@ -64,8 +64,8 @@ Examples::
 **Manual Installation**
 -----------------------
 
-Debian 7
-~~~~~~~~
+Debian 7 & Ubuntu 12.04 or 14.04
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ReaR requirements for DRLM
 **************************
@@ -170,8 +170,8 @@ We have to specify that this ReaR client is managed from a DRLM server. We have 
  
    DRLM_MANAGED=y
 
-CentOS 6, Red Hat 6
-~~~~~~~~~~~~~~~~~~~
+CentOS & RHEL 6
+~~~~~~~~~~~~~~~
 
 ReaR requirements for DRLM
 **************************
@@ -186,7 +186,7 @@ As rear is written in bash you need bash as a bare minimum. Other requirements a
 	* rpcbind
 	* wget
 	* sudo 
-	* curl (rear needs it to get configuration from DRLM server) 
+	* curl (rear needs it to get the configuration from DRLM server) 
 	
 ::
 
