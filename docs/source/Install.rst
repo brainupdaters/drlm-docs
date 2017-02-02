@@ -3,18 +3,18 @@ DRLM Installation
 
 The pourpose of this manual is explain, step by step, the installation and configuration of DRLM. At the end of this guide you should have a fully functional DRLM server.
 
-Debian 8
---------
+Debian 8 (Jessie) & Ubuntu 16.04 LTS (Xenial)
+---------------------------------------------
 
 .. note::
-   On the following steps, is assumed you have a minimal installation of Debian 8.
+   On the following steps, is assumed you have a minimal installation of Debian 8 or Ubuntu 16.04.
 
 Install requirements
 ~~~~~~~~~~~~~~~~~~~~
 
 ::
 
-	$ apt-get install openssh-client openssl netcat-traditional wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind isc-dhcp-server tftpd-hpa syslinux apache2 qemu-utils sqlite3
+	$ apt-get install openssh-client openssl wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind isc-dhcp-server tftpd-hpa apache2 qemu-utils sqlite3 lsb-release
 
 Get DRLM
 ~~~~~~~~
@@ -146,18 +146,18 @@ Restart & check services
  DHCP and NFS servers are not running because there is no config yet! no worries they will be reloaded automatically after first DRLM client will be added.
 
 
-Debian 7
---------
+Debian 7 (Wheezy) & Ubuntu 14.04 LTS (Trusty)
+---------------------------------------------
 
 .. note::
-   On the following steps, is assumed you have a minimal installation of Debian 7.
+   On the following steps, is assumed you have a minimal installation of Debian 7 or Ubuntu 14.04.
 
 Install requirements
 ~~~~~~~~~~~~~~~~~~~~
 
 ::
 
-	$ apt-get install openssh-client openssl netcat-traditional wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind isc-dhcp-server tftpd-hpa syslinux apache2 qemu-utils sqlite3
+	$ apt-get install openssh-client openssl wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind isc-dhcp-server tftpd-hpa apache2 qemu-utils sqlite3 lsb-release
 
 Get DRLM
 ~~~~~~~~
@@ -292,13 +292,13 @@ Restart & check services
  	 DHCP and NFS servers are not running because there is no config yet! no worries they will be reloaded automatically after first DRLM client will be added.
 
 
-CentOS 7, Red Hat 7
--------------------
+CentOS 7 & RHEL 7
+-----------------
 
 .. note::
-   On the following steps, is assumed you have a minimal installation of CentOS 7.
+   On the following steps, is assumed you have a minimal installation of CentOS or RHEL 7.
 
-.. warning:: selinux has been disabled
+.. warning:: SELinux has been disabled
 
 ::
 
@@ -329,7 +329,7 @@ Install requirements
 
 ::
 
-	 $  yum -y install openssh-clients openssl nc wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server syslinux httpd xinetd nfs-utils nfs4-acl-tools mod_ssl qemu-img sqlite
+	 $  yum -y install openssh-clients openssl wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server httpd xinetd nfs-utils nfs4-acl-tools mod_ssl qemu-img sqlite redhat-lsb-core
 
 Get DRLM
 ~~~~~~~~
@@ -498,14 +498,14 @@ Restart & check services
 	DHCP and NFS servers are not running because there is no config yet! no worries they will be reloaded automatically after first DRLM client will be added.
 
 
-CentOS 6, Red Hat 6
--------------------
+CentOS 6 & RHEL 6
+-----------------
 
 
 .. note::
-   On the following steps, is assumed you have a minimal installation of CentOS 6 or Red Hat 6.
+   On the following steps, is assumed you have a minimal installation of CentOS or RHEL 6.
 
-.. warning:: iptables and selinux has been disabled
+.. warning:: Iptables and SELinux has been disabled
 
 ::
 
@@ -528,9 +528,9 @@ CentOS 6, Red Hat 6
 
 .. note::
 
-   It is not a requirement to disable SELinux and IPTABLES, but to work with DRLM Server must be properly configured. We have disabled these features for easier installation.
+   It is not a requirement to disable SELinux and Iptables, but to work with DRLM Server must be properly configured. We have disabled these features for easier installation.
 
-IPTABLES
+Iptables
 
 ::
 
@@ -542,7 +542,7 @@ Install requirements
 
 ::
 
-	 $  yum -y install openssh-clients openssl nc wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server syslinux httpd xinetd nfs-utils nfs4-acl-tools mod_ssl qemu-img sqlite
+	 $  yum -y install openssh-clients openssl wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server httpd xinetd nfs-utils nfs4-acl-tools mod_ssl qemu-img sqlite redhat-lsb-core
 
 Get DRLM
 ~~~~~~~~
@@ -565,12 +565,12 @@ Get DRLM
 Install DRLM package
 ~~~~~~~~~~~~~~~~~~~~
 
-:program:`The RPM package can be installed as follows (on Redhat, CentOS)`
+:program:`The RPM package can be installed as follows (on RHEL, CentOS)`
 
 Execute the next command:
 ::
 
-	$ rpm -ivh drlm-1.1.3-1git.el6.noarch.rpm
+	$ rpm -ivh drlm-2.0.0-1git.el6.noarch.rpm
 
 
 DRLM Components Configuration
@@ -710,16 +710,14 @@ Restart & check services
 .. note::
 	DHCP and NFS servers are not running because there is no config yet! no worries they will be reloaded automatically after first DRLM client will be added.
 
-Suse 12.1
----------
+SLES 12 SP1
+-----------
 
 .. note::
-      On the following steps, is assumed you have a minimal Suse 12.1 
+      On the following steps, is assumed you have a minimal SLES 12 SP1 
 
 Install requirements
 ~~~~~~~~~~~~~~~~~~~~
-
-
 
 ::
 
@@ -729,6 +727,17 @@ Install requirements
 Get DRLM
 ~~~~~~~~
 
+You can obtain the DRLM package building it from the source code or downloading from www.drlm.org website
+
+**Build RPM package from Source**
+
+::
+
+  $ zypper install git-core rpm-build	
+  $ git clone https://github.com/brainupdaters/drlm
+  $ cd drlm
+  $ make rpm
+	
 You can obtain the RPM DRLM package from www.drlm.org website
 
 
@@ -742,7 +751,7 @@ You can obtain the RPM DRLM package from www.drlm.org website
 Install DRLM package
 ~~~~~~~~~~~~~~~~~~~~
 
-:program:`The RPM package can be installed as follows (on SUSE 12.1)`
+:program:`The RPM package can be installed as follows (on SLES 12 SP1)`
 
 Execute the next command:
 ::
@@ -809,21 +818,21 @@ Same as /etc/exports file, configuration of /etc/dhcpd.conf file is not required
 
 but you have to change the location of /etc/dhcpd.conf
 
-Edit /usr/share/drlm/conf/default.conf
+Edit /etc/drlm/local.conf
 
 ::
 
-
      DHCP_DIR="/etc"
+     DHCP_FILE="$DHCP_DIR/dhcpd.conf"
 
 
-DHCPD_INTERFACE by default is set as DHCPD_INTERFACE="" and dhcpd does not start change to "ANY"
+DHCPD_INTERFACE by default is set as DHCPD_INTERFACE="" and dhcpd does not start, change it to "ANY"
 
 Edit /etc/sysconfig/dhcpd
 
 ::
 
-         DHCPD_INTERFACE="ANY"
+     DHCPD_INTERFACE="ANY"
 
 
 HTTP
