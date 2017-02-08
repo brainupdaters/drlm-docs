@@ -14,7 +14,7 @@ Enable DRLM reporting
 
 ::
 
-  $ vi /etc/drlm/local.conf
+  $ vi /usr/share/drlm/conf/default.conf
 
   ########
   #
@@ -22,7 +22,7 @@ Enable DRLM reporting
   #
   #    ERR_REPORT=[yes|no]
   #	default: no
-  #    REPORT_TYPE=[ovo|nagios|zabbix|mail|...]
+  #    REPORT_TYPE=[ovo|nsca-ng|nsca|zabbix|mail|...]
   #	default: empty
   #
   ########
@@ -31,26 +31,24 @@ Enable DRLM reporting
   REPORT_TYPE=<type>
 
 
-Configure Nagios reporting
----------------------------
+Configure nsca-ng (Nagios based) reporting
+------------------------------------------
 
 In order to configure Nagios Error reporting on DRLM, the Nagios NSCA Client must be installed.  
+
+.. note:: We're using nsca-ng because nsca is deprecated, but if you have nsca DRLM supports it 
 
 **Debian 7/8**
 
 ::
 
-  $ apt-get install nsca-client
+  $ apt-get install nsca-client-ng
 
 **RHEL/Centos 6/7**
 
-::
+nsca-client-ng is not in the repositories, it can be downloaded from:
 
-  $ yum install nsca-client
-
-.. warning::
-  May be needed to add EPEL repositories if not present, because those packages are not included in distribution repositories.
-
+        * https://www.nsca-ng.org/
 
 The following options are DRLM defaults, change any of them to your installation requirements in /etc/drlm/local.conf.
 
@@ -79,32 +77,41 @@ Copy the sample DRLM configuration for Nagios to previously defined $NAGCONF and
   #### DRLM (Disaster Recovery Linux Manager) Nagios error reporting sample configuration file.
   #### Default: /etc/drlm/alerts/nagios.cfg
 
-  ### identity = <string>
-  #   Send  the  specified  client identity to the server.
-  #   By default, localhost will be used.
+  command_file = "/usr/local/nagios/var/rw/nagios.cmd"
 
-  #identity = "drlm_server_hostname"
 
-  ### server = <string>
-  #   Connect and talk to the specified server address or hostname.
-  #   The  default server is "localhost".
+  listen = "<Nagios Host>:5668" # only listen on localhost. If you use systemd this
+                          # this option is overriden by the
+                          # nsca-ng-server.socket file.
 
-  #server = "monitoring_server"
+  user = "nagios" # run as user nagios
+  pid_file = "/var/run/nsca-ng/nsca-ng.pid" # pid file for nsca-ng
 
-  ### port = <string>
-  #   Connect  to  the  specified  service  name or port number on the
-  #   server instead of using the default port (5668).
+  include(/etc/nsca-ng/nsca-ng.local.cfg)
 
-  #port = 5667
+
+  authorize "*" {
+        password = "change-me"
+        #
+        # The original NSCA server permits all authenticated clients to submit
+        # arbitrary check results.  To get this behaviour, enable the following
+        # lines:
+        #
+                hosts = ".*"
+                services = ".*"
+  }
 
 .. note::
   The configuration on the server side is not in the scope of this documentation. Please check your Nagios service documentation
   to configure properly the NSCA service and how to report DRLM alerts.
 
   For reference you can check: 
-      * https://assets.nagios.com/downloads/nagioscore/docs/Installing_NSCA.pdf
-      * http://nagios.sourceforge.net/download/contrib/documentation/misc/NSCA_Setup.pdf
-      * https://assets.nagios.com/downloads/nagiosxi/docs/Using-and-Configuring-NSCA-With-Nagios-XI.pdf
+      * https://www.nsca-ng.org/documentation/nsca-ng.pdf
+      * https://www.nsca-ng.org/documentation/nsca-ng.cfg.pdf
+      * https://www.nsca-ng.org/documentation/send_nsca.pdf
+      * https://www.nsca-ng.org/documentation/send_nsca.cfg.pdf
+
+
 
 
 Configure Zabbix reporting
