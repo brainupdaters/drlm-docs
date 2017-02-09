@@ -61,6 +61,8 @@ release.
 DRLM Version 2.1.0 (January 2017) -  Release Notes
 --------------------------------------------------
 
+  * DRLM reporting with nsca-ng, nsca. (issue #47)
+
   * DRLM Server for SLES. (issue #45)
   
   * Support for drlm unattended installation (instclient) on Ubuntu (issue #43)
