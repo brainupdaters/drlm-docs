@@ -77,29 +77,24 @@ Copy the sample DRLM configuration for Nagios to previously defined $NAGCONF and
   #### DRLM (Disaster Recovery Linux Manager) Nagios error reporting sample configuration file.
   #### Default: /etc/drlm/alerts/nagios.cfg
 
-  command_file = "/usr/local/nagios/var/rw/nagios.cmd"
+  ### identity = <string>
+  #   Send  the  specified  client identity to the server.
+  #   By default, localhost will be used.
+   
+  identity = "< client identity >"
 
+  ### server = <string>
+  #   Connect and talk to the specified server address or hostname.
+  #   The  default server is "localhost".
 
-  listen = "<Nagios Host>:5668" # only listen on localhost. If you use systemd this
-                          # this option is overriden by the
-                          # nsca-ng-server.socket file.
+  server = "< nagios based server >"
 
-  user = "nagios" # run as user nagios
-  pid_file = "/var/run/nsca-ng/nsca-ng.pid" # pid file for nsca-ng
+  ### port = <string>
+  #   Connect  to  the  specified  service  name or port number on the
+  #   server instead of using the default port (5668).
 
-  include(/etc/nsca-ng/nsca-ng.local.cfg)
-
-
-  authorize "*" {
-        password = "change-me"
-        #
-        # The original NSCA server permits all authenticated clients to submit
-        # arbitrary check results.  To get this behaviour, enable the following
-        # lines:
-        #
-                hosts = ".*"
-                services = ".*"
-  }
+  port = < nagios based listening port  >
+  password = "change-me"
 
 .. note::
   The configuration on the server side is not in the scope of this documentation. Please check your Nagios service documentation
