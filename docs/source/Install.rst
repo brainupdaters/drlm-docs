@@ -14,7 +14,7 @@ Install requirements
 
 ::
 
-	$ apt-get install openssh-client openssl wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind isc-dhcp-server tftpd-hpa apache2 qemu-utils sqlite3 lsb-release
+	$ apt-get install openssh-client openssl gawk nfs-kernel-server rpcbind isc-dhcp-server tftpd-hpa apache2 qemu-utils sqlite3 lsb-release
 
 Get DRLM
 ~~~~~~~~
@@ -25,7 +25,7 @@ You can obtain the DRLM package building it from the source code or downloading 
 
 ::
 
-	$ aptitude install git build-essential debhelper
+	$ apt-get install git build-essential debhelper
 	$ git clone https://github.com/brainupdaters/drlm
 	$ cd drlm
 	$ make deb
@@ -35,7 +35,7 @@ You can obtain the DRLM package building it from the source code or downloading 
 
 ::
 
-	$ wget http://www.drlm.org/downloads/drlm_2.0.0_all.deb
+	$ wget http://www.drlm.org/downloads/drlm_2.1.0_all.deb
 
 
 Install DRLM package
@@ -46,7 +46,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	$ dpkg -i drlm_2.0.0_all.deb
+	$ dpkg -i drlm_2.1.0_all.deb
 
 
 DRLM Components Configuration
@@ -168,7 +168,7 @@ You can obtain the DRLM package building it from the source code or downloading 
 
 ::
 
-	$ aptitude install git build-essential debhelper
+	$ apt-get install git build-essential debhelper
 	$ git clone https://github.com/brainupdaters/drlm
 	$ cd drlm
 	$ make deb
@@ -178,7 +178,7 @@ You can obtain the DRLM package building it from the source code or downloading 
 
 ::
 
-	$ wget http://www.drlm.org/downloads/drlm_2.0.0_all.deb
+	$ wget http://www.drlm.org/downloads/drlm_2.1.0_all.deb
 
 
 Install DRLM package
@@ -189,7 +189,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	$ dpkg -i drlm_2.0.0_all.deb
+	$ dpkg -i drlm_2.1.0_all.deb
 
 
 DRLM Components Configuration
@@ -347,7 +347,7 @@ Get DRLM
 
 ::
 
-    $ wget http://www.drlm.org/downloads/drlm-2.0.0-1git.el6.noarch.rpm
+    $ wget http://www.drlm.org/downloads/drlm-2.1.0-1git.el6.noarch.rpm
 
 Install DRLM package
 ~~~~~~~~~~~~~~~~~~~~
@@ -357,7 +357,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	$ rpm -ivh drlm-2.0.0-1git.el7.centos.noarch.rpm
+	$ rpm -ivh drlm-2.1.0-1git.el7.centos.noarch.rpm
 
 
 DRLM Components Configuration
@@ -560,7 +560,7 @@ Get DRLM
 
 ::
 
-    $ wget http://www.drlm.org/downloads/drlm-2.0.0-1git.el6.noarch.rpm
+    $ wget http://www.drlm.org/downloads/drlm-2.1.0-1git.el6.noarch.rpm
 
 Install DRLM package
 ~~~~~~~~~~~~~~~~~~~~
@@ -570,7 +570,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	$ rpm -ivh drlm-2.0.0-1git.el6.noarch.rpm
+	$ rpm -ivh drlm-2.1.0-1git.el6.noarch.rpm
 
 
 DRLM Components Configuration
