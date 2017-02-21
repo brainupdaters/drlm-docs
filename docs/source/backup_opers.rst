@@ -54,13 +54,17 @@ called like this::
 
    $ drlm delbackup [options]
 
+.. warning:: 
+
+   To remove a backup, it must be disabled. 
+
 The :program:`drlm delbackup` has some required options:
     
 .. program:: `drlm delbackup`
 
 .. option:: -c client_name, --client client_name
 
-   Select Client to delete the backup.
+   Select Client to delete the backups.
 
 .. option:: -I backup_id, --id backup_id
 
@@ -72,8 +76,8 @@ The :program:`drlm delbackup` has some required options:
 
    Examples::
 
-   $ drlm delbackup -c clientHost1 -I 2015030121245
-   $ drlm delbackup --client clientHost1 --id 2015030121245
+   $ drlm delbackup -I 1.2015030121245
+   $ drlm delbackup --id 1.2015030121245
    $ drlm delbackup -c clientHost1 -A
    $ drlm delbackup --client clientHost1 --all
       
@@ -189,7 +193,7 @@ Help option:
    $ drlm bkmgr --help
 
 Export/Import Backups
-=====================
+~~~~~~~~~~~~~~~~~~~~~
 
 Since version 2.1.0 the possibility to import or export backups from other DRLM servers has been added. To export a backup::
 
@@ -264,7 +268,7 @@ Help option:
    $ drlm expbackup --help
 
 Backup Job Scheduler
-====================
+~~~~~~~~~~~~~~~~~~~~
 
 Since version 2.1.0 backup tasks can be scheduled. The :program:`drlm backup scheduler` allows you to **add**, **list** and **delete** scheduled jobs. You can also enable or disable the schedule function (by default it is enabled). You can set backup operations to run on a specified date and time by running::
 
