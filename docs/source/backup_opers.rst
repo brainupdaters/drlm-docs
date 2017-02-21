@@ -193,12 +193,12 @@ Help option:
    $ drlm bkmgr --help
 
 Export/Import Backups
-~~~~~~~~~~~~~~~~~~~~~
+---------------------
 
 Since version 2.1.0 the possibility to import or export backups from other DRLM servers has been added. To export a backup::
 
 Export Backups
---------------
+~~~~~~~~~~~~~~
 
 This command is used to export a backup that we have stored on the
 server. It is called like this::
@@ -235,7 +235,7 @@ Help option:
    $ drlm expbackup --help
 
 Import Backups
---------------
+~~~~~~~~~~~~~~
 
 This command is used to import a backup that we have received from other
 DRLM server. It is called like this::
@@ -268,12 +268,12 @@ Help option:
    $ drlm expbackup --help
 
 Backup Job Scheduler
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 Since version 2.1.0 backup tasks can be scheduled. The :program:`drlm backup scheduler` allows you to **add**, **list** and **delete** scheduled jobs. You can also enable or disable the schedule function (by default it is enabled). You can set backup operations to run on a specified date and time by running::
 
 Add Jobs
---------
+~~~~~~~~
 
 This command is used to plan backup jobs in DRLM. It is
 called like this::
@@ -322,7 +322,7 @@ Help option:
    $ drlm addjob --help
     
 List Jobs
----------
+~~~~~~~~~
 
 This command is used to list backup jobs planned in DRLM. 
 It is called like this::
@@ -361,7 +361,7 @@ Help option:
    $ drlm listjob --help   
     
 Delete Jobs
------------
+~~~~~~~~~~~
 
 This command is used to delete planned backup jobs in DRLM. 
 It is called like this::
@@ -395,7 +395,7 @@ Help option:
    $ drlm deljob --help   
 
 Scheduler Management
---------------------
+~~~~~~~~~~~~~~~~~~~~
 
 With this command you can **enable or disable** the job scheduler facility
 or force to **run** jobs planned at "now" by running::
