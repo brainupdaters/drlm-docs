@@ -146,10 +146,6 @@ The :program:`drlm bkpmgr` has some required options:
 
 .. program:: `drlm bkpmgr`
 
-.. option:: -c client_name, --client client_name
-
-   Select Client name to modify backup
-
 .. option:: -I backup_id, --id backup_id
 
    Select Backup ID to modify
@@ -164,22 +160,9 @@ The :program:`drlm bkpmgr` has some required options:
 
    Examples::
 
-   $drlm bkpmgr -c clientHost1 -I 20140519065512 -e
-   $drlm bkpmgr --client clientHost1 -I 20140519065512 -d
-   $drlm bkpmgr -c clientHost1 --id 20140519065512 -e
-
-Additional options: 
-
-.. option:: -P
-
-   Set backup to persistent mode. The persistent mode is used to 
-   indicate what backup will be activated by default in case of 
-   service restarting. A backup stops to be in persistent mode and 
-   it is replaced when creating a new one backup for the same client.
-
-   Examples::
-
-   $drlm bkmgr -c clientHost1 - I 20140519065512 -e -P
+   $drlm bkpmgr -I 1.20140519065512 -e
+   $drlm bkpmgr -I 1.20140519065512 -d
+   $drlm bkpmgr --id 1.20140519065512 -e
 
 Help option:
 
