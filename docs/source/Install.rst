@@ -35,7 +35,7 @@ You can obtain the DRLM package building it from the source code or downloading 
 
 ::
 
-	$ wget http://www.drlm.org/downloads/drlm_2.1.0_all.deb
+	$ wget http://www.drlm.org/downloads/drlm_2.1.1_all.deb
 
 
 Install DRLM package
@@ -46,7 +46,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	$ dpkg -i drlm_2.1.0_all.deb
+	$ dpkg -i drlm_2.1.1_all.deb
 
 
 DRLM Components Configuration
@@ -178,7 +178,7 @@ You can obtain the DRLM package building it from the source code or downloading 
 
 ::
 
-	$ wget http://www.drlm.org/downloads/drlm_2.1.0_all.deb
+	$ wget http://www.drlm.org/downloads/drlm_2.1.1_all.deb
 
 
 Install DRLM package
@@ -189,7 +189,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	$ dpkg -i drlm_2.1.0_all.deb
+	$ dpkg -i drlm_2.1.1_all.deb
 
 
 DRLM Components Configuration
@@ -347,7 +347,7 @@ Get DRLM
 
 ::
 
-    $ wget http://www.drlm.org/downloads/drlm-2.1.0-1git.el6.noarch.rpm
+    $ wget http://www.drlm.org/downloads/drlm-2.1.1-1git.el6.noarch.rpm
 
 Install DRLM package
 ~~~~~~~~~~~~~~~~~~~~
@@ -357,7 +357,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	$ rpm -ivh drlm-2.1.0-1git.el7.centos.noarch.rpm
+	$ rpm -ivh drlm-2.1.1-1git.el7.centos.noarch.rpm
 
 
 DRLM Components Configuration
@@ -560,7 +560,7 @@ Get DRLM
 
 ::
 
-    $ wget http://www.drlm.org/downloads/drlm-2.1.0-1git.el6.noarch.rpm
+    $ wget http://www.drlm.org/downloads/drlm-2.1.1-1git.el7.centos.noarch.rpm
 
 Install DRLM package
 ~~~~~~~~~~~~~~~~~~~~
@@ -570,7 +570,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	$ rpm -ivh drlm-2.1.0-1git.el6.noarch.rpm
+	$ rpm -ivh drlm-2.1.1-1git.el6.noarch.rpm
 
 
 DRLM Components Configuration
@@ -745,7 +745,7 @@ You can obtain the RPM DRLM package from www.drlm.org website
 
 ::
 
-        $ wget http://www.drlm.org/downloads/drlm-2.1.0-1git.noarch.rpm
+        $ wget http://www.drlm.org/downloads/drlm-2.1.1-1git.noarch.rpm
 
 
 Install DRLM package
@@ -756,7 +756,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-        $ zypper in drlm-2.1.0-1git.noarch.rpm
+        $ zypper in drlm-2.1.1-1git.noarch.rpm
 
 
 DRLM Components Configuration

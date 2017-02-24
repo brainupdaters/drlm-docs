@@ -30,50 +30,76 @@ Product Features
 
 The following features are supported on the most recent releases of
 DRLM. Anything labeled as (NEW!) was added as the most recent
-release. 
+release. New functionality for previous releases can be seen in the next
+chapter that details each release.
 
   * Hot maintenance capability. A client backup can be made online
     while the system is running.
 
-  * Command line interface. DRLM does not require a graphical
+  * Command line interface. DRLM doesnot require a graphical
     interface to run. (console is enough).
 
   * Multiarch netboot client support (x86_64-efi, i386-efi, i386-pc)
 
-  * Centralized backup scheduling
+  * Automatic client intallation from DRLM server
 
-  * Installclient workflow (NEW!)
-
-  * Parallel backups (NEW!)
-
-  * Sqlite3 database backend (NEW!)
+  * Parallel backups
 
   * Error reporting support to:
 
       - HP OpenView
 
-      - Nagios (NEW!)
+      - Nagios (NSCA & NSCA-ng) (NEW!)
 
-      - Zabbix (NEW!)
+      - Zabbix
 
-      - Mail (NEW!)
+      - Mail
 
-DRLM Version 2.1.0 (January 2017) -  Release Notes
+  * Centralized backup scheduling with a job scheduler (NEW!)
+
+  * Export and Import backup between DRLM servers or DRLM clients (NEW!)
+  
+
+DRLM Version 2.1.1 (February 2017) - Release Notes
+--------------------------------------------------
+
+  * Solved some of bugs. (issue #49, #50)
+
+  * No Client ID required for delete backups. (issue #40)
+
+  * No Client ID required for manage backups. (issue #46)
+
+  * bkpmgr: Persistent mode deleted. 
+
+  * Solved PXE files: forced console=ttyS0 in kernel options. (issue #52)
+ 
+  * Solved hardcoded PXE filenames (initrd.xz (lzma) now supported). (issue #52) 
+
+  * While recommended, It ain't mandatory to use hostname as client_name. (issue #52)
+
+  * Solved drlm user hardcoded in installclient. (issue #51)
+
+  * NAGSRV and NAGPORT added in default.conf.
+
+
+DRLM Version 2.1.0 (February 2017) - Release Notes
 --------------------------------------------------
 
   * DRLM reporting with nsca-ng, nsca. (issue #47)
 
   * DRLM Server for SLES. (issue #45)
-  
+
   * Support for drlm unattended installation (instclient) on Ubuntu (issue #43)
-  
+
   * NEW Import & Export DR images between DRLM servers. (issue #39)
-  
+
   * Pass DRLM global options to ReaR. (issue #37)
-  
-  * New DRLM backup job scheduler. (issue #35)
-  
+
+  * New DRLM backup job scheduler (issue #35)
+
   * Addclient install mode (automatize install client after the client creation) (issue #32)
+
+  * Solved lots of bugs
 
 
 DRLM Version 2.0.0 (July 2016) -  Release Notes
