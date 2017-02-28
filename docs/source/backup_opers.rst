@@ -33,7 +33,7 @@ The :program:`drlm runbackup` has several options:
    Examples::
   
    $ drlm runbackup -I 12
-   $ drlm runbackup -id 12
+   $ drlm runbackup --id 12
 
 Help option:
 
