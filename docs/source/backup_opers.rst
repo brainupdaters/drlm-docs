@@ -265,7 +265,7 @@ called like this::
 
 .. program:: `drlm addjob`
 
-    Required options:
+Required options:
 
 .. option:: -c client_name, --client client_name
 
@@ -275,7 +275,7 @@ called like this::
 
     Start date and time for the scheduled backup. Format: YYYY-MM-DD\ **T**\ HH:MM
     
-    Optional arguments:
+Optional arguments:
 
 .. option:: -e end_date, --end_date end_date
 
