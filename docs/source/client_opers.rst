@@ -119,10 +119,6 @@ Additional options:
 
    User with admin privileges to install and configure software
 
-.. option:: -d drlm_user, --drlm_user drlm_user
-
-   Force drlm_user name , default is drlm  
-
 .. note:: if not user is specified root will be used.
 
 .. option:: -U url_rear, --url_rear url_rear
