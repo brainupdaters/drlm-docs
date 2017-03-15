@@ -195,8 +195,9 @@ As rear is written in bash you need bash as a bare minimum. Other requirements a
 	* mingetty (rear is depending on it in recovery mode)
 
 .. note::
-  Debian 6 is discontinued, make sure that you have the Squeeze archive repository in /etc/apt/sources.list
-  deb http://archive.debian.org/debian/ squeeze contrib main non-free
+
+	Debian 6 is discontinued, make sure that you have the Squeeze archive repository in /etc/apt/sources.list
+	deb http://archive.debian.org/debian/ squeeze contrib main non-free
 
 ::
 
