@@ -199,6 +199,7 @@ As rear is written in bash you need bash as a bare minimum. Other requirements a
   deb http://archive.debian.org/debian/ squeeze contrib main non-free
 
 ::
+
 	$ apt-get update
 	$ apt-get install syslinux ethtool lsb-release genisoimage iproute iputils-ping binutils parted openssl gawk attr sudo openssh-server curl mingetty nfs-common
 
