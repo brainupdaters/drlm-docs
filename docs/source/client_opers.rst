@@ -1,18 +1,18 @@
 Client Operations
 =================
 
-DRLM client operations allow us to add, remove, modify and 
+DRLM client operations allow us to add, remove, modify and
 list clients of database.
 
 Add Client
 ----------
 
-This command is used to add clients to DRLM database. It is 
+This command is used to add clients to DRLM database. It is
 called like this::
 
    $ drlm addclient [options]
 
-If the client you wish to add is online (network reachable), you will only need to set its IP in CIDR notation in order to add it to the database. It will then automatically fetch and prompt all the required client parameters (hostname, network and MAC address), leaving to you the option to keep and save those parameters or to enter them manually in case you refuse. 
+If the client you wish to add is online (network reachable), you will only need to set its IP in CIDR notation in order to add it to the database. It will then automatically fetch and prompt all the required client parameters (hostname, network and MAC address), leaving to you the option to keep and save those parameters or to enter them manually in case you refuse.
 
 In this case, the :program:`drlm addclient` has the following required options:
 
@@ -24,23 +24,35 @@ In this case, the :program:`drlm addclient` has the following required options:
 
    $ drlm addclient -i 192.168.0.15/24
 
-If the :program:`drlm addclient` does not correctly fetch the client's hostname, you can set it manually in the same command.
+ If the :program:`drlm addclient` does not correctly fetch the client's hostname, you can set it manually in the same command.
 
  Examples::
- 
+
    $ drlm addclient -i 192.168.0.15/24 -c rear-debian
 
-If the client is not network reachable when you want to register it in the database or you wish to manually enter all the required parameters, you can do it with the required options available:  
-    
+.. option:: -I, --installclient
+
+ If the client is network reachable you can also automatically install the client when is added to DRLM.
+ So in only one command the client is added and installed.
+ Installclient have additional options than you can add behind the -I. For more information about Installclient read the "Install Client" section.
+
+ Examples::
+
+   $ drlm addclient -i 192.168.0.15/24 -I
+   $ drlm addclient -i 192.168.0.15/24 -c rear-debian -I
+   $ drlm addclient -i 192.168.0.15/24 -c rear-debian -I -u root -U http://url.to.rear/download
+
+If the client is not network reachable when you want to register it in the database or you wish to manually enter all the required parameters, you can do it with the required options available:
+
 .. program:: `drlm addclient`
 
 .. option:: -c client_name, --client client_name
 
    Set the client's name.
-   
-.. warning:: 
 
-   Remember that it has to **match the client's hostname**.
+   .. note::
+
+      It is not mandatory, but recommended that the client_name is the same as the client hostname.
 
 .. option:: -i ip, --ipaddr ip
 
@@ -52,9 +64,9 @@ If the client is not network reachable when you want to register it in the datab
 
 .. option:: -n network_name, --netname network_name
 
-   Client NETWORK.                               
+   Client NETWORK.
 
-   Examples:: 
+   Examples::
 
    $ drlm addclient -c clientHost1 -M 00-40-77-DB-33-38 -i 13.74.90.10 -n vlan12
    $ drlm addclient --client clientHost1 --macaddr 00-40-77-DB-33-38 -i 13.74.90.10 -n vlan12
@@ -64,21 +76,7 @@ If the client is not network reachable when you want to register it in the datab
       If the network_name doesn't exist in DRLM database you will get an error. First
       of all register the network where the client will be registered.
 
-   .. warning::
-
-      We have to manually add to the client configuration file in the DRLM server called /etc/drlm/clients/client_name.cfg with the next content:
-
-      OUTPUT=PXE
-      OUTPUT_PREFIX=PXE
-      BACKUP=NETFS
-      NETFS_PREFIX=BKP
-      BACKUP_URL=nfs://SERVER_IP/DRLM/STORE/client_name
-      OUTPUT_URL=nfs://SERVER_IP/DRLM/STORE/client_name
-      OUTPUT_PREFIX_PXE=client_name/$OUTPUT_PREFIX
-
-      You have to replace the SERVER_IP for the IP of the DRLM server and the client_name for the client host name.
-
-Help option: 
+Help option:
 
 .. option:: -h, --help
 
@@ -100,7 +98,7 @@ Server. It is called like this::
 
 The :program:`drlm instclient` has some requiered options:
 
-.. program::  `drlm instclient`  
+.. program::  `drlm instclient`
 
 .. option:: -c client_name, --client client_name
 
@@ -110,23 +108,22 @@ The :program:`drlm instclient` has some requiered options:
 
    Client Id.
 
-.. note:: Since Debian doesn't have the ReaR package on its repositories, 
-      the following option is a requirement also :program:`-U|--url_rear <URL_REAR>`
-
 Additional options:
 
 .. option:: -u user, --user user
 
    User with admin privileges to install and configure software
 
-.. note:: if not user is specified root will be used.
+   .. note:: if not user is specified root will be used.
 
 .. option:: -U url_rear, --url_rear url_rear
 
    rpm or deb package for specific distro. For example http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_7.0/all/rear_1.17.2_all.deb
 
+   .. note:: If not url is specified will be used the package defined in "REAR DEB PACKAGE URL" section of /usr/share/drlm/conf/default.conf
+
    Examples::
-   
+
    $ drlm instclient -c ReaRCli1 -u admin -U http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_7.0/all/rear_1.17.2_all.deb
    $ drlm instclient -c ReaRCli2
 
@@ -137,19 +134,19 @@ Help option:
    Show drlm instclient help.
 
    Examples::
-  
+
    $ drlm instclient -h
 
 Delete Client
 -------------
 
-This command is used to delete clients from DRLM database. It is 
+This command is used to delete clients from DRLM database. It is
 called like this::
 
    $ drlm delclient [options]
 
 The :program:`drlm delclient` has some required options:
-    
+
 .. program:: `drlm delclient`
 
 .. option:: -c client_name, --client client_name
@@ -166,13 +163,13 @@ The :program:`drlm delclient` has some required options:
    $ drlm delclient --client clientHost1
    $ drlm delclient -I 12
    $ drlm delclient --id 12
-   
 
-Help option: 
+
+Help option:
 
 .. option:: -h, --help
 
-   Show drlm delclient help.                              
+   Show drlm delclient help.
 
    Examples::
 
@@ -182,13 +179,13 @@ Help option:
 Modify Client
 -------------
 
-This command is used to modify clients from DRLM database. It is 
+This command is used to modify clients from DRLM database. It is
 called like this::
 
    $ drlm modclient [options]
 
 The :program:`drlm modclient` has some required options:
-    
+
 .. program:: `drlm modclient`
 
 .. option:: -c client_name, --client client_name
@@ -201,7 +198,7 @@ The :program:`drlm modclient` has some required options:
 
 
 Additional options:
- 
+
 .. option:: -i ip, --ipaddr ip
 
    Set new IP address to client.
@@ -246,7 +243,7 @@ Help option:
 List Clients
 ------------
 
-This command is used to list the clients stored at the database. 
+This command is used to list the clients stored at the database.
 It is called like this::
 
    $ drlm listclient [options]
@@ -266,10 +263,11 @@ The :program:`drlm listclient` has some options:
 
 .. option:: -A, --all
 
-   List all clients.
+   List all clients. This option is set by default if any option is specified.
 
    Examples::
 
+   $ drlm listclient
    $ drlm listclient -A
    $ drlm listclient --all
 
@@ -283,4 +281,3 @@ Help option:
 
    $ drlm listclient -h
    $ drlm listclient --help
-
