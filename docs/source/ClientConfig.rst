@@ -199,7 +199,7 @@ As rear is written in bash you need bash as a bare minimum. Other requirements a
   deb http://archive.debian.org/debian/ squeeze contrib main non-free
 
 ::
-  $ apt-get update
+	$ apt-get update
 	$ apt-get install syslinux ethtool lsb-release genisoimage iproute iputils-ping binutils parted openssl gawk attr sudo openssh-server curl mingetty nfs-common
 
 Download and install ReaR
@@ -213,11 +213,11 @@ Download and install ReaR
 
 amd64 architecture:
 ::
-   $ wget http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_7.0/amd64/rear_1.18_amd64.deb
+	$ wget http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_7.0/amd64/rear_1.18_amd64.deb
 
 i386 architecture:
 ::
-   $ wget http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_7.0/i386/rear_1.18_i386.deb
+	$ wget http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_7.0/i386/rear_1.18_i386.deb
 
 
 You can download other ReaR versions from `ReaR Download Page <http://relax-and-recover.org/download/>`_ or from `OpenSuse Build Service <https://build.opensuse.org/project/show/Archiving:Backup:Rear>`_ .
@@ -229,10 +229,10 @@ You can download other ReaR versions from `ReaR Download Page <http://relax-and-
 Execute the next command:
 ::
 
-   $ dpkg -i rear_1.18_amd64.deb
+	$ dpkg -i rear_1.18_amd64.deb
 
 .. note::
-  Use "dpkg -i rear_1.18_i386.deb" to install i386 architecture.
+	Use "dpkg -i rear_1.18_i386.deb" to install i386 architecture.
 	For more information about ReaR visit: http://relax-and-recover.org/documentation
 
 Create DRLM User
@@ -240,14 +240,14 @@ Create DRLM User
 
 ::
 
-  $ useradd -d /home/drlm -c "DRLM User Agent" -m -s /bin/bash -p $(echo S3cret | openssl passwd -1 -stdin) drlm
+	$ useradd -d /home/drlm -c "DRLM User Agent" -m -s /bin/bash -p $(echo S3cret | openssl passwd -1 -stdin) drlm
 
 Disable password aging for drlm user
 ************************************
 
 ::
 
-  $ chage -I -1 -m 0 -M 99999 -E -1 drlm
+	$ chage -I -1 -m 0 -M 99999 -E -1 drlm
 
 
 Copy rsa key from DRLM Server to the new client
@@ -257,15 +257,15 @@ Copy rsa key from DRLM Server to the new client
 
 ::
 
-  $ ssh-keygen -t rsa
-  $ ssh-copy-id drlm@"client_ipaddr"
+	$ ssh-keygen -t rsa
+	$ ssh-copy-id drlm@"client_ipaddr"
 
 Disable password login
 **********************
 
 ::
 
-  $ passwd -l drlm
+	$ passwd -l drlm
 
 Add Sudo roles for DRLM user
 ****************************
@@ -274,14 +274,14 @@ Edit **/etc/sudoers.d/drlm** and add the following lines
 
 ::
 
-  Cmnd_Alias DRLM = /usr/sbin/rear, /bin/mount, /sbin/vgs
-  drlm    ALL=(root)      NOPASSWD: DRLM
+	Cmnd_Alias DRLM = /usr/sbin/rear, /bin/mount, /sbin/vgs
+	drlm    ALL=(root)      NOPASSWD: DRLM
 
 Change **/etc/sudoers.d/drlm** permissions
 
 ::
 
-  $ chmod 440 /etc/sudoers.d/drlm
+	$ chmod 440 /etc/sudoers.d/drlm
 
 Client configuration
 ********************
@@ -290,7 +290,7 @@ We have to specify that this ReaR client is managed from a DRLM server. We have 
 
 ::
 
-  DRLM_MANAGED=y
+	DRLM_MANAGED=y
 
 CentOS & RHEL 6
 ~~~~~~~~~~~~~~~
