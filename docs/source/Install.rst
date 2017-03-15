@@ -862,12 +862,25 @@ Edit /usr/share/drlm/conf/HTTP/https.conf
 
 
 
-Edit /etc/apache2/ports.conf file
+Edit /etc/apache2/listen.conf file
 
 ::
 
-        #Listen 80
-        Listen 443
+       #Listen 80
+       Listen 443
+
+       #Listen 80
+
+
+       <IfDefine SSL>
+           <IfDefine !NOSSL>
+       	       <IfModule mod_ssl.c>
+
+       	           Listen 443
+
+       	       </IfModule>
+           </IfDefine>
+       </IfDefine> 
 
 
 Restart & check services
