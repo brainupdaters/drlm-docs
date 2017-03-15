@@ -50,9 +50,9 @@ If the client is not network reachable when you want to register it in the datab
 
    Set the client's name.
 
-.. warning::
+   .. note::
 
-   Remember that it has to **match the client's hostname**.
+      It is not mandatory, but recommended that the client_name is the same as the client hostname.
 
 .. option:: -i ip, --ipaddr ip
 
@@ -114,7 +114,7 @@ Additional options:
 
    User with admin privileges to install and configure software
 
-.. note:: if not user is specified root will be used.
+   .. note:: if not user is specified root will be used.
 
 .. option:: -U url_rear, --url_rear url_rear
 
