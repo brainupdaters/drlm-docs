@@ -2,8 +2,8 @@ Error Reporting Configuration
 =============================
 
 DRLM can be configured to report errors on scheduled backups if required.
-Is possible to report by mail or integrating with your monitoring service. 
-At this time (DRLM 2.0) we support error reporting by mail and integration 
+Is possible to report by mail or integrating with your monitoring service.
+At this time (DRLM 2.0) we support error reporting by mail and integration
 with Nagios, Zabbix and HPOM(OVO) monitoring services.
 
 .. note::
@@ -34,19 +34,19 @@ Enable DRLM reporting
 Configure nsca-ng (Nagios based) reporting
 ------------------------------------------
 
-In order to configure Nagios Error reporting on DRLM, the Nagios NSCA Client must be installed.  
+In order to configure Nagios Error reporting on DRLM, the Nagios NSCA Client must be installed.
 
-.. note:: We're using nsca-ng because nsca is deprecated, but if you have nsca DRLM supports it 
+.. note:: We're using nsca-ng because nsca is deprecated, but if you have nsca DRLM supports it
 
 **Debian 7/8**
 
 ::
 
-  $ apt-get install nsca-client-ng
+  $ apt-get install nsca-ng-client
 
 **RHEL/Centos 6/7**
 
-nsca-client-ng is not in the repositories, it can be downloaded from:
+if nsca-ng-client is not in the repositories, it can be downloaded from:
 
         * https://www.nsca-ng.org/
 
@@ -80,7 +80,7 @@ Copy the sample DRLM configuration for Nagios to previously defined $NAGCONF and
   ### identity = <string>
   #   Send  the  specified  client identity to the server.
   #   By default, localhost will be used.
-   
+
   identity = "< client identity >"
 
   ### server = <string>
@@ -100,7 +100,7 @@ Copy the sample DRLM configuration for Nagios to previously defined $NAGCONF and
   The configuration on the server side is not in the scope of this documentation. Please check your Nagios service documentation
   to configure properly the NSCA service and how to report DRLM alerts.
 
-  For reference you can check: 
+  For reference you can check:
       * https://www.nsca-ng.org/documentation/nsca-ng.pdf
       * https://www.nsca-ng.org/documentation/nsca-ng.cfg.pdf
       * https://www.nsca-ng.org/documentation/send_nsca.pdf
@@ -175,7 +175,7 @@ Copy the sample DRLM configuration for Zabbix to previously defined $ZABBCONF an
   The configuration on the server side is not in the scope of this documentation. Please check your Zabbix service documentation
   to configure properly the Trapper item and how to report DRLM alerts.
 
-  For reference you can check: 
+  For reference you can check:
       * https://www.zabbix.com/documentation/3.2/manual/config/items/itemtypes/trapper
       * https://www.zabbix.com/documentation/3.2/manpages/zabbix_sender
 
@@ -262,7 +262,7 @@ Copy the sample DRLM configuration for Mailx to previously defined $MAILCONF and
 Configure HPOM (former OVO) reporting
 -------------------------------------
 
-In order to configure HPOM(OVO) Error reporting on DRLM, the HPOM(OVO) agent must be installed. This may vary depending on your version, 
+In order to configure HPOM(OVO) Error reporting on DRLM, the HPOM(OVO) agent must be installed. This may vary depending on your version,
 please check your product documentation in order to install it properly.
 DRLM uses **opcmsg** binary to report errors to HPOM server.
 
@@ -288,4 +288,3 @@ The following options are DRLM defaults, change any of them acording to your ins
 .. note::
   The configuration on the server side is not in the scope of this documentation. Please check HPOM (OVO) documentation
   to configure properly the server side and define how to report DRLM alerts.
-
