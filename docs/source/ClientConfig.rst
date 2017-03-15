@@ -180,17 +180,17 @@ As rear is written in bash you need bash as a bare minimum. Other requirements a
 
 	* syslinux (for i386 based systems)
 	* ethtool
-  * lsb-release
+	* lsb-release
 	* genisoimage
-  * iproute
-  * iputils-ping
-  * binutils
+	* iproute
+	* iputils-ping
+	* binutils
 	* parted
-  * openssl
+	* openssl
 	* gawk
 	* attr
 	* sudo
-  * openssh-server (to enable comunications between DRLM and ReaR client)
+	* openssh-server (to enable comunications between DRLM and ReaR client)
 	* curl (rear need to get its configuration from DRLM server)
 	* mingetty (rear is depending on it in recovery mode)
 
