@@ -22,7 +22,7 @@ Contributing
 
 Please, we encourage you to help us to improve this documentation.
 
-To contribute to documentation the Github interface enables users to report errata or missing sections, discuss improvements and new sections through the issue-tracker at: `DRLM Docs GitHub Issue Tracker <https://github.com/brainupdaters/drlm-docs/issues>`_. 
+To contribute to documentation the Github interface enables users to report errata or missing sections, discuss improvements and new sections through the issue-tracker at: `DRLM Docs GitHub Issue Tracker <https://github.com/brainupdaters/drlm-docs/issues>`_.
 
 
 Product Features
@@ -58,7 +58,25 @@ chapter that details each release.
   * Centralized backup scheduling with a job scheduler (NEW!)
 
   * Export and Import backup between DRLM servers or DRLM clients (NEW!)
+
   
+DRLM Version 2.1.2 (March 2017) - Release Notes
+-----------------------------------------------
+
+  * SUDO_CMDS_DRLM added in default.conf allowing to easy add new sudo commands.
+
+  * Automatic creation of /etc/sudoers.d if not exists on systems RedHat/CenOS 5.
+
+  * Fixed some errors for dependencies on default.conf.
+
+  * DRLM_USER variable deleted on addclient and help.
+
+  * Added sudo for command stat to allow check size on File Systems without perms.
+
+  * Sudo configuration files are dynamically created according to the OS type.
+
+  * Solved problem for start services with non root user.
+
 
 DRLM Version 2.1.1 (February 2017) - Release Notes
 --------------------------------------------------
@@ -69,11 +87,11 @@ DRLM Version 2.1.1 (February 2017) - Release Notes
 
   * No Client ID required for manage backups. (issue #46)
 
-  * bkpmgr: Persistent mode deleted. 
+  * bkpmgr: Persistent mode deleted.
 
   * Solved PXE files: forced console=ttyS0 in kernel options. (issue #52)
- 
-  * Solved hardcoded PXE filenames (initrd.xz (lzma) now supported). (issue #52) 
+
+  * Solved hardcoded PXE filenames (initrd.xz (lzma) now supported). (issue #52)
 
   * While recommended, It ain't mandatory to use hostname as client_name. (issue #52)
 
