@@ -417,3 +417,118 @@ Services
 
         $ service nfs start
         $ chkconfig nfs on
+
+SLES 12.2 & OpenSUSE Leap 42.2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ReaR requirements for DRLM
+**************************
+
+As rear is written in bash you need bash as a bare minimum. Other requirements are:
+
+	* mkisofs
+	* mingetty (rear depends on it in recovery mode)
+	* syslinux (for i386 based systems)
+	* nfs-client
+	* rpcbind
+	* wget
+	* sudo
+	* curl (rear needs it to get the configuration from DRLM server)
+
+::
+
+	$ zypper install -y mkisofs mingetty syslinux nfs-client rpcbind wget curl sudo
+
+Download and install ReaR
+*************************
+
+As ReaR is already available in the repositories, we can download it and install it by:
+
+::
+
+  $ zypper install -y rear
+
+Version **1.17.2**, which is the minimum version required to work with DRLM, will be installed. You can always download other major versions from `ReaR Download Page <http://relax-and-recover.org/download/>`_ or from `OpenSuse Build Service <https://build.opensuse.org/project/show/Archiving:Backup:Rear>`_ .
+You can then install the downloaded *rpm* package like this:
+
+::
+
+  $ zypper install <package_name>.rpm
+
+
+.. note::
+	For more information about ReaR visit:
+	http://relax-and-recover.org/documentation
+
+Create the DRLM User
+********************
+
+::
+
+   $ useradd -d /home/drlm -c "DRLM User Agent" -m -s /bin/bash -p $(echo S3cret | openssl passwd -1 -stdin) drlm
+
+Disable password aging for drlm user
+************************************
+
+::
+
+   $ chage -I -1 -m 0 -M 99999 -E -1 drlm
+
+Copy rsa key from DRLM Server to the new client
+***********************************************
+
+.. warning:: You have to execute this code from DRLM Server. The password which you will be asked for is "S3cret" and "client_ipaddr" must be changed to the client IP address.
+
+::
+
+   $ ssh-keygen -t rsa
+   $ ssh-copy-id drlm@"client_ipaddr"
+
+Disable password login
+**********************
+
+  ::
+
+     $ passwd -l drlm
+
+  Add Sudo roles to DRLM user
+  ***************************
+
+  Edit **/etc/sudoers.d/drlm** and add the following lines
+
+  ::
+
+     Cmnd_Alias DRLM = /usr/sbin/rear, /usr/bin/mount, /sbin/vgs
+     drlm    ALL=(root)      NOPASSWD: DRLM
+
+  Change **/etc/sudoers.d/drlm** permissions
+
+  ::
+
+     $ chmod 440 /etc/sudoers.d/drlm
+
+  Client configuration
+  ********************
+
+  We have to specify that this ReaR client is managed from a DRLM server. We have to edit the /etc/rear/local.conf and insert the next line.
+
+  ::
+
+     DRLM_MANAGED=y
+
+  Services
+  ********
+
+  **rpcbind**
+
+  ::
+
+          $ service rpcbind start
+          $ chkconfig rpcbind on
+
+  **nfs**
+
+  ::
+
+          $ service nfs start
+          $ chkconfig nfs on
