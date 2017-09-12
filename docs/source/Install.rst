@@ -13,8 +13,8 @@ Install requirements
 ~~~~~~~~~~~~~~~~~~~~
 
 ::
-    $ apt-get update
-    $ apt-get upgrade
+	$ apt-get update
+	$ apt-get upgrade
 	$ apt-get install openssh-client openssl gawk nfs-kernel-server rpcbind isc-dhcp-server tftpd-hpa apache2 qemu-utils sqlite3 lsb-release bash-completion
 
 Get DRLM
@@ -157,8 +157,8 @@ Install requirements
 ~~~~~~~~~~~~~~~~~~~~
 
 ::
-    $ apt-get update
-    $ apt-get upgrade
+	$ apt-get update
+	$ apt-get upgrade
 	$ apt-get install openssh-client openssl wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind isc-dhcp-server tftpd-hpa apache2 qemu-utils sqlite3 lsb-release bash-completion
 
 Get DRLM
