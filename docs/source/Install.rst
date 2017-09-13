@@ -3,7 +3,7 @@ DRLM Installation
 
 The pourpose of this manual is explain, step by step, the installation and configuration of DRLM. At the end of this guide you should have a fully functional DRLM server.
 
-Debian 8 & Ubuntu 16.04 LTS
+Debian 8/9 & Ubuntu 16.04 LTS
 ---------------------------
 
 .. note::
@@ -18,10 +18,11 @@ Install requirements
 	$ apt-get upgrade
 	$ apt-get install openssh-client openssl gawk nfs-kernel-server rpcbind isc-dhcp-server tftpd-hpa apache2 qemu-utils sqlite3 lsb-release bash-completion
 
+
 Get DRLM
 ~~~~~~~~
 
-You can obtain the DRLM package building it from the source code or downloading from www.drlm.org website
+You can obtain the DRLM package building it from the source code
 
 **Build DEB package from Source**
 
@@ -33,13 +34,6 @@ You can obtain the DRLM package building it from the source code or downloading 
 	$ make deb
 
 
-**Download DEB package From DRLM Web**
-
-::
-
-	$ wget http://www.drlm.org/downloads/drlm_2.1.2_all.deb
-
-
 Install DRLM package
 ~~~~~~~~~~~~~~~~~~~~
 
@@ -48,7 +42,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	$ dpkg -i drlm_2.1.2_all.deb
+	$ dpkg -i drlm_2.2.0_all.deb
 
 
 DRLM Components Configuration
@@ -163,10 +157,11 @@ Install requirements
 	$ apt-get upgrade
 	$ apt-get install openssh-client openssl wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind isc-dhcp-server tftpd-hpa apache2 qemu-utils sqlite3 lsb-release bash-completion
 
+
 Get DRLM
 ~~~~~~~~
 
-You can obtain the DRLM package building it from the source code or downloading from www.drlm.org website
+You can obtain the DRLM package building it from the source code
 
 **Build DEB package from Source**
 
@@ -178,13 +173,6 @@ You can obtain the DRLM package building it from the source code or downloading 
 	$ make deb
 
 
-**Download DEB package From DRLM Web**
-
-::
-
-	$ wget http://www.drlm.org/downloads/drlm_2.1.2_all.deb
-
-
 Install DRLM package
 ~~~~~~~~~~~~~~~~~~~~
 
@@ -193,7 +181,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	$ dpkg -i drlm_2.1.2_all.deb
+	$ dpkg -i drlm_2.2.0_all.deb
 
 
 DRLM Components Configuration
@@ -333,7 +321,8 @@ Install requirements
 
 ::
 
-	 $  yum -y install openssh-clients openssl wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server httpd xinetd nfs-utils nfs4-acl-tools mod_ssl qemu-img sqlite redhat-lsb-core
+	 $  yum -y install openssh-clients openssl wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server httpd xinetd nfs-utils nfs4-acl-tools mod_ssl qemu-img sqlite redhat-lsb-core bash-completion
+
 
 Get DRLM
 ~~~~~~~~
@@ -347,11 +336,6 @@ Get DRLM
     $ cd drlm
     $ make rpm
 
-**Download RPM package From DRLM Web**
-
-::
-
-    $ wget http://www.drlm.org/downloads/drlm-2.1.2-1git.el6.noarch.rpm
 
 Install DRLM package
 ~~~~~~~~~~~~~~~~~~~~
@@ -361,7 +345,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	$ rpm -ivh drlm-2.1.2-1git.el7.centos.noarch.rpm
+	$ rpm -ivh drlm-2.2.0-1git.el7.centos.noarch.rpm
 
 
 DRLM Components Configuration
@@ -546,7 +530,8 @@ Install requirements
 
 ::
 
-	 $  yum -y install openssh-clients openssl wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server httpd xinetd nfs-utils nfs4-acl-tools mod_ssl qemu-img sqlite redhat-lsb-core
+	 $  yum -y install openssh-clients openssl wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server httpd xinetd nfs-utils nfs4-acl-tools mod_ssl qemu-img sqlite redhat-lsb-core bash-completion
+
 
 Get DRLM
 ~~~~~~~~
@@ -560,11 +545,6 @@ Get DRLM
     $ cd drlm
     $ make rpm
 
-**Download RPM package From DRLM Web**
-
-::
-
-    $ wget http://www.drlm.org/downloads/drlm-2.1.2-1git.el7.centos.noarch.rpm
 
 Install DRLM package
 ~~~~~~~~~~~~~~~~~~~~
@@ -574,7 +554,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	$ rpm -ivh drlm-2.1.2-1git.el6.noarch.rpm
+	$ rpm -ivh drlm-2.2.0-1git.el6.noarch.rpm
 
 
 DRLM Components Configuration
@@ -725,13 +705,13 @@ Install requirements
 
 ::
 
-        $ zypper in openssl wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind dhcp-server sqlite3 apache2 openssh qemu-tools tftp xinetd lsb-release
+        $ zypper in openssl wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind dhcp-server sqlite3 apache2 openssh qemu-tools tftp xinetd lsb-release bash-completion
 
 
 Get DRLM
 ~~~~~~~~
 
-You can obtain the DRLM package building it from the source code or downloading from www.drlm.org website
+You can obtain the DRLM package building it from the source code.
 
 **Build RPM package from Source**
 
@@ -745,13 +725,6 @@ You can obtain the DRLM package building it from the source code or downloading 
 You can obtain the RPM DRLM package from www.drlm.org website
 
 
-**Download RPM package From DRLM Web**
-
-::
-
-        $ wget http://www.drlm.org/downloads/drlm-2.1.2-1git.noarch.rpm
-
-
 Install DRLM package
 ~~~~~~~~~~~~~~~~~~~~
 
@@ -760,7 +733,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-        $ zypper in drlm-2.1.2-1git.noarch.rpm
+        $ zypper in drlm-2.2.0-1git.noarch.rpm
 
 
 DRLM Components Configuration
