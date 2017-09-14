@@ -103,6 +103,7 @@ HTTP
 	$ a2enmod ssl
 	$ a2enmod rewrite
 	$ a2enmod cgi
+	$ a2enmod reqtimeout
 
 Edit /etc/apache2/apache2.conf file
 
@@ -242,6 +243,7 @@ HTTP
 	$ a2enmod ssl
 	$ a2enmod rewrite
 	$ a2enmod cgi
+	$ a2enmod reqtimeout
 
 Edit /etc/apache2/apache2.conf file
 
@@ -458,13 +460,11 @@ Then we have to coment the 80 port service commenting or deleting the next lines
    #    Allow from all
    #</Directory>
 
-To finish we have to comment the ErrorLog and CustomLog lines in /usr/share/drlm/conf/HTTP/https.conf file.
+To finish we have to add APACHE_LOG_DIR variable to /etc/sysconfig/httpd
 
 ::
 
-   #       ErrorLog ${APACHE_LOG_DIR}/error.log
-
-   #       CustomLog ${APACHE_LOG_DIR}/ssl_access.log combined
+  echo "APACHE_LOG_DIR=logs" >> /etc/sysconfig/httpd
 
 
 Restart & check services
@@ -665,13 +665,11 @@ Then we have to coment the 80 port service commenting or deleting the next lines
    #    Allow from all
    #</Directory>
 
-To finish we have to comment the ErrorLog and CustomLog lines in /usr/share/drlm/conf/HTTP/https.conf file.
+To finish we have to add APACHE_LOG_DIR variable to /etc/sysconfig/httpd
 
 ::
 
-   #       ErrorLog ${APACHE_LOG_DIR}/error.log
-
-   #       CustomLog ${APACHE_LOG_DIR}/ssl_access.log combined
+  echo "APACHE_LOG_DIR=logs" >> /etc/sysconfig/httpd
 
 
 
@@ -694,11 +692,11 @@ Restart & check services
 .. note::
 	DHCP and NFS servers are not running because there is no config yet! no worries they will be reloaded automatically after first DRLM client will be added.
 
-SLES 12 SP1
------------
+SLES 12 & OpenSUSE Leap 42
+--------------------------
 
 .. note::
-      On the following steps, is assumed you have a minimal SLES 12 SP1
+      On the following steps, is assumed you have a minimal SLES 12 or OpenSUSE Leap 42
 
 Install requirements
 ~~~~~~~~~~~~~~~~~~~~
@@ -754,7 +752,7 @@ The default configuration allows up to eight active loop devices. If more than e
 
         ...
 
-        GRUB_CMDLINE_LINUX="quiet max_loop=1024" ##UPDATE THIS LINE
+        GRUB_CMDLINE_LINUX="... quiet max_loop=1024" ##UPDATE THIS LINE
 
         ...
 
@@ -769,19 +767,20 @@ You have to update the /etc/xinetd.d/tftp cofiguration file as follows:
 
 ::
 
-    service tftp
-    {
-            socket_type = dgram
-            protocol = udp
-            wait = yes
-            user = root
-            server = /usr/sbin/in.tftpd
-            server_args = -s /var/lib/drlm/store
-            disable = no
-            per_source = 11
-            cps = 100 2
-            flags = IPv4
-    }
+	service tftp
+	{
+		socket_type		= dgram
+		protocol		= udp
+		wait			= yes
+		flags			= IPv6 IPv4
+		user			= root
+		server			= /usr/sbin/in.tftpd
+		server_args		= -u tftp -s /var/lib/drlm/store
+		per_source		= 11
+		cps			= 100 2
+		disable			= no
+	}
+
 
 
 NFS
@@ -821,6 +820,7 @@ HTTP
        $ a2enmod rewrite
        $ a2enmod cgi
        $ a2enmod mod_access_compat
+       $ a2enmod reqtimeout
 
 Edit /etc/apache2/httpd.conf file
 
@@ -829,9 +829,7 @@ Edit /etc/apache2/httpd.conf file
         # Include the DRLM Configuration:
         Include /usr/share/drlm/conf/HTTP/https.conf
 
-Add APACHE_LOG_DIR variable to /etc/sysconfig/apache2
-
-Edit /usr/share/drlm/conf/HTTP/https.conf
+To finish we have to add APACHE_LOG_DIR variable to /etc/sysconfig/apache2
 
 ::
 
