@@ -7,7 +7,7 @@ Debian 8/9 & Ubuntu 16.04 LTS
 ---------------------------
 
 .. note::
-   On the following steps, is assumed you have a minimal installation of Debian 8 or Ubuntu 16.04.
+   On the following steps, is assumed you have a minimal installation of Debian 8/9 or Ubuntu 16.04.
 
 Install requirements
 ~~~~~~~~~~~~~~~~~~~~
