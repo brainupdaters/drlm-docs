@@ -36,8 +36,19 @@ Reboot the Client and select boot from network. Automaticaly will boot from PXE.
       :height: 480px
 
 
-3. We indicate that we want to recover the system with the command "rear recover" and the following variables SERVER="DRLM Server Ip" REST_OPTS=-k ID="Rear Client Host Name", in our case "rear recover SERVER=192.168.2.120 REST_OPTS=-k ID=fosdemcli4"
+3a. Now we can recover the system with the command "rear recover".
 
+.. image:: ../images/RecoverImage3a.png
+      :width: 640px
+      :height: 480px
+
+3b. If we want to recover an imported DR image from another DRLM server the
+SSL certificates for this server won't be present in the image and DRLM related
+configuration in DR image won't be correct for the new DRLM server.
+
+Your can overwrite them with the following variables in the command line: 
+SERVER="DRLM Server IP" REST_OPTS=-k ID="ReaR Client Name".
+In the following example: "rear recover SERVER=192.168.2.120 REST_OPTS=-k ID=fosdemcli4"
 
 .. image:: ../images/RecoverImage3.jpg
       :width: 640px
