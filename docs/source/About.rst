@@ -64,23 +64,23 @@ chapter that details each release.
 
 DRLM Version 2.2.0 (September 2017) - Release Notes
 ------------------------------------------------
-  *"Make deb" improved deleting residual files.
+  * "Make deb" improved deleting residual files.
 
-  *NEW Real time clients log in DRLM server.
+  * NEW Real time clients log in DRLM server.
 
-  *NEW bash_completion feature added to facilitate the use.
+  * NEW bash_completion feature added to facilitate the use.
 
-  *It is possible to perform a "rear recover" without the parameters DRLM_SERVER, REST_OPTS and ID.
+  * It is possible to perform a "rear recover" without the parameters DRLM_SERVER, REST_OPTS and ID.
 
-  *listbackup, listclient and listnetwork with "-A" parameter by default.
+  * listbackup, listclient and listnetwork with "-A" parameter by default.
 
-  *SSH_OPTS variable created in default.conf for remove hardcoded ssh options.
+  * SSH_OPTS variable created in default.conf for remove hardcoded ssh options.
 
-  *Debian 9 compatibility added.
+  * Debian 9 compatibility added.
 
-  *Improved client configuration template.
+  * Improved client configuration template.
 
-  *Improved treatment of deleted client backups
+  * Improved treatment of deleted client backups
 
 
 DRLM Version 2.1.3 (May 2017) - Release Notes

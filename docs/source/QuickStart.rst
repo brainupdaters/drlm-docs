@@ -20,11 +20,11 @@ First of all we must add the network where the ReaR clients are. To do this we h
 Add Client to DRLM Server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Now we can add a ReaR client with the command "drlm addclient" and the parameters -n "Network Name", -c "ReaR client hostname" and -I to automatically install ReaR client.
+Now we can add a ReaR client with the command "drlm addclient" and the parameters -i "Client IP", -c "ReaR client hostname" and -I to automatically install ReaR client.
 
 ::
 
-    $ drlm addclient -i 192.168.1.45 -c ReaRCli1 -I
+    $ drlm addclient -i 192.168.1.45/24 -c ReaRCli1 -I
 
 
 Run Client Backup
