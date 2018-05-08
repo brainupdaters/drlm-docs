@@ -3,8 +3,8 @@ DRLM Installation
 
 The pourpose of this manual is explain, step by step, the installation and configuration of DRLM. At the end of this guide you should have a fully functional DRLM server.
 
-Debian 8/9 & Ubuntu 16.04 LTS
----------------------------
+Debian 8/9 & Ubuntu 16.04/18.04 LTS
+-----------------------------------
 
 .. note::
    On the following steps, is assumed you have a minimal installation of Debian 8/9 or Ubuntu 16.04.
@@ -14,9 +14,9 @@ Install requirements
 
 ::
 
-	$ apt-get update
-	$ apt-get upgrade
-	$ apt-get install openssh-client openssl gawk nfs-kernel-server rpcbind isc-dhcp-server tftpd-hpa apache2 qemu-utils sqlite3 lsb-release bash-completion
+	$ apt update
+	$ apt upgrade
+	$ apt install openssh-client openssl gawk nfs-kernel-server rpcbind isc-dhcp-server tftpd-hpa apache2 qemu-utils sqlite3 lsb-release bash-completion
 
 
 Get DRLM
@@ -28,7 +28,7 @@ You can obtain the DRLM package building it from the source code
 
 ::
 
-	$ apt-get install git build-essential debhelper
+	$ apt install git build-essential debhelper
 	$ git clone https://github.com/brainupdaters/drlm
 	$ cd drlm
 	$ make deb
@@ -102,7 +102,7 @@ HTTP
 
 	$ a2enmod ssl
 	$ a2enmod rewrite
-	$ a2enmod cgi
+	$ a2enmod cgid
 	$ a2enmod reqtimeout
 
 Edit /etc/apache2/apache2.conf file
