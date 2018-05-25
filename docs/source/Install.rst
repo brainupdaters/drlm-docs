@@ -42,7 +42,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	$ dpkg -i drlm_2.2.0_all.deb
+	$ dpkg -i drlm_2.2.1_all.deb
 
 
 DRLM Components Configuration
@@ -182,7 +182,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	$ dpkg -i drlm_2.2.0_all.deb
+	$ dpkg -i drlm_2.2.1_all.deb
 
 
 DRLM Components Configuration
@@ -347,7 +347,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	$ rpm -ivh drlm-2.2.0-1git.el7.centos.noarch.rpm
+	$ rpm -ivh drlm-2.2.1-1git.el7.centos.noarch.rpm
 
 
 DRLM Components Configuration
@@ -554,7 +554,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	$ rpm -ivh drlm-2.2.0-1git.el6.noarch.rpm
+	$ rpm -ivh drlm-2.2.1-1git.el6.noarch.rpm
 
 
 DRLM Components Configuration
@@ -731,7 +731,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-        $ zypper in drlm-2.2.0-1git.noarch.rpm
+        $ zypper in drlm-2.2.1-1git.noarch.rpm
 
 
 DRLM Components Configuration

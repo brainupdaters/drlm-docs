@@ -61,9 +61,13 @@ chapter that details each release.
 
   * Real time clients log in DRLM server
 
+DRLM Version 2.2.1 (June 2018) - Release Notes
+----------------------------------------------
+  * Updated ssh_install_rear_xxx funcitons to solve issue #62.
+  
 
 DRLM Version 2.2.0 (September 2017) - Release Notes
-------------------------------------------------
+---------------------------------------------------
   * "Make deb" improved deleting residual files.
 
   * NEW Real time clients log in DRLM server.
