@@ -13,7 +13,7 @@ License
 
 This documentation is licensed under a Creative Commons `Attribution-NonCommercial-ShareAlike 4.0 International <http://creativecommons.org/licenses/by-nc-sa/4.0/>`_ (i.e. "CC-BY-NC-SA") license.
 
-The DRLM Manual is copyright © 2017 Brain Updaters, S.L.L.
+The DRLM Manual is copyright © 2018 Brain Updaters, S.L.L.
 
 
 
@@ -61,7 +61,7 @@ chapter that details each release.
 
   * Real time clients log in DRLM server
 
-DRLM Version 2.2.1 (June 2018) - Release Notes
+DRLM Version 2.2.1 (May 2018) - Release Notes
 ----------------------------------------------
   * Updated ssh_install_rear_xxx funcitons (issue #62).
 
@@ -72,6 +72,8 @@ DRLM Version 2.2.1 (June 2018) - Release Notes
   * Solve certificate deployment to clients (issue #66).
 
   * Improve sched log cleanups (issue #67).
+
+  * Improve addclient and addnetwork database ID allocation (issue #69).
   
 
 DRLM Version 2.2.0 (September 2017) - Release Notes
