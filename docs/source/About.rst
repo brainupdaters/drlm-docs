@@ -60,6 +60,7 @@ chapter that details each release.
   * Export and Import backup between DRLM servers or DRLM clients
 
   * Real time clients log in DRLM server
+  
 
 DRLM Version 2.2.1 (May 2018) - Release Notes
 ----------------------------------------------
@@ -74,6 +75,8 @@ DRLM Version 2.2.1 (May 2018) - Release Notes
   * Improve sched log cleanups (issue #67).
 
   * Improve addclient and addnetwork database ID allocation (issue #69).
+
+  * Improve security on HTTP server getting the client config. (issue #76).
   
 
 DRLM Version 2.2.0 (September 2017) - Release Notes
