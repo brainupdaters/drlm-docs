@@ -80,6 +80,7 @@ DRLM Version 2.2.1 (May 2018) - Release Notes
 
   * Delete client related jobs in delclient workflow (issue #82).
   
+  * Updated timeout for drlm-stord.service (issue #74).
 
 DRLM Version 2.2.0 (September 2017) - Release Notes
 ---------------------------------------------------
