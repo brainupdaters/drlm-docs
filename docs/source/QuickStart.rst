@@ -10,11 +10,11 @@ Follow the steps at `DRLM Installation <http://docs.drlm.org/en/2.1.2/Install.ht
 Add Network to DRLM Server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-First of all we must add the network where the ReaR clients are. To do this we have to use the command "drlm addnetwork" with the parameters -i "Network IP" network", -g "Gateway IP", -s "Server IP of the network", -n "Network Name" and -m "Netmask".
+First of all we must add the network where the ReaR clients are. To do this we have to use the command "drlm addnetwork" with the parameters -n "Network Name", -s "Server IP", -m "Netmask" and -g "Gateway IP".
 
 ::
 
-    $ drlm addnetwork -i 192.168.1.0 -g 192.168.1.1 -s 192.168.1.38 -n BuLan -m 255.255.255.0
+    $ drlm addnetwork -n BuLan -s 192.168.1.38  -m 255.255.255.0 -g 192.168.1.1 
 
 
 Add Client to DRLM Server

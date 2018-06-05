@@ -25,13 +25,9 @@ The :program:`drlm addnetwork` has some requiered options:
 
    Select Network name to add.
 
-.. option:: -i ip, --ipaddr ip
-
-   Network IP address.
-
 .. option:: -g gateway_ip, --gateway gateway_ip
 
-   Network gateway address.
+   Network gateway IP address.
 
 .. option:: -m network_mask, --mask network_mask
 
@@ -39,12 +35,18 @@ The :program:`drlm addnetwork` has some requiered options:
 
 .. option:: -s server_ip, --server server_ip
 
-   Network server address.
+   Server IP address.
+
+Additional options:
+
+.. option:: -i ip, --ipaddr ip
+
+   Network IP address.
 
    Examples::
 
-   $ drlm addnetwork -i 13.74.90.0 -g 13.74.90.1 -m 255.255.255.0  -s 13.74.90.222 -n vlan12
-   $ drlm addnetwork -i 13.74.90.0 --gateway 13.74.90.1 --mask 255.255.255.0  --server 13.74.90.222 -n vlan12
+   $ drlm addnetwork -g 13.74.90.1 -m 255.255.255.0  -s 13.74.90.222 -n vlan12
+   $ drlm addnetwork --gateway 13.74.90.1 --mask 255.255.255.0  --server 13.74.90.222 -n vlan12
    $ drlm addnetwork --ipaddr 13.74.90.0 -g 13.74.90.1 -m 255.255.255.0  --server 13.74.90.222 -n vlan12
 
 Help options:
