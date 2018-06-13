@@ -66,7 +66,7 @@ DRLM Version 2.2.1 (June 2018) - Release Notes
 ----------------------------------------------
   * Updated ssh_install_rear_xxx funcitons (issue #62).
 
-  * Ubuntu 18.04 support.
+  * Ubuntu 18.04 support (issue #81).
 
   * Fixed Mac address change not reflected on PXE (issue #65).
 
@@ -86,7 +86,8 @@ DRLM Version 2.2.1 (June 2018) - Release Notes
 
   * In modnetwork if netmask is not specified is taken database saved netmask.
 
-  * In addnetwork if network IP is not specified will be calculated (issue #84).
+  * In addnetwork if network IP is not specified will be calculated (issue #84).  
+
 
 DRLM Version 2.2.0 (September 2017) - Release Notes
 ---------------------------------------------------
