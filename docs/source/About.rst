@@ -62,8 +62,8 @@ chapter that details each release.
   * Real time clients log in DRLM server
   
 
-DRLM Version 2.2.1 (June 2018) - Release Notes
-----------------------------------------------
+DRLM Version 2.2.1 (October 2018) - Release Notes
+-------------------------------------------------
   * Updated ssh_install_rear_xxx funcitons (issue #62).
 
   * Ubuntu 18.04 support (issue #81).
