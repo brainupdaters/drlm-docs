@@ -25,13 +25,9 @@ The :program:`drlm addnetwork` has some requiered options:
 
    Select Network name to add.
 
-.. option:: -i ip, --ipaddr ip
-
-   Network IP address.
-
 .. option:: -g gateway_ip, --gateway gateway_ip
 
-   Network gateway address.
+   Network gateway IP address.
 
 .. option:: -m network_mask, --mask network_mask
 
@@ -39,12 +35,18 @@ The :program:`drlm addnetwork` has some requiered options:
 
 .. option:: -s server_ip, --server server_ip
 
-   Network server address.
+   Server IP address.
+
+Additional options:
+
+.. option:: -i ip, --ipaddr ip
+
+   Network IP address.
 
    Examples::
 
-   $ drlm addnetwork -i 13.74.90.0 -g 13.74.90.1 -m 255.255.255.0  -s 13.74.90.222 -n vlan12
-   $ drlm addnetwork -i 13.74.90.0 --gateway 13.74.90.1 --mask 255.255.255.0  --server 13.74.90.222 -n vlan12
+   $ drlm addnetwork -g 13.74.90.1 -m 255.255.255.0  -s 13.74.90.222 -n vlan12
+   $ drlm addnetwork --gateway 13.74.90.1 --mask 255.255.255.0  --server 13.74.90.222 -n vlan12
    $ drlm addnetwork --ipaddr 13.74.90.0 -g 13.74.90.1 -m 255.255.255.0  --server 13.74.90.222 -n vlan12
 
 Help options:
@@ -127,10 +129,10 @@ Additional options:
 
    Examples::
 
-   $ drlm modnetwork -I 12 -g 13.74.91.1 -m 255.255.255.0
-   $ drlm modnetwork --id 12 --gateway 13.74.91.1 -m 255.255.255.0
-   $ drlm modnetwork -n vlan12 -g 13.74.91.1 -m 255.255.255.0
-   $ drlm modnetwork --netname vlan12 --gateway 13.74.91.1 -m 255.255.255.0
+   $ drlm modnetwork -I 12 -g 13.74.91.1
+   $ drlm modnetwork --id 12 --gateway 13.74.91.1
+   $ drlm modnetwork -n vlan12 -g 13.74.91.1
+   $ drlm modnetwork --netname vlan12 --gateway 13.74.91.1
 
 .. option:: -m network_mask, --mask network_mask
 
@@ -149,10 +151,14 @@ Additional options:
 
    Examples::
 
-   $ drlm modnetwork -I 12 -s 13.74.91.221 -m 255.255.255.0
-   $ drlm modnetwork --id 12 --server 13.74.91.221 -m 255.255.255.0
-   $ drlm modnetwork -n vlan12 -s 13.74.91.221 -m 255.255.255.0
-   $ drlm modnetwork --netname vlan12 --server 13.74.91.221 -m 255.255.255.0
+   $ drlm modnetwork -I 12 -s 13.74.91.221
+   $ drlm modnetwork --id 12 --server 13.74.91.221
+   $ drlm modnetwork -n vlan12 -s 13.74.91.221
+   $ drlm modnetwork --netname vlan12 --server 13.74.91.221
+
+.. note::
+   You can conbine all necessary options in only one command for example:
+   $ drlm modnetwork -n vlan12 -s 13.74.91.221 -m 255.255.0.0 -g 13.74.91.1
 
 Help option:
 
@@ -181,7 +187,7 @@ The :program:`drlm listnetwork` has some options:
 
    Select Network to list.
 
-   Exmples::
+   Examples::
 
    $ drlm listnetwork -n vlan12
    $ drlm listnetwork --netname vlan12

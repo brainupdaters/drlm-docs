@@ -10,25 +10,22 @@ Follow the steps at `DRLM Installation <http://docs.drlm.org/en/2.1.2/Install.ht
 Add Network to DRLM Server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-First of all we must add the network where the ReaR clients are. To do this we have to use the command "drlm addnetwork" with the parameters -i "Network IP" network", -g "Gateway IP", -s "Server IP of the network", -n "Network Name" and -m "Netmask".
+First of all we must add the network where the ReaR clients are. To do this we have to use the command "drlm addnetwork" with the parameters -n "Network Name", -s "Server IP", -m "Netmask" and -g "Gateway IP".
 
 ::
 
-    $ drlm -vD addnetwork -i 192.168.1.0 -g 192.168.1.1 -s 192.168.1.38 -n BuLan -m 255.255.255.0
+    $ drlm addnetwork -n BuLan -s 192.168.1.38  -m 255.255.255.0 -g 192.168.1.1 
+
 
 Add Client to DRLM Server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Now we can add a ReaR client with the command "drlm addclient" and the parameters -n "Network Name", -i "ReaR client IP", -M "ReaR client MAC address" and -c "ReaR client hostname".
+Now we can add a ReaR client with the command "drlm addclient" and the parameters -i "Client IP", -c "ReaR client hostname" and -I to automatically install ReaR client.
 
 ::
 
-    $ drlm -vD addclient -n BuLan -i 192.168.1.45 -M 00:13:20:fe:48:16 -c ReaRCli1
+    $ drlm addclient -i 192.168.1.45/24 -c ReaRCli1 -I
 
-ReaR Client Installation
-~~~~~~~~~~~~~~~~~~~~~~~
-
-Follow the steps at `ReaR Client Installation <http://docs.drlm.org/en/2.1.2/ClientConfig.html#rear-client-installation>`_. (Select your OS)
 
 Run Client Backup
 ~~~~~~~~~~~~~~~~~
@@ -37,9 +34,10 @@ We are ready to take OS backups!!! At this point we have the DRLM server and Rea
 
 ::
 
-    $ drlm -vD runbackup -c ReaRCli1
+    $ drlm runbackup -c ReaRCli1
+
 
 Restore Client Backup
 ~~~~~~~~~~~~~~~~~~~~~
 
-Follow the steps at `DRLM Client Recover <http://drlm-docs.readthedocs.org/en/2.1.2/Restore.html>`_. 
+Follow the steps at `DRLM Client Recover <http://drlm-docs.readthedocs.org/en/2.1.2/Restore.html>`_.

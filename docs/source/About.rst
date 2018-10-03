@@ -13,7 +13,7 @@ License
 
 This documentation is licensed under a Creative Commons `Attribution-NonCommercial-ShareAlike 4.0 International <http://creativecommons.org/licenses/by-nc-sa/4.0/>`_ (i.e. "CC-BY-NC-SA") license.
 
-The DRLM Manual is copyright © 2017 Brain Updaters, S.L.L.
+The DRLM Manual is copyright © 2018 Brain Updaters, S.L.L.
 
 
 
@@ -49,17 +49,82 @@ chapter that details each release.
 
       - HP OpenView
 
-      - Nagios (NSCA & NSCA-ng) (NEW!)
+      - Nagios (NSCA & NSCA-ng)
 
       - Zabbix
 
       - Mail
 
-  * Centralized backup scheduling with a job scheduler (NEW!)
+  * Centralized backup scheduling with a job scheduler
 
-  * Export and Import backup between DRLM servers or DRLM clients (NEW!)
+  * Export and Import backup between DRLM servers or DRLM clients
 
+  * Real time clients log in DRLM server
   
+
+DRLM Version 2.2.1 (October 2018) - Release Notes
+-------------------------------------------------
+  * Updated ssh_install_rear_xxx funcitons (issue #62).
+
+  * Ubuntu 18.04 support (issue #81).
+
+  * Fixed Mac address change not reflected on PXE (issue #65).
+
+  * Solve certificate deployment to clients (issue #66).
+
+  * Improve sched log cleanups (issue #67).
+
+  * Improve addclient and addnetwork database ID allocation (issue #69).
+
+  * New variable SSH_PORT has been created on default.conf to allow user to choose the ssh port (issue #70)
+
+  * Improve security on HTTP server getting the client config (issue #76).
+
+  * Delete client related jobs in delclient workflow (issue #82).
+  
+  * Updated timeout for drlm-stord.service (issue #74).
+
+  * Modnetwork server ip now modify client.cfg files (issue #77).  
+
+  * In modnetwork if netmask is not specified is taken database saved netmask.
+
+  * In addnetwork if network IP is not specified will be calculated (issue #84).  
+
+  * Problem with PXE folder file parsing fixed (issue #86).
+
+  * Automatically remove DR files after failed backup (issue #90).
+
+
+DRLM Version 2.2.0 (September 2017) - Release Notes
+---------------------------------------------------
+  * "Make deb" improved deleting residual files.
+
+  * NEW Real time clients log in DRLM server.
+
+  * NEW bash_completion feature added to facilitate the use.
+
+  * It is possible to perform a "rear recover" without the parameters DRLM_SERVER, REST_OPTS and ID.
+
+  * listbackup, listclient and listnetwork with "-A" parameter by default.
+
+  * SSH_OPTS variable created in default.conf for remove hardcoded ssh options.
+
+  * Debian 9 compatibility added.
+
+  * Improved client configuration template.
+
+  * Improved treatment of deleted client backups
+
+
+DRLM Version 2.1.3 (May 2017) - Release Notes
+---------------------------------------------
+  * Update Debian 6 installclient dependencies. (issue #57)
+
+  * Now "apt-get update" is done before "apt-get install" in instclient debian workflow.
+
+  * Set global UMASK value for all DRLM creating files durting execution.
+
+
 DRLM Version 2.1.2 (March 2017) - Release Notes
 -----------------------------------------------
 
