@@ -4,7 +4,7 @@ DRLM Quick Start Guide
 DRLM Installation
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Follow the steps at `DRLM Installation <http://docs.drlm.org/en/2.1.2/Install.html#drlm-installation>`_. (Select your OS)
+Follow the steps at `DRLM Installation <./Install.html#drlm-installation>`_. (Select your OS)
 
 
 Add Network to DRLM Server
@@ -40,4 +40,4 @@ We are ready to take OS backups!!! At this point we have the DRLM server and Rea
 Restore Client Backup
 ~~~~~~~~~~~~~~~~~~~~~
 
-Follow the steps at `DRLM Client Recover <http://drlm-docs.readthedocs.org/en/2.1.2/Restore.html>`_.
+Follow the steps at `DRLM Client Recover <./Restore.html>`_.
