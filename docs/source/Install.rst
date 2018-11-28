@@ -320,9 +320,11 @@ Restart & check services
 
 ::
 
+  $ systemctl restart xinetd.service
   $ systemctl enable xinetd.service
   $ systemctl status xinetd.service
 
+  $ systemctl restart rpcbind.service
   $ systemctl enable rpcbind.service
   $ systemctl status rpcbind.service
 
