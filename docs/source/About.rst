@@ -61,6 +61,18 @@ chapter that details each release.
 
   * Real time clients log in DRLM server
   
+DRLM Version 2.3.0 (November 2018) - Release Notes
+--------------------------------------------------
+  * Golang DRLM API replacing Apache2.
+
+  * Listbackup command now shows size and duration of backup.
+
+  * Improved database version control.
+  
+  * dpkg purge section added. 
+
+  * Improved disable_nfs_fs function.
+  
 
 DRLM Version 2.2.1 (October 2018) - Release Notes
 -------------------------------------------------

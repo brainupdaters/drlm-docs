@@ -7,7 +7,7 @@ Debian 8/9 & Ubuntu 16.04/18.04 LTS
 -----------------------------------
 
 .. note::
-   On the following steps, is assumed you have a minimal installation of Debian 8/9 or Ubuntu 16.04.
+   On the following steps, is assumed you have a minimal installation of Debian 8/9 or Ubuntu 16.04/18.04 LTS.
 
 Install requirements
 ~~~~~~~~~~~~~~~~~~~~
@@ -16,7 +16,7 @@ Install requirements
 
 	$ apt update
 	$ apt upgrade
-	$ apt install openssh-client openssl gawk nfs-kernel-server rpcbind isc-dhcp-server tftpd-hpa apache2 qemu-utils sqlite3 lsb-release bash-completion
+	$ apt install openssh-client openssl gawk nfs-kernel-server rpcbind isc-dhcp-server tftpd-hpa qemu-utils sqlite3 lsb-release bash-completion
 
 
 Get DRLM
@@ -28,7 +28,7 @@ You can obtain the DRLM package building it from the source code
 
 ::
 
-	$ apt install git build-essential debhelper
+	$ apt install git build-essential debhelper golang
 	$ git clone https://github.com/brainupdaters/drlm
 	$ cd drlm
 	$ make deb
@@ -42,7 +42,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	$ dpkg -i drlm_2.2.1_all.deb
+	$ dpkg -i drlm_2.3.0_all.deb
 
 
 DRLM Components Configuration
@@ -52,9 +52,7 @@ This section covers configuration of:
 
 * GRUB
 * TFTP Service
-* NFS Service
-* DHCP Service
-* HTTP Service
+
 
 Configuring loop limits
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -85,45 +83,6 @@ You have to update the destination folder in the /etc/default/tftpd-hpa cofigura
 	TFTP_OPTIONS="--secure"
 
 
-NFS
-~~~
-We don't have to configure the /etc/exports file, the file is automatically maintained by DRLM.
-
-
-DHCP
-~~~~
-Same as /etc/exports file, configuration of /etc/dhcp/dhcpd.conf file is not required, the file is automatically maintained by DRLM.
-
-
-HTTP
-~~~~
-
-::
-
-	$ a2enmod ssl
-	$ a2enmod rewrite
-	$ a2enmod cgid
-	$ a2enmod reqtimeout
-
-Edit /etc/apache2/apache2.conf file
-
-::
-
-	# Include the DRLM Configuration:
-	Include /usr/share/drlm/conf/HTTP/https.conf
-
-::
-
-	$ rm /etc/apache2/sites-enabled/*
-
-
-Edit /etc/apache2/ports.conf file
-
-::
-
-	#Listen 80
-
-
 Restart & check services
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -134,9 +93,6 @@ Restart & check services
 
   $ systemctl restart rpcbind.service
   $ systemctl status rpcbind.service
-
-  $ systemctl restart apache2.service
-  $ systemctl status apache2.service
 
 
 .. note::
@@ -156,7 +112,7 @@ Install requirements
 
 	$ apt-get update
 	$ apt-get upgrade
-	$ apt-get install openssh-client openssl wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind isc-dhcp-server tftpd-hpa apache2 qemu-utils sqlite3 lsb-release bash-completion
+	$ apt-get install openssh-client openssl wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind isc-dhcp-server tftpd-hpa qemu-utils sqlite3 lsb-release bash-completion
 
 
 Get DRLM
@@ -168,7 +124,7 @@ You can obtain the DRLM package building it from the source code
 
 ::
 
-	$ apt-get install git build-essential debhelper
+	$ apt-get install git build-essential debhelper golang
 	$ git clone https://github.com/brainupdaters/drlm
 	$ cd drlm
 	$ make deb
@@ -182,7 +138,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	$ dpkg -i drlm_2.2.1_all.deb
+	$ dpkg -i drlm_2.3.0_all.deb
 
 
 DRLM Components Configuration
@@ -192,9 +148,6 @@ This section covers configuration of:
 
 * GRUB
 * TFTP Service
-* NFS Service
-* DHCP Service
-* HTTP Service
 
 Configuring loop limits
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -203,7 +156,7 @@ The default configuration allows up to eight active loop devices. If more than e
 
 	...
 
-	GRUB_CMDLINE_LINUX="quiet max_loop=1024" ##UPDATE THIS LINE
+	GRUB_CMDLINE_LINUX="max_loop=1024" ##UPDATE THIS LINE
 
 	...
 
@@ -225,46 +178,6 @@ You have to update the destination folder in the /etc/default/tftpd-hpa cofigura
 	TFTP_OPTIONS="--secure"
 
 
-NFS
-~~~
-We don't have to configure the /etc/exports file, the file is automatically maintained by DRLM.
-
-
-DHCP
-~~~~
-Same as /etc/exports file, configuration of /etc/dhcp/dhcpd.conf file is not required, the file is automatically maintained by DRLM.
-
-
-HTTP
-~~~~
-
-::
-
-	$ a2enmod ssl
-	$ a2enmod rewrite
-	$ a2enmod cgi
-	$ a2enmod reqtimeout
-
-Edit /etc/apache2/apache2.conf file
-
-::
-
-	# Include the DRLM Configuration:
-	Include /usr/share/drlm/conf/HTTP/https.conf
-
-::
-
-	$ rm /etc/apache2/sites-enabled/*
-
-
-Edit /etc/apache2/ports.conf file
-
-::
-
-	#NameVirtualHost *:80
-	#Listen 80
-
-
 Restart & check services
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -276,9 +189,6 @@ Restart & check services
   $ service rpcbind restart
   $ service rpcbind status
   rpcbind is running.
-  $ service apache2 restart
-  $ service apache2 status
-  Apache2 is running (pid 2023).
 
 
 .. note::
@@ -313,9 +223,18 @@ CentOS 7 & RHEL 7
 
   $ setenforce 0
 
+.. warning:: Firewall has been disabled
+
+::
+
+$ systemctl stop firewalld
+$ systemctl disable firewalld
+    Removed symlink /etc/systemd/system/multi-user.target.wants/firewalld.service.
+    Removed symlink /etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service.
+
 .. note::
 
-   It is not a requirement to disable SELinux, but to work with DRLM Server must be properly configured. We have disabled this feature for easier installation.
+   It is not a requirement to disable SELinux and Firewall, but to work with DRLM Server must be properly configured. We have disabled this features for easier installation.
 
 
 Install requirements
@@ -323,7 +242,7 @@ Install requirements
 
 ::
 
-	 $  yum -y install openssh-clients openssl wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server httpd xinetd nfs-utils nfs4-acl-tools mod_ssl qemu-img sqlite redhat-lsb-core bash-completion
+	 $  yum -y install openssh-clients openssl wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server xinetd nfs-utils nfs4-acl-tools mod_ssl qemu-img sqlite redhat-lsb-core bash-completion
 
 
 Get DRLM
@@ -333,7 +252,7 @@ Get DRLM
 
 ::
 
-    $ yum install git rpm-build
+    $ yum install git rpm-build golang
     $ git clone https://github.com/brainupdaters/drlm
     $ cd drlm
     $ make rpm
@@ -347,7 +266,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	$ rpm -ivh drlm-2.2.1-1git.el7.centos.noarch.rpm
+	$ rpm -ivh drlm-2.3.0-1git.el7.noarch.rpm
 
 
 DRLM Components Configuration
@@ -357,9 +276,7 @@ This section covers configuration of:
 
 * GRUB
 * TFTP Service
-* NFS Service
-* DHCP Service
-* HTTP Service
+
 
 Configuring loop limits
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -397,89 +314,16 @@ You have to update the /etc/xinetd.d/tftp cofiguration file as follows:
         }
 
 
-NFS
-~~~
-We don't have to configure the /etc/exports file, the file is automatically maintained by DRLM.
-
-
-DHCP
-~~~~
-Same as /etc/exports file, configuration of /etc/dhcp/dhcpd.conf file is not required, the file is automatically maintained by DRLM.
-
-
-HTTP
-~~~~
-
-Disable the default Virtual Host and configure the server to work with SSL.
-
-We have to edit de /etc/httpd/conf.d/ssl.conf, comment or delete the Virtual host and include the DRLM http default configuration at the end of it.
-
-::
-
-   Coment from here --->
-   ##
-   ## SSL Virtual Host Context
-   ##
-
-
-        At the end of the file and insert:
-
-::
-
-        # Include the DRLM Configuration:
-        Include /usr/share/drlm/conf/HTTP/https.conf
-
-Then we have to coment the 80 port service commenting or deleting the next lines in /etc/httpd/conf/httpd.conf file.
-
-::
-
-   #Listen 80
-
-   #ServerAdmin root@localhost
-
-   #DocumentRoot "/var/www/html"
-
-   #<Directory />
-   #    Options FollowSymLinks
-   #    AllowOverride None
-   #</Directory>
-
-   #<Directory "/var/www/html">
-   #    Options Indexes FollowSymLinks
-   #    AllowOverride None
-   #    Order allow,deny
-   #    Allow from all
-   #</Directory>
-
-   #ScriptAlias /cgi-bin/ "/var/www/cgi-bin/"
-
-   #<Directory "/var/www/cgi-bin">
-   #    AllowOverride None
-   #    Options None
-   #    Order allow,deny
-   #    Allow from all
-   #</Directory>
-
-To finish we have to add APACHE_LOG_DIR variable to /etc/sysconfig/httpd
-
-::
-
-  echo "APACHE_LOG_DIR=logs" >> /etc/sysconfig/httpd
-
-
 Restart & check services
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
   $ systemctl enable xinetd.service
-  $ systemctl restart xinetd.service
+  $ systemctl status xinetd.service
 
   $ systemctl enable rpcbind.service
-  $ systemctl restart rpcbind.service
-
-  $ systemctl enable httpd.service
-  $ systemctl restart httpd.service
+  $ systemctl status rpcbind.service
 
 
 .. note::
@@ -530,7 +374,7 @@ Install requirements
 
 ::
 
-	 $  yum -y install openssh-clients openssl wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server httpd xinetd nfs-utils nfs4-acl-tools mod_ssl qemu-img sqlite redhat-lsb-core bash-completion
+	 $  yum -y install openssh-clients openssl wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server xinetd nfs-utils nfs4-acl-tools mod_ssl qemu-img sqlite redhat-lsb-core bash-completion
 
 
 Get DRLM
@@ -540,7 +384,7 @@ Get DRLM
 
 ::
 
-    $ yum install git rpm-build
+    $ yum install git rpm-build golang
     $ git clone https://github.com/brainupdaters/drlm
     $ cd drlm
     $ make rpm
@@ -554,7 +398,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	$ rpm -ivh drlm-2.2.1-1git.el6.noarch.rpm
+	$ rpm -ivh drlm-2.3.0-1git.el7.noarch.rpm
 
 
 DRLM Components Configuration
@@ -564,9 +408,7 @@ This section covers configuration of:
 
 * GRUB
 * TFTP Service
-* NFS Service
-* DHCP Service
-* HTTP Service
+
 
 Configuring loop limits
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -602,77 +444,6 @@ You have to update the /etc/xinetd.d/tftp cofiguration file as follows:
         }
 
 
-NFS
-~~~
-We don't have to configure the /etc/exports file, the file is automatically maintained by DRLM.
-
-
-DHCP
-~~~~
-Same as /etc/exports file, configuration of /etc/dhcp/dhcpd.conf file is not required, the file is automatically maintained by DRLM.
-
-
-HTTP
-~~~~
-
-Disable the default Virtual Host and configure the server to work with SSL.
-
-We have to edit de /etc/httpd/conf.d/ssl.conf, comment or delete the Virtual host and include the DRLM http default configuration at the end of it.
-
-::
-
-   Coment from here --->
-   ##
-   ## SSL Virtual Host Context
-   ##
-
-
-        At the end of the file and insert:
-
-::
-
-        # Include the DRLM Configuration:
-        Include /usr/share/drlm/conf/HTTP/https.conf
-
-Then we have to coment the 80 port service commenting or deleting the next lines in /etc/httpd/conf/httpd.conf file.
-
-::
-
-   #Listen 80
-
-   #ServerAdmin root@localhost
-
-   #DocumentRoot "/var/www/html"
-
-   #<Directory />
-   #    Options FollowSymLinks
-   #    AllowOverride None
-   #</Directory>
-
-   #<Directory "/var/www/html">
-   #    Options Indexes FollowSymLinks
-   #    AllowOverride None
-   #    Order allow,deny
-   #    Allow from all
-   #</Directory>
-
-   #ScriptAlias /cgi-bin/ "/var/www/cgi-bin/"
-
-   #<Directory "/var/www/cgi-bin">
-   #    AllowOverride None
-   #    Options None
-   #    Order allow,deny
-   #    Allow from all
-   #</Directory>
-
-To finish we have to add APACHE_LOG_DIR variable to /etc/sysconfig/httpd
-
-::
-
-  echo "APACHE_LOG_DIR=logs" >> /etc/sysconfig/httpd
-
-
-
 Restart & check services
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -684,9 +455,6 @@ Restart & check services
   $ service rpcbind restart
   $ service rpcbind status
   rpcbind (pid  5097) is running...
-  $ service httpd restart
-  $ service httpd status
-  httpd (pid  5413) is running...
 
 
 .. note::
@@ -703,7 +471,7 @@ Install requirements
 
 ::
 
-        $ zypper in openssl wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind dhcp-server sqlite3 apache2 openssh qemu-tools tftp xinetd lsb-release bash-completion
+        $ zypper in openssl wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind dhcp-server sqlite3 openssh qemu-tools tftp xinetd lsb-release bash-completion
 
 
 Get DRLM
@@ -715,7 +483,7 @@ You can obtain the DRLM package building it from the source code.
 
 ::
 
-  $ zypper install git-core rpm-build
+  $ zypper install git-core rpm-build golang
   $ git clone https://github.com/brainupdaters/drlm
   $ cd drlm
   $ make rpm
@@ -741,9 +509,7 @@ This section covers configuration of:
 
 * GRUB
 * TFTP Service
-* NFS Service
-* DHCP Service
-* HTTP Service
+
 
 Configuring loop limits
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -782,12 +548,6 @@ You have to update the /etc/xinetd.d/tftp cofiguration file as follows:
 	}
 
 
-
-NFS
-~~~
-We don't have to configure the /etc/exports file, the file is automatically maintained by DRLM.
-
-
 DHCP
 ~~~~
 Same as /etc/exports file, configuration of /etc/dhcpd.conf file is not required, the file is automatically maintained by DRLM.
@@ -811,53 +571,6 @@ Edit /etc/sysconfig/dhcpd
      DHCPD_INTERFACE="ANY"
 
 
-HTTP
-~~~~
-
-::
-
-       $ a2enmod ssl
-       $ a2enmod rewrite
-       $ a2enmod cgi
-       $ a2enmod mod_access_compat
-       $ a2enmod reqtimeout
-
-Edit /etc/apache2/httpd.conf file
-
-::
-
-        # Include the DRLM Configuration:
-        Include /usr/share/drlm/conf/HTTP/https.conf
-
-To finish we have to add APACHE_LOG_DIR variable to /etc/sysconfig/apache2
-
-::
-
-  echo "APACHE_LOG_DIR=/var/log/apache2" >> /etc/sysconfig/apache2
-
-
-
-Edit /etc/apache2/listen.conf file
-
-::
-
-       #Listen 80
-       Listen 443
-
-       #Listen 80
-
-
-       <IfDefine SSL>
-           <IfDefine !NOSSL>
-       	       <IfModule mod_ssl.c>
-
-       	           Listen 443
-
-       	       </IfModule>
-           </IfDefine>
-       </IfDefine>
-
-
 Restart & check services
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -868,9 +581,6 @@ Restart & check services
 
   $ systemctl restart rpcbind.service
   $ systemctl status rpcbind.service
-
-  $ systemctl restart apache2.service
-  $ systemctl status apache2.service
 
   $ systemctl enable nfs-server
   $ systemctl start nfs-server
