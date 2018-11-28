@@ -223,14 +223,15 @@ CentOS 7 & RHEL 7
 
   $ setenforce 0
 
+
 .. warning:: Firewall has been disabled
 
 ::
 
-$ systemctl stop firewalld
-$ systemctl disable firewalld
-    Removed symlink /etc/systemd/system/multi-user.target.wants/firewalld.service.
-    Removed symlink /etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service.
+  $ systemctl stop firewalld
+  $ systemctl disable firewalld
+      Removed symlink /etc/systemd/system/multi-user.target.wants/firewalld.service.
+      Removed symlink /etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service.
 
 .. note::
 
@@ -358,16 +359,17 @@ CentOS 6 & RHEL 6
 
   $ setenforce 0
 
-.. note::
-
-   It is not a requirement to disable SELinux and Iptables, but to work with DRLM Server must be properly configured. We have disabled these features for easier installation.
-
-Iptables
+.. warning:: Firewall has been disabled
 
 ::
 
   $ chkconfig iptables off
   $ service iptables stop
+
+.. note::
+
+   It is not a requirement to disable SELinux and Iptables, but to work with DRLM Server must be properly configured. We have disabled these features for easier installation.
+
 
 Install requirements
 ~~~~~~~~~~~~~~~~~~~~
