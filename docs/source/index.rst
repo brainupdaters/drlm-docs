@@ -37,8 +37,8 @@ Contents:
    :maxdepth: 2
    :caption: User Documentation
 
-   QuickStart
    Install
+   QuickStart
    ClientConfig
    Restore
    ErrorReporting

@@ -15,7 +15,7 @@ Add Network
 This command is used to add networks to DRLM database. It is
 called like this::
 
-   $ drlm addnetwork [options]
+   ~# drlm addnetwork [options]
 
 The :program:`drlm addnetwork` has some requiered options:
 
@@ -45,9 +45,9 @@ Additional options:
 
    Examples::
 
-   $ drlm addnetwork -g 13.74.90.1 -m 255.255.255.0  -s 13.74.90.222 -n vlan12
-   $ drlm addnetwork --gateway 13.74.90.1 --mask 255.255.255.0  --server 13.74.90.222 -n vlan12
-   $ drlm addnetwork --ipaddr 13.74.90.0 -g 13.74.90.1 -m 255.255.255.0  --server 13.74.90.222 -n vlan12
+   ~# drlm addnetwork -g 13.74.90.1 -m 255.255.255.0  -s 13.74.90.222 -n vlan12
+   ~# drlm addnetwork --gateway 13.74.90.1 --mask 255.255.255.0  --server 13.74.90.222 -n vlan12
+   ~# drlm addnetwork --ipaddr 13.74.90.0 -g 13.74.90.1 -m 255.255.255.0  --server 13.74.90.222 -n vlan12
 
 Help options:
 
@@ -57,8 +57,8 @@ Help options:
 
    Examples::
 
-   $ drlm addnetwork -h
-   $ drlm addnetwork --help
+   ~# drlm addnetwork -h
+   ~# drlm addnetwork --help
 
 Delete Network
 --------------
@@ -66,7 +66,7 @@ Delete Network
 This command is used to delete networks from DRLM database. It is
 called like this::
 
-   $ drlm delnetwork [options]
+   ~# drlm delnetwork [options]
 
 The :program:`drlm delnetwork` has some options:
 
@@ -78,8 +78,8 @@ The :program:`drlm delnetwork` has some options:
 
    Examples::
 
-   $ drlm delnetwork -n vlan12
-   $ drlm delnetwork -name vlan12
+   ~# drlm delnetwork -n vlan12
+   ~# drlm delnetwork -name vlan12
 
 .. option:: -I network_id, --id network_id
 
@@ -87,8 +87,8 @@ The :program:`drlm delnetwork` has some options:
 
    Examples::
 
-   $ drlm delnetwork -I 12
-   $ drlm delnetwork --id 12
+   ~# drlm delnetwork -I 12
+   ~# drlm delnetwork --id 12
 
 Help options:
 
@@ -98,8 +98,8 @@ Help options:
 
    Examples::
 
-   $ drlm delnetwork -h
-   $ drlm delnetwork --help
+   ~# drlm delnetwork -h
+   ~# drlm delnetwork --help
 
 Modify Network
 --------------
@@ -107,7 +107,7 @@ Modify Network
 This command is used to modify networks from DRLM database. It is
 called like this::
 
-   $ drlm modnetwork [options]
+   ~# drlm modnetwork [options]
 
 The :program:`drlm modnetwork` has some required options:
 
@@ -129,10 +129,10 @@ Additional options:
 
    Examples::
 
-   $ drlm modnetwork -I 12 -g 13.74.91.1
-   $ drlm modnetwork --id 12 --gateway 13.74.91.1
-   $ drlm modnetwork -n vlan12 -g 13.74.91.1
-   $ drlm modnetwork --netname vlan12 --gateway 13.74.91.1
+   ~# drlm modnetwork -I 12 -g 13.74.91.1
+   ~# drlm modnetwork --id 12 --gateway 13.74.91.1
+   ~# drlm modnetwork -n vlan12 -g 13.74.91.1
+   ~# drlm modnetwork --netname vlan12 --gateway 13.74.91.1
 
 .. option:: -m network_mask, --mask network_mask
 
@@ -140,10 +140,10 @@ Additional options:
 
    Examples::
 
-   $ drlm modnetwork -I 12 -m 255.255.0.0
-   $ drlm modnetwork --id 12 -m 255.255.0.0
-   $ drlm modnetwork -n vlan12 -m 255.255.0.0
-   $ drlm modnetwork --netname vlan12 --mask 255.255.0.0
+   ~# drlm modnetwork -I 12 -m 255.255.0.0
+   ~# drlm modnetwork --id 12 -m 255.255.0.0
+   ~# drlm modnetwork -n vlan12 -m 255.255.0.0
+   ~# drlm modnetwork --netname vlan12 --mask 255.255.0.0
 
 .. option:: -s server_ip, --server server_ip
 
@@ -151,14 +151,14 @@ Additional options:
 
    Examples::
 
-   $ drlm modnetwork -I 12 -s 13.74.91.221
-   $ drlm modnetwork --id 12 --server 13.74.91.221
-   $ drlm modnetwork -n vlan12 -s 13.74.91.221
-   $ drlm modnetwork --netname vlan12 --server 13.74.91.221
+   ~# drlm modnetwork -I 12 -s 13.74.91.221
+   ~# drlm modnetwork --id 12 --server 13.74.91.221
+   ~# drlm modnetwork -n vlan12 -s 13.74.91.221
+   ~# drlm modnetwork --netname vlan12 --server 13.74.91.221
 
 .. note::
    You can conbine all necessary options in only one command for example:
-   $ drlm modnetwork -n vlan12 -s 13.74.91.221 -m 255.255.0.0 -g 13.74.91.1
+   ~# drlm modnetwork -n vlan12 -s 13.74.91.221 -m 255.255.0.0 -g 13.74.91.1
 
 Help option:
 
@@ -168,8 +168,8 @@ Help option:
 
    Examples::
 
-   $ drlm modnetwork -h
-   $ drlm modnetwork --help
+   ~# drlm modnetwork -h
+   ~# drlm modnetwork --help
 
 List Networks
 -------------
@@ -177,7 +177,7 @@ List Networks
 This command is used to list the networks from DRLM database. It is
 called like this::
 
-   $ drlm listnetwork [options]
+   ~# drlm listnetwork [options]
 
 The :program:`drlm listnetwork` has some options:
 
@@ -189,8 +189,8 @@ The :program:`drlm listnetwork` has some options:
 
    Examples::
 
-   $ drlm listnetwork -n vlan12
-   $ drlm listnetwork --netname vlan12
+   ~# drlm listnetwork -n vlan12
+   ~# drlm listnetwork --netname vlan12
 
 .. option:: -A, --all
 
@@ -198,9 +198,9 @@ The :program:`drlm listnetwork` has some options:
 
    Examples::
 
-   $ drlm listnetwork
-   $ drlm listnetwork -A
-   $ drlm listnetwork -all
+   ~# drlm listnetwork
+   ~# drlm listnetwork -A
+   ~# drlm listnetwork -all
 
 Help options:
 
@@ -210,5 +210,5 @@ Help options:
 
    Examples::
 
-   $ drlm listnetwork -h
-   $ drlm listnetwork --help
+   ~# drlm listnetwork -h
+   ~# drlm listnetwork --help

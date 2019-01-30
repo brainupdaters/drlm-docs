@@ -14,7 +14,7 @@ First of all we must add the network where the ReaR clients are. To do this we h
 
 ::
 
-    $ drlm addnetwork -n BuLan -s 192.168.1.38  -m 255.255.255.0 -g 192.168.1.1 
+    ~# drlm addnetwork -n BuLan -s 192.168.1.38  -m 255.255.255.0 -g 192.168.1.1 
 
 
 Add Client to DRLM Server
@@ -24,7 +24,7 @@ Now we can add a ReaR client with the command "drlm addclient" and the parameter
 
 ::
 
-    $ drlm addclient -i 192.168.1.45/24 -c ReaRCli1 -I
+    ~# drlm addclient -i 192.168.1.45/24 -c ReaRCli1 -I
 
 
 Run Client Backup
@@ -34,7 +34,7 @@ We are ready to take OS backups!!! At this point we have the DRLM server and Rea
 
 ::
 
-    $ drlm runbackup -c ReaRCli1
+    ~# drlm runbackup -c ReaRCli1
 
 
 Restore Client Backup

@@ -14,9 +14,9 @@ Install requirements
 
 ::
 
-	$ apt update
-	$ apt upgrade
-	$ apt install openssh-client openssl gawk nfs-kernel-server rpcbind isc-dhcp-server tftpd-hpa qemu-utils sqlite3 lsb-release bash-completion
+	~# apt update
+	~# apt upgrade
+	~# apt install openssh-client openssl gawk nfs-kernel-server rpcbind isc-dhcp-server tftpd-hpa qemu-utils sqlite3 lsb-release bash-completion
 
 
 Get DRLM
@@ -28,10 +28,11 @@ You can obtain the DRLM package building it from the source code
 
 ::
 
-	$ apt install git build-essential debhelper golang
-	$ git clone https://github.com/brainupdaters/drlm
-	$ cd drlm
-	$ make deb
+	~# apt install git build-essential debhelper golang
+	~$ git clone https://github.com/brainupdaters/drlm
+	~$ cd drlm
+	~$ make deb
+	~$ cd ..
 
 
 Install DRLM package
@@ -42,7 +43,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	$ dpkg -i drlm_2.3.0_all.deb
+	~# dpkg -i drlm_2.3.0_all.deb
 
 
 DRLM Components Configuration
@@ -67,7 +68,7 @@ The default configuration allows up to eight active loop devices. If more than e
 
 ::
 
-	$ grub-mkconfig -o /boot/grub/grub.cfg
+	~# grub-mkconfig -o /boot/grub/grub.cfg
 
 
 TFTP
@@ -82,17 +83,26 @@ You have to update the destination folder in the /etc/default/tftpd-hpa cofigura
 	TFTP_ADDRESS="0.0.0.0:69"
 	TFTP_OPTIONS="--secure"
 
+DHCP
+~~~~
+You have to update the interfaces where the DHCP server is going to listen
+
+::
+
+      # /etc/default/isc-dhcp-server
+      INTERFACESv4="<interface-name>"
+
 
 Restart & check services
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
-  $ systemctl restart tftpd-hpa.service
-  $ systemctl status tftpd-hpa.service
+  ~# systemctl restart tftpd-hpa.service
+  ~# systemctl status tftpd-hpa.service
 
-  $ systemctl restart rpcbind.service
-  $ systemctl status rpcbind.service
+  ~# systemctl restart rpcbind.service
+  ~# systemctl status rpcbind.service
 
 
 .. note::
@@ -110,9 +120,9 @@ Install requirements
 
 ::
 
-	$ apt-get update
-	$ apt-get upgrade
-	$ apt-get install openssh-client openssl wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind isc-dhcp-server tftpd-hpa qemu-utils sqlite3 lsb-release bash-completion
+	~# apt-get update
+	~# apt-get upgrade
+	~# apt-get install openssh-client openssl wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind isc-dhcp-server tftpd-hpa qemu-utils sqlite3 lsb-release bash-completion
 
 
 Get DRLM
@@ -124,10 +134,11 @@ You can obtain the DRLM package building it from the source code
 
 ::
 
-	$ apt-get install git build-essential debhelper golang
-	$ git clone https://github.com/brainupdaters/drlm
-	$ cd drlm
-	$ make deb
+	~# apt-get install git build-essential debhelper golang
+	~$ git clone https://github.com/brainupdaters/drlm
+	~$ cd drlm
+	~$ make deb
+	~$ cd ..
 
 
 Install DRLM package
@@ -138,7 +149,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	$ dpkg -i drlm_2.3.0_all.deb
+	~# dpkg -i drlm_2.3.0_all.deb
 
 
 DRLM Components Configuration
@@ -162,7 +173,7 @@ The default configuration allows up to eight active loop devices. If more than e
 
 ::
 
-	$ grub-mkconfig -o /boot/grub/grub.cfg
+	~# grub-mkconfig -o /boot/grub/grub.cfg
 
 
 TFTP
@@ -183,11 +194,11 @@ Restart & check services
 
 ::
 
-  $ service tfrpd-hpa restart
-  $ service tftpd-hpa status
+  ~# service tfrpd-hpa restart
+  ~# service tftpd-hpa status
   in.tftpd is running.
-  $ service rpcbind restart
-  $ service rpcbind status
+  ~# service rpcbind restart
+  ~# service rpcbind status
   rpcbind is running.
 
 
@@ -206,7 +217,7 @@ CentOS 7 & RHEL 7
 
 ::
 
-  $ cat /etc/sysconfig/selinux
+  ~$ cat /etc/sysconfig/selinux
 
   # This file controls the state of SELinux on the system.
   # SELINUX= can take one of these three values:
@@ -221,15 +232,15 @@ CentOS 7 & RHEL 7
 
 ::
 
-  $ setenforce 0
+  ~# setenforce 0
 
 
 .. warning:: Firewall has been disabled
 
 ::
 
-  $ systemctl stop firewalld
-  $ systemctl disable firewalld
+  ~# systemctl stop firewalld
+  ~# systemctl disable firewalld
       Removed symlink /etc/systemd/system/multi-user.target.wants/firewalld.service.
       Removed symlink /etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service.
 
@@ -243,7 +254,7 @@ Install requirements
 
 ::
 
-	 $  yum -y install openssh-clients openssl wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server xinetd nfs-utils nfs4-acl-tools mod_ssl qemu-img sqlite redhat-lsb-core bash-completion
+	 ~#  yum -y install openssh-clients openssl wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server xinetd nfs-utils nfs4-acl-tools mod_ssl qemu-img sqlite redhat-lsb-core bash-completion
 
 
 Get DRLM
@@ -253,10 +264,10 @@ Get DRLM
 
 ::
 
-    $ yum install git rpm-build golang
-    $ git clone https://github.com/brainupdaters/drlm
-    $ cd drlm
-    $ make rpm
+    ~# yum install git rpm-build golang
+    ~$ git clone https://github.com/brainupdaters/drlm
+    ~$ cd drlm
+    ~$ make rpm
 
 
 Install DRLM package
@@ -267,7 +278,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	$ rpm -ivh drlm-2.3.0-1git.el7.noarch.rpm
+	~# rpm -ivh drlm-2.3.0-1git.el7.noarch.rpm
 
 
 DRLM Components Configuration
@@ -292,7 +303,7 @@ The default configuration allows up to eight active loop devices. If more than e
 
 ::
 
-	$ grub2-mkconfig -o /boot/grub2/grub.cfg
+	~# grub2-mkconfig -o /boot/grub2/grub.cfg
 
 TFTP
 ~~~~
@@ -320,13 +331,13 @@ Restart & check services
 
 ::
 
-  $ systemctl restart xinetd.service
-  $ systemctl enable xinetd.service
-  $ systemctl status xinetd.service
+  ~# systemctl restart xinetd.service
+  ~# systemctl enable xinetd.service
+  ~# systemctl status xinetd.service
 
-  $ systemctl restart rpcbind.service
-  $ systemctl enable rpcbind.service
-  $ systemctl status rpcbind.service
+  ~# systemctl restart rpcbind.service
+  ~# systemctl enable rpcbind.service
+  ~# systemctl status rpcbind.service
 
 
 .. note::
@@ -344,7 +355,7 @@ CentOS 6 & RHEL 6
 
 ::
 
-  $ cat /etc/sysconfig/selinux
+  ~$ cat /etc/sysconfig/selinux
 
   # This file controls the state of SELinux on the system.
   # SELINUX= can take one of these three values:
@@ -359,14 +370,14 @@ CentOS 6 & RHEL 6
 
 ::
 
-  $ setenforce 0
+  ~# setenforce 0
 
 .. warning:: Firewall has been disabled
 
 ::
 
-  $ chkconfig iptables off
-  $ service iptables stop
+  ~# chkconfig iptables off
+  ~# service iptables stop
 
 .. note::
 
@@ -378,7 +389,7 @@ Install requirements
 
 ::
 
-	 $  yum -y install openssh-clients openssl wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server xinetd nfs-utils nfs4-acl-tools mod_ssl qemu-img sqlite redhat-lsb-core bash-completion
+	 ~#  yum -y install openssh-clients openssl wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server xinetd nfs-utils nfs4-acl-tools mod_ssl qemu-img sqlite redhat-lsb-core bash-completion
 
 
 Get DRLM
@@ -388,10 +399,10 @@ Get DRLM
 
 ::
 
-    $ yum install git rpm-build golang
-    $ git clone https://github.com/brainupdaters/drlm
-    $ cd drlm
-    $ make rpm
+    ~# yum install git rpm-build golang
+    ~$ git clone https://github.com/brainupdaters/drlm
+    ~$ cd drlm
+    ~$ make rpm
 
 
 Install DRLM package
@@ -402,7 +413,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	$ rpm -ivh drlm-2.3.0-1git.el7.noarch.rpm
+	~# rpm -ivh drlm-2.3.0-1git.el7.noarch.rpm
 
 
 DRLM Components Configuration
@@ -453,11 +464,11 @@ Restart & check services
 
 ::
 
-  $ service xinetd restart
-  $ service xinetd status
+  ~# service xinetd restart
+  ~# service xinetd status
   xinetd (pid  5307) is running...
-  $ service rpcbind restart
-  $ service rpcbind status
+  ~# service rpcbind restart
+  ~# service rpcbind status
   rpcbind (pid  5097) is running...
 
 
@@ -475,7 +486,7 @@ Install requirements
 
 ::
 
-        $ zypper in openssl wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind dhcp-server sqlite3 openssh qemu-tools tftp xinetd lsb-release bash-completion
+        ~# zypper in openssl wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind dhcp-server sqlite3 openssh qemu-tools tftp xinetd lsb-release bash-completion
 
 
 Get DRLM
@@ -487,10 +498,10 @@ You can obtain the DRLM package building it from the source code.
 
 ::
 
-  $ zypper install git-core rpm-build golang
-  $ git clone https://github.com/brainupdaters/drlm
-  $ cd drlm
-  $ make rpm
+  ~# zypper install git-core rpm-build golang
+  ~$ git clone https://github.com/brainupdaters/drlm
+  ~$ cd drlm
+  ~$ make rpm
 
 You can obtain the RPM DRLM package from www.drlm.org website
 
@@ -503,7 +514,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-        $ zypper in drlm-2.2.1-1git.noarch.rpm
+        ~# zypper in drlm-2.2.1-1git.noarch.rpm
 
 
 DRLM Components Configuration
@@ -528,7 +539,7 @@ The default configuration allows up to eight active loop devices. If more than e
 
 ::
 
-        $ grub2-mkconfig -o /boot/grub2/grub.cfg
+        ~# grub2-mkconfig -o /boot/grub2/grub.cfg
 
 
 TFTP
@@ -580,15 +591,15 @@ Restart & check services
 
 ::
 
-  $ systemctl restart xinetd.service
-  $ systemctl status xinetd.service
+  ~# systemctl restart xinetd.service
+  ~# systemctl status xinetd.service
 
-  $ systemctl restart rpcbind.service
-  $ systemctl status rpcbind.service
+  ~# systemctl restart rpcbind.service
+  ~# systemctl status rpcbind.service
 
-  $ systemctl enable nfs-server
-  $ systemctl start nfs-server
-  $ systemctl status nfs-server
+  ~# systemctl enable nfs-server
+  ~# systemctl start nfs-server
+  ~# systemctl status nfs-server
 
 
 .. note::
