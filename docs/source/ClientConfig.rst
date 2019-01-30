@@ -51,8 +51,7 @@ To perform an unattended install of a DRLM client, just is needed to run **instc
 Examples::
 
         ~# drlm instclient -c ReaRCli1
-
-	~# drlm instclient -c ReaRCli1 -U http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_7.0/all/rear_1.17.2_all.deb
+        ~# drlm instclient -c ReaRCli1 -U http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_7.0/all/rear_1.17.2_all.deb
 
 
 .. note:: See Client Operations for more information
