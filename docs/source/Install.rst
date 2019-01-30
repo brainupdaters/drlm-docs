@@ -32,6 +32,7 @@ You can obtain the DRLM package building it from the source code
 	~$ git clone https://github.com/brainupdaters/drlm
 	~$ cd drlm
 	~$ make deb
+        ~$ cd ..
 
 
 Install DRLM package
@@ -137,6 +138,7 @@ You can obtain the DRLM package building it from the source code
 	~$ git clone https://github.com/brainupdaters/drlm
 	~$ cd drlm
 	~$ make deb
+        ~$ cd ..
 
 
 Install DRLM package
