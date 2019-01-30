@@ -23,7 +23,7 @@ Install required packages
 
 ::
 
-  $ apt-get install bison libopts25 libselinux1-dev autogen \
+  ~# apt-get install bison libopts25 libselinux1-dev autogen \
   m4 autoconf help2man libopts25-dev flex libfont-freetype-perl \
   automake autotools-dev libfreetype6-dev texinfo
 
@@ -32,13 +32,13 @@ Download GRUB2 sources
 
 ::
 
-  $ cd /usr/src
+  ~$ cd /usr/src
 
-  $ wget http://alpha.gnu.org/gnu/grub/grub-2.02~beta3.tar.gz
+  ~# wget http://alpha.gnu.org/gnu/grub/grub-2.02~beta3.tar.gz
 
-  $ tar -xzvf grub-2.02~beta3.tar.gz
+  ~# tar -xzvf grub-2.02~beta3.tar.gz
 
-  $ cd grub-2.02~beta3
+  ~$ cd grub-2.02~beta3
 
 Start build process
 -------------------
@@ -54,7 +54,7 @@ Provide DRLM branded GRUB2 build
 
 ::
 
-  $ vi grub-core/normal/main.c
+  ~# vi grub-core/normal/main.c
 
   .. replace:
   msg_formatted = grub_xasprintf (_("GNU GRUB  version %s"), PACKAGE_VERSION);
@@ -68,7 +68,7 @@ Prepare your build environment:
 
 ::
 
-  $ ./autogen.sh
+  ~# ./autogen.sh
 
 
 On next steps we will proceed with configuration and build for each platform needed.
@@ -78,10 +78,10 @@ For i386-pc:
 
 ::
 
-  $ ./configure --disable-werror
-  $ make && make install
+  ~# ./configure --disable-werror
+  ~# make && make install
 
-  $ /usr/local/bin/grub-mknetdir -d /usr/local/lib/grub/i386-pc --net-directory=/tmp
+  ~# /usr/local/bin/grub-mknetdir -d /usr/local/lib/grub/i386-pc --net-directory=/tmp
   Netboot directory for i386-pc created. Configure your DHCP server to point to /tmp/boot/grub/i386-pc/core.0
 
 
@@ -90,10 +90,10 @@ For 32-bit EFI:
 
 ::
 
-  $ ./configure --with-platform=efi --target=i386 --disable-werror
-  $ make && make install
+  ~# ./configure --with-platform=efi --target=i386 --disable-werror
+  ~# make && make install
 
-  $ /usr/local/bin/grub-mknetdir -d /usr/local/lib/grub/i386-efi --net-directory=/tmp
+  ~# /usr/local/bin/grub-mknetdir -d /usr/local/lib/grub/i386-efi --net-directory=/tmp
   Netboot directory for i386-efi created. Configure your DHCP server to point to /tmp/boot/grub/i386-efi/core.efi
 
 
@@ -102,10 +102,10 @@ For 64-bit (U)EFI:
 
 ::
 
-  $ ./configure --with-platform=efi --target=x86_64 --disable-werror
-  $ make && make install
+  ~# ./configure --with-platform=efi --target=x86_64 --disable-werror
+  ~# make && make install
 
-  $ /usr/local/bin/grub-mknetdir -d /usr/local/lib/grub/x86_64-efi --net-directory=/tmp
+  ~# /usr/local/bin/grub-mknetdir -d /usr/local/lib/grub/x86_64-efi --net-directory=/tmp
   Netboot directory for x86_64-efi created. Configure your DHCP server to point to /tmp/boot/grub/x86_64-efi/core.efi
 
 Create a tarball with targeted platform netboot image
@@ -113,9 +113,9 @@ Create a tarball with targeted platform netboot image
 
 ::
 
-  $ cd /tmp
+  ~$ cd /tmp
  
-  $ tar -cvzf drlm_grub2_<target>-<platform>.tar.gz boot/
+  ~# tar -cvzf drlm_grub2_<target>-<platform>.tar.gz boot/
 
 .. note::
   This gzipped tarball can be extracted to DRLM $STORDIR on your DRLM server, for

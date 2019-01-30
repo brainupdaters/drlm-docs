@@ -11,7 +11,7 @@ Run Backup
 This command is used to Run remote client backup from DRLM. It is
 called like this::
 
-   $ drlm runbackup [options]
+   ~# drlm runbackup [options]
 
 The :program:`drlm runbackup` has several options:
 
@@ -23,8 +23,8 @@ The :program:`drlm runbackup` has several options:
 
    Examples::
 
-   $ drlm runbackup -c clientHost1
-   $ drlm runbackup --client clientHost1
+   ~# drlm runbackup -c clientHost1
+   ~# drlm runbackup --client clientHost1
 
 .. option:: -I client_id, --id client_id
 
@@ -32,8 +32,8 @@ The :program:`drlm runbackup` has several options:
 
    Examples::
 
-   $ drlm runbackup -I 12
-   $ drlm runbackup --id 12
+   ~# drlm runbackup -I 12
+   ~# drlm runbackup --id 12
 
 Help option:
 
@@ -43,8 +43,8 @@ Help option:
 
    Examples::
 
-   $drlm runbackup -h
-   $drlm runbackup --help
+   ~# drlm runbackup -h
+   ~# drlm runbackup --help
 
 Delete Backup
 -------------
@@ -52,7 +52,7 @@ Delete Backup
 This command is used to delete backups from DRLM database. It is
 called like this::
 
-   $ drlm delbackup [options]
+   ~# drlm delbackup [options]
 
 .. warning::
 
@@ -76,10 +76,10 @@ The :program:`drlm delbackup` has some required options:
 
    Examples::
 
-   $ drlm delbackup -I 1.2015030121245
-   $ drlm delbackup --id 1.2015030121245
-   $ drlm delbackup -c clientHost1 -A
-   $ drlm delbackup --client clientHost1 --all
+   ~# drlm delbackup -I 1.2015030121245
+   ~# drlm delbackup --id 1.2015030121245
+   ~# drlm delbackup -c clientHost1 -A
+   ~# drlm delbackup --client clientHost1 --all
 
 Help option:
 
@@ -89,8 +89,8 @@ Help option:
 
    Examples::
 
-   $ drlm delbackup -h
-   $ drlm delbackup --help
+   ~# drlm delbackup -h
+   ~# drlm delbackup --help
 
 List Backups
 ------------
@@ -98,7 +98,7 @@ List Backups
 This command is used to list the backups that we have stored on the
 server. It is called like this::
 
-   $ drlm listbackup [options]
+   ~# drlm listbackup [options]
 
 The :program:`drlm listbackup` has some options:
 
@@ -110,8 +110,8 @@ The :program:`drlm listbackup` has some options:
 
    Examples::
 
-   $ drlm listbackup -c clientHost1
-   $ drlm listbackup --client clientHost1
+   ~# drlm listbackup -c clientHost1
+   ~# drlm listbackup --client clientHost1
 
 .. option:: -A, --all
 
@@ -119,9 +119,9 @@ The :program:`drlm listbackup` has some options:
 
    Examples::
 
-   $ drlm listbackup
-   $ drlm listbackup -A
-   $ drlm listbackup --all
+   ~# drlm listbackup
+   ~# drlm listbackup -A
+   ~# drlm listbackup --all
    
 Help option:
 
@@ -131,8 +131,8 @@ Help option:
 
    Examples::
 
-   $ drlm listbackup -h
-   $ drlm listbackup --help
+   ~# drlm listbackup -h
+   ~# drlm listbackup --help
 
 Backup Manager
 --------------
@@ -141,7 +141,7 @@ This command is used to enable or disable client restore points.
 Is also used to set a restore point by default. It is called like
 this::
 
-   $ drlm bkpmgr [options]
+   ~# drlm bkpmgr [options]
 
 The :program:`drlm bkpmgr` has some required options:
 
@@ -161,9 +161,9 @@ The :program:`drlm bkpmgr` has some required options:
 
    Examples::
 
-   $drlm bkpmgr -I 1.20140519065512 -e
-   $drlm bkpmgr -I 1.20140519065512 -d
-   $drlm bkpmgr --id 1.20140519065512 -e
+   ~# drlm bkpmgr -I 1.20140519065512 -e
+   ~# drlm bkpmgr -I 1.20140519065512 -d
+   ~# drlm bkpmgr --id 1.20140519065512 -e
 
 Help option:
 
@@ -173,8 +173,8 @@ Help option:
 
    Examples::
 
-   $ drlm bkmgr -h
-   $ drlm bkmgr --help
+   ~# drlm bkmgr -h
+   ~# drlm bkmgr --help
 
 Export/Import Backups
 ---------------------
@@ -187,7 +187,7 @@ Export Backups
 This command is used to export a backup that we have stored on the
 server. It is called like this::
 
-  $ drlm expbackup [options]
+  ~# drlm expbackup [options]
 
 The :program:`drlm expbackup` has the following required options:
 
@@ -203,7 +203,7 @@ The :program:`drlm expbackup` has the following required options:
 
    Examples::
 
-   $ drlm expbackup -I 2.20170125103105 -f /tmp/export.dr
+   ~# drlm expbackup -I 2.20170125103105 -f /tmp/export.dr
 
    You could now save or copy the exported backup to another DRLM server.
 
@@ -215,8 +215,8 @@ Help option:
 
    Examples::
 
-   $ drlm expbackup -h
-   $ drlm expbackup --help
+   ~# drlm expbackup -h
+   ~# drlm expbackup --help
 
 Import Backups
 ~~~~~~~~~~~~~~
@@ -224,7 +224,7 @@ Import Backups
 This command is used to import a backup that we have received from other
 DRLM server. It is called like this::
 
-  $ drlm impbackup [options]
+  ~# drlm impbackup [options]
 
 The :program:`drlm impbackup` has the following required options:
 
@@ -238,7 +238,7 @@ The :program:`drlm impbackup` has the following required options:
 
    Examples::
 
-   $ drlm impbackup --client rear-debian -f /tmp/export.dr
+   ~# drlm impbackup --client rear-debian -f /tmp/export.dr
 
 Help option:
 
@@ -248,8 +248,8 @@ Help option:
 
    Examples::
 
-   $ drlm expbackup -h
-   $ drlm expbackup --help
+   ~# drlm expbackup -h
+   ~# drlm expbackup --help
 
 Backup Job Scheduler
 --------------------
@@ -262,7 +262,7 @@ Add Jobs
 This command is used to plan backup jobs in DRLM. It is
 called like this::
 
-    $ drlm addjob [options]
+    ~# drlm addjob [options]
 
 .. program:: `drlm addjob`
 
@@ -291,8 +291,8 @@ Optional arguments:
 
     Examples::
 
-    $ drlm addjob -c rear-debian -s 2017-01-30T21:00
-    $ drlm addjob --client rear-centos -s 2017-02-03T08:00 -e 2017-02-05T23:00 -r 1hour
+    ~# drlm addjob -c rear-debian -s 2017-01-30T21:00
+    ~# drlm addjob --client rear-centos -s 2017-02-03T08:00 -e 2017-02-05T23:00 -r 1hour
 
 Help option:
 
@@ -302,8 +302,8 @@ Help option:
 
    Examples::
 
-   $ drlm addjob -h
-   $ drlm addjob --help
+   ~# drlm addjob -h
+   ~# drlm addjob --help
 
 List Jobs
 ~~~~~~~~~
@@ -311,7 +311,7 @@ List Jobs
 This command is used to list backup jobs planned in DRLM.
 It is called like this::
 
-   $ drlm listjob [options]
+   ~# drlm listjob [options]
 
 .. program:: `drlm listjob` arguments:
 
@@ -329,9 +329,9 @@ It is called like this::
 
    Examples::
 
-   $ drlm listjob -A
-   $ drlm listjob -c rear-suse
-   $ drlm listjob --job_id 3
+   ~# drlm listjob -A
+   ~# drlm listjob -c rear-suse
+   ~# drlm listjob --job_id 3
 
 Help option:
 
@@ -341,8 +341,8 @@ Help option:
 
    Examples::
 
-   $ drlm listjob -h
-   $ drlm listjob --help
+   ~# drlm listjob -h
+   ~# drlm listjob --help
 
 Delete Jobs
 ~~~~~~~~~~~
@@ -350,7 +350,7 @@ Delete Jobs
 This command is used to delete planned backup jobs in DRLM.
 It is called like this::
 
-   $ drlm deljob [options]
+   ~# drlm deljob [options]
 
 .. program:: `drlm deljob` required options:
 
@@ -364,8 +364,8 @@ It is called like this::
 
    Examples::
 
-   $ drlm deljob -J 5
-   $ drlm deljob -c rear-centos
+   ~# drlm deljob -J 5
+   ~# drlm deljob -c rear-centos
 
 Help option:
 
@@ -375,8 +375,8 @@ Help option:
 
    Examples::
 
-   $ drlm deljob -h
-   $ drlm deljob --help
+   ~# drlm deljob -h
+   ~# drlm deljob --help
 
 Scheduler Management
 ~~~~~~~~~~~~~~~~~~~~
@@ -402,8 +402,8 @@ or force to **run** jobs planned at "now" by running::
 
    Examples::
 
-    $ drlm sched -e
-    $ drlm sched -r
+    ~# drlm sched -e
+    ~# drlm sched -r
 
 Help option:
 
@@ -413,5 +413,5 @@ Help option:
 
    Examples::
 
-   $ drlm sched -h
-   $ drlm sched --help
+   ~# drlm sched -h
+   ~# drlm sched --help

@@ -14,7 +14,7 @@ Enable DRLM reporting
 
 ::
 
-  $ vi /usr/share/drlm/conf/default.conf
+  ~# vi /usr/share/drlm/conf/default.conf
 
   ########
   #
@@ -42,7 +42,7 @@ In order to configure Nagios Error reporting on DRLM, the Nagios NSCA Client mus
 
 ::
 
-  $ apt-get install nsca-ng-client
+  ~# apt-get install nsca-ng-client
 
 **RHEL/Centos 6/7**
 
@@ -54,7 +54,7 @@ The following options are DRLM defaults, change any of them to your installation
 
 ::
 
-  $ vi /etc/drlm/local.conf
+  ~# vi /etc/drlm/local.conf
 
   #
   # REPORT_TYPE=nagios
@@ -118,7 +118,7 @@ In order to configure Zabbix Error reporting on DRLM, the Zabbix Agent must be i
 
 ::
 
-  $ apt-get install zabbix-agent
+  ~# apt-get install zabbix-agent
 
 .. warning::
   On debian 7 (wheezy) the backports repository  must be configured in order to install zabbix-agent.
@@ -127,7 +127,7 @@ In order to configure Zabbix Error reporting on DRLM, the Zabbix Agent must be i
 
 ::
 
-  $ yum install zabbix-agent
+  ~# yum install zabbix-agent
 
 .. warning::
   May be needed to add EPEL repositories if not present, because those packages are not included in distribution repositories.
@@ -137,7 +137,7 @@ The following options are DRLM defaults, change any of them to your installation
 
 ::
 
-  $ vi /etc/drlm/local.conf
+  ~# vi /etc/drlm/local.conf
 
   #
   # REPORT_TYPE=zabbix
@@ -189,21 +189,21 @@ In order to configure Zabbix Error reporting on DRLM, the Heirloom Mailx must be
 
 ::
 
-  $ apt-get install heirloom-mailx
+  ~# apt-get install heirloom-mailx
 
 
 **RHEL/Centos 6/7**
 
 ::
 
-  $ yum install mailx
+  ~# yum install mailx
 
 
 The following options are DRLM defaults, change any of them to your installation requirements in /etc/drlm/local.conf.
 
 ::
 
-  $ vi /etc/drlm/local.conf
+  ~# vi /etc/drlm/local.conf
 
   #
   # REPORT_TYPE=mail
@@ -270,7 +270,7 @@ The following options are DRLM defaults, change any of them acording to your ins
 
 ::
 
-  $ vi /etc/drlm/local.conf:
+  ~# vi /etc/drlm/local.conf:
 
   #
   # REPORT_TYPE=ovo
