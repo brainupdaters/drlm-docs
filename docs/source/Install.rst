@@ -82,6 +82,15 @@ You have to update the destination folder in the /etc/default/tftpd-hpa cofigura
 	TFTP_ADDRESS="0.0.0.0:69"
 	TFTP_OPTIONS="--secure"
 
+DHCP
+~~~~
+You have to update the interfaces where the DHCP server is going to listen
+
+::
+
+      # /etc/default/isc-dhcp-server
+      INTERFACESv4="<interface-name>"
+
 
 Restart & check services
 ~~~~~~~~~~~~~~~~~~~~~~~~
