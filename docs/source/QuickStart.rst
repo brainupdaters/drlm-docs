@@ -20,7 +20,7 @@ First of all we must add the network where the ReaR clients are. To do this we h
 Add Client to DRLM Server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Now we can add a ReaR client with the command "drlm addclient" and the parameters -i "Client IP", -c "ReaR client hostname" and -I to automatically install ReaR client.
+Now we can add a ReaR client with the command "drlm addclient" and the parameters -i "Client IP", -c "ReaR client hostname" and -I to automatically install ReaR client. The client needs to have an open SSH. By default the root user is used. You can specify another user with the ``-u <user>`` parameter. This user needs admin privileges
 
 ::
 
