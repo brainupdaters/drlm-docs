@@ -122,10 +122,14 @@ Additional options:
 
    .. note:: If not url is specified will be used the package defined in "REAR DEB PACKAGE URL" section of /usr/share/drlm/conf/default.conf
 
+.. option:: -C, --config
+
+   ReaR and the required packages for ReaR will not be installed, but the client will be configured. Useful when the client has no connection to the internet or repository.
+
    Examples::
 
    ~# drlm instclient -c ReaRCli1 -u admin -U http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_7.0/all/rear_1.17.2_all.deb
-   ~# drlm instclient -c ReaRCli2
+   ~# drlm instclient -c ReaRCli2 -C
 
 Help option:
 
