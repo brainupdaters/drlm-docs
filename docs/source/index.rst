@@ -47,6 +47,7 @@ Contents:
    :maxdepth: 2
    :caption: Command Reference
 
+   overview
    network_opers
    client_opers
    backup_opers
