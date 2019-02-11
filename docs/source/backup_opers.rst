@@ -240,6 +240,14 @@ The :program:`drlm impbackup` has the following required options:
 
    ~# drlm impbackup --client rear-debian -f /tmp/export.dr
 
+.. option:: -I backup_id, --id backup_id
+
+   Import the backup from a backup of the same server
+
+   Examples::
+
+   ~# drlm impbackup --client rear-debian -I 105.20190211083744
+
 Help option:
 
 .. option:: -h, --help
