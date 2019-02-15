@@ -122,6 +122,16 @@ The :program:`drlm listbackup` has some options:
    ~# drlm listbackup
    ~# drlm listbackup -A
    ~# drlm listbackup --all
+
+.. option:: -p, --pretty
+
+   Marks those backups that might have failed with colors.
+
+   Examples::
+
+   ~# drlm listbackup -p
+   ~# drlm listbackup -c clientHost1 --pretty
+   ~# drlm listbackup --pretty
    
 Help option:
 
