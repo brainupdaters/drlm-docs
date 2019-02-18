@@ -125,7 +125,14 @@ The :program:`drlm listbackup` has some options:
 
 .. option:: -p, --pretty
 
-   Marks those backups that might have failed with colors.
+   Marks those backups that might have failed with colors. By default, it colors in red the backups that are less than 200MB or that took less than 120 seconds to complete. Also, it colors in yellow the backups that are less than 1.1GB or that took less than 240 seconds. These values can be changed in the configuration with the following configurations:
+
+   BACKUP_SIZE_STATUS_FAILED="200"
+   BACKUP_SIZE_STATUS_WARNING="1100"
+
+   BACKUP_TIME_STATUS_FAILED="120"
+   BACKUP_TIME_STATUS_WARNING="240"
+
 
    Examples::
 
