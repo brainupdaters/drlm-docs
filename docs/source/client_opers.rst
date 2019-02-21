@@ -276,6 +276,16 @@ The :program:`drlm listclient` has some options:
    ~# drlm listclient -A
    ~# drlm listclient --all
 
+.. option:: -U, --unsched
+
+   List clients that have no scheduled jobs. This option needs to be run together with -A
+
+   Examples::
+
+   ~# drlm listclient -U
+   ~# drlm listclient -AU
+   ~# drlm listclient --all --unsched
+
 Help option:
 
 .. option:: -h, --help
