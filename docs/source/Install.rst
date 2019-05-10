@@ -254,6 +254,7 @@ Install requirements
 
 ::
 
+	 ~#  yum -y install epel-release
 	 ~#  yum -y install openssh-clients openssl wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server xinetd nfs-utils nfs4-acl-tools mod_ssl qemu-img sqlite redhat-lsb-core bash-completion
 
 
