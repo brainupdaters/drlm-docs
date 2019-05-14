@@ -254,7 +254,7 @@ Install requirements
 
 ::
 
-	 ~#  yum -y install openssh-clients openssl wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server xinetd nfs-utils nfs4-acl-tools mod_ssl qemu-img sqlite redhat-lsb-core bash-completion
+	 ~#  yum -y install openssh-clients openssl wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server xinetd nfs-utils nfs4-acl-tools qemu-img sqlite redhat-lsb-core bash-completion
 
 
 Get DRLM
@@ -264,6 +264,7 @@ Get DRLM
 
 ::
 
+    ~# yum install epel-release
     ~# yum install git rpm-build golang
     ~$ git clone https://github.com/brainupdaters/drlm
     ~$ cd drlm
@@ -389,7 +390,7 @@ Install requirements
 
 ::
 
-	 ~#  yum -y install openssh-clients openssl wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server xinetd nfs-utils nfs4-acl-tools mod_ssl qemu-img sqlite redhat-lsb-core bash-completion
+	 ~#  yum -y install openssh-clients openssl wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server xinetd nfs-utils nfs4-acl-tools qemu-img sqlite redhat-lsb-core bash-completion
 
 
 Get DRLM
@@ -399,6 +400,7 @@ Get DRLM
 
 ::
 
+    ~# yum install epel-release
     ~# yum install git rpm-build golang
     ~$ git clone https://github.com/brainupdaters/drlm
     ~$ cd drlm
