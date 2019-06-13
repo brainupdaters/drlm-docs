@@ -286,6 +286,15 @@ The :program:`drlm listclient` has some options:
    ~# drlm listclient -AU
    ~# drlm listclient --all --unsched
 
+.. option:: -p, --pretty
+
+   Marks those clients that are online with green and those that are offline with red
+
+   Examples::
+
+   ~# drlm listclient -p
+   ~# drlm listclient --pretty --unsched
+
 Help option:
 
 .. option:: -h, --help
