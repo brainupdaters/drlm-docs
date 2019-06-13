@@ -133,13 +133,14 @@ The :program:`drlm listbackup` has some options:
    BACKUP_TIME_STATUS_FAILED="120"
    BACKUP_TIME_STATUS_WARNING="240"
 
+   .. note:: This option is enabled by default. It can be disabled by setting `DEF_PRETTY=false` in `/etc/drlm/local.conf`.
 
    Examples::
 
    ~# drlm listbackup -p
    ~# drlm listbackup -c clientHost1 --pretty
    ~# drlm listbackup --pretty
-   
+
 Help option:
 
 .. option:: -h,--help

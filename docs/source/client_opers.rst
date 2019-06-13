@@ -46,6 +46,14 @@ If the client is not network reachable when you want to register it in the datab
 
 .. program:: `drlm addclient`
 
+.. option:: -r, --repo
+
+   Instead of installing the recommended ReaR package, installs it from the client repositories
+
+.. option:: -U url_rear_package, --urlrear url_rear_package
+
+   Instead of installing the recommended ReaR package, downloads and installs it from the URL provided
+
 .. option:: -c client_name, --client client_name
 
    Set the client's name.
@@ -116,7 +124,11 @@ Additional options:
 
    .. note:: if not user is specified root will be used.
 
-.. option:: -U url_rear, --url_rear url_rear
+.. option:: -r, --repo
+
+   Instead of installing the recommended ReaR package, installs it from the client repositories
+
+.. option:: -U url_rear_package, --urlrear url_rear_package
 
    rpm or deb package for specific distro. For example http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_7.0/all/rear_1.17.2_all.deb
 
@@ -285,6 +297,17 @@ The :program:`drlm listclient` has some options:
    ~# drlm listclient -U
    ~# drlm listclient -AU
    ~# drlm listclient --all --unsched
+
+.. option:: -p, --pretty
+
+   Marks those clients that are online with green and those that are offline with red.
+
+   .. note:: This option is enabled by default. It can be disabled by setting `DEF_PRETTY=false` in `/etc/drlm/local.conf`.
+
+   Examples::
+
+   ~# drlm listclient -p
+   ~# drlm listclient --pretty --unsched
 
 Help option:
 
