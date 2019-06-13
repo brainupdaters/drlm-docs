@@ -288,7 +288,9 @@ The :program:`drlm listclient` has some options:
 
 .. option:: -p, --pretty
 
-   Marks those clients that are online with green and those that are offline with red
+   Marks those clients that are online with green and those that are offline with red.
+
+   .. note:: This option is enabled by default. It can be disabled by setting `DEF_PRETTY=false` in `/etc/drlm/local.conf`.
 
    Examples::
 
