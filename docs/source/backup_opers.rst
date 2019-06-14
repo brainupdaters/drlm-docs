@@ -130,7 +130,8 @@ The :program:`drlm listbackup` has some options:
    ::
 
       BACKUP_SIZE_STATUS_FAILED="200"
-      BACKUP_SIZE_STATUS_WARNING="800"         
+      BACKUP_SIZE_STATUS_WARNING="800" 
+              
       BACKUP_TIME_STATUS_FAILED="60"
       BACKUP_TIME_STATUS_WARNING="120"
 
