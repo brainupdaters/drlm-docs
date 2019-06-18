@@ -516,7 +516,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-        ~# zypper in drlm-2.2.1-1git.noarch.rpm
+        ~# zypper in drlm-2.3.0-1git.noarch.rpm
 
 
 DRLM Components Configuration
@@ -606,3 +606,147 @@ Restart & check services
 
 .. note::
     DHCP and NFS servers are not running because there is no config yet! no worries they will be reloaded automatically after first DRLM client will be added.
+
+SLES 15 & OpenSUSE Leap 15
+--------------------------
+
+.. note::
+      On the following steps, is assumed you have a minimal SLES 15 or OpenSUSE Leap 15
+
+Install requirements
+~~~~~~~~~~~~~~~~~~~~
+
+::
+
+        ~# zypper in openssl wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind dhcp-server sqlite3 openssh qemu-tools tftp xinetd lsb-release bash-completion
+
+
+Get DRLM
+~~~~~~~~
+
+You can obtain the DRLM package building it from the source code.
+
+**Build RPM package from Source**
+
+::
+
+  ~# zypper install git-core rpm-build go
+  ~$ git clone https://github.com/brainupdaters/drlm
+  ~$ cd drlm
+  ~$ make rpm
+
+You can obtain the RPM DRLM package from www.drlm.org website
+
+
+Install DRLM package
+~~~~~~~~~~~~~~~~~~~~
+
+:program:`The RPM package can be installed as follows`
+
+Execute the next command:
+::
+
+        ~# zypper in drlm-2.3.0-1git.noarch.rpm
+
+.. note::
+      You will need to accept to install the package even though it's not signed
+
+
+DRLM Components Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This section covers configuration of:
+
+* GRUB
+* TFTP Service
+
+
+Configuring loop limits
+~~~~~~~~~~~~~~~~~~~~~~~
+
+The default configuration allows up to eight active loop devices. If more than eight file-based guests or loop devices are needed the number of loop devices configured can be adjusted adding the parameter *max_loop=1024* in the **/etc/default/grub** file as follows::
+
+        ...
+
+        GRUB_CMDLINE_LINUX="... quiet max_loop=1024" ##UPDATE THIS LINE
+
+        ...
+
+::
+
+        ~# grub2-mkconfig -o /boot/grub2/grub.cfg
+
+
+TFTP
+~~~~
+You have to update the /etc/xinetd.d/tftp cofiguration file as follows:
+
+::
+
+	service tftp
+	{
+		socket_type		= dgram
+		protocol		= udp
+		wait			= yes
+		flags			= IPv6 IPv4
+		user			= root
+		server			= /usr/sbin/in.tftpd
+		server_args		= -u tftp -s /var/lib/drlm/store
+		per_source		= 11
+		cps			= 100 2
+		disable			= no
+	}
+
+
+DHCP
+~~~~
+Same as /etc/exports file, configuration of /etc/dhcpd.conf file is not required, the file is automatically maintained by DRLM.
+
+but you have to change the location of /etc/dhcpd.conf
+
+Edit /etc/drlm/local.conf
+
+::
+
+     DHCP_DIR="/etc"
+     DHCP_FILE="$DHCP_DIR/dhcpd.conf"
+
+
+DHCPD_INTERFACE by default is set as DHCPD_INTERFACE="" and dhcpd does not start, change it to "ANY"
+
+Edit /etc/sysconfig/dhcpd
+
+::
+
+     DHCPD_INTERFACE="ANY"
+
+
+Restart & check services
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+  ~# systemctl restart xinetd.service
+  ~# systemctl status xinetd.service
+
+  ~# systemctl restart rpcbind.service
+  ~# systemctl status rpcbind.service
+
+  ~# systemctl enable nfs-server
+  ~# systemctl start nfs-server
+  ~# systemctl status nfs-server
+
+
+.. note::
+    DHCP and NFS servers are not running because there is no config yet! no worries they will be reloaded automatically after first DRLM client will be added.
+
+
+Firewalld Configuration
+-----------------------
+
+If you don't want to disable Firewalld, you will need to accept connections on the following ports:
+ - `53/tcp`
+ - `53/udp`
+ - `69/tcp`
+ - `69/udp`
+ - `443/tcp`

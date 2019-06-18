@@ -26,6 +26,7 @@ Unattended Client Installation has been tested on:
        * Ubuntu LTS (12.04, 14.04 & 16.04)
 
 .. note:: It should work on other RedHat, Debian or SUSE variants.
+.. note:: For SLES 15, you need to install `net-tools-deprecated` manually before.
 
 
 Requirements

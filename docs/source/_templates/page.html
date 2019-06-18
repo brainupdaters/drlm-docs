@@ -1,51 +1,55 @@
 {% extends "!page.html" %}
 {% block extrahead %}
 
-	{{ super() }}
-	
-	<link href="https://fonts.googleapis.com/css?family=PT+Mono|PT+Sans+Narrow" rel="stylesheet">
-	
-	<div id="menudivDrlm" align="left" style="background-color: #343131;position: fixed; width: 100%; left: 0; top: 0; z-index: 1000; border-top: 0;">
-		<a class="especial_logo" href="http://drlm.org/" title="DRLM Project" rel="home" style="padding: 10px 35px;">
-			<img src="http://s390213391.mialojamiento.es/www/wpdrlmweb/documentacio/logo_white.png" width="121" height="35" alt="DRLM Project Logo" style="max-width: 121px; max-height: 35px">
-		</a>				
-		<a id="menuHome" href="http://drlm.org/" style="padding: 20px 13px; color: white;">Home</a>
-		<a id="menuAbout" href="http://drlm.org/about" style="padding: 20px 13px; color: white;">About</a>
-		<a id="menuDocs" href="http://docs.drlm.org" style="padding: 20px 13px; color: white;">Documentation</a>
-		<a id="menuDownload" href="http://drlm.org/download/" style="padding: 13px 20px; color: white;">Download</a>
-		<a id="menuComm" href="http://drlm.org/community/"  style="padding: 13px 20px; color: white;">Community</a>
-		<a id="menuEvents" href="http://drlm.org/events/"  style="padding: 13px 20px; color: white;">Events</a>
-		<a id="menuNews" href="http://drlm.org/news/"  style="padding: 13px 20px; color: white;">News</a>
-		<a id="menuSupport" href="http://drlm.org/support/"  style="padding: 13px 20px; color: white;">Support</a>
-			
-	</div>
-	<div id="menudivDrlm2" align="center" style="background-color: #343131;position: fixed; width: 100%; left: 0; top: 0; z-index: 1000; border-top: 0;">
-		<a class="especial_logo" href="http://drlm.org/" title="DRLM Project" rel="home" style="padding: 5px;">
-			<img src="http://s390213391.mialojamiento.es/www/wpdrlmweb/documentacio/logo_white.png" width="121" height="35" alt="DRLM Project Logo" style="max-width: 121px; max-height: 35px">
-		</a>
-	</div>
+{{ super() }}
 
-	<div id="divspacer1"> DRLM </div>
-	<div id="divspacer2" style="font-size: 13px;"> DRLM </div>
+<link href="https://fonts.googleapis.com/css?family=Inconsolata|PT+Sans+Narrow" rel="stylesheet">
 
-	<script>
-		window.addEventListener("resize", menuResp);
-		window.addEventListener("load", menuResp);
-		var am = 0; 
-		function menuResp() {
-		    var am = window.innerWidth;
-		    if (am < 769) {
-		       document.getElementById("menudivDrlm").style.display= "none";
-		       document.getElementById("menudivDrlm2").style.display= "inline";
-		       document.getElementById("divspacer2").style.display= "inline";
-		       document.getElementById("divspacer1").style.fontSize= "13px";
-		    } else {
-		       document.getElementById("menudivDrlm").style.display= "inline";
-		       document.getElementById("menudivDrlm2").style.display= "none";
-		       document.getElementById("divspacer2").style.display= "none";
-		       document.getElementById("divspacer1").style.fontSize= "25px";
-		    }
+<div id="menudivDrlm" align="left"
+	style="background-color: #343131;position: fixed; width: 100%; left: 0; top: 0; z-index: 1000; border-top: 0;">
+	<a class="especial_logo" href="http://drlm.org/" title="DRLM Project" rel="home" style="padding: 10px 35px;">
+		<img src="http://s390213391.mialojamiento.es/www/wpdrlmweb/documentacio/logo_white.png" width="121" height="35"
+			alt="DRLM Project Logo" style="max-width: 121px; max-height: 35px">
+	</a>
+	<a id="menuHome" href="http://drlm.org/" style="padding: 20px 13px; color: white;">Home</a>
+	<a id="menuAbout" href="http://drlm.org/about" style="padding: 20px 13px; color: white;">About</a>
+	<a id="menuDocs" href="http://docs.drlm.org" style="padding: 20px 13px; color: white;">Documentation</a>
+	<a id="menuDownload" href="http://drlm.org/download/" style="padding: 13px 20px; color: white;">Download</a>
+	<a id="menuComm" href="http://drlm.org/community/" style="padding: 13px 20px; color: white;">Community</a>
+	<a id="menuEvents" href="http://drlm.org/events/" style="padding: 13px 20px; color: white;">Events</a>
+	<a id="menuNews" href="http://drlm.org/news/" style="padding: 13px 20px; color: white;">News</a>
+	<a id="menuSupport" href="http://drlm.org/support/" style="padding: 13px 20px; color: white;">Support</a>
+
+</div>
+<div id="menudivDrlm2" align="center"
+	style="background-color: #343131;position: fixed; width: 100%; left: 0; top: 0; z-index: 1000; border-top: 0;">
+	<a class="especial_logo" href="http://drlm.org/" title="DRLM Project" rel="home" style="padding: 5px;">
+		<img src="http://s390213391.mialojamiento.es/www/wpdrlmweb/documentacio/logo_white.png" width="121" height="35"
+			alt="DRLM Project Logo" style="max-width: 121px; max-height: 35px">
+	</a>
+</div>
+
+<div id="divspacer1"> DRLM </div>
+<div id="divspacer2" style="font-size: 13px;"> DRLM </div>
+
+<script>
+	window.addEventListener("resize", menuResp);
+	window.addEventListener("load", menuResp);
+	var am = 0;
+	function menuResp() {
+		var am = window.innerWidth;
+		if (am < 769) {
+			document.getElementById("menudivDrlm").style.display = "none";
+			document.getElementById("menudivDrlm2").style.display = "inline";
+			document.getElementById("divspacer2").style.display = "inline";
+			document.getElementById("divspacer1").style.fontSize = "13px";
+		} else {
+			document.getElementById("menudivDrlm").style.display = "inline";
+			document.getElementById("menudivDrlm2").style.display = "none";
+			document.getElementById("divspacer2").style.display = "none";
+			document.getElementById("divspacer1").style.fontSize = "25px";
 		}
-	</script>
+	}
+</script>
 
 {% endblock %}
