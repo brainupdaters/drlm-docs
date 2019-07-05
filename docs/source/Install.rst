@@ -264,8 +264,8 @@ Get DRLM
 
 ::
 
-    ~# yum install epel-release
-    ~# yum install git rpm-build golang
+    ~# yum -y install epel-release
+    ~# yum -y install git rpm-build golang
     ~$ git clone https://github.com/brainupdaters/drlm
     ~$ cd drlm
     ~$ make rpm
@@ -400,8 +400,8 @@ Get DRLM
 
 ::
 
-    ~# yum install epel-release
-    ~# yum install git rpm-build golang
+    ~# yum -y install epel-release
+    ~# yum -y install git rpm-build golang
     ~$ git clone https://github.com/brainupdaters/drlm
     ~$ cd drlm
     ~$ make rpm
