@@ -63,7 +63,7 @@ h2 {
 }
 
 p, li {
-    font-size: 13px !important;
+    font-size: 15px !important;
     line-height: 1.6em;
     color: #666666;
 }
@@ -75,7 +75,7 @@ div#menudivDrlm {
 
 div#menudivDrlm a {
 	color: #e2e2e2;
-	font-size: 13px;	
+	font-size: 15px;
 }
 
 @media screen and (min-width: 770px) {

@@ -10,7 +10,7 @@ Add Client
 This command is used to add clients to DRLM database. It is
 called like this::
 
-   $ drlm addclient [options]
+   ~# drlm addclient [options]
 
 If the client you wish to add is online (network reachable), you will only need to set its IP in CIDR notation in order to add it to the database. It will then automatically fetch and prompt all the required client parameters (hostname, network and MAC address), leaving to you the option to keep and save those parameters or to enter them manually in case you refuse.
 
@@ -22,13 +22,13 @@ In this case, the :program:`drlm addclient` has the following required options:
 
  Examples::
 
-   $ drlm addclient -i 192.168.0.15/24
+   ~# drlm addclient -i 192.168.0.15/24
 
  If the :program:`drlm addclient` does not correctly fetch the client's hostname, you can set it manually in the same command.
 
  Examples::
 
-   $ drlm addclient -i 192.168.0.15/24 -c rear-debian
+   ~# drlm addclient -i 192.168.0.15/24 -c rear-debian
 
 .. option:: -I, --installclient
 
@@ -38,13 +38,21 @@ In this case, the :program:`drlm addclient` has the following required options:
 
  Examples::
 
-   $ drlm addclient -i 192.168.0.15/24 -I
-   $ drlm addclient -i 192.168.0.15/24 -c rear-debian -I
-   $ drlm addclient -i 192.168.0.15/24 -c rear-debian -I -u root -U http://url.to.rear/download
+   ~# drlm addclient -i 192.168.0.15/24 -I
+   ~# drlm addclient -i 192.168.0.15/24 -c rear-debian -I
+   ~# drlm addclient -i 192.168.0.15/24 -c rear-debian -I -u root -U http://url.to.rear/download
 
 If the client is not network reachable when you want to register it in the database or you wish to manually enter all the required parameters, you can do it with the required options available:
 
 .. program:: `drlm addclient`
+
+.. option:: -r, --repo
+
+   Instead of installing the recommended ReaR package, installs it from the client repositories
+
+.. option:: -U url_rear_package, --urlrear url_rear_package
+
+   Instead of installing the recommended ReaR package, downloads and installs it from the URL provided
 
 .. option:: -c client_name, --client client_name
 
@@ -68,8 +76,8 @@ If the client is not network reachable when you want to register it in the datab
 
    Examples::
 
-   $ drlm addclient -c clientHost1 -M 00-40-77-DB-33-38 -i 13.74.90.10 -n vlan12
-   $ drlm addclient --client clientHost1 --macaddr 00-40-77-DB-33-38 -i 13.74.90.10 -n vlan12
+   ~# drlm addclient -c clientHost1 -M 00-40-77-DB-33-38 -i 13.74.90.10 -n vlan12
+   ~# drlm addclient --client clientHost1 --macaddr 00-40-77-DB-33-38 -i 13.74.90.10 -n vlan12
 
    .. warning::
 
@@ -84,8 +92,8 @@ Help option:
 
    Examples::
 
-   $ drlm addclient -h
-   $ drlm addclient --help
+   ~# drlm addclient -h
+   ~# drlm addclient --help
 
 
 Install Client
@@ -94,7 +102,7 @@ Install Client
 This command is used to install and configure DRLM and ReaR on a remote
 Server. It is called like this::
 
-   $ drlm instclient [options]
+   ~# drlm instclient [options]
 
 The :program:`drlm instclient` has some requiered options:
 
@@ -116,16 +124,25 @@ Additional options:
 
    .. note:: if not user is specified root will be used.
 
-.. option:: -U url_rear, --url_rear url_rear
+.. option:: -r, --repo
+
+   Instead of installing the recommended ReaR package, installs it from the client repositories
+
+.. option:: -U url_rear_package, --urlrear url_rear_package
 
    rpm or deb package for specific distro. For example http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_7.0/all/rear_1.17.2_all.deb
 
    .. note:: If not url is specified will be used the package defined in "REAR DEB PACKAGE URL" section of /usr/share/drlm/conf/default.conf
 
+.. option:: -C, --config
+
+   ReaR and the required packages for ReaR will not be installed, but the client will be configured. Useful when the client has no connection to the internet or repository.
+
    Examples::
 
-   $ drlm instclient -c ReaRCli1 -u admin -U http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_7.0/all/rear_1.17.2_all.deb
-   $ drlm instclient -c ReaRCli2
+   ~# drlm instclient -c ReaRCli1 -u admin -U http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_7.0/all/rear_1.17.2_all.deb
+   ~# drlm instclient -c ReaRCli2 -C
+   ~# drlm instclient -c ReaRCli3
 
 Help option:
 
@@ -135,7 +152,7 @@ Help option:
 
    Examples::
 
-   $ drlm instclient -h
+   ~# drlm instclient -h
 
 Delete Client
 -------------
@@ -143,7 +160,7 @@ Delete Client
 This command is used to delete clients from DRLM database. It is
 called like this::
 
-   $ drlm delclient [options]
+   ~# drlm delclient [options]
 
 The :program:`drlm delclient` has some required options:
 
@@ -159,10 +176,10 @@ The :program:`drlm delclient` has some required options:
 
    Examples::
 
-   $ drlm delclient -c clientHost1
-   $ drlm delclient --client clientHost1
-   $ drlm delclient -I 12
-   $ drlm delclient --id 12
+   ~# drlm delclient -c clientHost1
+   ~# drlm delclient --client clientHost1
+   ~# drlm delclient -I 12
+   ~# drlm delclient --id 12
 
 
 Help option:
@@ -173,8 +190,8 @@ Help option:
 
    Examples::
 
-   $ drlm delclient -h
-   $ drlm delclient --help
+   ~# drlm delclient -h
+   ~# drlm delclient --help
 
 Modify Client
 -------------
@@ -182,7 +199,7 @@ Modify Client
 This command is used to modify clients from DRLM database. It is
 called like this::
 
-   $ drlm modclient [options]
+   ~# drlm modclient [options]
 
 The :program:`drlm modclient` has some required options:
 
@@ -205,7 +222,7 @@ Additional options:
 
    Examples::
 
-   $ drlm modclient -c clientHost1 -i  13.74.90.10
+   ~# drlm modclient -c clientHost1 -i  13.74.90.10
 
 .. option:: -M mac_address, --macaddr mac_address
 
@@ -213,10 +230,10 @@ Additional options:
 
    Examples::
 
-   $ drlm modclient -c clientHost1 -M  00-40-77-DB-33-38
-   $ drlm modclient --client clientHost1 --macaddr  00-40-77-DB-33-38
-   $ drlm modclient -I 12 --macaddr 00-40-77-DB-33-38
-   $ drlm modclient --id 12 -M 00-40-77-DB-33-38
+   ~# drlm modclient -c clientHost1 -M  00-40-77-DB-33-38
+   ~# drlm modclient --client clientHost1 --macaddr  00-40-77-DB-33-38
+   ~# drlm modclient -I 12 --macaddr 00-40-77-DB-33-38
+   ~# drlm modclient --id 12 -M 00-40-77-DB-33-38
 
 .. option:: -n network_name, --netname network_name
 
@@ -224,10 +241,10 @@ Additional options:
 
    Examples::
 
-   $ drlm modclient -c clientHost1 -n  vlan12
-   $ drlm modclient --client clientHost1 --netname  vlan12
-   $ drlm modclient -I 12 --netname vlan12
-   $ drlm modclient --id 12 -n vlan12
+   ~# drlm modclient -c clientHost1 -n  vlan12
+   ~# drlm modclient --client clientHost1 --netname  vlan12
+   ~# drlm modclient -I 12 --netname vlan12
+   ~# drlm modclient --id 12 -n vlan12
 
 Help option:
 
@@ -237,8 +254,8 @@ Help option:
 
    Examples::
 
-   $ drlm modclient -h
-   $ drlm modclient --help
+   ~# drlm modclient -h
+   ~# drlm modclient --help
 
 List Clients
 ------------
@@ -246,7 +263,7 @@ List Clients
 This command is used to list the clients stored at the database.
 It is called like this::
 
-   $ drlm listclient [options]
+   ~# drlm listclient [options]
 
 The :program:`drlm listclient` has some options:
 
@@ -258,8 +275,8 @@ The :program:`drlm listclient` has some options:
 
    Examples::
 
-   $ drlm listclient -c clientHost1
-   $ drlm listclient --client clientHost1
+   ~# drlm listclient -c clientHost1
+   ~# drlm listclient --client clientHost1
 
 .. option:: -A, --all
 
@@ -267,9 +284,30 @@ The :program:`drlm listclient` has some options:
 
    Examples::
 
-   $ drlm listclient
-   $ drlm listclient -A
-   $ drlm listclient --all
+   ~# drlm listclient
+   ~# drlm listclient -A
+   ~# drlm listclient --all
+
+.. option:: -U, --unsched
+
+   List clients that have no scheduled jobs. This option needs to be run together with -A
+
+   Examples::
+
+   ~# drlm listclient -U
+   ~# drlm listclient -AU
+   ~# drlm listclient --all --unsched
+
+.. option:: -p, --pretty
+
+   Marks those clients that are online with green and those that are offline with red.
+
+   .. note:: This option is enabled by default. It can be disabled by setting `DEF_PRETTY=false` in `/etc/drlm/local.conf`.
+
+   Examples::
+
+   ~# drlm listclient -p
+   ~# drlm listclient --pretty --unsched
 
 Help option:
 
@@ -279,5 +317,5 @@ Help option:
 
    Examples::
 
-   $ drlm listclient -h
-   $ drlm listclient --help
+   ~# drlm listclient -h
+   ~# drlm listclient --help

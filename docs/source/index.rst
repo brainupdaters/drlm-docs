@@ -37,8 +37,8 @@ Contents:
    :maxdepth: 2
    :caption: User Documentation
 
-   QuickStart
    Install
+   QuickStart
    ClientConfig
    Restore
    ErrorReporting
@@ -47,6 +47,7 @@ Contents:
    :maxdepth: 2
    :caption: Command Reference
 
+   overview
    network_opers
    client_opers
    backup_opers

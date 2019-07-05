@@ -60,7 +60,53 @@ chapter that details each release.
   * Export and Import backup between DRLM servers or DRLM clients
 
   * Real time clients log in DRLM server
-  
+
+
+DRLM Version 2.3.1 (July 2019) - Release Notes
+----------------------------------------------
+  * Fixed DRLM user group permissions (issue #118).
+
+  * Fixed copy_ssh_id function with the -u parameter (issue #119).
+
+  * Listbackup in pretty mode without OS version / ReaR version works now (issue #120).
+
+  * Updated the default configuration.
+
+
+DRLM Version 2.3.0 (June 2019) - Release Notes
+----------------------------------------------
+  * Golang DRLM API replacing Apache2 and CGI-BIN.
+
+  * Listbackup command now shows size and duration of backup.
+
+  * Improved database version control.
+
+  * dpkg purge section added.
+
+  * Improved disable_nfs_fs function.
+
+  * Added "-C" on install workflow to allow configuration of the client without install dependencies.
+
+  * Added "-I" in the import backup workflow to allow importing a backup from within the same DRLM server.
+
+  * Added "-U" on list clients to list the clients that have no scheduled jobs.
+
+  * Added a column on list clients that shows if a client has scheduled jobs.
+
+  * Added "-p" on list backups workflow to mark the backups that might have failed with colors.
+
+  * Added "-C" on addclient workflow to allow the configuration of the client without installing the dependencies.
+
+  * Debian 10 Support on install client workflow.
+
+  * Added ReaR 2.5 support on Debian 10, Debian 9, Debian 8, Ubuntu 18, Ubuntu 16, Ubuntu 14, Centos 6 and Centos 7.
+
+  * Added OS version and ReaR version in listclient.
+
+  * Added "-p" on list clients workflow to mark client status (up/down).
+
+  * Installclient workflow install ReaR packages from default.conf by default. Is possible to force to install ReaR from repositories with -r/--repo parameter (issue #114).
+
 
 DRLM Version 2.2.1 (October 2018) - Release Notes
 -------------------------------------------------
@@ -81,14 +127,14 @@ DRLM Version 2.2.1 (October 2018) - Release Notes
   * Improve security on HTTP server getting the client config (issue #76).
 
   * Delete client related jobs in delclient workflow (issue #82).
-  
+
   * Updated timeout for drlm-stord.service (issue #74).
 
-  * Modnetwork server ip now modify client.cfg files (issue #77).  
+  * Modnetwork server ip now modify client.cfg files (issue #77).
 
   * In modnetwork if netmask is not specified is taken database saved netmask.
 
-  * In addnetwork if network IP is not specified will be calculated (issue #84).  
+  * In addnetwork if network IP is not specified will be calculated (issue #84).
 
   * Problem with PXE folder file parsing fixed (issue #86).
 
