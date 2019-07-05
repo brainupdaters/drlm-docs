@@ -43,7 +43,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	~# dpkg -i drlm_2.3.0_all.deb
+	~# dpkg -i drlm_2.3.1_all.deb
 
 
 DRLM Components Configuration
@@ -149,7 +149,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	~# dpkg -i drlm_2.3.0_all.deb
+	~# dpkg -i drlm_2.3.1_all.deb
 
 
 DRLM Components Configuration
@@ -279,7 +279,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	~# rpm -ivh drlm-2.3.0-1git.el7.noarch.rpm
+	~# rpm -ivh drlm-2.3.1-1git.el7.noarch.rpm
 
 
 DRLM Components Configuration
@@ -415,7 +415,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-	~# rpm -ivh drlm-2.3.0-1git.el7.noarch.rpm
+	~# rpm -ivh drlm-2.3.1-1git.el7.noarch.rpm
 
 
 DRLM Components Configuration
@@ -516,7 +516,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-        ~# zypper in drlm-2.3.0-1git.noarch.rpm
+        ~# zypper in drlm-2.3.1-1git.noarch.rpm
 
 
 DRLM Components Configuration
@@ -646,7 +646,7 @@ Install DRLM package
 Execute the next command:
 ::
 
-        ~# zypper in drlm-2.3.0-1git.noarch.rpm
+        ~# zypper in drlm-2.3.1-1git.noarch.rpm
 
 .. note::
       You will need to accept to install the package even though it's not signed
