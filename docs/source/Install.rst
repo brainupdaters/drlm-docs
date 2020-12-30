@@ -3,8 +3,8 @@ DRLM Installation
 
 The pourpose of this manual is explain, step by step, the installation and configuration of DRLM. At the end of this guide you should have a fully functional DRLM server.
 
-Debian 8/9 & Ubuntu 16.04/18.04 LTS
------------------------------------
+Debian 8/9/10 & Ubuntu 16.04/18.04/20.04 LTS
+--------------------------------------------
 
 .. note::
    On the following steps, is assumed you have a minimal installation of Debian 8/9 or Ubuntu 16.04/18.04 LTS.
@@ -207,8 +207,8 @@ Restart & check services
  	 DHCP and NFS servers are not running because there is no config yet! no worries they will be reloaded automatically after first DRLM client will be added.
 
 
-CentOS 7 & RHEL 7
------------------
+CentOS 7/8 & RHEL 7/8
+---------------------
 
 .. note::
    On the following steps, is assumed you have a minimal installation of CentOS or RHEL 7.
