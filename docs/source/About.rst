@@ -13,7 +13,7 @@ License
 
 This documentation is licensed under a Creative Commons `Attribution-NonCommercial-ShareAlike 4.0 International <http://creativecommons.org/licenses/by-nc-sa/4.0/>`_ (i.e. "CC-BY-NC-SA") license.
 
-The DRLM Manual is copyright © 2018 Brain Updaters, S.L.L.
+The DRLM Manual is copyright © 2020 Brain Updaters, S.L.L.
 
 
 
@@ -60,6 +60,21 @@ chapter that details each release.
   * Export and Import backup between DRLM servers or DRLM clients
 
   * Real time clients log in DRLM server
+
+
+DRLM Version 2.3.2 (December 2020) - Release Notes
+--------------------------------------------------
+  * Fixed wget package dependency (issue #127)
+
+  * Fixed make clean leave drlm-api binary in place (issue #130)
+
+  * Fixed message errors during drlm version upgrade (issue #131, #132)
+
+  * Fixed NFS_OPTS variable is not honored (issue #138)
+
+  * RedHat/CenOS 8 support
+
+  * Ubuntu 20.04 support
 
 
 DRLM Version 2.3.1 (July 2019) - Release Notes
