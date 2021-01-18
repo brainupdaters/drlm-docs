@@ -35,6 +35,16 @@ The :program:`drlm runbackup` has several options:
    ~# drlm runbackup -I 12
    ~# drlm runbackup --id 12
 
+.. option:: -C config_name, --config config_name
+
+   Since DRLM 2.4.0 it is possible to have multiple configurations for each Client. The configurations must be in **/etc/drlm/clients/client_name.cfg.d/** path and with **.cfg** extension (ex.: home_backup.cfg). 
+   With -C parameter is possible to select witch Client backup configuration will be used. If is not especified default configuration **/etc/drlm/clients/client_name.cfg** will be used 
+
+   Examples::
+
+   ~# drlm runbackup -c clientHost1 -C home_backup
+   ~# drlm runbackup --id 12 --config home_backup
+
 Help option:
 
 .. option:: -h, --help
@@ -319,8 +329,17 @@ Optional arguments:
 
     Examples::
 
+.. option:: -C config_name, --config config_name
+
+    Since DRLM 2.4.0 it is possible to have multiple configurations for each Client. The configurations must be in **/etc/drlm/clients/client_name.cfg.d/** path and with **.cfg** extension (ex.: home_backup.cfg). 
+    With -C parameter is possible to select witch Client backup configuration will be used. If is not especified default configuration **/etc/drlm/clients/client_name.cfg** will be used 
+
+    Examples::
+
     ~# drlm addjob -c rear-debian -s 2017-01-30T21:00
+    ~# drlm addjob -c rear-debian -s 2017-01-30T21:00 -C home_backup
     ~# drlm addjob --client rear-centos -s 2017-02-03T08:00 -e 2017-02-05T23:00 -r 1hour
+    ~# drlm addjob --client rear-centos -s 2017-02-03T08:00 -e 2017-02-05T23:00 -r 1hour --config home_backup
 
 Help option:
 
