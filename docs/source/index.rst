@@ -31,7 +31,7 @@ To contribute to documentation the Github interface enables users to report erra
 
 
 Contents:
-========
+=========
 
 .. toctree::
    :maxdepth: 2

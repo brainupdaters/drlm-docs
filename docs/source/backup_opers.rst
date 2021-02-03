@@ -38,7 +38,7 @@ The :program:`drlm runbackup` has several options:
 .. option:: -C config_name, --config config_name
 
    Since DRLM 2.4.0 it is possible to have multiple configurations for each Client. The configurations must be in **/etc/drlm/clients/client_name.cfg.d/** path and with **.cfg** extension (ex.: home_backup.cfg). 
-   With -C parameter is possible to select witch Client backup configuration will be used. If is not especified default configuration **/etc/drlm/clients/client_name.cfg** will be used 
+   With -C parameter is possible to select witch client backup configuration will be used. If is not especified, default configuration **/etc/drlm/clients/client_name.cfg** will be used 
 
    Examples::
 
@@ -209,7 +209,7 @@ Help option:
 Export/Import Backups
 ---------------------
 
-Since version 2.1.0 the possibility to import or export backups from other DRLM servers has been added. To export a backup::
+Since version 2.1.0 the possibility to import or export backups from other DRLM servers has been added. To export a backup:
 
 Export Backups
 ~~~~~~~~~~~~~~
@@ -278,6 +278,32 @@ The :program:`drlm impbackup` has the following required options:
 
    ~# drlm impbackup --client rear-debian -I 105.20190211083744
 
+.. option:: -t type_of_backup, --type type_of_backup
+   
+   Tt is necessary to specify what type of backup we are importing.
+
+   * 0 --> data only
+   * 1 --> PXE Recover
+   * 2 --> ISO Recover
+
+   If no type is specified the type will be "0 (PXE Recover)" to maintain backward compatibility.
+
+   Examples::
+
+   ~# drlm impbackup --client rear-debian -f /tmp/only_data.dr -t 0
+   ~# drlm impbackup --client rear-debian -f /tmp/PXE_backup.dr -t 1
+
+.. option:: -C config_name, --config config_name
+
+   Since DRLM 2.4.0 it is possible to have multiple configurations for each Client. The configurations must be in **/etc/drlm/clients/client_name.cfg.d/** path and with **.cfg** extension (ex.: home_backup.cfg). 
+   With -C parameter is possible to select witch client backup configuration will be used. If is not especified, default configuration **/etc/drlm/clients/client_name.cfg** will be used 
+   
+   Examples::
+
+   ~# drlm impbackup --client rear-debian -f /tmp/only_data.dr -t 0 -C Home_Backup
+   ~# drlm impbackup --client rear-debian -f /tmp/ISO_backup.dr -t 2 -C ISO_Backup_Recovery
+   
+
 Help option:
 
 .. option:: -h, --help
@@ -292,7 +318,7 @@ Help option:
 Backup Job Scheduler
 --------------------
 
-Since version 2.1.0 backup tasks can be scheduled. The :program:`drlm backup scheduler` allows you to **add**, **list** and **delete** scheduled jobs. You can also enable or disable the schedule function (by default it is enabled). You can set backup operations to run on a specified date and time by running::
+Since version 2.1.0 backup tasks can be scheduled. The :program:`drlm backup scheduler` allows you to **add**, **list** and **delete** scheduled jobs. You can also enable or disable the schedule function (by default it is enabled). You can set backup operations to run on a specified date and time by running:
 
 Add Jobs
 ~~~~~~~~
@@ -327,12 +353,10 @@ Optional arguments:
     You can specify the repeating pattern in min(s) or minute(s), hour(s),
     day(s), week(s), month(s) and year(s).
 
-    Examples::
-
 .. option:: -C config_name, --config config_name
 
     Since DRLM 2.4.0 it is possible to have multiple configurations for each Client. The configurations must be in **/etc/drlm/clients/client_name.cfg.d/** path and with **.cfg** extension (ex.: home_backup.cfg). 
-    With -C parameter is possible to select witch Client backup configuration will be used. If is not especified default configuration **/etc/drlm/clients/client_name.cfg** will be used 
+    With -C parameter is possible to select witch Client backup configuration will be used. If is not especified, default configuration **/etc/drlm/clients/client_name.cfg** will be used 
 
     Examples::
 
