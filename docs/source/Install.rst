@@ -53,12 +53,13 @@ DRLM Components Configuration
 
 This section covers configuration of:
 
-* GRUB
+* NBD Module
 * TFTP Service
+* DHCP Service
 
 
-Configuring NBD 
-~~~~~~~~~~~~~~~
+NBD Configuration
+~~~~~~~~~~~~~~~~~
 
 The default configuration allows up to eight active nbd devices. If more than eight file-based guests or nbd devices are needed the number of nbd devices configured can be adjusted adding the parameter *nbds_max=128* in the **/etc/modprobe.d/nbd.conf** file as follows
 
@@ -80,8 +81,9 @@ To make it available when the server is restarted add it to modules-load . Creat
   nbd
 
 
-TFTP
-~~~~
+TFTP Configuration
+~~~~~~~~~~~~~~~~~~
+
 You have to update the destination folder in the /etc/default/tftpd-hpa cofiguration file as follows
 
 ::
@@ -92,8 +94,9 @@ You have to update the destination folder in the /etc/default/tftpd-hpa cofigura
 	TFTP_ADDRESS="0.0.0.0:69"
 	TFTP_OPTIONS="--secure"
 
-DHCP
-~~~~
+DHCP Configuration
+~~~~~~~~~~~~~~~~~~
+
 You have to update the interfaces where the DHCP server is going to listen
 
 ::
@@ -214,12 +217,12 @@ DRLM Components Configuration
 
 This section covers configuration of:
 
-* GRUB
+* NBD Module
 * TFTP Service
 
 
-Configuring NBD 
-~~~~~~~~~~~~~~~
+NBD Configuration 
+~~~~~~~~~~~~~~~~~
 
 The default configuration allows up to eight active nbd devices. If more than eight file-based guests or nbd devices are needed the number of nbd devices configured can be adjusted adding the parameter *nbds_max=128* in the **/etc/modprobe.d/nbd.conf** file as follows
 
@@ -240,25 +243,26 @@ To make it available when the server is restarted add it to modules-load . Creat
   # /etc/modules-load.d/nbd.conf 
   nbd
 
-TFTP
-~~~~
+TFTP Configuration
+~~~~~~~~~~~~~~~~~~
+
 You have to update the /etc/xinetd.d/tftp cofiguration file as follows:
 
 ::
 
-        service tftp
-        {
-                socket_type = dgram
-                protocol = udp
-                wait = yes
-                user = root
-                server = /usr/sbin/in.tftpd
-                server_args = -s /var/lib/drlm/store
-                disable = no
-                per_source = 11
-                cps = 100 2
-                flags = IPv4
-        }
+  service tftp
+  {
+          socket_type = dgram
+          protocol = udp
+          wait = yes
+          user = root
+          server = /usr/sbin/in.tftpd
+          server_args = -s /var/lib/drlm/store
+          disable = no
+          per_source = 11
+          cps = 100 2
+          flags = IPv4
+  }
 
 
 Restart & check services
@@ -326,12 +330,13 @@ DRLM Components Configuration
 
 This section covers configuration of:
 
-* GRUB
+* NBD Module
 * TFTP Service
+* DHCP Service
 
 
-Configuring NBD 
-~~~~~~~~~~~~~~~
+NBD Configuration 
+~~~~~~~~~~~~~~~~~
 
 The default configuration allows up to eight active nbd devices. If more than eight file-based guests or nbd devices are needed the number of nbd devices configured can be adjusted adding the parameter *nbds_max=128* in the **/etc/modprobe.d/nbd.conf** file as follows
 
@@ -353,8 +358,8 @@ To make it available when the server is restarted add it to modules-load . Creat
   nbd
 
 
-TFTP
-~~~~
+TFTP Configuration
+~~~~~~~~~~~~~~~~~~
 You have to update the /etc/xinetd.d/tftp cofiguration file as follows:
 
 ::
@@ -374,8 +379,8 @@ You have to update the /etc/xinetd.d/tftp cofiguration file as follows:
 	}
 
 
-DHCP
-~~~~
+DHCP Configuration
+~~~~~~~~~~~~~~~~~~
 Same as /etc/exports file, configuration of /etc/dhcpd.conf file is not required, the file is automatically maintained by DRLM.
 
 but you have to change the location of /etc/dhcpd.conf
@@ -414,20 +419,21 @@ Restart & check services
 
 
 .. note::
-    DHCP and NFS servers are not running because there is no config yet! no worries they will be reloaded automatically after first DRLM client will be added.
+  DHCP and NFS servers are not running because there is no config yet! no worries they will be reloaded automatically after first DRLM client will be added.
+
 
 SLES 15 & OpenSUSE Leap 15
 --------------------------
 
 .. note::
-      On the following steps, is assumed you have a minimal SLES 15 or OpenSUSE Leap 15
+  On the following steps, is assumed you have a minimal SLES 15 or OpenSUSE Leap 15
 
 Install requirements
 ~~~~~~~~~~~~~~~~~~~~
 
 ::
 
-        ~# zypper in openssl wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind dhcp-server sqlite3 openssh qemu-tools tftp xinetd lsb-release bash-completion
+  ~# zypper in openssl wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind dhcp-server sqlite3 openssh qemu-tools tftp lsb-release bash-completion
 
 
 Get DRLM
@@ -466,12 +472,12 @@ DRLM Components Configuration
 
 This section covers configuration of:
 
-* GRUB
+* NBD Module
 * TFTP Service
 
 
-Configuring NBD 
-~~~~~~~~~~~~~~~
+NBD Configuration 
+~~~~~~~~~~~~~~~~~
 
 The default configuration allows up to eight active nbd devices. If more than eight file-based guests or nbd devices are needed the number of nbd devices configured can be adjusted adding the parameter *nbds_max=128* in the **/etc/modprobe.d/nbd.conf** file as follows
 
@@ -493,29 +499,19 @@ To make it available when the server is restarted add it to modules-load . Creat
   nbd
 
 
-TFTP
-~~~~
-You have to update the /etc/xinetd.d/tftp cofiguration file as follows:
+TFTP Configuration
+~~~~~~~~~~~~~~~~~~
+You have to update the TFTP_DIRECTORY variable in the /etc/sysconfig/tftp cofiguration file as follows:
 
 ::
 
-	service tftp
-	{
-		socket_type		= dgram
-		protocol		= udp
-		wait			= yes
-		flags			= IPv6 IPv4
-		user			= root
-		server			= /usr/sbin/in.tftpd
-		server_args		= -u tftp -s /var/lib/drlm/store
-		per_source		= 11
-		cps			= 100 2
-		disable			= no
-	}
+  ...
+  TFTP_DIRECTORY="/var/lib/drlm/store"
+  ...
 
 
-DHCP
-~~~~
+DHCP Configuration
+~~~~~~~~~~~~~~~~~~
 Same as /etc/exports file, configuration of /etc/dhcpd.conf file is not required, the file is automatically maintained by DRLM.
 
 but you have to change the location of /etc/dhcpd.conf
@@ -542,8 +538,8 @@ Restart & check services
 
 ::
 
-  ~# systemctl restart xinetd.service
-  ~# systemctl status xinetd.service
+  ~# systemctl restart tftp.service
+  ~# systemctl status tftp.service
 
   ~# systemctl restart rpcbind.service
   ~# systemctl status rpcbind.service
