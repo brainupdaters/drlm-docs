@@ -3,12 +3,12 @@ DRLM Installation
 
 The pourpose of this manual is explain, step by step, the installation and configuration of DRLM. At the end of this guide you should have a fully functional DRLM server.
 
-Debian 9/10 & Ubuntu 18.04/20.04 LTS
--------------------------------------
+Debian 9/10/11 & Ubuntu 18.04/20.04 LTS
+---------------------------------------
 
 .. note::
 
-  On the following steps, is assumed you have a minimal installation of Debian 9/10 or Ubuntu 18.04/20.04 LTS.
+  On the following steps, is assumed you have a minimal installation of Debian 9/10/11 or Ubuntu 18.04/20.04 LTS.
 
 Install requirements
 ~~~~~~~~~~~~~~~~~~~~
@@ -17,7 +17,7 @@ Install requirements
 
 	~# apt update
 	~# apt upgrade
-	~# apt install openssh-client openssl gawk nfs-kernel-server rpcbind isc-dhcp-server tftpd-hpa qemu-utils sqlite3 lsb-release bash-completion
+	~# apt install openssh-client openssl gawk nfs-kernel-server rpcbind isc-dhcp-server tftpd-hpa qemu-utils sqlite3 lsb-release bash-completion rsync
 
 
 Get DRLM
@@ -48,54 +48,13 @@ Execute the next command:
 	~# dpkg -i drlm_2.4.0_all.deb
 
 
-DRLM Components Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+DRLM DHCP/PXE Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This section covers configuration of:
-
-* NBD Module
-* TFTP Service
-* DHCP Service
+By default DRLM does ISO and RSYNC backups. If you are interested in doing PXE rescues over the network you need to do the following additional configurations
 
 
-NBD Configuration
-~~~~~~~~~~~~~~~~~
-
-The default configuration allows up to eight active nbd devices. If more than eight file-based guests or nbd devices are needed the number of nbd devices configured can be adjusted adding the parameter *nbds_max=128* in the **/etc/modprobe.d/nbd.conf** file as follows
-
-::
-
-	options nbd max_part=8 nbds_max=128
-
-Enable NBD module with:
-
-::
-
-  ~# modprobe nbd
-
-To make it available when the server is restarted add it to modules-load . Create the file named **/etc/modules-load.d/nbd.conf** with the name of module inside.
-
-::
-
-  # /etc/modules-load.d/nbd.conf 
-  nbd
-
-
-TFTP Configuration
-~~~~~~~~~~~~~~~~~~
-
-You have to update the destination folder in the /etc/default/tftpd-hpa cofiguration file as follows
-
-::
-
-	# /etc/default/tftpd-hpa
-	TFTP_USERNAME="tftp"
-	TFTP_DIRECTORY="/var/lib/drlm/store"
-	TFTP_ADDRESS="0.0.0.0:69"
-	TFTP_OPTIONS="--secure"
-
-DHCP Configuration
-~~~~~~~~~~~~~~~~~~
+**DHCP Configuration**
 
 You have to update the interfaces where the DHCP server is going to listen
 
@@ -105,13 +64,9 @@ You have to update the interfaces where the DHCP server is going to listen
   INTERFACESv4="<interface-name>"
 
 
-Restart & check services
-~~~~~~~~~~~~~~~~~~~~~~~~
+**Restart & check services**
 
 ::
-
-  ~# systemctl restart tftpd-hpa.service
-  ~# systemctl status tftpd-hpa.service
 
   ~# systemctl restart rpcbind.service
   ~# systemctl status rpcbind.service
@@ -170,14 +125,14 @@ For CentOS 8 or RHEL 8:
 
 ::
 
-	~#  yum -y install openssh-clients openssl wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp-server tftp-server xinetd nfs-utils nfs4-acl-tools qemu-img sqlite redhat-lsb-core bash-completion
+	~#  yum -y install openssh-clients openssl wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp-server tftp-server nfs-utils nfs4-acl-tools qemu-img sqlite redhat-lsb-core bash-completion rsync
 
 
 For CentOS 7 or RHEL 7:
 
 ::
 
-	~#  yum -y install openssh-clients openssl wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server xinetd nfs-utils nfs4-acl-tools qemu-img sqlite redhat-lsb-core bash-completion
+	~#  yum -y install openssh-clients openssl wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server nfs-utils nfs4-acl-tools qemu-img sqlite redhat-lsb-core bash-completion rsync
 
 
 Get DRLM
@@ -211,73 +166,18 @@ Or the next one in CentOS 7 or RHEL 7:
 
 	~# rpm -ivh drlm-2.4.0-1git.el7.noarch.rpm
 
+DRLM DHCP/PXE Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-DRLM Components Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+By default DRLM does ISO and RSYNC backups. If you are interested in doing PXE rescues over the network you need to do the following additional configurations
 
-This section covers configuration of:
-
-* NBD Module
-* TFTP Service
-
-
-NBD Configuration 
-~~~~~~~~~~~~~~~~~
-
-The default configuration allows up to eight active nbd devices. If more than eight file-based guests or nbd devices are needed the number of nbd devices configured can be adjusted adding the parameter *nbds_max=128* in the **/etc/modprobe.d/nbd.conf** file as follows
+**Restart & check services**
 
 ::
-
-	options nbd max_part=8 nbds_max=128
-
-Enable NBD module with:
-
-::
-
-  ~# modprobe nbd
-
-To make it available when the server is restarted add it to modules-load . Create the file named **/etc/modules-load.d/nbd.conf** with the name of module inside.
-
-::
-
-  # /etc/modules-load.d/nbd.conf 
-  nbd
-
-TFTP Configuration
-~~~~~~~~~~~~~~~~~~
-
-You have to update the /etc/xinetd.d/tftp cofiguration file as follows:
-
-::
-
-  service tftp
-  {
-          socket_type = dgram
-          protocol = udp
-          wait = yes
-          user = root
-          server = /usr/sbin/in.tftpd
-          server_args = -s /var/lib/drlm/store
-          disable = no
-          per_source = 11
-          cps = 100 2
-          flags = IPv4
-  }
-
-
-Restart & check services
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-::
-
-  ~# systemctl restart xinetd.service
-  ~# systemctl enable xinetd.service
-  ~# systemctl status xinetd.service
 
   ~# systemctl restart rpcbind.service
   ~# systemctl enable rpcbind.service
   ~# systemctl status rpcbind.service
-
 
 .. note::
 	DHCP and NFS servers are not running because there is no config yet! no worries they will be reloaded automatically after first DRLM client will be added.
@@ -287,14 +187,14 @@ SLES 12 & OpenSUSE Leap 42
 --------------------------
 
 .. note::
-      On the following steps, is assumed you have a minimal SLES 12 or OpenSUSE Leap 42
+  On the following steps, is assumed you have a minimal SLES 12 or OpenSUSE Leap 42
 
 Install requirements
 ~~~~~~~~~~~~~~~~~~~~
 
 ::
 
-        ~# zypper in openssl wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind dhcp-server sqlite3 openssh qemu-tools tftp xinetd lsb-release bash-completion
+  ~# zypper in openssl wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind dhcp-server sqlite3 openssh qemu-tools tftp lsb-release bash-completion rsync
 
 
 Get DRLM
@@ -322,75 +222,27 @@ Install DRLM package
 Execute the next command:
 ::
 
-        ~# zypper in drlm-2.4.0-1git.noarch.rpm
+  ~# zypper in drlm-2.4.0-1git.noarch.rpm
 
 
-DRLM Components Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+DRLM DHCP/PXE Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This section covers configuration of:
+By default DRLM does ISO and RSYNC backups. If you are interested in doing PXE rescues over the network you need to do the following additional configurations
 
-* NBD Module
-* TFTP Service
 * DHCP Service
 
 
-NBD Configuration 
-~~~~~~~~~~~~~~~~~
+**DHCP Configuration**
 
-The default configuration allows up to eight active nbd devices. If more than eight file-based guests or nbd devices are needed the number of nbd devices configured can be adjusted adding the parameter *nbds_max=128* in the **/etc/modprobe.d/nbd.conf** file as follows
-
-::
-
-	options nbd max_part=8 nbds_max=128
-
-Enable NBD module with:
-
-::
-
-  ~# modprobe nbd
-
-To make it available when the server is restarted add it to modules-load . Create the file named **/etc/modules-load.d/nbd.conf** with the name of module inside.
-
-::
-
-  # /etc/modules-load.d/nbd.conf 
-  nbd
-
-
-TFTP Configuration
-~~~~~~~~~~~~~~~~~~
-You have to update the /etc/xinetd.d/tftp cofiguration file as follows:
-
-::
-
-	service tftp
-	{
-		socket_type		= dgram
-		protocol		= udp
-		wait			= yes
-		flags			= IPv6 IPv4
-		user			= root
-		server			= /usr/sbin/in.tftpd
-		server_args		= -u tftp -s /var/lib/drlm/store
-		per_source		= 11
-		cps			= 100 2
-		disable			= no
-	}
-
-
-DHCP Configuration
-~~~~~~~~~~~~~~~~~~
-Same as /etc/exports file, configuration of /etc/dhcpd.conf file is not required, the file is automatically maintained by DRLM.
-
-but you have to change the location of /etc/dhcpd.conf
+Same as /etc/exports file, configuration of /etc/dhcpd.conf file is not required, the file is automatically maintained by DRLM, but you have to change the location of /etc/dhcpd.conf
 
 Edit /etc/drlm/local.conf
 
 ::
 
-     DHCP_DIR="/etc"
-     DHCP_FILE="$DHCP_DIR/dhcpd.conf"
+  DHCP_DIR="/etc"
+  DHCP_FILE="$DHCP_DIR/dhcpd.conf"
 
 
 DHCPD_INTERFACE by default is set as DHCPD_INTERFACE="" and dhcpd does not start, change it to "ANY"
@@ -399,16 +251,12 @@ Edit /etc/sysconfig/dhcpd
 
 ::
 
-     DHCPD_INTERFACE="ANY"
+  DHCPD_INTERFACE="ANY"
 
 
-Restart & check services
-~~~~~~~~~~~~~~~~~~~~~~~~
+**Restart & check services**
 
 ::
-
-  ~# systemctl restart xinetd.service
-  ~# systemctl status xinetd.service
 
   ~# systemctl restart rpcbind.service
   ~# systemctl status rpcbind.service
@@ -433,7 +281,7 @@ Install requirements
 
 ::
 
-  ~# zypper in openssl wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind dhcp-server sqlite3 openssh qemu-tools tftp lsb-release bash-completion
+  ~# zypper in openssl wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind dhcp-server sqlite3 openssh qemu-tools tftp lsb-release bash-completion rsync
 
 
 Get DRLM
@@ -461,68 +309,28 @@ Install DRLM package
 Execute the next command:
 ::
 
-        ~# zypper in drlm-4.0-1git.noarch.rpm
+  ~# zypper in drlm-4.0-1git.noarch.rpm
 
 .. note::
-      You will need to accept to install the package even though it's not signed
+
+  You will need to accept to install the package even though it's not signed
 
 
-DRLM Components Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+DRLM DHCP/PXE Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This section covers configuration of:
+By default DRLM does ISO and RSYNC backups. If you are interested in doing PXE rescues over the network you need to do the following additional configurations
 
-* NBD Module
-* TFTP Service
+**DHCP Configuration**
 
-
-NBD Configuration 
-~~~~~~~~~~~~~~~~~
-
-The default configuration allows up to eight active nbd devices. If more than eight file-based guests or nbd devices are needed the number of nbd devices configured can be adjusted adding the parameter *nbds_max=128* in the **/etc/modprobe.d/nbd.conf** file as follows
-
-::
-
-	options nbd max_part=8 nbds_max=128
-
-Enable NBD module with:
-
-::
-
-  ~# modprobe nbd
-
-To make it available when the server is restarted add it to modules-load . Create the file named **/etc/modules-load.d/nbd.conf** with the name of module inside.
-
-::
-
-  # /etc/modules-load.d/nbd.conf 
-  nbd
-
-
-TFTP Configuration
-~~~~~~~~~~~~~~~~~~
-You have to update the TFTP_DIRECTORY variable in the /etc/sysconfig/tftp cofiguration file as follows:
-
-::
-
-  ...
-  TFTP_DIRECTORY="/var/lib/drlm/store"
-  ...
-
-
-DHCP Configuration
-~~~~~~~~~~~~~~~~~~
-Same as /etc/exports file, configuration of /etc/dhcpd.conf file is not required, the file is automatically maintained by DRLM.
-
-but you have to change the location of /etc/dhcpd.conf
+Same as /etc/exports file, configuration of /etc/dhcpd.conf file is not required, the file is automatically maintained by DRLM, but you have to change the location of /etc/dhcpd.conf
 
 Edit /etc/drlm/local.conf
 
 ::
 
-     DHCP_DIR="/etc"
-     DHCP_FILE="$DHCP_DIR/dhcpd.conf"
-
+  DHCP_DIR="/etc"
+  DHCP_FILE="$DHCP_DIR/dhcpd.conf"
 
 DHCPD_INTERFACE by default is set as DHCPD_INTERFACE="" and dhcpd does not start, change it to "ANY"
 
@@ -530,16 +338,12 @@ Edit /etc/sysconfig/dhcpd
 
 ::
 
-     DHCPD_INTERFACE="ANY"
+  DHCPD_INTERFACE="ANY"
 
 
-Restart & check services
-~~~~~~~~~~~~~~~~~~~~~~~~
+**Restart & check services**
 
 ::
-
-  ~# systemctl restart tftp.service
-  ~# systemctl status tftp.service
 
   ~# systemctl restart rpcbind.service
   ~# systemctl status rpcbind.service
@@ -562,3 +366,4 @@ If you don't want to disable Firewalld, you will need to accept connections on t
  - `69/tcp`
  - `69/udp`
  - `443/tcp`
+ - `873/tcp`
