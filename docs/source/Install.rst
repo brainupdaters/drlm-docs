@@ -1,92 +1,79 @@
 DRLM Installation
 =================
 
-The pourpose of this manual is explain, step by step, the installation and configuration of DRLM. At the end of this guide you should have a fully functional DRLM server.
+The pourpose of this manual is explain, step by step, the installation and configuration of DRLM.
+At the end of this guide you should have a fully functional DRLM server.
 
-Debian 9/10/11 & Ubuntu 18.04/20.04 LTS
----------------------------------------
+DRLM uses DHCP, NFS, TFTP, RSYNC, NBD and HTTPS. On the following steps, is assumed you have a minimal installation, of the selected distribution, full dedicated to run DRLM server in order to avoid interference with existing services. 
 
-.. note::
+Debian & Ubuntu 
+---------------
 
-  On the following steps, is assumed you have a minimal installation of Debian 9/10/11 or Ubuntu 18.04/20.04 LTS.
+Supported versions
+~~~~~~~~~~~~~~~~~~
 
-Install requirements
-~~~~~~~~~~~~~~~~~~~~
-
-::
-
-	~# apt update
-	~# apt upgrade
-	~# apt install openssh-client openssl gawk nfs-kernel-server rpcbind isc-dhcp-server tftpd-hpa qemu-utils sqlite3 lsb-release bash-completion rsync
+* Debian 9 (Stretch)
+* Debian 10 (Buster)
+* Debian 11 (Bullseye)
+* Ubuntu 18.04 LTS (Bionic Breaver)
+* Ubuntu 20.04 LTS (Focal Fossa)
 
 
-Get DRLM
-~~~~~~~~
+Build DRLM package
+~~~~~~~~~~~~~~~~~~
 
-You can obtain the DRLM package building it from the source code
+You can obtain the DRLM package building it from the source code.
 
-**Build DEB package from Source**
+.. code-block:: console
 
-::
-
-	~# apt install git build-essential debhelper golang
-	~$ git clone https://github.com/brainupdaters/drlm
-	~$ cd drlm
-	~$ make deb
-	~$ cd ..
+  ~# apt update && apt upgrade
+  ~# apt install git build-essential debhelper golang bash-completion
+  ~$ git clone https://github.com/brainupdaters/drlm
+  ~$ cd drlm
+  ~$ make deb
+  ~$ cd ..
 
 
 Install DRLM package
 ~~~~~~~~~~~~~~~~~~~~
 
-:program:`The DEB package can be installed as follows (on Debian, Ubuntu)`
+The DEB package can be installed executing the next command
 
-Execute the next command:
+.. code-block:: console
 
-::
+  ~# apt install ./drlm_2.4.0_all.deb
 
-	~# dpkg -i drlm_2.4.0_all.deb
+Debian 10 Asciinema Installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. raw:: html 
 
-DRLM DHCP/PXE Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-By default DRLM does ISO and RSYNC backups. If you are interested in doing PXE rescues over the network you need to do the following additional configurations
-
-
-**DHCP Configuration**
-
-You have to update the interfaces where the DHCP server is going to listen
-
-::
-
-  # /etc/default/isc-dhcp-server
-  INTERFACESv4="<interface-name>"
+  <script id="asciicast-408482" src="https://asciinema.org/a/408482.js" async></script>
 
 
-**Restart & check services**
+CentOS & RHEL
+-------------
 
-::
+Supported versions
+~~~~~~~~~~~~~~~~~~
 
-  ~# systemctl restart rpcbind.service
-  ~# systemctl status rpcbind.service
+* CentOS 7
+* CentOS 8
+* RHEL 7
+* RHEL 8
 
+Requirements
+~~~~~~~~~~~~
 
-.. note::
- DHCP and NFS servers are not running because there is no config yet! no worries they will be reloaded automatically after first DRLM client will be added.
+It is not really a requirement, but to facilitate the installation we will disable SELinux and Firewalld. Selinux and Firewalld can be properly configured to work with DRLM Server, but will not be explained at this point.
 
+**Disable selinux**
 
-CentOS 7/8 & RHEL 7/8
----------------------
+Edit "/etc/sysconfig/selinux" and change the variable SELINUX value from **enforcing** to **disable** in order to disable SELinux policies on system load. Use you favourite editor.
 
-.. note::
-   On the following steps, is assumed you have a minimal installation of CentOS or RHEL 7/8.
+.. code-block:: console
 
-.. warning:: SELinux has been disabled
-
-::
-
-  ~$ cat /etc/sysconfig/selinux
+  ~$ vi /etc/sysconfig/selinux
 
   # This file controls the state of SELinux on the system.
   # SELINUX= can take one of these three values:
@@ -99,51 +86,32 @@ CentOS 7/8 & RHEL 7/8
   #     mls - Multi Level Security protection.
   SELINUXTYPE=targeted
 
-::
+Disable SELinux in the current instance, to avoid a reboot.
+
+.. code-block:: console
 
   ~# setenforce 0
 
+**Disable firewalld**
 
-.. warning:: Firewall has been disabled
-
-::
+.. code-block:: console
 
   ~# systemctl stop firewalld
   ~# systemctl disable firewalld
-      Removed symlink /etc/systemd/system/multi-user.target.wants/firewalld.service.
-      Removed symlink /etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service.
-
-.. note::
-
-  It is not a requirement to disable SELinux and Firewall, but to work with DRLM Server must be properly configured. We have disabled this features for easier installation.
+  Removed symlink /etc/systemd/system/multi-user.target.wants/firewalld.service.
+  Removed symlink /etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service.
 
 
-Install requirements
-~~~~~~~~~~~~~~~~~~~~
 
-For CentOS 8 or RHEL 8:
+Build DRLM package
+~~~~~~~~~~~~~~~~~~
 
-::
+You can obtain the DRLM package building it from the source code
 
-	~#  yum -y install openssh-clients openssl wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp-server tftp-server nfs-utils nfs4-acl-tools qemu-img sqlite redhat-lsb-core bash-completion rsync
-
-
-For CentOS 7 or RHEL 7:
-
-::
-
-	~#  yum -y install openssh-clients openssl wget gzip tar gawk sed grep coreutils util-linux rpcbind dhcp tftp-server nfs-utils nfs4-acl-tools qemu-img sqlite redhat-lsb-core bash-completion rsync
-
-
-Get DRLM
-~~~~~~~~
-
-**Build RPM package from Source**
-
-::
+.. code-block:: console
 
   ~# yum -y install epel-release
-  ~# yum -y install git rpm-build golang
+  ~# yum -y install git rpm-build golang make bash-completion
   ~$ git clone https://github.com/brainupdaters/drlm
   ~$ cd drlm
   ~$ make rpm
@@ -152,218 +120,86 @@ Get DRLM
 Install DRLM package
 ~~~~~~~~~~~~~~~~~~~~
 
-:program:`The RPM package can be installed as follows (on Redhat, CentOS)`
+The RPM package can be installed executing the next command
 
-Execute the next command in CentOS 8 or RHEL 8:
+.. code-block:: console
 
-::
+	~# yum -y install ./drlm-2.4.0-1git.el*.noarch.rpm
 
-	~# rpm -ivh drlm-2.4.0-1git.el8.noarch.rpm
+CentOS 8 Asciinema Installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Or the next one in CentOS 7 or RHEL 7:
+.. raw:: html 
 
-::
-
-	~# rpm -ivh drlm-2.4.0-1git.el7.noarch.rpm
-
-DRLM DHCP/PXE Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-By default DRLM does ISO and RSYNC backups. If you are interested in doing PXE rescues over the network you need to do the following additional configurations
-
-**Restart & check services**
-
-::
-
-  ~# systemctl restart rpcbind.service
-  ~# systemctl enable rpcbind.service
-  ~# systemctl status rpcbind.service
-
-.. note::
-	DHCP and NFS servers are not running because there is no config yet! no worries they will be reloaded automatically after first DRLM client will be added.
+  <script id="asciicast-408477" src="https://asciinema.org/a/408477.js" async></script>
 
 
-SLES 12 & OpenSUSE Leap 42
---------------------------
+OpenSUSE & SLES
+---------------
 
-.. note::
-  On the following steps, is assumed you have a minimal SLES 12 or OpenSUSE Leap 42
+Supported versions
+~~~~~~~~~~~~~~~~~~
 
-Install requirements
-~~~~~~~~~~~~~~~~~~~~
+* OpenSUSE Leap 15
+* SLES 12
+* SLES 15
 
-::
+Requirements
+~~~~~~~~~~~~
 
-  ~# zypper in openssl wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind dhcp-server sqlite3 openssh qemu-tools tftp lsb-release bash-completion rsync
+It is not really a requirement, but to facilitate the installation we will disable Firewalld. Firewalld can be properly configured to work with DRLM Server, but will not be explained at this point.
+
+**Disable firewalld**
+
+.. code-block:: console
+
+  ~# systemctl stop firewalld
+  ~# systemctl disable firewalld
+  Removed symlink /etc/systemd/system/multi-user.target.wants/firewalld.service.
+  Removed symlink /etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service.
 
 
-Get DRLM
-~~~~~~~~
+Build DRLM package
+~~~~~~~~~~~~~~~~~~
 
-You can obtain the DRLM package building it from the source code.
+You can obtain the DRLM package building it from the source code
 
-**Build RPM package from Source**
+.. code-block:: console
 
-::
-
-  ~# zypper install git-core rpm-build golang
+  ~# zypper install git-core rpm-build go bash-completion
   ~$ git clone https://github.com/brainupdaters/drlm
   ~$ cd drlm
+  ~$ go env -w GO111MODULE=auto
   ~$ make rpm
-
-You can obtain the RPM DRLM package from www.drlm.org website
 
 
 Install DRLM package
 ~~~~~~~~~~~~~~~~~~~~
 
-:program:`The RPM package can be installed as follows (on SLES 12 SP1)`
+The RPM package can be installed as follows executing the next command
 
-Execute the next command:
-::
+.. code-block:: console
 
-  ~# zypper in drlm-2.4.0-1git.noarch.rpm
-
-
-DRLM DHCP/PXE Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-By default DRLM does ISO and RSYNC backups. If you are interested in doing PXE rescues over the network you need to do the following additional configurations
-
-* DHCP Service
-
-
-**DHCP Configuration**
-
-Same as /etc/exports file, configuration of /etc/dhcpd.conf file is not required, the file is automatically maintained by DRLM, but you have to change the location of /etc/dhcpd.conf
-
-Edit /etc/drlm/local.conf
-
-::
-
-  DHCP_DIR="/etc"
-  DHCP_FILE="$DHCP_DIR/dhcpd.conf"
-
-
-DHCPD_INTERFACE by default is set as DHCPD_INTERFACE="" and dhcpd does not start, change it to "ANY"
-
-Edit /etc/sysconfig/dhcpd
-
-::
-
-  DHCPD_INTERFACE="ANY"
-
-
-**Restart & check services**
-
-::
-
-  ~# systemctl restart rpcbind.service
-  ~# systemctl status rpcbind.service
-
-  ~# systemctl enable nfs-server
-  ~# systemctl start nfs-server
-  ~# systemctl status nfs-server
-
-
-.. note::
-  DHCP and NFS servers are not running because there is no config yet! no worries they will be reloaded automatically after first DRLM client will be added.
-
-
-SLES 15 & OpenSUSE Leap 15
---------------------------
-
-.. note::
-  On the following steps, is assumed you have a minimal SLES 15 or OpenSUSE Leap 15
-
-Install requirements
-~~~~~~~~~~~~~~~~~~~~
-
-::
-
-  ~# zypper in openssl wget gzip tar gawk sed grep coreutils util-linux nfs-kernel-server rpcbind dhcp-server sqlite3 openssh qemu-tools tftp lsb-release bash-completion rsync
-
-
-Get DRLM
-~~~~~~~~
-
-You can obtain the DRLM package building it from the source code.
-
-**Build RPM package from Source**
-
-::
-
-  ~# zypper install git-core rpm-build go
-  ~$ git clone https://github.com/brainupdaters/drlm
-  ~$ cd drlm
-  ~$ make rpm
-
-You can obtain the RPM DRLM package from www.drlm.org website
-
-
-Install DRLM package
-~~~~~~~~~~~~~~~~~~~~
-
-:program:`The RPM package can be installed as follows`
-
-Execute the next command:
-::
-
-  ~# zypper in drlm-4.0-1git.noarch.rpm
-
+  ~# zypper in ./drlm-2.4.0-1git.noarch.rpm 
+     
 .. note::
 
   You will need to accept to install the package even though it's not signed
 
+openSUSE Leap 15.2 Asciinema Installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-DRLM DHCP/PXE Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. raw:: html 
 
-By default DRLM does ISO and RSYNC backups. If you are interested in doing PXE rescues over the network you need to do the following additional configurations
-
-**DHCP Configuration**
-
-Same as /etc/exports file, configuration of /etc/dhcpd.conf file is not required, the file is automatically maintained by DRLM, but you have to change the location of /etc/dhcpd.conf
-
-Edit /etc/drlm/local.conf
-
-::
-
-  DHCP_DIR="/etc"
-  DHCP_FILE="$DHCP_DIR/dhcpd.conf"
-
-DHCPD_INTERFACE by default is set as DHCPD_INTERFACE="" and dhcpd does not start, change it to "ANY"
-
-Edit /etc/sysconfig/dhcpd
-
-::
-
-  DHCPD_INTERFACE="ANY"
-
-
-**Restart & check services**
-
-::
-
-  ~# systemctl restart rpcbind.service
-  ~# systemctl status rpcbind.service
-
-  ~# systemctl enable nfs-server
-  ~# systemctl start nfs-server
-  ~# systemctl status nfs-server
-
-
-.. note::
-    DHCP and NFS servers are not running because there is no config yet! no worries they will be reloaded automatically after first DRLM client will be added.
+    <script id="asciicast-408492" src="https://asciinema.org/a/408492.js" async></script>
 
 
 Firewalld Configuration
 -----------------------
 
 If you don't want to disable Firewalld, you will need to accept connections on the following ports:
- - `53/tcp`
- - `53/udp`
- - `69/tcp`
- - `69/udp`
- - `443/tcp`
- - `873/tcp`
+
+ - `69/tcp`  (Used for TFTP)
+ - `69/udp`  (Used for TFTP)
+ - `443/tcp` (Used for DRLM API)
+ - `873/tcp` (Used for RSYNCD)

@@ -39,7 +39,7 @@ chapter that details each release.
   * Command line interface. DRLM doesnot require a graphical
     interface to run. (console is enough).
 
-  * Multiarch netboot client support (x86_64-efi, i386-efi, i386-pc)
+  * Multiarch netboot client support (x86_64-efi, i386-efi, i386-pc, powerpc-ieee1275)
 
   * Automatic client intallation from DRLM server
 
@@ -61,33 +61,53 @@ chapter that details each release.
 
   * Real time clients log in DRLM server
 
-DRLM Version 2.4.0 (January 2020) - Release Notes
+DRLM Version 2.4.0 (April 2021) - Release Notes
 --------------------------------------------------
   * Multiple configuration supported
-
+ 
   * Incremental backups supported
+ 
+  * ISO recover image supported 
 
-  * ISO recover image supported
-
+  * PowerPC architecture supported
+ 
   * ReaR mkbackuponly and ReaR restoreonly supported
-
-  * DRLM parameters configurable for each client or backup
-
+ 
+  * Configurable DRLM parameters for each client or backup
+ 
   * Added drlm-api systemd service
 
+  * HTTPS GUI base to add future functionalities
+ 
+  * Security token added for comunitacions between DRLM server and client
+ 
+  * Improved and simplified client configurations
+ 
   * Loop devices are repaced by NBD (network block devices)
-
-  * DR file format was changed from RAW to QCOW2
-
-  * ISO recover image supported
-
-  * ReaR mkbackuponly and ReaR restoreonly supported
-
-  * DRLM parameters configurable for each client or backup
-
-  * Added drlm-api systemd service
-  
+ 
+  * DR file format was changed from RAW to QCOW2 
+ 
+  * Improved instclient configuration workflow
+ 
   * List Unscheduled clients bug fixed
+
+  * Removed unsupported SysVinit service management
+
+  * SSH_PORT variable independent of SSH_OPTS
+
+  * RSYNC protocol supported
+
+  * Improved DRLM installation
+
+  * Added drlm-tftpd systemd service
+
+  * Added drlm-rsyncd systemd service
+
+  * Addnetwork, modnetwork and addclient simplified
+
+  * Addnetwork is done automatically when you run addclient
+
+  * DHCP server is managed automatically
 
 
 DRLM Version 2.3.2 (December 2020) - Release Notes

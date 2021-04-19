@@ -252,7 +252,7 @@ Import Backups
 ~~~~~~~~~~~~~~
 
 This command is used to import a backup that we have received from other
-DRLM server. It is called like this::
+DRLM server or to import backup between clients. It is called like this::
 
   ~# drlm impbackup [options]
 
@@ -278,20 +278,9 @@ The :program:`drlm impbackup` has the following required options:
 
    ~# drlm impbackup --client rear-debian -I 105.20190211083744
 
-.. option:: -t type_of_backup, --type type_of_backup
+.. option:: -i , --import-config
    
-   Tt is necessary to specify what type of backup we are importing.
-
-   * 0 --> data only
-   * 1 --> PXE Recover
-   * 2 --> ISO Recover
-
-   If no type is specified the type will be "0 (PXE Recover)" to maintain backward compatibility.
-
-   Examples::
-
-   ~# drlm impbackup --client rear-debian -f /tmp/only_data.dr -t 0
-   ~# drlm impbackup --client rear-debian -f /tmp/PXE_backup.dr -t 1
+   If import-config is specified impbackup will also import the backup configuration.
 
 .. option:: -C config_name, --config config_name
 

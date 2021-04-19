@@ -3,7 +3,7 @@ DRLM Overview
 
 To use Disaster Recovery Linux Manager you always call the main script '/usr/sbin/drlm'
 
-::
+.. code-block:: console
 
    Usage: drlm [-dDsSvV] COMMAND [-- ARGS...]
 

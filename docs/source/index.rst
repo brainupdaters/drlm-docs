@@ -54,6 +54,20 @@ Contents:
 
 .. toctree::
    :maxdepth: 2
+   :caption: Client Configuration
+
+   client_config_default
+   client_config_incremental_data
+   client_config_PXE
+
+.. toctree::
+   :maxdepth: 2
+   :caption: DRLM API
+
+   drlm_api   
+
+.. toctree::
+   :maxdepth: 2
    :caption: Developer Documentation
 
    building_grub2
