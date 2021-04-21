@@ -101,6 +101,26 @@ Disable SELinux in the current instance, to avoid a reboot.
   Removed symlink /etc/systemd/system/multi-user.target.wants/firewalld.service.
   Removed symlink /etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service.
 
+**Install EPEL repos**
+
+ - CentOS 7 & 8:
+
+.. code-block:: console
+
+  ~# yum -y install epel-release
+
+ - RHEL7:
+
+.. code-block:: console
+ 
+  ~# yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+ - RHEL8:
+
+.. code-block:: console
+  
+  ~# dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm 
+
 
 
 Build DRLM package
@@ -110,7 +130,6 @@ You can obtain the DRLM package building it from the source code
 
 .. code-block:: console
 
-  ~# yum -y install epel-release
   ~# yum -y install git rpm-build golang make bash-completion
   ~$ git clone https://github.com/brainupdaters/drlm
   ~$ cd drlm
