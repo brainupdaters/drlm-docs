@@ -103,19 +103,19 @@ Disable SELinux in the current instance, to avoid a reboot.
 
 **Install EPEL repos**
 
- - CentOS 7 & 8:
+- CentOS 7 & 8:
 
 .. code-block:: console
 
   ~# yum -y install epel-release
 
- - RHEL7:
+- RHEL7:
 
 .. code-block:: console
  
   ~# yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
- - RHEL8:
+- RHEL8:
 
 .. code-block:: console
   
