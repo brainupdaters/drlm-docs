@@ -26,8 +26,8 @@ You can obtain the DRLM package building it from the source code.
 
 .. code-block:: console
 
-  ~# apt update && apt upgrade
-  ~# apt install git build-essential debhelper golang bash-completion
+  ~# apt update && apt -y upgrade
+  ~# apt -y install git build-essential debhelper golang bash-completion
   ~$ git clone https://github.com/brainupdaters/drlm
   ~$ cd drlm
   ~$ make deb
@@ -41,7 +41,7 @@ The DEB package can be installed executing the next command
 
 .. code-block:: console
 
-  ~# apt install ./drlm_2.4.0_all.deb
+  ~# apt -y install ./drlm_2.4.0_all.deb
 
 Debian 10 Asciinema Installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
