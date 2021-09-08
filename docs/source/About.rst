@@ -109,6 +109,10 @@ DRLM Version 2.4.0 (April 2021) - Release Notes
 
   * DHCP server is managed automatically
 
+  * Improved logs management
+  
+  * Debian 11 Support on install client workflow.
+
 
 DRLM Version 2.3.2 (December 2020) - Release Notes
 --------------------------------------------------
