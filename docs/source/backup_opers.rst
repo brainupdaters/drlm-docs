@@ -189,6 +189,14 @@ The :program:`drlm bkpmgr` has some required options:
 
    Disable Backup
 
+.. option:: -w, --write
+
+   Enable Backup in local write mode (WARNING! Snaps in write mode are not allowed)
+
+.. option:: -W, --full-write
+
+   Enable Backup in local and remote write mode (WARNING! Snaps in write mode are not allowed)
+
    Examples::
 
    ~# drlm bkpmgr -I 1.20140519065512 -e

@@ -49,7 +49,7 @@ chapter that details each release.
 
       - HP OpenView
 
-      - Nagios (NSCA & NSCA-ng)
+      - Nagios (NSCA, NSCA-ng & NRDP)
 
       - Zabbix
 
@@ -61,7 +61,7 @@ chapter that details each release.
 
   * Real time clients log in DRLM server
 
-DRLM Version 2.4.0 (April 2021) - Release Notes
+DRLM Version 2.4.0 (October 2021) - Release Notes
 --------------------------------------------------
   * Multiple configuration supported
  
@@ -112,6 +112,12 @@ DRLM Version 2.4.0 (April 2021) - Release Notes
   * Improved logs management
   
   * Debian 11 Support on install client workflow.
+
+  * Rocky Linux 8 server and client support
+
+  * NRDP Nagios support
+  
+  * New write and full write mode in bkpmgr workflow
 
 
 DRLM Version 2.3.2 (December 2020) - Release Notes
@@ -309,8 +315,7 @@ DRLM Version 2.0.0 (July 2016) -  Release Notes
 
   * Use bash socket implementation instead of netcat (issue #15)
 
-  * runbackup workflow enhacement with sparse raw images with qemu-img
-    reducing backup time and improving management (issue #16)
+  * runbackup workflow enhacement with sparse raw images with qemu-img reducing backup time and improving management (issue #16)
 
   * Added support for parallel backups on DRLM (issue #22)
 
