@@ -80,21 +80,12 @@ If the client is not network reachable when you want to register it in the datab
 
   Client MAC address.
 
-.. option:: -n network_name, --netname network_name
-
-  Client NETWORK.
-
   Examples:
 
   .. code-block:: console
 
-    ~# drlm addclient -c clientHost1 -M 00-40-77-DB-33-38 -i 13.74.90.10 -n vlan12
-    ~# drlm addclient --client clientHost1 --macaddr 00-40-77-DB-33-38 -i 13.74.90.10 -n vlan12
-
-  .. warning::
-
-    If the network_name doesn't exist in DRLM database you will get an error. First
-    of all register the network where the client will be registered.
+    ~# drlm addclient -c clientHost1 -M 00-40-77-DB-33-38 -i 13.74.90.10
+    ~# drlm addclient --client clientHost1 --macaddr 00-40-77-DB-33-38 -i 13.74.90.10
 
 Help option:
 
