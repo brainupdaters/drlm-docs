@@ -24,10 +24,29 @@ Build DRLM package
 
 You can obtain the DRLM package building it from the source code.
 
+Install dependencies
+====================
+
 .. code-block:: console
 
   ~# apt update && apt -y upgrade
-  ~# apt -y install git build-essential debhelper golang bash-completion
+  ~# apt -y install git build-essential debhelper bash-completion curl
+
+Install Golang
+==============
+
+.. code-block:: console
+
+  ~# curl -OL https://go.dev/dl/go1.17.6.linux-amd64.tar.gz
+  ~# rm -rf /usr/local/go && tar -C /usr/local -xzf go1.17.6.linux-amd64.tar.gz
+  ~# export PATH=$PATH:/usr/local/go/bin 
+  ~# go env -w GO111MODULE="auto" 
+
+Build package
+=============
+
+.. code-block:: console
+
   ~$ git clone https://github.com/brainupdaters/drlm
   ~$ cd drlm
   ~$ make deb
@@ -51,8 +70,8 @@ Debian 10 Asciinema Installation
   <script id="asciicast-408482" src="https://asciinema.org/a/408482.js" async></script>
 
 
-CentOS & RHEL
--------------
+CentOS, RHEL & Rocky
+--------------------
 
 Supported versions
 ~~~~~~~~~~~~~~~~~~
@@ -61,6 +80,7 @@ Supported versions
 * CentOS 8
 * RHEL 7
 * RHEL 8
+* Rocky 8
 
 Requirements
 ~~~~~~~~~~~~
@@ -101,36 +121,36 @@ Disable SELinux in the current instance, to avoid a reboot.
   Removed symlink /etc/systemd/system/multi-user.target.wants/firewalld.service.
   Removed symlink /etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service.
 
-**Install EPEL repos**
-
-- CentOS 7 & 8:
-
-.. code-block:: console
-
-  ~# yum -y install epel-release
-
-- RHEL7:
-
-.. code-block:: console
- 
-  ~# yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-
-- RHEL8:
-
-.. code-block:: console
-  
-  ~# dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm 
-
-
-
 Build DRLM package
 ~~~~~~~~~~~~~~~~~~
 
 You can obtain the DRLM package building it from the source code
 
+
+Install dependencies
+====================
+
 .. code-block:: console
 
-  ~# yum -y install git rpm-build golang make bash-completion
+  ~# yum -y install git rpm-build make bash-completion gcc
+  
+
+Install Golang
+==============
+
+.. code-block:: console
+
+  ~# curl -OL https://go.dev/dl/go1.17.6.linux-amd64.tar.gz
+  ~# rm -rf /usr/local/go && tar -C /usr/local -xzf go1.17.6.linux-amd64.tar.gz
+  ~# export PATH=$PATH:/usr/local/go/bin 
+  ~# go env -w GO111MODULE="auto" 
+
+
+Build package
+=============
+
+.. code-block:: console
+
   ~$ git clone https://github.com/brainupdaters/drlm
   ~$ cd drlm
   ~$ make rpm
@@ -144,6 +164,7 @@ The RPM package can be installed executing the next command
 .. code-block:: console
 
 	~# yum -y install ./drlm-2.4.0-1git.el*.noarch.rpm
+
 
 CentOS 8 Asciinema Installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -186,9 +207,9 @@ You can obtain the DRLM package building it from the source code
 .. code-block:: console
 
   ~# zypper install git-core rpm-build go bash-completion
+  ~$ go env -w GO111MODULE=auto
   ~$ git clone https://github.com/brainupdaters/drlm
   ~$ cd drlm
-  ~$ go env -w GO111MODULE=auto
   ~$ make rpm
 
 
