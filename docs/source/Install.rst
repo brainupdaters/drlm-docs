@@ -24,16 +24,14 @@ Build DRLM package
 
 You can obtain the DRLM package building it from the source code.
 
-Install dependencies
-********************
+**Install dependencies**
 
 .. code-block:: console
 
   ~# apt update && apt -y upgrade
   ~# apt -y install git build-essential debhelper bash-completion curl
 
-Install Golang
-**************
+**Install Golang**
 
 .. code-block:: console
 
@@ -42,8 +40,7 @@ Install Golang
   ~# export PATH=$PATH:/usr/local/go/bin 
   ~# go env -w GO111MODULE="auto" 
 
-Build package
-*************
+**Build package**
 
 .. code-block:: console
 
@@ -127,16 +124,14 @@ Build DRLM package
 You can obtain the DRLM package building it from the source code
 
 
-Install dependencies
-********************
+**Install dependencies**
 
 .. code-block:: console
 
   ~# yum -y install git rpm-build make bash-completion gcc
   
 
-Install Golang
-**************
+**Install Golang**
 
 .. code-block:: console
 
@@ -146,8 +141,7 @@ Install Golang
   ~# go env -w GO111MODULE="auto" 
 
 
-Build package
-*************
+**Build package**
 
 .. code-block:: console
 
