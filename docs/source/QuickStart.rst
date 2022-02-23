@@ -7,24 +7,14 @@ DRLM Installation
 Follow the steps at `DRLM Installation <./Install.html#drlm-installation>`_. (Select your OS)
 
 
-Add Network to DRLM Server
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-First of all we must add the network where the ReaR clients are. To do this we have to use the command "drlm addnetwork" with the parameters -n "Network Name", -s "Server IP", -m "Netmask" and -g "Gateway IP".
-
-::
-
-    ~# drlm addnetwork -n BuLan -s 192.168.1.38  -m 255.255.255.0 -g 192.168.1.1 
-
-
 Add Client to DRLM Server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Now we can add a ReaR client with the command "drlm addclient" and the parameters -i "Client IP", -c "ReaR client hostname" and -I to automatically install ReaR client. The client needs to have an open SSH. By default the root user is used. You can specify another user with the ``-u <user>`` parameter. This user needs admin privileges
+Once DRLM server is istalled we can add a ReaR client with the command "drlm addclient" and the parameters -i "Client IP", -c "ReaR client name" and -I to automatically install ReaR client. The client needs to have an open SSH. By default the root user is used. You can specify another user with the ``-u <user>`` parameter. This user needs admin privileges
 
-::
+.. code-block:: console
 
-    ~# drlm addclient -i 192.168.1.45/24 -c ReaRCli1 -I
+    ~# drlm addclient -i 192.168.181.53 -c ReaRCli1 -I
 
 
 Run Client Backup
@@ -32,7 +22,7 @@ Run Client Backup
 
 We are ready to take OS backups!!! At this point we have the DRLM server and ReaR client configured, you just have to run the command "drlm runbackup" with the parameter -c "ReaR client host name"
 
-::
+.. code-block:: console
 
     ~# drlm runbackup -c ReaRCli1
 
@@ -41,3 +31,11 @@ Restore Client Backup
 ~~~~~~~~~~~~~~~~~~~~~
 
 Follow the steps at `DRLM Client Recover <./Restore.html>`_.
+
+
+Quick Start Asciinema
+~~~~~~~~~~~~~~~~~~~~~
+
+.. raw:: html
+
+  <script id="asciicast-1xYIfv4YPwf9I9InmBDU9bPGm" src="https://asciinema.org/a/1xYIfv4YPwf9I9InmBDU9bPGm.js" async></script>

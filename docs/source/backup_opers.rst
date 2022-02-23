@@ -35,6 +35,16 @@ The :program:`drlm runbackup` has several options:
    ~# drlm runbackup -I 12
    ~# drlm runbackup --id 12
 
+.. option:: -C config_name, --config config_name
+
+   Since DRLM 2.4.0 it is possible to have multiple configurations for each Client. The configurations must be in **/etc/drlm/clients/client_name.cfg.d/** path and with **.cfg** extension (ex.: home_backup.cfg). 
+   With -C parameter is possible to select witch client backup configuration will be used. If is not especified, default configuration **/etc/drlm/clients/client_name.cfg** will be used 
+
+   Examples::
+
+   ~# drlm runbackup -c clientHost1 -C home_backup
+   ~# drlm runbackup --id 12 --config home_backup
+
 Help option:
 
 .. option:: -h, --help
@@ -179,6 +189,14 @@ The :program:`drlm bkpmgr` has some required options:
 
    Disable Backup
 
+.. option:: -w, --write
+
+   Enable Backup in local write mode (WARNING! Snaps in write mode are not allowed)
+
+.. option:: -W, --full-write
+
+   Enable Backup in local and remote write mode (WARNING! Snaps in write mode are not allowed)
+
    Examples::
 
    ~# drlm bkpmgr -I 1.20140519065512 -e
@@ -199,7 +217,7 @@ Help option:
 Export/Import Backups
 ---------------------
 
-Since version 2.1.0 the possibility to import or export backups from other DRLM servers has been added. To export a backup::
+Since version 2.1.0 the possibility to import or export backups from other DRLM servers has been added. To export a backup:
 
 Export Backups
 ~~~~~~~~~~~~~~
@@ -242,7 +260,7 @@ Import Backups
 ~~~~~~~~~~~~~~
 
 This command is used to import a backup that we have received from other
-DRLM server. It is called like this::
+DRLM server or to import backup between clients. It is called like this::
 
   ~# drlm impbackup [options]
 
@@ -268,6 +286,21 @@ The :program:`drlm impbackup` has the following required options:
 
    ~# drlm impbackup --client rear-debian -I 105.20190211083744
 
+.. option:: -i , --import-config
+   
+   If import-config is specified impbackup will also import the backup configuration.
+
+.. option:: -C config_name, --config config_name
+
+   Since DRLM 2.4.0 it is possible to have multiple configurations for each Client. The configurations must be in **/etc/drlm/clients/client_name.cfg.d/** path and with **.cfg** extension (ex.: home_backup.cfg). 
+   With -C parameter is possible to select witch client backup configuration will be used. If is not especified, default configuration **/etc/drlm/clients/client_name.cfg** will be used 
+   
+   Examples::
+
+   ~# drlm impbackup --client rear-debian -f /tmp/only_data.dr -t 0 -C Home_Backup
+   ~# drlm impbackup --client rear-debian -f /tmp/ISO_backup.dr -t 2 -C ISO_Backup_Recovery
+   
+
 Help option:
 
 .. option:: -h, --help
@@ -282,7 +315,7 @@ Help option:
 Backup Job Scheduler
 --------------------
 
-Since version 2.1.0 backup tasks can be scheduled. The :program:`drlm backup scheduler` allows you to **add**, **list** and **delete** scheduled jobs. You can also enable or disable the schedule function (by default it is enabled). You can set backup operations to run on a specified date and time by running::
+Since version 2.1.0 backup tasks can be scheduled. The :program:`drlm backup scheduler` allows you to **add**, **list** and **delete** scheduled jobs. You can also enable or disable the schedule function (by default it is enabled). You can set backup operations to run on a specified date and time by running:
 
 Add Jobs
 ~~~~~~~~
@@ -317,10 +350,17 @@ Optional arguments:
     You can specify the repeating pattern in min(s) or minute(s), hour(s),
     day(s), week(s), month(s) and year(s).
 
+.. option:: -C config_name, --config config_name
+
+    Since DRLM 2.4.0 it is possible to have multiple configurations for each Client. The configurations must be in **/etc/drlm/clients/client_name.cfg.d/** path and with **.cfg** extension (ex.: home_backup.cfg). 
+    With -C parameter is possible to select witch Client backup configuration will be used. If is not especified, default configuration **/etc/drlm/clients/client_name.cfg** will be used 
+
     Examples::
 
     ~# drlm addjob -c rear-debian -s 2017-01-30T21:00
+    ~# drlm addjob -c rear-debian -s 2017-01-30T21:00 -C home_backup
     ~# drlm addjob --client rear-centos -s 2017-02-03T08:00 -e 2017-02-05T23:00 -r 1hour
+    ~# drlm addjob --client rear-centos -s 2017-02-03T08:00 -e 2017-02-05T23:00 -r 1hour --config home_backup
 
 Help option:
 

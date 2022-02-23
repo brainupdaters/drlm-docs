@@ -66,7 +66,6 @@ div[class^='highlight'] {
    font-size: 120%;
 }
 
-
 .rst-content dl:not(.docutils) tt.descclassname {
    background-color: transparent;
    font-family: monospace;
@@ -92,6 +91,7 @@ div[class^='highlight'] {
    background-color: #343131;
    border-bottom: 7px solid #cc0000;
 }
+
 #header-drlm a {
    /* Size */
    min-height: 35px;

@@ -1,10 +1,12 @@
 Network Operations
 ==================
 
-DRLM can make backups of clients in different networks. So
-the first step we have to do for the proper functioning of
-DRLM is register the networks in which later we will register
-the clients.
+DRLM can make backups of clients in different networks. So 
+for the proper functioning of DRLM is necessary to have
+registered the networks in which we will register the clients. 
+
+Since DRLM 2.4.0 networks are automatically added, but sometimes 
+it will be necessary to make manual additions or modifications.
 
 DRLM network operations allow us to add, remove, modify and
 list network of database.
@@ -13,60 +15,66 @@ Add Network
 -----------
 
 This command is used to add networks to DRLM database. It is
-called like this::
+called like this:
 
-   ~# drlm addnetwork [options]
+.. code-block:: console
 
-The :program:`drlm addnetwork` has some requiered options:
+  ~# drlm addnetwork [options]
+
+The :program:`drlm addnetwork` has some options:
 
 .. program:: `drlm addnetwork`
 
 .. option:: -n network_name, --netname network_name
 
-   Select Network name to add.
+  Select Network name to add.
 
 .. option:: -g gateway_ip, --gateway gateway_ip
 
-   Network gateway IP address.
+  Network gateway IP address.
 
 .. option:: -m network_mask, --mask network_mask
 
-   Network mask
+  Network mask
 
 .. option:: -s server_ip, --server server_ip
 
-   Server IP address.
-
-Additional options:
+  Server IP address.
 
 .. option:: -i ip, --ipaddr ip
 
-   Network IP address.
+  Network IP address.
 
-   Examples::
+  Examples:
 
-   ~# drlm addnetwork -g 13.74.90.1 -m 255.255.255.0  -s 13.74.90.222 -n vlan12
-   ~# drlm addnetwork --gateway 13.74.90.1 --mask 255.255.255.0  --server 13.74.90.222 -n vlan12
-   ~# drlm addnetwork --ipaddr 13.74.90.0 -g 13.74.90.1 -m 255.255.255.0  --server 13.74.90.222 -n vlan12
+  .. code-block:: console
+
+    ~# drlm addnetwork -s 192.168.150.24 
+    ~# drlm addnetwork --server 192.168.150.24 -n backupNet
+    ~# drlm addnetwork --ipaddr 192.168.150.0 -g 192.168.150.1 -m 255.255.255.0  --server 192.168.150.24 -n backupNet
 
 Help options:
 
 .. option:: -h, --help
 
-   Show drlm addnetwork help.
+  Show drlm addnetwork help.
 
-   Examples::
+  Examples:
 
-   ~# drlm addnetwork -h
-   ~# drlm addnetwork --help
+  .. code-block:: console
+
+    ~# drlm addnetwork -h
+    ~# drlm addnetwork --help
 
 Delete Network
 --------------
 
 This command is used to delete networks from DRLM database. It is
-called like this::
+called like this:
 
-   ~# drlm delnetwork [options]
+.. code-block:: console
+
+  ~# drlm delnetwork [options]
 
 The :program:`drlm delnetwork` has some options:
 
@@ -74,40 +82,41 @@ The :program:`drlm delnetwork` has some options:
 
 .. option:: -n network_name, --netname network_name
 
-   Select Network to delete by NAME.
-
-   Examples::
-
-   ~# drlm delnetwork -n vlan12
-   ~# drlm delnetwork -name vlan12
+  Select Network to delete by NAME.
 
 .. option:: -I network_id, --id network_id
 
-   Select Network to delete by ID.
+  Select Network to delete by ID.
 
-   Examples::
+  Examples:
+    
+  .. code-block:: console   
 
-   ~# drlm delnetwork -I 12
-   ~# drlm delnetwork --id 12
+    ~# drlm delnetwork -n vlan12
+    ~# drlm delnetwork -I 12
 
 Help options:
 
 .. option:: -h, --help
 
-   Show drlm delnetwork help.
+  Show drlm delnetwork help.
 
-   Examples::
+  Examples:
+    
+  .. code-block:: console
 
-   ~# drlm delnetwork -h
-   ~# drlm delnetwork --help
+    ~# drlm delnetwork -h
+    ~# drlm delnetwork --help
 
 Modify Network
 --------------
 
 This command is used to modify networks from DRLM database. It is
-called like this::
+called like this:
 
-   ~# drlm modnetwork [options]
+.. code-block:: console
+
+  ~# drlm modnetwork [options]
 
 The :program:`drlm modnetwork` has some required options:
 
@@ -115,69 +124,90 @@ The :program:`drlm modnetwork` has some required options:
 
 .. option:: -n network_name, --netname network_name
 
-   Select Network to change by NAME.
+  Select Network to change by NAME.
 
 .. option:: -I network_id, --id network_id
 
-   Select Network to change by ID.
+  Select Network to change by ID.
 
 Additional options:
 
 .. option:: -g gateway_ip, --gateway gateway_ip
 
-   Set new GATEWAY address to network.
+  Set new GATEWAY address to network. If you want to clear the gateway IP you can specify with the word 'null'
 
-   Examples::
+  Examples:
 
-   ~# drlm modnetwork -I 12 -g 13.74.91.1
-   ~# drlm modnetwork --id 12 --gateway 13.74.91.1
-   ~# drlm modnetwork -n vlan12 -g 13.74.91.1
-   ~# drlm modnetwork --netname vlan12 --gateway 13.74.91.1
+  .. code-block:: console
+
+    ~# drlm modnetwork -I 12 -g 13.74.91.1
+    ~# drlm modnetwork -n vlan12 -g 13.74.91.1
+    ~# drlm modnetwork -n vlan12 -g null
+
 
 .. option:: -m network_mask, --mask network_mask
 
-   Assign new MASK to network.
+  Assign new MASK to network.
 
-   Examples::
+  Examples:
 
-   ~# drlm modnetwork -I 12 -m 255.255.0.0
-   ~# drlm modnetwork --id 12 -m 255.255.0.0
-   ~# drlm modnetwork -n vlan12 -m 255.255.0.0
-   ~# drlm modnetwork --netname vlan12 --mask 255.255.0.0
+  .. code-block:: console
+
+    ~# drlm modnetwork -I 12 -m 255.255.0.0
+    ~# drlm modnetwork -n vlan12 -m 255.255.0.0
 
 .. option:: -s server_ip, --server server_ip
 
-   Assign new SERVER to network.
+  Assign new SERVER to network.
 
-   Examples::
+  Examples:
 
-   ~# drlm modnetwork -I 12 -s 13.74.91.221
-   ~# drlm modnetwork --id 12 --server 13.74.91.221
-   ~# drlm modnetwork -n vlan12 -s 13.74.91.221
-   ~# drlm modnetwork --netname vlan12 --server 13.74.91.221
+  .. code-block:: console
+
+    ~# drlm modnetwork -I 12 -s 13.74.91.221
+    ~# drlm modnetwork -n vlan12 -s 13.74.91.221
+
+.. option:: -e, --enable
+
+  Enable DHCP/PXE daemon listener for this Network 
+
+.. option:: -d, --disable
+
+  Disable DHCP/PXE daemon listener for this Network
+
+  Examples:
+
+  .. code-block:: console
+
+    ~# drlm modnetwork -I 12 -e
+    ~# drlm modnetwork -n vlan12 -d
 
 .. note::
-   You can conbine all necessary options in only one command for example:
-   ~# drlm modnetwork -n vlan12 -s 13.74.91.221 -m 255.255.0.0 -g 13.74.91.1
+   You can combine all necessary options in only one command for example:
+   "drlm modnetwork -n vlan12 -s 13.74.91.221 -m 255.255.0.0 -g 13.74.91.1"
 
 Help option:
 
 .. option:: -h, --help
 
-   Show drlm modnetwork help.
+  Show drlm modnetwork help.
 
-   Examples::
+  Examples:
 
-   ~# drlm modnetwork -h
-   ~# drlm modnetwork --help
+  .. code-block:: console
+
+    ~# drlm modnetwork -h
+    ~# drlm modnetwork --help
 
 List Networks
 -------------
 
 This command is used to list the networks from DRLM database. It is
-called like this::
+called like this:
 
-   ~# drlm listnetwork [options]
+.. code-block:: console
+
+  ~# drlm listnetwork [options]
 
 The :program:`drlm listnetwork` has some options:
 
@@ -185,30 +215,36 @@ The :program:`drlm listnetwork` has some options:
 
 .. option:: -n network_name, --netname network_name
 
-   Select Network to list.
+  Select Network to list.
 
-   Examples::
+  Examples:
+   
+  .. code-block:: console
 
-   ~# drlm listnetwork -n vlan12
-   ~# drlm listnetwork --netname vlan12
+    ~# drlm listnetwork -n vlan12
+    ~# drlm listnetwork --netname vlan12
 
 .. option:: -A, --all
 
-   List all networks. This option is set by default if any option is specified.
+  List all networks. This option is set by default if any option is specified.
 
-   Examples::
+  Examples:
 
-   ~# drlm listnetwork
-   ~# drlm listnetwork -A
-   ~# drlm listnetwork -all
+  .. code-block:: console
+
+    ~# drlm listnetwork
+    ~# drlm listnetwork -A
+    ~# drlm listnetwork -all
 
 Help options:
 
 .. option:: -h, --help
 
-   Show drlm listnetwork help.
+  Show drlm listnetwork help.
 
-   Examples::
+  Examples:
 
-   ~# drlm listnetwork -h
-   ~# drlm listnetwork --help
+  .. code-block:: console
+
+    ~# drlm listnetwork -h
+    ~# drlm listnetwork --help

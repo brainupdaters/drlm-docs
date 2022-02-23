@@ -11,7 +11,7 @@ Let's explain a little bit the steps this feature does:
         * Install ReaR dependencies
         * Install ReaR package
         * Configure ReaR to be managed by DRLM
-        * Configure SUDO for drlm user.
+        * Configure SUDO for drlm user
         * Start and configure required services
 
 Supported OSs for instclient command
@@ -19,10 +19,10 @@ Supported OSs for instclient command
 
 Unattended Client Installation has been tested on:
 
-       * SLES (11 & 12)
-       * OpenSUSE (13 & Leap 42)
+       * SLES (11, 12 & 15)
+       * OpenSUSE (13, Leap 42, Leap 15)
        * RHEL & CentOS (5, 6, 7 & 8)
-       * Debian (6, 7, 8, 9 & 10)
+       * Debian (6, 7, 8, 9, 10 & 11)
        * Ubuntu LTS (12.04, 14.04, 16.04, 18.04 & 20.04)
 
 .. note:: It should work on other RedHat, Debian or SUSE variants.
@@ -48,7 +48,9 @@ To perform an unattended install of a DRLM client, just is needed to run **instc
 .. warning::
   The client must be properly registered in DRLM with **addclient** command.
 
-Examples::
+Examples:
+
+.. code-block:: console
 
         ~# drlm instclient -c ReaRCli1
         ~# drlm instclient -c ReaRCli1 -U http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_7.0/all/rear_1.17.2_all.deb
