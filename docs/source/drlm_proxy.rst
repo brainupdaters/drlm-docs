@@ -32,3 +32,29 @@ Once DRLM PROXY is configured just restart the service
 .. code-block:: bash
 
   ~# systemctl restart drlm-proxy.service
+
+Management
+~~~~~~~~~~
+
+Start DRLM PROXY
+
+.. code-block:: console
+ 
+  ~# systemctl start drlm-proxy.service
+
+Restart DRLM PROXY
+
+.. code-block:: console
+
+  ~# systemctl restart drlm-proxy.service
+
+Stop DRLM PROXY
+
+.. code-block:: console
+
+  ~# systemctl stop drlm-proxy.service
+
+Log File
+~~~~~~~~
+
+The log file for DRLM PROXY can be found at /var/log/drlm/drlm-proxy.log
