@@ -13,7 +13,7 @@ License
 
 This documentation is licensed under a Creative Commons `Attribution-NonCommercial-ShareAlike 4.0 International <http://creativecommons.org/licenses/by-nc-sa/4.0/>`_ (i.e. "CC-BY-NC-SA") license.
 
-The DRLM Manual is copyright © 2020 Brain Updaters, S.L.L.
+The DRLM Manual is copyright © 2022 Brain Updaters, S.L.L.
 
 
 
@@ -60,6 +60,10 @@ chapter that details each release.
   * Export and Import backup between DRLM servers or DRLM clients
 
   * Real time clients log in DRLM server
+
+DRLM Version 2.4.2 (February 2022) - Release Notes
+--------------------------------------------------
+  * DRLM Proxy added
 
 DRLM Version 2.4.1 (February 2022) - Release Notes
 --------------------------------------------------

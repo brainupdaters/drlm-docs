@@ -13,7 +13,7 @@ License
 
 This documentation is licensed under a Creative Commons `Attribution-NonCommercial-ShareAlike 4.0 International <http://creativecommons.org/licenses/by-nc-sa/4.0/>`_ (i.e. “CC-BY-NC-SA”) license.
 
-The DRLM Manual is copyright © 2020 Brain Updaters, S.L.L.
+The DRLM Manual is copyright © 2022 Brain Updaters, S.L.L.
 
 
 
@@ -64,7 +64,13 @@ Contents:
    :maxdepth: 2
    :caption: DRLM API
 
-   drlm_api   
+   drlm_api
+
+.. toctree::
+   :maxdepth: 2
+   :caption: DRLM PROXY
+
+   drlm_proxy  
 
 .. toctree::
    :maxdepth: 2
