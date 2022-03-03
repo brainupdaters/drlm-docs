@@ -20,7 +20,7 @@ To enable DRLM PROXY you must specify where DRLM Server can get the ReaR package
   ...
   ...
   ############### ----- DRLM PACKAGE PROXY
-  DRLM_PROXY_URL=http://download.opensuse.org/repositories/Archiving:/Backup:
+  DRLM_PROXY_URL="http://download.opensuse.org/repositories/Archiving:/Backup:"
   URL_REAR_BASE="http://drlmServerHostname"
   ########
 
