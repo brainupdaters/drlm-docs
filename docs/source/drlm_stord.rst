@@ -16,6 +16,7 @@ start drlm-stord
 example:
 
 .. code-block:: console
+
   root@drlmsrv:~# drlm-stord start
   2022-03-03 10:30:41 Starting DRLM Store Service: 
   2022-03-03 10:30:41 Enabling DR Backup Store /var/lib/drlm/store/drlmcli2/default (ro)
