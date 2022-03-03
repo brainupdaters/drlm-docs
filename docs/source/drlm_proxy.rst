@@ -1,5 +1,5 @@
-DRLM PROXY
-==========
+Introduction
+============
 
 Installing clients in offline environments can be a daunting task, as clients do not have access to download ReaR package and it should be done by hand, without the "drlm instclient" command.
 
@@ -10,6 +10,9 @@ With DRLM PROXY a DRLM server, with acces to the ReaR packages repositories, can
 
 .. image:: ../images/DRLM-Proxy2.jpg
     :align: center
+
+Configuration
+=============
 
 To enable DRLM PROXY you must specify where DRLM Server can get the ReaR packages from with the DRLM_PROXY_URL variable and where DRLM clients can get the packages with the URL_REAR_BASE variable.
 
