@@ -1,5 +1,5 @@
-Access to DRLM API
-==================
+DRLM API
+========
 
 .. warning::
 

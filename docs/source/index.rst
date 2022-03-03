@@ -62,15 +62,13 @@ Contents:
 
 .. toctree::
    :maxdepth: 2
-   :caption: DRLM API
+   :caption: DRLM SERVICES
 
    drlm_api
-
-.. toctree::
-   :maxdepth: 2
-   :caption: DRLM PROXY
-
-   drlm_proxy  
+   drlm_proxy
+   drlm_stord
+   drlm_rsyncd
+   drlm_tftpd
 
 .. toctree::
    :maxdepth: 2

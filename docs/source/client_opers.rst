@@ -109,7 +109,6 @@ Server. It is called like this:
 
 .. code-block:: console
 
-
   ~# drlm instclient [options]
 
 The :program:`drlm instclient` has some requiered options:
