@@ -61,9 +61,17 @@ chapter that details each release.
 
   * Real time clients log in DRLM server
 
-DRLM Version 2.4.2 (February 2022) - Release Notes
+DRLM Version 2.4.2 (March 2022) - Release Notes
 --------------------------------------------------
   * DRLM Proxy added
+  
+  * Fixed listclient filtered by client
+
+  * Fixed RHEL 8.5 ppc64le instclient dependency (issue #188)
+
+  * drlm-api improvements
+
+  * Log improvements
 
 DRLM Version 2.4.1 (February 2022) - Release Notes
 --------------------------------------------------
