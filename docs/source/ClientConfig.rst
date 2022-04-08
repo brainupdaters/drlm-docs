@@ -23,7 +23,7 @@ Unattended Client Installation has been tested on:
        * OpenSUSE (13, Leap 42, Leap 15)
        * RHEL & CentOS (5, 6, 7 & 8)
        * Debian (6, 7, 8, 9, 10 & 11)
-       * Ubuntu LTS (12.04, 14.04, 16.04, 18.04 & 20.04)
+       * Ubuntu LTS (12.04, 14.04, 16.04, 18.04, 20.04 & 22.04)
 
 .. note:: It should work on other RedHat, Debian or SUSE variants.
 
