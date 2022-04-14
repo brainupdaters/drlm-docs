@@ -197,6 +197,10 @@ The :program:`drlm bkpmgr` has some required options:
 
    Enable Backup in local and remote write mode (WARNING! Snaps in write mode are not allowed)
 
+.. option:: -H, --hold-on, --hold-off
+
+   Hold backup. If a backup is holded means that will be ignored after a **drlm runbackup** when old backups are cleaning
+
    Examples::
 
    ~# drlm bkpmgr -I 1.20140519065512 -e
@@ -383,7 +387,7 @@ It is called like this::
 
 .. program:: `drlm listjob` arguments:
 
-.. option:: -J job_id, --job_id job_id
+.. option:: -I job_id, --job_id job_id
 
    To list a job by its ID.
 
@@ -391,13 +395,9 @@ It is called like this::
 
    To list all the jobs scheduled for a specific client.
 
-.. option:: -A, --all
-
-   To list all the active scheduled jobs.
-
    Examples::
 
-   ~# drlm listjob -A
+   ~# drlm listjob
    ~# drlm listjob -c rear-suse
    ~# drlm listjob --job_id 3
 
@@ -426,13 +426,13 @@ It is called like this::
 
    To delete all scheduled jobs for a specific client.
 
-.. option:: -J job_id, --job_id job_id
+.. option:: -I job_id, --job_id job_id
 
    To delete a specific scheduled backup job.
 
    Examples::
 
-   ~# drlm deljob -J 5
+   ~# drlm deljob -I 5
    ~# drlm deljob -c rear-centos
 
 Help option:

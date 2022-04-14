@@ -63,8 +63,12 @@ chapter that details each release.
 
 DRLM Version 2.4.2 (April 2022) - Release Notes
 --------------------------------------------------
-  * DRLM Proxy added
-  
+  * NEW! DRLM Proxy added
+
+  * NEW! Ubuntu 22 client & server support
+
+  * NEW! New Hold backup feature
+
   * Fixed listclient filtered by client
 
   * Fixed RHEL 8.5 ppc64le instclient dependency (issue #188)
@@ -72,10 +76,14 @@ DRLM Version 2.4.2 (April 2022) - Release Notes
   * drlm-api improvements
 
   * Log improvements
-  
+
   * Bugfix importing old backups
+
+  * Bugfix non case-sensitive bash_completion 
+
+  * Bugfix in upgrade drlm
   
-  * Ubuntu 22.04 client & server support
+  * Bugfix icreasing partition size
 
 DRLM Version 2.4.1 (February 2022) - Release Notes
 --------------------------------------------------
