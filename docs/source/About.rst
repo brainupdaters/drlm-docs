@@ -61,6 +61,14 @@ chapter that details each release.
 
   * Real time clients log in DRLM server
 
+DRLM Version 2.4.3 (April 2022) - Release Notes
+--------------------------------------------------
+  * New! RedHat 9 client & server support
+
+  * Bugfix database creation
+
+  * Bugfix RedHat services configuration variable
+
 DRLM Version 2.4.2 (April 2022) - Release Notes
 --------------------------------------------------
   * NEW! DRLM Proxy added
