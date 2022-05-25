@@ -61,8 +61,18 @@ chapter that details each release.
 
   * Real time clients log in DRLM server
 
+DRLM Version 2.4.4 (May 2022) - Release Notes
+---------------------------------------------
+  * Bugfix in installclient, new dependencies added
+
+  * Bugfix in logs maintenance
+
+  * Remove ReaR crontab file in install client
+
+  * Bugfix prevent hostnames from being localhost
+
 DRLM Version 2.4.3 (April 2022) - Release Notes
---------------------------------------------------
+-----------------------------------------------
   * New! RedHat 9 client & server support
 
   * Bugfix database creation
@@ -70,7 +80,7 @@ DRLM Version 2.4.3 (April 2022) - Release Notes
   * Bugfix RedHat services configuration variable
 
 DRLM Version 2.4.2 (April 2022) - Release Notes
---------------------------------------------------
+-----------------------------------------------
   * NEW! DRLM Proxy added
 
   * NEW! Ubuntu 22 client & server support
@@ -106,7 +116,7 @@ DRLM Version 2.4.1 (February 2022) - Release Notes
   * Fixed udev hang errors
 
 DRLM Version 2.4.0 (October 2021) - Release Notes
---------------------------------------------------
+-------------------------------------------------
   * Multiple configuration supported
  
   * Incremental backups supported
