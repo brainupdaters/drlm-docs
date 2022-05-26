@@ -74,10 +74,12 @@ CentOS, RHEL & Rocky
 Supported versions
 ~~~~~~~~~~~~~~~~~~
 
-* CentOS 7
+* CentOS 7 
+* CentOS 8
 * Rocky 8
 * RHEL 7
 * RHEL 8
+* RHEL 9
 
 Requirements
 ~~~~~~~~~~~~
