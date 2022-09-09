@@ -449,8 +449,9 @@ Help option:
 Scheduler Management
 ~~~~~~~~~~~~~~~~~~~~
 
-With this command you can **enable or disable** the job scheduler facility
-or force to **run** jobs planned at "now" by running::
+With this command you can **enable or disable** the job scheduler facility, 
+**enable or disable** an individual job or force to **run** jobs planned 
+at "now" by running::
 
    drlm sched [options]
 
@@ -458,11 +459,11 @@ or force to **run** jobs planned at "now" by running::
 
 .. option:: -e, --enable
 
-   Enables job scheduler utility.
+   Enables job scheduler utility or and individual job if Job ID is specified.
 
 .. option:: -d, --disable
 
-   Disables job scheduler utility.
+   Disables job scheduler utility or and individual job if Job ID is specified.
 
 .. option:: -r, --run
 
@@ -471,6 +472,7 @@ or force to **run** jobs planned at "now" by running::
    Examples::
 
     ~# drlm sched -e
+    ~# drlm sched -e -I 25
     ~# drlm sched -r
 
 Help option:

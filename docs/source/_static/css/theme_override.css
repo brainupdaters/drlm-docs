@@ -1,16 +1,21 @@
 /*
    FONTS
 */
+@import url("http://overpass-30e2.kxcdn.com/overpass.css");
+
 body,
 button,
 input,
 select,
 textarea {
-	font-family: 'Inconsolata', 'PT Mono', monospace;
+	/*font-family: 'Inconsolata', 'PT Mono', monospace;*/ 
+  /*font-family: 'Overpass', sans-serif !important;*/
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Inconsolata', 'PT Sans Narrow', sans-serif;
+	/*font-family: 'Inconsolata', 'PT Sans Narrow', sans-serif;*/
+  /*font-family: 'Overpass', sans-serif !important;*/
+  color: #e30613;
 }
 
 h2 {
@@ -20,9 +25,18 @@ h2 {
 }
 
 p, li {
+    font-family: 'Overpass', sans-serif !important;
     font-size: 15px !important;
     line-height: 1.6em;
     color: #666666;
+}
+
+.wy-nav-content a {
+  color: #e30613;
+}
+  
+.wy-nav-content a:hover, a:focus, a:active {
+  color: #f47e3c;
 }
 
 /*
@@ -88,7 +102,7 @@ div[class^='highlight'] {
    padding: 1.5em;
 
    /* Visual */
-   background-color: #343131;
+   background-color: #3c3c3c;
    border-bottom: 7px solid #cc0000;
 }
 
