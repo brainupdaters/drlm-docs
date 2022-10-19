@@ -58,7 +58,7 @@ The DEB package can be installed executing the next command
 
 .. code-block:: console
 
-  ~# apt -y install ./drlm_2.4.4_all.deb
+  ~# apt -y install ./drlm_2.4.6_all.deb
 
 Debian 10 Asciinema Installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -157,7 +157,7 @@ The RPM package can be installed executing the next command
 
 .. code-block:: console
 
-	~# yum -y install ./drlm-2.4.4-1git.el*.noarch.rpm
+	~# yum -y install ./drlm-2.4.6-1git.el*.noarch.rpm
 
 
 CentOS Asciinema Installation
@@ -214,7 +214,7 @@ The RPM package can be installed as follows executing the next command
 
 .. code-block:: console
 
-  ~# zypper in ./drlm-2.4.4-1git.noarch.rpm 
+  ~# zypper in ./drlm-2.4.6-1git.noarch.rpm 
      
 .. note::
 
