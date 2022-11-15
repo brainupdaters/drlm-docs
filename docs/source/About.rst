@@ -60,7 +60,41 @@ chapter that details each release.
   * Export and Import backup between DRLM servers or DRLM clients
 
   * Real time clients log in DRLM server
+  
+DRLM Version 2.4.7 (November 2022) - Release Notes
+-------------------------------------------------
+  * Bugfix removing authorized keys
+  
+  * Bugfix in installclient DRLM Proxy (hostname unreachable)
 
+  * Improved unsched client sql select 
+
+  * Changed default QEMU_NBD_OPTIONS
+
+  * Mutex race solved in nbd assignment
+
+  * Improved network, client, backup and job lists
+
+  * Bugfix in DRLM PROXY ReaR URL generation
+
+DRLM Version 2.4.6 (September 2022) - Release Notes
+---------------------------------------------------
+  * Bugfix in deb package update
+
+DRLM Version 2.4.5 (July 2022) - Release Notes
+----------------------------------------------
+  * NEW! Improved jobs list with status feedback
+
+  * NEW! Now is possible to enable and disable Jobs
+
+  * Speedup list client
+  
+  * Bugfix in addclient (two MACs one IP)
+
+  * Bugfix in addnetwork (two interface for one IP)
+
+  * Improved run sched backups
+  
 DRLM Version 2.4.4 (May 2022) - Release Notes
 ---------------------------------------------
   * Bugfix in installclient, new dependencies added
