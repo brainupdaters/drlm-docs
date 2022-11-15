@@ -36,8 +36,8 @@ You can obtain the DRLM package building it from the source code.
 
 .. code-block:: console
 
-  ~# curl -OL https://go.dev/dl/go1.18.2.linux-amd64.tar.gz
-  ~# rm -rf /usr/local/go && tar -C /usr/local -xzf go1.18.2.linux-amd64.tar.gz
+  ~# curl -OL https://go.dev/dl/go1.19.3.linux-amd64.tar.gz
+  ~# rm -rf /usr/local/go && tar -C /usr/local -xzf go1.19.3.linux-amd64.tar.gz
   ~# export PATH=$PATH:/usr/local/go/bin 
   ~# go env -w GO111MODULE="auto" 
 
@@ -58,7 +58,7 @@ The DEB package can be installed executing the next command
 
 .. code-block:: console
 
-  ~# apt -y install ./drlm_2.4.6_all.deb
+  ~# apt -y install ./drlm_2.4.7_all.deb
 
 Debian 10 Asciinema Installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -135,8 +135,8 @@ You can obtain the DRLM package building it from the source code
 
 .. code-block:: console
 
-  ~# curl -OL https://go.dev/dl/go1.18.2.linux-amd64.tar.gz
-  ~# rm -rf /usr/local/go && tar -C /usr/local -xzf go1.18.2.linux-amd64.tar.gz
+  ~# curl -OL https://go.dev/dl/go1.19.3.linux-amd64.tar.gz
+  ~# rm -rf /usr/local/go && tar -C /usr/local -xzf go1.19.3.linux-amd64.tar.gz
   ~# export PATH=$PATH:/usr/local/go/bin 
   ~# go env -w GO111MODULE="auto" 
 
@@ -157,7 +157,7 @@ The RPM package can be installed executing the next command
 
 .. code-block:: console
 
-	~# yum -y install ./drlm-2.4.6-1git.el*.noarch.rpm
+	~# yum -y install ./drlm-2.4.7-1git.el*.noarch.rpm
 
 
 CentOS Asciinema Installation
@@ -214,7 +214,7 @@ The RPM package can be installed as follows executing the next command
 
 .. code-block:: console
 
-  ~# zypper in ./drlm-2.4.6-1git.noarch.rpm 
+  ~# zypper in ./drlm-2.4.7-1git.noarch.rpm 
      
 .. note::
 
