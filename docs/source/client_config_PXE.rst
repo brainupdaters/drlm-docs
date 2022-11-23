@@ -11,7 +11,7 @@ PXE Client Backup
   # for more information.                                                       #
   ###############################################################################
 
-  # DRLM v2.4.7
+  # DRLM v2.4.8
   # 
 
   # This configuration example does a PXE rescue system and a data backup of all 

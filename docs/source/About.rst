@@ -60,9 +60,15 @@ chapter that details each release.
   * Export and Import backup between DRLM servers or DRLM clients
 
   * Real time clients log in DRLM server
+
+DRLM Version 2.4.8 (November 2022) - Release Notes
+--------------------------------------------------
+  * RedHat 5 client support
+
+  * Avoiding Debian nbd detach errors with nbd-client
   
 DRLM Version 2.4.7 (November 2022) - Release Notes
--------------------------------------------------
+--------------------------------------------------
   * Bugfix removing authorized keys
   
   * Bugfix in installclient DRLM Proxy (hostname unreachable)

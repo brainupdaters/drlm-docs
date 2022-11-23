@@ -11,7 +11,7 @@ Incremental Client Backup
   # for more information.                                                       #
   ###############################################################################
 
-  # DRLM v2.4.7
+  # DRLM v2.4.8
   # 
 
   # This configuration example does a data backup of /home directory of the 
