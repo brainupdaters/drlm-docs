@@ -25,21 +25,12 @@ Build DRLM package
 
 You can obtain the DRLM package building it from the source code.
 
-**Install dependencies**
+**Install build dependencies**
 
 .. code-block:: console
 
   ~# apt update && apt -y upgrade
-  ~# apt install -y build-essential curl debhelper git
-
-**Install Golang**
-
-.. code-block:: console
-
-  ~# curl -OL https://go.dev/dl/go1.19.3.linux-amd64.tar.gz
-  ~# rm -rf /usr/local/go && tar -C /usr/local -xzf go1.19.3.linux-amd64.tar.gz
-  ~# export PATH=$PATH:/usr/local/go/bin 
-  ~# go env -w GO111MODULE="auto" 
+  ~# apt install -y build-essential debhelper git golang
 
 **Build package**
 
