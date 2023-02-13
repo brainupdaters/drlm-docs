@@ -14,37 +14,84 @@ Enable DRLM reporting
 
 ::
 
-  ~# vi /usr/share/drlm/conf/default.conf
+  ~# vi /etc/drlm/local.conf
+   ########                                                                                                 
+   #                                                                                                        
+   # Defines HowTo report Errors using some known and wide used methods                                     
+   #                                                                                                        
+   #    ERR_REPORT=[yes|no]                                                                                 
+   #       default: no                                                                                      
+   #    REPORT_TYPE=[ovo|nsca-ng|nsca|nrdp|zabbix|mail]                                                     
+   #       default: empty                                                                                   
+   #                                                                                                        
+   ########                                                                                          
+   ERR_REPORT=no 
+   REPORT_TYPE=  
+      
+Configure nrdp (Nagios based) reporting    
+--------------------------------------- 
 
-  ########
-  #
-  # Defines HowTo report Errors using some known and wide used methods
-  #
-  #    ERR_REPORT=[yes|no]
-  #	default: no
-  #    REPORT_TYPE=[ovo|nsca-ng|nsca|zabbix|mail|...]
-  #	default: empty
-  #
-  ########
+Since curl is already installed with DRLM no aditional software is needed from the DRLM side.
 
-  ERR_REPORT=yes
-  REPORT_TYPE=<type>
+::
 
+   # 
+   # REPORT_TYPE=[nrdp]
+   # NAGIOS VARIABLE
+   #               
+   #  These are default values and can be overwritten in local.conf according to your NAGIOS installation and configuration.
+   #  
+   #  NRDPCMD="/usr/bin/curl" # Command 
+   #  NAGSVC="DRLM Service"   # Nagios Service Name
+   #  NAGHOST="DRLM"                    # Nagios Host Name
+   #  NRDPURL="http://Nagios/nrdp/"     # nrdp URL
+   #  NRDPTOKEN="TOKEN"                 # Token
+   #                                          
+   NRDPCMD="/usr/bin/curl"
+   NAGSVC=
+   NAGHOST=
+   NRDPURL=
+   NRDPTOKEN=
+
+The following options are DRLM defaults, change any of them to your installation requirements in /etc/drlm/local.conf.                                                                                                  
+                                                                                                            
+::                                                                                                          
+                                                                                                            
+  ~# vi /etc/drlm/local.conf                                                                                
+  ERR_REPORT=yes                                                                                            
+  REPORT_TYPE=nrdp
+  NRDPCMD="/usr/bin/curl"
+  NAGSVC="DRLM Service"
+  NAGHOST="DRLM"
+  NRDPURL="http://Nagios/nrdp/"
+  NRDPTOKEN="TOKEN"
+
+
+.. note::                                            
+
+     The configuration on the server side is not in the scope of this documentation. Please check your Nagios service documentation                                                                                        
+  to configure properly the NRDP service and how to report DRLM alerts.                                     
+                                                                                                            
+  For reference you can check:                                                                              
+      * https://github.com/NagiosEnterprises/nrdp
+      * https://support.nagios.com/kb/article.php?id=599
 
 Configure nsca-ng (Nagios based) reporting
 ------------------------------------------
+
+.. note:: We recomend use NRDP instead NCSCA-NG, but if you have nsca-ng DRLM supports it
 
 In order to configure Nagios Error reporting on DRLM, the Nagios NSCA Client must be installed.
 
 .. note:: We're using nsca-ng because nsca is deprecated, but if you have nsca DRLM supports it
 
-**Debian 7/8**
+**Debian 7/8/9/10/11**
 
 ::
 
   ~# apt-get install nsca-ng-client
 
-**RHEL/Centos 6/7**
+**RHEL/Centos 6/7/8**
 
 if nsca-ng-client is not in the repositories, it can be downloaded from:
 
@@ -114,7 +161,7 @@ Configure Zabbix reporting
 
 In order to configure Zabbix Error reporting on DRLM, the Zabbix Agent must be installed.
 
-**Debian 7/8**
+**Debian 7/8/9/10/11**
 
 ::
 
@@ -123,7 +170,7 @@ In order to configure Zabbix Error reporting on DRLM, the Zabbix Agent must be i
 .. warning::
   On debian 7 (wheezy) the backports repository  must be configured in order to install zabbix-agent.
 
-**RHEL/Centos 6/7**
+**RHEL/Centos 6/7/8**
 
 ::
 
@@ -185,14 +232,14 @@ Configure Mail reporting
 
 In order to configure Zabbix Error reporting on DRLM, the Heirloom Mailx must be installed.
 
-**Debian 7/8**
+**Debian 7/8/9/10/11**
 
 ::
 
   ~# apt-get install heirloom-mailx
 
 
-**RHEL/Centos 6/7**
+**RHEL/Centos 6/7/8**
 
 ::
 
