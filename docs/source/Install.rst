@@ -15,7 +15,7 @@ Supported versions
 * Debian 9 (Stretch)
 * Debian 10 (Buster)
 * Debian 11 (Bullseye)
-* Ubuntu 18.04 LTS (Bionic Breaver)
+* Ubuntu 18.04 LTS (Bionic Beaver)
 * Ubuntu 20.04 LTS (Focal Fossa)
 * Ubuntu 22.04 LTS (Jammy Jellyfish)
 
