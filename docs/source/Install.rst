@@ -30,7 +30,7 @@ You can obtain the DRLM package building it from the source code.
 .. code-block:: console
 
   ~# apt update && apt -y upgrade
-  ~# apt -y install git build-essential debhelper bash-completion curl
+  ~# apt -y install git build-essential debhelper curl
 
 **Install Golang**
 
