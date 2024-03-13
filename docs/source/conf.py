@@ -57,8 +57,8 @@ source_suffix = ".rst"
 master_doc = "index"
 
 # General information about the project.
-project = u"DRLM"
-copyright = u"2024 Brain Updaters, S.L."
+project = "DRLM"
+copyright = "2024 Brain Updaters, S.L."
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -226,16 +226,16 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-    ("index", "DRLM.tex", u"DRLM Documentation", u"Brain Updaters, S.L.", "manual")
+    ("index", "DRLM.tex", "DRLM Documentation", "Brain Updaters, S.L.", "manual")
 ]
 
 latex_preamble_elements = [
-    r"\DeclareUnicodeCharacter{FF04}{\$}",
-    r"\DeclareUnicodeCharacter{FF0E}{.}",
-    r"\PassOptionsToPackage{hyphens}{url}",
-    r"\usepackage{upquote}",
-    r"\pagestyle{plain}",
-    r"\pagenumbering{arabic}",
+    "\DeclareUnicodeCharacter{FF04}{\$}",
+    "\DeclareUnicodeCharacter{FF0E}{.}",
+    "\PassOptionsToPackage{hyphens}{url}",
+    "\usepackage{upquote}",
+    "\pagestyle{plain}",
+    "\pagenumbering{arabic}",
 ]
 latex_elements = {
     "preamble": "\n".join(latex_preamble_elements),
@@ -275,7 +275,7 @@ latex_appendices = []
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
-man_pages = [("index", "drlm", u"DRLM Documentation", [u"Brain Updaters, S.L."], 1)]
+man_pages = [("index", "drlm", "DRLM Documentation", ["Brain Updaters, S.L."], 1)]
 
 # If true, show URL addresses after external links.
 # man_show_urls = False
@@ -290,8 +290,8 @@ texinfo_documents = [
     (
         "index",
         "DRLM",
-        u"DRLM Documentation",
-        u"Brain Updaters, S.L.",
+        "DRLM Documentation",
+        "Brain Updaters, S.L.",
         "DRLM",
         "Disaster Recovery Linux Manager.",
         "Miscellaneous",
