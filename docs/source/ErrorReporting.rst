@@ -68,13 +68,11 @@ The following options are DRLM defaults, change any of them to your installation
 
 
 .. note::                                            
-
-     The configuration on the server side is not in the scope of this documentation. Please check your Nagios service documentation                                                                                        
-  to configure properly the NRDP service and how to report DRLM alerts.                                     
-                                                                                                            
+  The configuration on the server side is not in the scope of this documentation. Please check your Nagios service documentation to configure properly the NRDP service and how to report DRLM alerts.                                                                                                    
+  
   For reference you can check:                                                                              
-      * https://github.com/NagiosEnterprises/nrdp
-      * https://support.nagios.com/kb/article.php?id=599
+    * https://github.com/NagiosEnterprises/nrdp
+    * https://support.nagios.com/kb/article.php?id=599
 
 Configure nsca-ng (Nagios based) reporting
 ------------------------------------------

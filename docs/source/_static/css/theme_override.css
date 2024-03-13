@@ -31,6 +31,10 @@ p, li {
     color: #666666;
 }
 
+.caption-text {
+   color: #e30613;
+ }
+
 .wy-nav-content a {
   color: #e30613;
 }

@@ -68,7 +68,6 @@ In this example your client and server has the following configuration. Content 
   DRLM_BKP_PROT="RSYNC"
   DRLM_BKP_PROG="RSYNC"
 
-
 1. If an ISO type rescue image has been done we can get it from DRLM stord directory (/var/lib/drlm/store/ClientName/ConfigName/*.iso):
 
 .. code-block:: console
