@@ -58,7 +58,7 @@ master_doc = "index"
 
 # General information about the project.
 project = u"DRLM"
-copyright = u"2022 Brain Updaters, S.L.L."
+copyright = u"2024 Brain Updaters, S.L."
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -226,7 +226,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-    ("index", "DRLM.tex", u"DRLM Documentation", u"Brain Updaters, S.L.L.", "manual")
+    ("index", "DRLM.tex", u"DRLM Documentation", u"Brain Updaters, S.L.", "manual")
 ]
 
 latex_preamble_elements = [
@@ -275,7 +275,7 @@ latex_appendices = []
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
-man_pages = [("index", "drlm", u"DRLM Documentation", [u"Brain Updaters, S.L.L."], 1)]
+man_pages = [("index", "drlm", u"DRLM Documentation", [u"Brain Updaters, S.L."], 1)]
 
 # If true, show URL addresses after external links.
 # man_show_urls = False
@@ -291,7 +291,7 @@ texinfo_documents = [
         "index",
         "DRLM",
         u"DRLM Documentation",
-        u"Brain Updaters, S.L.L.",
+        u"Brain Updaters, S.L.",
         "DRLM",
         "Disaster Recovery Linux Manager.",
         "Miscellaneous",
