@@ -159,13 +159,18 @@ if not on_rtd:  # only import and set the theme if we're building docs locally
 
 else:
     # Override default css to get a larger width for ReadTheDoc build
-    html_context = {
-        "css_files": [
-            "https://media.readthedocs.org/css/sphinx_rtd_theme.css",
-            "https://media.readthedocs.org/css/readthedocs-doc-embed.css",
-            "css/theme_override.css",
-        ]
-    }
+    # html_context = {
+    #     "css_files": [
+    #         "https://media.readthedocs.org/css/sphinx_rtd_theme.css",
+    #         "https://media.readthedocs.org/css/readthedocs-doc-embed.css",
+    #         "_static/css/theme_override.css",
+    #     ]
+    # }
+    html_css_files = [
+        'https://media.readthedocs.org/css/sphinx_rtd_theme.css',
+        'https://media.readthedocs.org/css/readthedocs-doc-embed.css',
+        '_static/css/theme_override.css',
+    ]
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
