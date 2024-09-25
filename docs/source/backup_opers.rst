@@ -45,6 +45,16 @@ The :program:`drlm runbackup` has several options:
    ~# drlm runbackup -c clientHost1 -C home_backup
    ~# drlm runbackup --id 12 --config home_backup
 
+.. option:: -S
+
+   Scan for infected files after the backup is completed
+
+   Examples::
+
+   ~# drlm runbackup -c clientHost1 -S
+
+.. note:: This option is available on Enterprise Edition
+
 Help option:
 
 .. option:: -h, --help
@@ -581,3 +591,43 @@ Help option:
 
    ~# drlm sched -h
    ~# drlm sched --help
+
+
+Scan Backup
+-----------
+
+This command is used to scan for infected files on an existing backup.
+It is called like
+this::
+
+   ~# drlm scan [options]
+
+The :program:`drlm scan` has some required options:
+
+.. program:: `drlm scan`
+
+.. option:: -I backup_id, --id backup_id
+
+   Select Backup ID to scan
+
+.. option:: -c, --client
+
+   Scan enabled backup
+
+   Examples::
+
+   ~# drlm scan -I 1.20140519065512 
+   ~# drlm scan -c rear-centos
+
+Help option:
+
+.. option:: -h, --help
+
+   Show drlm scan help.
+
+   Examples::
+
+   ~# drlm scan -h
+   ~# drlm scan --help
+
+.. note:: This feature is available only for DRLM Enterprise.
