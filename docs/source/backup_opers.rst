@@ -631,3 +631,67 @@ Help option:
    ~# drlm scan --help
 
 .. note:: This feature is available only for DRLM Enterprise.
+
+Archive Backup
+--------------
+
+This command is used to archive existing backups to the Cloud.
+It is called like
+this::
+
+   ~# drlm archive [options]
+
+The :program:`drlm archive` has some required options:
+
+.. program:: `drlm archive`
+
+.. option:: -I backup_id, --id backup_id
+
+   Select Backup ID to archive
+
+.. option:: -U, --upload
+
+   Upload backup to the Cloud
+
+   Examples::
+
+   ~# drlm archive -I 100.20240519065512 -U
+
+.. option:: -D, --download
+
+   Download backup from the Cloud
+
+   Examples::
+
+   ~# drlm archive -I 100.20240519065512 -D
+
+.. option:: -R, --remove
+
+   Remove backup from the Cloud
+
+   Examples::
+
+   ~# drlm archive -I 100.20240519065512 -R
+
+.. option:: -L, --list
+
+   Lists backups from the Cloud
+
+   Examples::
+
+   ~# drlm archive -L
+
+   ~# drlm archive -c client01 -L
+
+Help option:
+
+.. option:: -h, --help
+
+   Show drlm archive help.
+
+   Examples::
+
+   ~# drlm archive -h
+   ~# drlm archive --help
+
+.. note:: This feature is available only for DRLM Enterprise.
