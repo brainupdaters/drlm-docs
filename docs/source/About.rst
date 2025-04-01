@@ -21,6 +21,10 @@ To contribute to documentation the Github interface enables users to report erra
 
 .. note:: This documentation is under constant development. Please be patient...
 
+DRLM Version 2.4.13 (March 2025) - Release Notes
+---------------------------------------------------
+  * Bugfix in bash_completion if not root  
+
 DRLM Version 2.4.12 (February 2025) - Release Notes
 ---------------------------------------------------
   * Bugfix in listbackup when no backups are available
