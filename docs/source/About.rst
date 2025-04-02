@@ -21,9 +21,23 @@ To contribute to documentation the Github interface enables users to report erra
 
 .. note:: This documentation is under constant development. Please be patient...
 
-DRLM Version 2.4.13 (March 2025) - Release Notes
+DRLM Version 2.4.13 (April 2025) - Release Notes
 ---------------------------------------------------
-  * Bugfix in bash_completion if not root  
+  * NEW! Added support for ReaR 2.9
+
+  * Bugfix in bash_completion if not root
+
+  * Updated bash_completion (sync options)
+
+  * Update drlm setup ReaR rescue script TLS transport
+
+  * Bugfix unmounting DR files. Sync writes before unmounting.
+
+  * Updated database snaps tables
+
+  * Updated RPM dependencies
+
+  * Improved Makefile to manage versions
 
 DRLM Version 2.4.12 (February 2025) - Release Notes
 ---------------------------------------------------
