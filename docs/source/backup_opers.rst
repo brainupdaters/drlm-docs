@@ -78,7 +78,7 @@ called like this::
 .. warning::
 
    This operation only works with backups of type *DATA* using *RSYNC*. 
-   You may need to enable desired backup to restore, see :ref:`List Backups` :ref:`Backup Manager`.
+   You may need to enable desired backup to restore, see :ref:`list_backups` and :ref:`backup_manager`.
 
 The :program:`drlm restore` has several options:
 
@@ -198,6 +198,8 @@ Help option:
    ~# drlm delbackup -h
    ~# drlm delbackup --help
 
+.. _list_backups:
+
 List Backups
 ------------
 
@@ -269,6 +271,8 @@ Help option:
 
    ~# drlm listbackup -h
    ~# drlm listbackup --help
+
+.. _backup_manager:
 
 Backup Manager
 --------------
