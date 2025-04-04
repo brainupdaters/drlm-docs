@@ -362,7 +362,7 @@ Then you need to define the DRLM_SEND_ERROR_URL to the desired URL to send the X
   #	If DRLM_SEND_ERROR_MSG is set to "" will be send a default error like the next one:
   #
   #			<drlm>
-  #			   <version>2.4.12-git</version>
+  #			   <version>2.4.13-git</version>
   #			   <type>ERROR</type>
   #			   <server>drlmserver</server>
   #			   <client>drlmclient</client>
@@ -388,7 +388,7 @@ Then you need to define the DRLM_SEND_ERROR_URL to the desired URL to send the X
   #
   #   {
   #	  "program":"drlm", 
-  #	  "version":"2.4.12",
+  #	  "version":"2.4.13",
   #	  "type":"ERROR",
   #	  "server":"drlmserver",
   #	  "client":"drlmclient",

@@ -39,7 +39,7 @@ The DEB package can be installed by executing the following command
 
 .. code-block:: console
 
-  ~# apt install -y ./drlm_2.4.12_all.deb
+  ~# apt install -y ./drlm_2.4.13*_all.deb
 
 
 CentOS, RHEL & Rocky
@@ -113,7 +113,7 @@ The RPM package can be installed by executing the following command
 
 .. code-block:: console
 
-	~# yum -y install ./drlm-2.4.12-1git.el*.noarch.rpm
+	~# yum -y install ./drlm-2.4.13-*.noarch.rpm
 
 OpenSUSE & SLES
 ---------------
@@ -154,7 +154,7 @@ The RPM package can be installed by executing the following command
 
 .. code-block:: console
 
-  ~# zypper in ./drlm-2.4.12-1git.noarch.rpm 
+  ~# zypper in ./drlm-2.4.13-*.noarch.rpm 
      
 .. note::
 
