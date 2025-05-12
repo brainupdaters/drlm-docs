@@ -614,14 +614,15 @@ The :program:`drlm scan` has some required options:
 
    Select Backup ID to scan
 
-.. option:: -c, --client
+.. option:: -T, --type Clamav (antivirus engine for detecting trojans, viruses, malware) or oval (Linux Vulnerability and Advisory Library)
 
    Scan enabled backup
 
    Examples::
 
    ~# drlm scan -I 1.20140519065512 
-   ~# drlm scan -c rear-centos
+   ~# drlm scan -I 1.20140519065512 -T clamav
+   ~# drlm scan -I 1.20140519065512 -T oval
 
 Help option:
 
@@ -661,13 +662,21 @@ The :program:`drlm archive` has some required options:
 
    ~# drlm archive -I 100.20240519065512 -U
 
+.. option:: -F, --file
+
+   Backup archive file path
+
+   Examples::
+
+   ~# drlm archive -F drlmserver/client01.dr 
+
 .. option:: -D, --download
 
    Download backup from the Cloud
 
    Examples::
 
-   ~# drlm archive -I 100.20240519065512 -D
+   ~# drlm archive -F drlmserver/client01.dr -D
 
 .. option:: -R, --remove
 
@@ -675,9 +684,9 @@ The :program:`drlm archive` has some required options:
 
    Examples::
 
-   ~# drlm archive -I 100.20240519065512 -R
+   ~# drlm archive -F drlmserver/client01.dr -R
 
-.. option:: -L, --list
+.. option:: -L, --list, -c --client, -A --all
 
    Lists backups from the Cloud
 
@@ -686,6 +695,16 @@ The :program:`drlm archive` has some required options:
    ~# drlm archive -L
 
    ~# drlm archive -c client01 -L
+
+   ~# drlm archive -c client01 -A
+
+.. option:: -C, --check
+
+   Check used, free and total space available on cloud
+
+   Examples::
+
+   ~# drlm archive -C
 
 Help option:
 
