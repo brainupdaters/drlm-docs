@@ -614,9 +614,9 @@ The :program:`drlm scan` has some required options:
 
    Select Backup ID to scan
 
-.. option:: -T, --type Clamav (antivirus engine for detecting trojans, viruses, malware) or oval (Linux Vulnerability and Advisory Library)
+.. option:: -T, --type 
 
-   Scan enabled backup
+   Scan backup with the specified type. The available types are: clamav ( Virus, Malware ), oval ( Vulnerability, Security, Compliance ).
 
    Examples::
 
